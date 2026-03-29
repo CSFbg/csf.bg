@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Менторство в киберсигурността | CSF.BG</title>
+  <meta name="description" content="Как да намериш ментор в киберсигурността, защо да станеш ментор и препоръчан 30-60-90 план за наставници." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0D1F3C; --navy-mid: #162B52; --royal: #1E3E7A; --blue: #2B5BB5; --sky: #4A7EC5; --sky-light: #A8C4E8;
+      --beige: #F4EFE4; --cream: #FAF8F3; --sand: #D8CEBC; --tan: #C4B49A;
+      --espresso: #1C120A; --brown: #4A3020; --bark: #7A5C3C;
+      --white: #FFFFFF;
+      --fs-xs: 0.75rem; --fs-sm: 0.875rem; --fs-base: 1rem; --fs-md: 1.125rem; --fs-lg: 1.375rem; --fs-xl: 1.75rem; --fs-2xl: 2.5rem; --fs-3xl: 3.5rem;
+      --radius-sm: 4px; --radius: 8px; --radius-lg: 16px;
+      --shadow-sm: 0 2px 8px rgba(13,31,60,.08); --shadow: 0 6px 24px rgba(13,31,60,.12); --shadow-lg: 0 16px 48px rgba(13,31,60,.18);
+      --transition: 0.28s cubic-bezier(0.4,0,0.2,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--espresso);line-height:1.6;overflow-x:hidden}
+    h1,h2,h3{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-spacing:-0.01em}
+    a{color:inherit;text-decoration:none}
+
+    /* NAVBAR */
+    .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.06);transition:box-shadow var(--transition),background var(--transition)}
+    .navbar.scrolled{background:rgba(13,31,60,.97);backdrop-filter:blur(12px);box-shadow:0 4px 32px rgba(0,0,0,.3)}
+    .nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px}
+    .nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+    .logo-text{display:flex;flex-direction:column;line-height:1.1}
+    .logo-abbr{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:.06em}
+    .logo-full{font-size:.6rem;font-weight:400;color:var(--sky-light);text-transform:uppercase;letter-spacing:.12em}
+    .nav-links{display:flex;align-items:center;gap:.25rem;list-style:none}
+    .nav-links>li{position:relative}
+    .nav-links>li>a,.nav-links>li>button{display:flex;align-items:center;gap:.35rem;padding:.5rem .85rem;font-size:var(--fs-sm);font-weight:500;color:rgba(255,255,255,.82);background:none;border:none;cursor:pointer;border-radius:var(--radius-sm);transition:color var(--transition),background var(--transition);white-space:nowrap;font-family:'DM Sans',sans-serif;letter-spacing:.01em}
+    .nav-links>li>a:hover,.nav-links>li>button:hover{color:var(--white);background:rgba(255,255,255,.08)}
+    .nav-links>li>a.active{color:var(--sky-light)}
+    .chevron{width:14px;height:14px;transition:transform .2s ease}
+    .nav-links>li.open>button .chevron{transform:rotate(180deg)}
+    .dropdown{position:absolute;top:calc(100% + 8px);left:0;min-width:220px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-lg);border:1px solid var(--sand);opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity .22s ease,transform .22s ease;overflow:hidden;z-index:100}
+    .nav-links>li.open .dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
+    .dropdown a{display:flex;align-items:center;gap:.6rem;padding:.7rem 1.1rem;font-size:var(--fs-sm);color:var(--brown);transition:background var(--transition),color var(--transition);border-left:3px solid transparent}
+    .dropdown a:hover,.dropdown a.active{background:var(--beige);color:var(--navy);border-left-color:var(--blue)}
+    .dropdown-divider{height:1px;background:var(--sand);margin:.3rem 0}
+    .dropdown-label{padding:.5rem 1.1rem .25rem;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--bark)}
+    .nav-cta{background:var(--blue)!important;color:var(--white)!important;padding:.5rem 1.1rem!important;border-radius:var(--radius-sm)!important;font-weight:600!important;letter-spacing:.02em}
+    .nav-cta:hover{background:var(--royal)!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--navy);border-top:1px solid rgba(255,255,255,.06);max-height:calc(100vh - 68px);overflow-y:auto;z-index:999;padding:1rem 1.5rem 2rem;transform:translateX(100%);transition:transform .3s ease}
+    .mobile-menu.open{transform:translateX(0)}
+    .mobile-nav-section{border-bottom:1px solid rgba(255,255,255,.08);padding:.5rem 0}
+    .mobile-nav-toggle{display:flex;justify-content:space-between;align-items:center;width:100%;padding:.75rem 0;font-size:var(--fs-base);font-weight:500;color:rgba(255,255,255,.9);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;text-align:left}
+    .mobile-nav-toggle .chevron{transition:transform .25s ease}
+    .mobile-nav-toggle.open .chevron{transform:rotate(180deg)}
+    .mobile-sub{display:none;padding:0 0 .5rem 1rem}
+    .mobile-sub.open{display:block}
+    .mobile-sub a{display:block;padding:.55rem 0;font-size:var(--fs-sm);color:rgba(255,255,255,.68);border-left:2px solid rgba(255,255,255,.1);padding-left:1rem;transition:color var(--transition)}
+    .mobile-sub a:hover{color:var(--sky-light)}
+    .mobile-link{display:block;padding:.75rem 0;font-size:var(--fs-base);font-weight:500;color:rgba(255,255,255,.9)}
+    .mobile-cta{display:block;margin-top:1.25rem;text-align:center;padding:.85rem;background:var(--blue);color:var(--white);border-radius:var(--radius);font-weight:600}
+
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.75rem;font-size:var(--fs-sm);font-weight:600;font-family:'DM Sans',sans-serif;border-radius:var(--radius);border:none;cursor:pointer;transition:all var(--transition);letter-spacing:.02em;white-space:nowrap}
+    .btn-primary{background:var(--blue);color:var(--white);box-shadow:0 4px 16px rgba(43,91,181,.4)}
+    .btn-primary:hover{background:#3265C4;transform:translateY(-2px);box-shadow:0 8px 24px rgba(43,91,181,.5)}
+    .btn-outline-navy{background:transparent;color:var(--navy);border:1.5px solid var(--sand)}
+    .btn-outline-navy:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.3)}
+    .btn-outline:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.06);transform:translateY(-2px)}
+
+    /* PAGE CONTENT */
+    .page-content{padding-top:68px}
+    .article-section{max-width:1280px;margin:0 auto;padding:3.5rem 2rem 2rem}
+    .breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:var(--fs-sm);color:var(--bark);margin-bottom:2rem}
+    .breadcrumb a{color:var(--blue);transition:color var(--transition);font-weight:500}
+    .breadcrumb a:hover{color:var(--royal)}
+    .breadcrumb svg{width:14px;height:14px;color:var(--tan);flex-shrink:0}
+    .breadcrumb .current{color:var(--espresso);font-weight:500}
+    .article-header{margin-bottom:2.5rem}
+    .article-header h1{font-size:clamp(2rem,4vw,var(--fs-3xl));font-weight:600;color:var(--navy);margin-bottom:1rem}
+    .article-header h1 em{font-style:italic;color:var(--blue)}
+    .article-lead{font-size:var(--fs-md);color:var(--brown);max-width:720px;line-height:1.75;font-weight:300}
+    .section-divider{width:100%;height:1px;background:var(--sand);margin:2.5rem 0}
+    .category-heading{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+    .category-heading .cat-icon{width:40px;height:40px;background:var(--navy);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .category-heading .cat-icon svg{width:20px;height:20px;color:var(--white)}
+    .category-heading h2{font-size:var(--fs-2xl);font-weight:600;color:var(--navy)}
+    .category-desc{font-size:var(--fs-base);color:var(--bark);margin-bottom:2rem;max-width:640px;line-height:1.7;font-weight:300}
+
+    /* APPLY BAND */
+    .apply-band{background:var(--navy);border-radius:var(--radius-lg);padding:2.5rem 3rem;margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+    .apply-band-label{font-size:var(--fs-xs);font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--sky-light);margin-bottom:.5rem}
+    .apply-band-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.5vw,var(--fs-xl));font-weight:600;color:var(--white);margin-bottom:.75rem}
+    .apply-band-title em{font-style:italic;color:var(--sky-light)}
+    .apply-band-desc{font-size:var(--fs-sm);color:rgba(255,255,255,.65);line-height:1.7;max-width:560px;font-weight:300}
+    .apply-band-actions{display:flex;gap:1rem;flex-wrap:wrap;flex-shrink:0}
+
+    /* PROCESS STEPS */
+    .process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-bottom:2rem}
+    .process-step{background:var(--white);border:1px solid var(--sand);border-radius:var(--radius);padding:1.25rem 1.5rem;position:relative}
+    .step-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--sand);line-height:1;margin-bottom:.5rem}
+    .step-title{font-size:var(--fs-sm);font-weight:600;color:var(--navy);margin-bottom:.35rem}
+    .step-desc{font-size:var(--fs-xs);color:var(--bark);line-height:1.6;font-weight:300}
+
+    /* Q&A CARDS */
+    .qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1rem}
+    .qa-card{background:var(--white);border:1px solid var(--sand);border-radius:var(--radius-lg);padding:2rem;display:flex;flex-direction:column;gap:1rem}
+    .qa-card-icon{width:48px;height:48px;background:var(--beige);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .qa-card-icon svg{width:24px;height:24px;color:var(--blue)}
+    .qa-card-title{font-family:'Cormorant Garamond',serif;font-size:var(--fs-xl);font-weight:600;color:var(--navy)}
+    .qa-list{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+    .qa-list li{display:flex;align-items:flex-start;gap:.6rem;font-size:var(--fs-sm);color:var(--brown);line-height:1.6;font-weight:300}
+    .qa-list li::before{content:'';width:6px;height:6px;background:var(--blue);border-radius:50%;flex-shrink:0;margin-top:.45rem}
+    .qa-tag{display:inline-flex;align-items:center;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:.25rem .65rem;border-radius:50px;align-self:flex-start;margin-bottom:-.25rem}
+    .qa-tag--mentor{background:rgba(13,31,60,.08);color:var(--navy)}
+    .qa-tag--mentee{background:rgba(122,92,60,.1);color:var(--bark)}
+
+    /* PLATFORM CARDS */
+    .platform-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin-bottom:1rem}
+    .platform-card{background:var(--white);border:1px solid var(--sand);border-radius:var(--radius);padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:.5rem;transition:all var(--transition)}
+    .platform-card:hover{box-shadow:var(--shadow-sm);border-color:var(--sky-light)}
+    .platform-name{font-family:'Cormorant Garamond',serif;font-size:var(--fs-md);font-weight:600;color:var(--navy)}
+    .platform-desc{font-size:var(--fs-sm);color:var(--brown);font-weight:300;line-height:1.6;flex:1}
+    .platform-link{display:inline-flex;align-items:center;gap:.35rem;font-size:var(--fs-xs);font-weight:500;color:var(--blue);margin-top:auto;padding-top:.5rem;border-top:1px solid var(--beige)}
+    .platform-link svg{width:12px;height:12px}
+
+    /* CHECKLIST */
+    .checklist{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.5rem}
+    .checklist li{display:flex;align-items:flex-start;gap:.75rem;font-size:var(--fs-sm);color:var(--brown);line-height:1.6}
+    .check-box{width:20px;height:20px;border:2px solid var(--sand);border-radius:4px;flex-shrink:0;margin-top:.1rem;display:flex;align-items:center;justify-content:center}
+    .check-box svg{width:12px;height:12px;color:var(--blue);display:none}
+    .checklist li.done .check-box{background:rgba(43,91,181,.1);border-color:var(--blue)}
+    .checklist li.done .check-box svg{display:block}
+    .checklist li.done span{color:var(--bark);text-decoration:line-through;text-decoration-color:var(--tan)}
+
+    /* 30-60-90 PLAN */
+    .plan-track{margin-bottom:2.5rem}
+    .plan-track-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem}
+    .plan-track-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:var(--fs-xs);font-weight:600;text-transform:uppercase;letter-spacing:.1em;padding:.35rem .75rem;border-radius:50px}
+    .plan-track-badge--tech{background:rgba(43,91,181,.1);color:var(--blue)}
+    .plan-track-badge--soft{background:rgba(122,92,60,.1);color:var(--bark)}
+    .plan-track-badge svg{width:12px;height:12px}
+    .plan-track-title{font-family:'Cormorant Garamond',serif;font-size:var(--fs-xl);font-weight:600;color:var(--navy)}
+    .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:1.5rem}
+    .plan-phase{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--sand)}
+    .plan-phase-header{padding:1.25rem 1.5rem;display:flex;align-items:center;gap:.75rem}
+    .plan-grid--tech .plan-phase:nth-child(1) .plan-phase-header{background:rgba(43,91,181,.08)}
+    .plan-grid--tech .plan-phase:nth-child(2) .plan-phase-header{background:rgba(74,126,197,.08)}
+    .plan-grid--tech .plan-phase:nth-child(3) .plan-phase-header{background:rgba(30,62,122,.08)}
+    .plan-grid--soft .plan-phase:nth-child(1) .plan-phase-header{background:rgba(122,92,60,.07)}
+    .plan-grid--soft .plan-phase:nth-child(2) .plan-phase-header{background:rgba(196,180,154,.15)}
+    .plan-grid--soft .plan-phase:nth-child(3) .plan-phase-header{background:rgba(74,48,32,.07)}
+    .plan-grid--soft .plan-phase-num{color:var(--bark)}
+    .plan-grid--soft .plan-items li::before{color:var(--tan)}
+    .plan-phase-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--blue);line-height:1}
+    .plan-phase-label{font-size:var(--fs-xs);font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--bark)}
+    .plan-phase-title{font-family:'Cormorant Garamond',serif;font-size:var(--fs-lg);font-weight:600;color:var(--navy)}
+    .plan-phase-body{background:var(--white);padding:1.25rem 1.5rem}
+    .plan-items{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+    .plan-items li{font-size:var(--fs-sm);color:var(--brown);line-height:1.55;font-weight:300;padding-left:1rem;position:relative}
+    .plan-items li::before{content:'→';position:absolute;left:0;color:var(--sky);font-size:.8rem}
+    .plan-goal{margin-top:1rem;padding-top:.75rem;border-top:1px solid var(--beige);font-size:var(--fs-xs);font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:.06em}
+    .plan-goal span{font-weight:300;text-transform:none;color:var(--bark);display:block;margin-top:.2rem;font-size:var(--fs-xs);letter-spacing:0}
+
+    /* COMPASS CTA */
+    .compass-cta{background:var(--beige);border:1px solid var(--sand);border-radius:var(--radius-lg);padding:2rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;margin-top:2rem}
+    .compass-cta-icon{width:56px;height:56px;background:var(--navy);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .compass-cta-icon svg{width:28px;height:28px;color:var(--white)}
+    .compass-cta-title{font-family:'Cormorant Garamond',serif;font-size:var(--fs-lg);font-weight:600;color:var(--navy);margin-bottom:.35rem}
+    .compass-cta-desc{font-size:var(--fs-sm);color:var(--brown);font-weight:300;line-height:1.6;max-width:480px}
+
+    /* OUTREACH BLOCK */
+    .outreach-block{background:var(--navy);border-radius:var(--radius-lg);padding:2rem 2.5rem;margin:2rem 0}
+    .outreach-title{font-family:'Cormorant Garamond',serif;font-size:var(--fs-xl);font-weight:600;color:var(--white);margin-bottom:1.5rem}
+    .outreach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .outreach-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:1.25rem;display:flex;flex-direction:column;gap:.6rem;transition:all var(--transition);text-decoration:none}
+    .outreach-card:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);transform:translateY(-2px)}
+    .outreach-card--cta{border-color:var(--blue);background:rgba(43,91,181,.15)}
+    .outreach-card--cta:hover{background:rgba(43,91,181,.25)}
+    .outreach-icon{width:36px;height:36px;background:rgba(255,255,255,.1);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .outreach-icon svg{width:18px;height:18px;color:var(--sky-light)}
+    .outreach-channel{font-size:var(--fs-sm);font-weight:600;color:var(--white)}
+    .outreach-tip{font-size:var(--fs-xs);color:rgba(255,255,255,.55);line-height:1.6;font-weight:300}
+
+    /* INFO CALLOUT */
+    .info-callout{background:var(--beige);border:1px solid var(--sand);border-left:4px solid var(--blue);border-radius:var(--radius);padding:1.25rem 1.5rem;margin:2rem 0;display:flex;align-items:flex-start;gap:1rem}
+    .info-callout svg{width:20px;height:20px;color:var(--blue);flex-shrink:0;margin-top:.1rem}
+    .info-callout p{font-size:var(--fs-sm);color:var(--brown);line-height:1.65;font-weight:300}
+    .info-callout strong{font-weight:600;color:var(--navy)}
+    .info-callout a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+
+    /* MENTOR BAND */
+    .mentor-band{background:var(--navy);padding:4rem 2rem;margin-top:4rem}
+    .mentor-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap}
+    .mentor-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,3vw,var(--fs-2xl));font-weight:600;color:var(--white);margin-bottom:.75rem}
+    .mentor-title em{font-style:italic;color:var(--sky-light)}
+    .mentor-desc{font-size:var(--fs-sm);color:rgba(255,255,255,.65);line-height:1.7;max-width:480px;font-weight:300}
+    .mentor-actions{display:flex;gap:1rem;flex-wrap:wrap;flex-shrink:0}
+
+    /* PARTNERS */
+    .partners-section{background:var(--beige);padding:3rem 2rem;border-top:1px solid var(--sand)}
+    .partners-inner{max-width:1280px;margin:0 auto}
+    .partners-title{font-size:var(--fs-xs);font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--bark);margin-bottom:1.5rem}
+    .partners-grid{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+    .partner-item{display:flex;align-items:center;gap:.6rem;padding:.6rem 1rem;background:var(--white);border:1px solid var(--sand);border-radius:var(--radius);transition:all var(--transition);text-decoration:none}
+    .partner-item:hover{box-shadow:var(--shadow-sm);border-color:var(--sky-light)}
+    .partner-icon{width:28px;height:28px;background:var(--navy);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .partner-icon svg{width:14px;height:14px;color:var(--white)}
+    .partner-name{font-size:var(--fs-sm);font-weight:500;color:var(--navy)}
+    .partner-type{font-size:var(--fs-xs);color:var(--bark)}
+
+    /* FOOTER */
+    footer{background:var(--navy);padding:4rem 2rem 2rem;color:rgba(255,255,255,.55)}
+    .footer-inner{max-width:1280px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+    .footer-brand-name{display:flex;align-items:center;gap:.75rem;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:1rem}
+    .footer-brand-desc{font-size:var(--fs-sm);line-height:1.7;font-weight:300;max-width:280px;margin-bottom:1.5rem}
+    .footer-socials{display:flex;gap:.75rem}
+    .social-btn{width:36px;height:36px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:all var(--transition)}
+    .social-btn:hover{background:var(--blue);border-color:var(--blue)}
+    .social-btn svg{width:16px;height:16px;color:rgba(255,255,255,.7)}
+    .social-btn:hover svg{color:var(--white)}
+    .footer-col-title{font-size:var(--fs-sm);font-weight:600;color:rgba(255,255,255,.85);margin-bottom:1.25rem;text-transform:uppercase;letter-spacing:.08em}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+    .footer-links a{font-size:var(--fs-sm);color:rgba(255,255,255,.45);transition:color var(--transition);font-weight:300}
+    .footer-links a:hover{color:rgba(255,255,255,.85)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;border-top:1px solid rgba(255,255,255,.07);gap:1rem;flex-wrap:wrap}
+    .footer-copy{font-size:var(--fs-xs);font-weight:300}
+    .footer-legal{display:flex;gap:1.5rem}
+    .footer-legal a{font-size:var(--fs-xs);color:rgba(255,255,255,.3);transition:color var(--transition)}
+    .footer-legal a:hover{color:rgba(255,255,255,.7)}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:.1s}
+    .reveal-delay-2{transition-delay:.2s}
+    .reveal-delay-3{transition-delay:.3s}
+    .reveal-delay-4{transition-delay:.4s}
+
+    /* RESPONSIVE */
+    @media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr}.plan-grid{grid-template-columns:1fr}.qa-grid{grid-template-columns:1fr}.outreach-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:860px){.nav-links{display:none}.hamburger{display:flex}.mobile-menu{display:block}.mentor-inner{flex-direction:column;gap:2rem}.apply-band{flex-direction:column}.compass-cta{flex-direction:column;gap:1rem}}
+    @media(max-width:640px){.article-section{padding:2.5rem 1.25rem 1.5rem}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;align-items:flex-start}.process-steps{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo_csf.png" height="40" alt="CSF.BG лого">
+        <div class="logo-text">
+          <span class="logo-abbr">CSF.BG</span>
+          <span class="logo-full">Българска Фондация за Киберсигурност</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="za-nas.html">За нас</a></li>
+        <li class="has-dropdown" id="dd-resources">
+          <button onclick="toggleDropdown('dd-resources')">Ресурси
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="dropdown">
+            <div class="dropdown-label">Директория</div>
+            <a href="organizacii.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Організації</a>
+            <a href="forumi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Форуми</a>
+            <a href="haklor.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>Хаклор</a>
+            <a href="phishing.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>Фишинг</a>
+            <a href="instrumenti.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Инструменти</a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-label">Учебни материали</div>
+            <a href="terminologiq.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>Терминология</a>
+            <a href="ctf.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>CTF</a>
+            <a href="knigi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>Книги</a>
+            <a href="video.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>Видео ресурси</a>
+          </div>
+        </li>
+        <li class="has-dropdown" id="dd-education">
+          <button onclick="toggleDropdown('dd-education')">Обучение
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="dropdown">
+            <a href="universiteti.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Университетски програми</a>
+            <a href="platformi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Платформи</a>
+            <a href="kursove.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Онлайн курсове</a>
+            <a href="index.html#certifications"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>Сертификации</a>
+          </div>
+        </li>
+        <li class="has-dropdown" id="dd-career">
+          <button onclick="toggleDropdown('dd-career')">Кариера
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="dropdown">
+            <a href="mentoring.html" class="active"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Менторство</a>
+            <a href="index.html#companies"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Компании</a>
+            <a href="obqvi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="12" y2="15"/></svg>Обяви</a>
+            <a href="compass.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>Кариерен компас</a>
+            <a href="index.html#career-paths"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Професионални пътеки</a>
+            <a href="zaplati.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Заплати</a>
+          </div>
+        </li>
+        <li><a href="sabitia.html">Събития</a></li>
+        <li><a href="index.html#join" class="nav-cta">Включи се</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-nav-section">
+      <a href="za-nas.html" class="mobile-link" onclick="closeMobile()">За нас</a>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-resources', this)">Ресурси
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-sub" id="sub-resources">
+        <a href="organizacii.html" onclick="closeMobile()">Организации</a>
+        <a href="forumi.html" onclick="closeMobile()">Форуми</a>
+        <a href="haklor.html" onclick="closeMobile()">Хаклор</a>
+        <a href="phishing.html" onclick="closeMobile()">Фишинг</a>
+        <a href="instrumenti.html" onclick="closeMobile()">Инструменти</a>
+        <a href="terminologiq.html" onclick="closeMobile()">Терминология</a>
+        <a href="ctf.html" onclick="closeMobile()">CTF</a>
+        <a href="knigi.html" onclick="closeMobile()">Книги</a>
+        <a href="video.html" onclick="closeMobile()">Видео ресурси</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-education', this)">Обучение
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-sub" id="sub-education">
+        <a href="universiteti.html" onclick="closeMobile()">Университетски програми</a>
+        <a href="platformi.html" onclick="closeMobile()">Платформи</a>
+        <a href="kursove.html" onclick="closeMobile()">Онлайн курсове</a>
+        <a href="index.html#certifications" onclick="closeMobile()">Сертификации</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-career', this)">Кариера
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-sub" id="sub-career">
+        <a href="mentoring.html" onclick="closeMobile()">Менторство</a>
+        <a href="index.html#companies" onclick="closeMobile()">Компании</a>
+        <a href="obqvi.html" onclick="closeMobile()">Обяви</a>
+        <a href="compass.html" onclick="closeMobile()">Кариерен компас</a>
+        <a href="index.html#career-paths" onclick="closeMobile()">Професионални пътеки</a>
+        <a href="zaplati.html" onclick="closeMobile()">Заплати</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <a href="sabitia.html" class="mobile-link" onclick="closeMobile()">Събития</a>
+    </div>
+    <a href="index.html#join" class="mobile-cta" onclick="closeMobile()">Включи се &rarr;</a>
+  </div>
+
+  <div class="page-content">
+    <div class="article-section">
+
+      <nav class="breadcrumb reveal">
+        <a href="index.html">Начало</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Кариера</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span class="current">Менторство</span>
+      </nav>
+
+      <div class="article-header reveal">
+        <h1>Менторство в <em>киберсигурността</em></h1>
+        <p class="article-lead">
+          Тук ще се опитаме да отговорим на най-често срещаните въпроси за менторство — как можете да
+          откриете ментор, или да станете такъв, ако имате с какво да допринесете. Менторството е едно
+          от най-ефективните средства за развитие на следващото поколение специалисти по киберсигурност.
+        </p>
+      </div>
+
+      <!-- ── APPLY TO BECOME MENTOR ── -->
+      <div class="apply-band reveal">
+        <div>
+          <div class="apply-band-label">Фондация CSF.BG</div>
+          <div class="apply-band-title">Стани ментор <em>чрез нас</em></div>
+          <p class="apply-band-desc">Търсим опитни специалисти, готови да отделят 2–3 часа месечно за наставничество. Свързваме ви с мотивирани ментии и предоставяме структурирана програма с ясни цели и срокове.</p>
+        </div>
+        <div class="apply-band-actions">
+          <a href="index.html#mentor-register" class="btn btn-primary">Кандидатствай като ментор</a>
+          <a href="index.html#mentee-register" class="btn btn-outline">Намери ментор</a>
+        </div>
+      </div>
+
+      <!-- Process -->
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-num">01</div>
+          <div class="step-title">Попълни формуляр</div>
+          <p class="step-desc">Разкажи ни за опита си, областта и колко часа можеш да отделяш месечно.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="step-num">02</div>
+          <div class="step-title">Съвпадение</div>
+          <p class="step-desc">Свързваме те с подходящ ментий въз основа на цели, ниво и интереси.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="step-num">03</div>
+          <div class="step-title">Встъпителна среща</div>
+          <p class="step-desc">Първа 30-минутна среща — запознанство, очаквания и изграждане на план.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="step-num">04</div>
+          <div class="step-title">6-месечен цикъл</div>
+          <p class="step-desc">Регулярни срещи, реални задачи и измерими резултати. Опцията за продължаване.</p>
+        </div>
+      </div>
+
+      <!-- ── WHY / WHAT ── -->
+      <div class="section-divider"></div>
+      <div class="category-heading reveal">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h2>Въпроси и отговори</h2>
+      </div>
+
+      <p class="category-desc reveal">Отговори на честите въпроси — независимо дали търсиш ментор или искаш да станеш такъв.</p>
+
+      <div class="qa-grid">
+
+        <div class="qa-card reveal">
+          <div class="qa-tag qa-tag--mentee">За ментии</div>
+          <div class="qa-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+          <div class="qa-card-title">Защо да имаш ментор?</div>
+          <ul class="qa-list">
+            <li>Ускоряваш развитието си с години — учиш от грешките на някой друг</li>
+            <li>Получаваш честна обратна връзка, която колегите рядко дават</li>
+            <li>Разширяваш мрежата си чрез свързванията на ментора</li>
+            <li>Помагаш си да изграждаш реалистична представа за индустрията</li>
+            <li>Ментора те насочва при избора на сертификации и специализация</li>
+            <li>Имаш опора при трудни решения — смяна на работа, преквалификация</li>
+          </ul>
+        </div>
+
+        <div class="qa-card reveal reveal-delay-1">
+          <div class="qa-tag qa-tag--mentor">За ментори</div>
+          <div class="qa-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="qa-card-title">Защо да станеш ментор?</div>
+          <ul class="qa-list">
+            <li>Преподаването затвърждава и задълбочава твоите собствени знания</li>
+            <li>Развиваш leadership умения — ценени от работодателите</li>
+            <li>Даваш обратно на общността, която те е изградила</li>
+            <li>Изграждаш репутация и видимост в индустрията</li>
+            <li>Срещаш мотивирани хора с нови идеи и свежа перспектива</li>
+            <li>Помагаш за развитието на кибер екосистемата в България</li>
+          </ul>
+        </div>
+
+        <div class="qa-card reveal">
+          <div class="qa-tag qa-tag--mentor">За ментори</div>
+          <div class="qa-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <div class="qa-card-title">Какво печелиш като ментор?</div>
+          <ul class="qa-list">
+            <li>Официален сертификат от CSF.BG за менторска дейност</li>
+            <li>Признание в общността — публикуване в нашите медии</li>
+            <li>Достъп до мрежата от ментори и специалисти на фондацията</li>
+            <li>Покани за говорене на наши събития и webinars</li>
+            <li>Удовлетворение от видимия растеж на твоя ментий</li>
+            <li>Препоръка за LinkedIn от фондацията при успешен цикъл</li>
+          </ul>
+        </div>
+
+        <div class="qa-card reveal reveal-delay-1">
+          <div class="qa-tag qa-tag--mentor">За ментори</div>
+          <div class="qa-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="qa-card-title">Какво изисква менторството?</div>
+          <ul class="qa-list">
+            <li>Минимум 3+ години опит в киберсигурността или суперсвързана област</li>
+            <li>2–4 часа месечно за срещи и обратна връзка</li>
+            <li>Готовност за откритост и честност — дори когато е неудобно</li>
+            <li>Ангажимент за поне един 6-месечен цикъл</li>
+            <li>Желание да помагаш, а не само да преподаваш</li>
+          </ul>
+        </div>
+
+        <div class="qa-card reveal">
+          <div class="qa-tag qa-tag--mentee">За ментии</div>
+          <div class="qa-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <div class="qa-card-title">Защо изобщо да търсиш ментор?</div>
+          <ul class="qa-list">
+            <li>Пестиш години — учиш от чуждия опит, а не само от грешките си</li>
+            <li>Получаваш честна обратна връзка за CV, LinkedIn и техническо ниво</li>
+            <li>Ментор може да те свърже директно с работодатели и team лидери</li>
+            <li>Помага ти да избереш правилната специализация — не всеки трябва да е pentester</li>
+            <li>В моменти на съмнение имаш опора — някой, който е бил там преди теб</li>
+            <li>Получаваш достъп до ресурси, roadmaps и инструменти, за които не знаеш</li>
+          </ul>
+        </div>
+
+        <div class="qa-card reveal reveal-delay-1">
+          <div class="qa-tag qa-tag--mentee">За ментии</div>
+          <div class="qa-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <div class="qa-card-title">Как да намериш подходящ ментор?</div>
+          <ul class="qa-list">
+            <li>Търси хора, работещи в областта, към която се стремиш — не просто "в security"</li>
+            <li>Провери LinkedIn профилите на говорителите от BSides Sofia или CyberSecurityTalks</li>
+            <li>Присъедини се в XAKEP.bg Discord — там са много специалисти готови да помагат</li>
+            <li>Гледай кой публикува качествено съдържание в LinkedIn Bulgaria cybersecurity</li>
+            <li>Посещавай meetups лично — срещата на живо е по-силна от студено съобщение</li>
+            <li>Не се ограничавай до България — менторството може да е изцяло онлайн</li>
+          </ul>
+        </div>
+
+        <div class="qa-card reveal">
+          <div class="qa-tag qa-tag--mentee">За ментии</div>
+          <div class="qa-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+          <div class="qa-card-title">Какво да кажеш в първото съобщение?</div>
+          <ul class="qa-list">
+            <li><strong>Бъди конкретен</strong> — "Искам да науча cloud security и видях вашата презентация за AWS IAM" е по-добро от "Искам менторство"</li>
+            <li><strong>Покажи какво си направил</strong> — спомени курс, CTF или проект, с който си се занимавал</li>
+            <li><strong>Поискай малко</strong> — 20-минутен разговор е много по-лесен за "да" от 6-месечен ангажимент</li>
+            <li><strong>Бъди директен</strong> — хората ценят яснотата; не се извинявай прекалено много</li>
+            <li><strong>Пиши на български или английски</strong> — ако не знаеш предпочитанието, ползвай английски за по-широк обхват</li>
+          </ul>
+        </div>
+
+        <div class="qa-card reveal reveal-delay-1">
+          <div class="qa-tag qa-tag--mentee">За ментии</div>
+          <div class="qa-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="qa-card-title">Какво да очакваш от менторството?</div>
+          <ul class="qa-list">
+            <li>Менторът не е преподавател — не очаквай курс или домашни</li>
+            <li>Ти водиш срещите — ела подготвен с въпроси и теми</li>
+            <li>Менторството е диалог, не монолог — споделяй и ти какво правиш</li>
+            <li>Бъди търпелив — резултатите идват след месеци, не дни</li>
+            <li>Ако не работи — нормално е; можеш учтиво да приключиш и да потърсиш нов</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- OUTREACH BLOCK -->
+      <div class="outreach-block reveal">
+        <div class="outreach-title">Готов да потърсиш ментор? Пробвай тези канали</div>
+        <div class="outreach-grid">
+          <a href="https://www.linkedin.com/search/results/people/?keywords=cybersecurity+bulgaria&network=%5B%22F%22%2C%22S%22%5D" target="_blank" rel="noopener" class="outreach-card">
+            <div class="outreach-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div class="outreach-channel">LinkedIn</div>
+            <p class="outreach-tip">Намери специалисти по "cybersecurity Bulgaria". Виж кой говори на конференции и публикува съдържание. Изпрати персонализирано съобщение — не шаблонно.</p>
+          </a>
+          <a href="https://discord.com/invite/EC6WFmBpPQ" target="_blank" rel="noopener" class="outreach-card">
+            <div class="outreach-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/></svg>
+            </div>
+            <div class="outreach-channel">Discord · XAKEP.bg</div>
+            <p class="outreach-tip">Най-голямата българска кибер общност. Задавай въпроси в публичните канали — хората отговарят. Покажи ангажираност преди да поискаш менторство директно.</p>
+          </a>
+          <a href="https://cybersecuritytalks.bg" target="_blank" rel="noopener" class="outreach-card">
+            <div class="outreach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>
+            </div>
+            <div class="outreach-channel">CyberSecurityTalks meetups</div>
+            <p class="outreach-tip">Ела на живо на месечната среща. Говорителите и участниците са достъпни — представи се лично. Личната среща отваря врати, които студеното съобщение не може.</p>
+          </a>
+          <a href="index.html#mentor-register" class="outreach-card outreach-card--cta">
+            <div class="outreach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="outreach-channel">CSF.BG програма</div>
+            <p class="outreach-tip">Регистрирай се чрез фондацията — ние намираме подходящ ментор за теб и осигуряваме структуриран 6-месечен цикъл с ясни цели.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- ── PLATFORMS ── -->
+      <div class="section-divider"></div>
+      <div class="category-heading reveal">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        </div>
+        <h2>Платформи за менторство</h2>
+      </div>
+      <p class="category-desc reveal">Освен чрез фондацията, можеш да намериш или да предложиш менторство и на следните платформи:</p>
+
+      <div class="platform-grid">
+        <div class="platform-card reveal">
+          <div class="platform-name">TukTam</div>
+          <p class="platform-desc">Българска платформа за менторство и кариерно развитие. Свързва специалисти от различни сфери с хора, търсещи напътствие. Безплатни и платени сесии.</p>
+          <a href="https://tuktam.bg" target="_blank" rel="noopener" class="platform-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            tuktam.bg
+          </a>
+        </div>
+        <div class="platform-card reveal reveal-delay-1">
+          <div class="platform-name">Mentorsko</div>
+          <p class="platform-desc">Платформа с фокус върху tech и startup екосистемата. Добър избор за менторство в пресечната точка на технологии и бизнес, включително security продукти.</p>
+          <a href="https://mentorsko.com" target="_blank" rel="noopener" class="platform-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            mentorsko.com
+          </a>
+        </div>
+        <div class="platform-card reveal reveal-delay-2">
+          <div class="platform-name">Mentor The Young</div>
+          <p class="platform-desc">Програма за менторство насочена към млади хора и студенти. Идеална за ментори, искащи да работят с начинаещи и да помогнат при избора на кариерна пътека.</p>
+          <a href="https://mentortheyoung.com" target="_blank" rel="noopener" class="platform-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            mentortheyoung.com
+          </a>
+        </div>
+        <div class="platform-card reveal reveal-delay-3">
+          <div class="platform-name">Able Mentor</div>
+          <p class="platform-desc">Програма за менторство с акцент върху социално въздействие и приобщаване. Подходяща за ментори, ангажирани с разнообразието в tech индустрията.</p>
+          <a href="https://www.ablementor.bg/" target="_blank" rel="noopener" class="platform-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            ablementor.bg
+          </a>
+        </div>
+      </div>
+
+      <!-- ── SUGGESTED PATH + CHECKLIST ── -->
+      <div class="section-divider"></div>
+      <div class="category-heading reveal">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h2>Препоръчан път за ментора</h2>
+      </div>
+      <p class="category-desc reveal">Как да структурираш менторството — за какво да говорите, какви теми да покривате и как да измерваш напредъка на ментия си.</p>
+
+      <div class="compass-cta reveal">
+        <div class="compass-cta-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        </div>
+        <div>
+          <div class="compass-cta-title">Използвай Кариерния компас</div>
+          <p class="compass-cta-desc">Преди да започнете менторска сесия, помоли ментия да попълни <a href="compass.html" style="color:var(--blue);text-decoration:underline;text-underline-offset:2px">Кариерния компас</a>. Резултатите ви дават обща отправна точка — текущо ниво, интереси и пропуски в знанията. Ползвайте компаса и на 30-ия, 60-ия и 90-ия ден за сравнение на напредъка.</p>
+        </div>
+        <a href="compass.html" class="btn btn-outline-navy" style="flex-shrink:0">Отвори компаса</a>
+      </div>
+
+      <!-- Checklist -->
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:var(--fs-xl);color:var(--navy);margin:2rem 0 1rem" class="reveal">Чеклист за менторска сесия</h3>
+      <ul class="checklist reveal">
+        <li>
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span>Разгледайте резултатите от Кариерния компас заедно</span>
+        </li>
+        <li>
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span>Обсъдете дългосрочните кариерни цели — 1 г., 3 г., 5 г.</span>
+        </li>
+        <li>
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span>Идентифицирайте 2–3 области за развитие в следващия месец</span>
+        </li>
+        <li>
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span>Препоръчайте конкретен ресурс, курс или сертификация</span>
+        </li>
+        <li>
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span>Прегледайте реален технически проблем или задача от работата на ментия</span>
+        </li>
+        <li>
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span>Обсъдете soft skills — комуникация, презентации, писане на доклади</span>
+        </li>
+        <li>
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span>Свържете ментия с поне един полезен контакт от мрежата ви</span>
+        </li>
+        <li>
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span>Задайте конкретни "домашни" до следващата среща</span>
+        </li>
+        <li>
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span>Насрочете следващата среща преди края на сесията</span>
+        </li>
+      </ul>
+
+      <!-- ── 30-60-90 DAY PLAN ── -->
+      <div class="section-divider"></div>
+      <div class="category-heading reveal">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>
+        </div>
+        <h2>30 · 60 · 90 дни — пътна карта</h2>
+      </div>
+      <p class="category-desc reveal">Два паралелни трека — технически и нетехнически. Използвайте ги заедно или поотделно в зависимост от нуждите на ментия. Адаптирайте темпото спрямо реалния прогрес.</p>
+
+      <!-- TECHNICAL TRACK -->
+      <div class="plan-track reveal">
+        <div class="plan-track-header">
+          <span class="plan-track-badge plan-track-badge--tech">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Технически
+          </span>
+          <div class="plan-track-title">Технически умения и киберсигурност</div>
+        </div>
+        <div class="plan-grid plan-grid--tech">
+
+          <div class="plan-phase">
+            <div class="plan-phase-header">
+              <div class="plan-phase-num">30</div>
+              <div>
+                <div class="plan-phase-label">Дни 1–30</div>
+                <div class="plan-phase-title">Основи</div>
+              </div>
+            </div>
+            <div class="plan-phase-body">
+              <ul class="plan-items">
+                <li>Попълнете Кариерния компас — определете началното ниво</li>
+                <li>Преглед на OSI модела и основни мрежови протоколи (TCP/IP, DNS, HTTP/S)</li>
+                <li>Linux фундаментали — файлова система, права, bash команди</li>
+                <li>Основи на криптографията — symmetric/asymmetric, hashing, TLS</li>
+                <li>Запознаване с CIA триъгълника и основните концепции на сигурността</li>
+                <li>Избор на learning path — offensive, defensive, GRC или cloud security</li>
+                <li>Регистрация в TryHackMe или HackTheBox за практически упражнения</li>
+              </ul>
+              <div class="plan-goal">Цел на 30-ия ден<span>Ясна представа за пропуските; избрана специализация; завършени 5+ интерактивни урока</span></div>
+            </div>
+          </div>
+
+          <div class="plan-phase">
+            <div class="plan-phase-header">
+              <div class="plan-phase-num">60</div>
+              <div>
+                <div class="plan-phase-label">Дни 31–60</div>
+                <div class="plan-phase-title">Ядро</div>
+              </div>
+            </div>
+            <div class="plan-phase-body">
+              <ul class="plan-items">
+                <li>Web application security — OWASP Top 10, XSS, SQLi, CSRF, SSRF</li>
+                <li>Мрежова сигурност — firewall правила, IDS/IPS, packet analysis с Wireshark</li>
+                <li>Идентифициране на заплахи — threat modeling, MITRE ATT&amp;CK framework</li>
+                <li>Основи на incident response — detection, containment, eradication</li>
+                <li>Практика с един инструмент — Nmap, Burp Suite, или Metasploit</li>
+                <li>Изграждане на домашна lab среда (VirtualBox/VMware + Kali Linux)</li>
+                <li>Стартиране на CTF предизвикателство или платформа</li>
+              </ul>
+              <div class="plan-goal">Цел на 60-ия ден<span>Решен поне 1 CTF challenge; изграден home lab; решение за първа сертификация</span></div>
+            </div>
+          </div>
+
+          <div class="plan-phase">
+            <div class="plan-phase-header">
+              <div class="plan-phase-num">90</div>
+              <div>
+                <div class="plan-phase-label">Дни 61–90</div>
+                <div class="plan-phase-title">Специализация</div>
+              </div>
+            </div>
+            <div class="plan-phase-body">
+              <ul class="plan-items">
+                <li>Задълбочаване в избраната специализация (pentesting / SOC / cloud / GRC)</li>
+                <li>Подготовка за първа сертификация — CompTIA Security+, CEH, или eJPT</li>
+                <li>Преглед на реален incident report или pentest writeup</li>
+                <li>Участие в местно събитие или meetup — нетуъркинг и видимост</li>
+                <li>Изграждане на публично портфолио — GitHub, write-ups, LinkedIn активност</li>
+                <li>Преглед на обяви за работа — идентифициране на skill gaps</li>
+                <li>Повторно попълване на Кариерния компас — мерим напредъка</li>
+              </ul>
+              <div class="plan-goal">Цел на 90-ия ден<span>Портфолио с поне 2 проекта; регистрация за сертификационен изпит; активен LinkedIn профил</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- NON-TECHNICAL TRACK -->
+      <div class="plan-track reveal">
+        <div class="plan-track-header">
+          <span class="plan-track-badge plan-track-badge--soft">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            Нетехнически
+          </span>
+          <div class="plan-track-title">Меки умения и кариерно развитие</div>
+        </div>
+        <div class="plan-grid plan-grid--soft">
+
+          <div class="plan-phase">
+            <div class="plan-phase-header">
+              <div class="plan-phase-num">30</div>
+              <div>
+                <div class="plan-phase-label">Дни 1–30</div>
+                <div class="plan-phase-title">Самопознание</div>
+              </div>
+            </div>
+            <div class="plan-phase-body">
+              <ul class="plan-items">
+                <li>Дефинирай дългосрочни цели — 1 г., 3 г., 5 г. в кариерата</li>
+                <li>Изгради личен learning план — колко часа седмично, кои дни, кой формат</li>
+                <li>Прегледай и актуализирай LinkedIn профила — снимка, заглавие, about секция</li>
+                <li>Идентифицирай топ 3 слабости в комуникацията (писане, говорене, структура)</li>
+                <li>Прочети 1 книга за личностно развитие или кариера в tech</li>
+                <li>Запиши се за 1 онлайн курс по управление на времето или продуктивност</li>
+              </ul>
+              <div class="plan-goal">Цел на 30-ия ден<span>Писмен личен план с 3 измерими цели; актуализиран LinkedIn профил</span></div>
+            </div>
+          </div>
+
+          <div class="plan-phase">
+            <div class="plan-phase-header">
+              <div class="plan-phase-num">60</div>
+              <div>
+                <div class="plan-phase-label">Дни 31–60</div>
+                <div class="plan-phase-title">Комуникация</div>
+              </div>
+            </div>
+            <div class="plan-phase-body">
+              <ul class="plan-items">
+                <li>Напиши 1 статия или пост по тема в киберсигурността — публикувай го</li>
+                <li>Упражни структурирана презентация: проблем → решение → заключение</li>
+                <li>Участвай в 1 публично обсъждане — meetup, Discord, или LinkedIn коментар</li>
+                <li>Практикувай активно слушане и задаване на добри въпроси в менторска среща</li>
+                <li>Изгради навик за седмично ревю — какво свърших, какво не, защо</li>
+                <li>Научи се да казваш "не" — граници и управление на очаквания</li>
+              </ul>
+              <div class="plan-goal">Цел на 60-ия ден<span>1 публикувана статия; участие в поне 1 обществена дискусия</span></div>
+            </div>
+          </div>
+
+          <div class="plan-phase">
+            <div class="plan-phase-header">
+              <div class="plan-phase-num">90</div>
+              <div>
+                <div class="plan-phase-label">Дни 61–90</div>
+                <div class="plan-phase-title">Видимост</div>
+              </div>
+            </div>
+            <div class="plan-phase-body">
+              <ul class="plan-items">
+                <li>Представи lightning talk (5–10 мин.) пред малка аудитория или meetup</li>
+                <li>Кандидатствай за говорене на местно събитие — BSides, CyberSecurityTalks</li>
+                <li>Изгради система за continuous learning — newsletter, podcasts, RSS</li>
+                <li>Потърси обратна връзка от 2–3 колеги за комуникационния си стил</li>
+                <li>Обнови CV с нови умения и постижения от последните 90 дни</li>
+                <li>Оцени напредъка по целите от ден 1 — коригирай посоката при нужда</li>
+              </ul>
+              <div class="plan-goal">Цел на 90-ия ден<span>Проведена публична презентация; система за учене; обновено CV</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="info-callout reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p><strong>За ментори с напреднали ментии:</strong> Планът може да се разшири до 6-месечен цикъл (180 дни), добавяйки фаза за Advanced Topics — cloud security (AWS/Azure), DevSecOps, или malware analysis, в зависимост от избраната пътека. Вижте пълната roadmap на <a href="https://roadmap.sh/cyber-security" target="_blank" rel="noopener">roadmap.sh/cyber-security</a>.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name"><img src="logo_csf.png" height="40" alt="CSF.BG лого">CSF.BG</div>
+          <p class="footer-brand-desc">Българска Фондация за Киберсигурност — изграждаме по-сигурна дигитална среда чрез образование, общност и сътрудничество.</p>
+          <div class="footer-socials">
+            <a href="https://discord.gg/xakep" target="_blank" rel="noopener" class="social-btn" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/></svg></a>
+            <a href="https://www.linkedin.com/company/csfbg" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="https://www.facebook.com/csfbg" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://github.com/csf-bg" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Ресурси</div>
+          <ul class="footer-links">
+            <li><a href="organizacii.html">Организации</a></li>
+            <li><a href="forumi.html">Форуми</a></li>
+            <li><a href="haklor.html">Хаклор</a></li>
+            <li><a href="phishing.html">Фишинг</a></li>
+            <li><a href="instrumenti.html">Инструменти</a></li>
+            <li><a href="terminologiq.html">Терминология</a></li>
+            <li><a href="ctf.html">CTF</a></li>
+            <li><a href="knigi.html">Книги</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Обучение</div>
+          <ul class="footer-links">
+            <li><a href="universiteti.html">Университетски програми</a></li>
+            <li><a href="platformi.html">Платформи</a></li>
+            <li><a href="kursove.html">Онлайн курсове</a></li>
+            <li><a href="index.html#certifications">Сертификации</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Кариера</div>
+          <ul class="footer-links">
+            <li><a href="mentoring.html">Менторство</a></li>
+            <li><a href="index.html#companies">Компании</a></li>
+            <li><a href="obqvi.html">Обяви</a></li>
+            <li><a href="compass.html">Кариерен компас</a></li>
+            <li><a href="index.html#career-paths">Професионални пътеки</a></li>
+            <li><a href="zaplati.html">Заплати</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2024 Българска Фондация за Киберсигурност &middot; ЕИК 206640938</span>
+        <div class="footer-legal">
+          <a href="za-nas.html">За фондацията</a>
+          <a href="index.html#privacy">Поверителност</a>
+          <a href="index.html#contact">Контакти</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+    function toggleDropdown(id) {
+      const item = document.getElementById(id);
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+    document.addEventListener('click', (e) => { if (!e.target.closest('.has-dropdown')) document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open')); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open')); closeMobile(); } });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let mobileOpen = false;
+    function toggleMobile() { mobileOpen = !mobileOpen; hamburger.classList.toggle('open', mobileOpen); mobileMenu.classList.toggle('open', mobileOpen); document.body.style.overflow = mobileOpen ? 'hidden' : ''; }
+    function closeMobile() { mobileOpen = false; hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+    function toggleMobileSub(id, btn) { const sub = document.getElementById(id); const open = sub.classList.toggle('open'); btn.classList.toggle('open', open); }
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>

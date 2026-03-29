@@ -312,34 +312,126 @@ Animation pauses on hover. Items must be duplicated to fill the loop.
 
 ---
 
+## Informational page format
+
+Inner pages (e.g. organizacii.html) follow an **article-style** layout with no hero section.
+Use this format for all resource, directory, and informational pages.
+
+### Page skeleton
+
+```html
+<div class="page-content">          <!-- padding-top: 68px to clear fixed navbar -->
+  <div class="article-section">     <!-- max-width: 1280px, margin: 0 auto, padding: 3.5rem 2rem 2rem -->
+
+    <!-- 1. Breadcrumb -->
+    <nav class="breadcrumb reveal">
+      <a href="index.html">Начало</a>
+      <svg>…chevron-right…</svg>
+      <span>Раздел</span>
+      <svg>…chevron-right…</svg>
+      <span class="current">Текуща страница</span>
+    </nav>
+
+    <!-- 2. Article header (no hero, goes directly here) -->
+    <div class="article-header reveal">
+      <h1>Заглавие на <em>акцент</em></h1>       <!-- em tag → color: var(--blue) -->
+      <p class="article-lead">Кратко описание…</p>  <!-- max-width: 720px -->
+    </div>
+
+    <!-- 3. Repeating category blocks -->
+    <div class="section-divider"></div>           <!-- 1px sand line, margin 2.5rem 0 -->
+
+    <div class="category-heading reveal">
+      <div class="cat-icon"><svg>…</svg></div>    <!-- 40×40 navy square, white icon -->
+      <h2>Име на категория</h2>
+    </div>
+    <p class="category-desc reveal">Описание…</p>
+
+    <div class="org-grid">                        <!-- auto-fill, minmax(340px, 1fr) -->
+      <div class="org-card reveal [reveal-delay-N]">
+        <div class="org-card-header">
+          <div class="org-name">Име</div>
+          <span class="org-type-badge badge-ngo">Тип</span>
+        </div>
+        <p class="org-desc">Описание…</p>
+        <div class="org-meta">
+          <span class="org-meta-item"><svg>…</svg> ЕИК 123456789</span>
+        </div>
+        <div class="org-links">
+          <a href="…" class="org-link"><svg>…</svg> website.bg</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Optional info callout at the end -->
+    <div class="info-callout reveal">
+      <svg>…info-circle…</svg>
+      <p><strong>Заглавие</strong> Текст с призив за допълване…</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- 5. Below article: mentor-band → partners-section → footer (identical to index.html) -->
+```
+
+### Key components
+
+**Breadcrumb** (`nav.breadcrumb`): flex row, `--fs-sm`, links in `--blue`, chevron-right SVG separators, `.current` span in `--espresso`.
+
+**Article header** (`div.article-header`): `h1` uses `clamp(2rem, 4vw, --fs-3xl)`, `<em>` in `--blue` italic. `.article-lead` is `--fs-md`, `--brown`, `max-width: 720px`.
+
+**Category heading** (`div.category-heading`): flex row with `.cat-icon` (40px navy square with white SVG) + `h2` in `--fs-2xl`.
+
+**Organization card** (`div.org-card`): white bg, sand border, `--radius-lg`, flex column. Hover lifts 2px + shadow + sky-light border. Contains:
+- `.org-card-header` — flex between name + badge
+- `.org-name` — Cormorant Garamond `--fs-lg` bold navy
+- `.org-type-badge` — pill badge, variants: `.badge-ngo` (blue), `.badge-gov` (royal), `.badge-eu` (sky), `.badge-community` (bark)
+- `.org-desc` — `--fs-sm`, `--brown`, weight 300
+- `.org-meta` — flex wrap of `.org-meta-item` chips (beige bg, `--fs-xs`, small SVG icon + text)
+- `.org-links` — flex wrap of `.org-link` buttons (blue border pill, hover fills blue)
+
+**Info callout** (`div.info-callout`): beige bg, sand border, 4px blue left border. Info SVG + paragraph. Use `<strong>` for emphasis and inline `<a>` for links.
+
+### Navigation links for inner pages
+
+All `href` values in the navbar, mobile menu, and footer must be prefixed with `index.html` when on a subpage (e.g. `index.html#about` instead of `#about`). The logo links to `index.html`. The "Организации" link points to `organizacii.html`.
+
+### Footer structure for inner pages
+
+Everything below and including the `.mentor-band` is the shared footer block. For inner pages, copy this exact sequence:
+1. `div.mentor-band#mentoring` — mentoring CTA gradient band
+2. `section.partners-section#partners` — partner logos grid
+3. `<footer>` — 4-column footer with socials, links, legal
+
+### Responsive behavior
+
+- At 640px: `.org-grid` collapses to 1 column, article padding reduces
+- At 860px: desktop nav hidden, hamburger shown
+- At 1100px: footer grid becomes 2 columns
+
+---
+
 ## File structure
 
 ```
 csf-bg/
-├── index.html          ← Homepage (complete)
+├── index.html            ← Homepage (complete)
+├── organizacii.html      ← Informational page: organizations directory
+├── logo_csf.png
 ├── README.md
 ├── SKILL.md
-├── resursi/
-│   ├── organizacii.html
-│   ├── forumi.html
-│   ├── zaplahi.html
-│   ├── instrumenti.html
-│   ├── ctf.html
-│   ├── knigi.html
-│   └── video.html
-├── obuchenie/
-│   ├── universiteti.html
-│   ├── onlain-kursove.html
-│   ├── sertifikacii.html
-│   └── platformi.html
-├── kariera/
-│   ├── mentorstvo.html
-│   ├── kompanii.html
-│   ├── profesii.html
-│   └── zaplati.html
-├── sabitia.html
-└── vklyuchi-se.html
+└── .claude/
+    └── launch.json       ← Dev server config (python3 http.server :8080)
 ```
+
+Planned pages (not yet created):
+- `forumi.html`, `zaplahi.html`, `instrumenti.html`, `ctf.html`, `knigi.html`, `video.html`
+- `universiteti.html`, `onlain-kursove.html`, `sertifikacii.html`, `platformi.html`
+- `mentorstvo.html`, `kompanii.html`, `profesii.html`, `zaplati.html`
+- `sabitia.html`, `vklyuchi-se.html`
+
+All inner pages sit flat in the root directory (no subdirectories).
 
 ---
 

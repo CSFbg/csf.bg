@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Онлайн курсове по киберсигурност на български | CSF.BG</title>
+  <meta name="description" content="Курсове и академии по киберсигурност на български език — СофтУни, EHU, Прагматик, New Horizons, ProgressBG, Cyber360 и още. Сравни ниво, формат и цена." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0D1F3C; --navy-mid: #162B52; --royal: #1E3E7A; --blue: #2B5BB5; --sky: #4A7EC5; --sky-light: #A8C4E8;
+      --beige: #F4EFE4; --cream: #FAF8F3; --sand: #D8CEBC; --tan: #C4B49A;
+      --espresso: #1C120A; --brown: #4A3020; --bark: #7A5C3C;
+      --white: #FFFFFF;
+      --fs-xs: 0.75rem; --fs-sm: 0.875rem; --fs-base: 1rem; --fs-md: 1.125rem; --fs-lg: 1.375rem; --fs-xl: 1.75rem; --fs-2xl: 2.5rem; --fs-3xl: 3.5rem;
+      --radius-sm: 4px; --radius: 8px; --radius-lg: 16px;
+      --shadow-sm: 0 2px 8px rgba(13,31,60,.08); --shadow: 0 6px 24px rgba(13,31,60,.12); --shadow-lg: 0 16px 48px rgba(13,31,60,.18);
+      --transition: 0.28s cubic-bezier(0.4,0,0.2,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--espresso);line-height:1.6;overflow-x:hidden}
+    h1,h2,h3{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-spacing:-0.01em}
+    a{color:inherit;text-decoration:none}
+
+    /* NAVBAR */
+    .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.06);transition:box-shadow var(--transition),background var(--transition)}
+    .navbar.scrolled{background:rgba(13,31,60,.97);backdrop-filter:blur(12px);box-shadow:0 4px 32px rgba(0,0,0,.3)}
+    .nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px}
+    .nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+    .logo-text{display:flex;flex-direction:column;line-height:1.1}
+    .logo-abbr{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:.06em}
+    .logo-full{font-size:.6rem;font-weight:400;color:var(--sky-light);text-transform:uppercase;letter-spacing:.12em}
+    .nav-links{display:flex;align-items:center;gap:.25rem;list-style:none}
+    .nav-links>li{position:relative}
+    .nav-links>li>a,.nav-links>li>button{display:flex;align-items:center;gap:.35rem;padding:.5rem .85rem;font-size:var(--fs-sm);font-weight:500;color:rgba(255,255,255,.82);background:none;border:none;cursor:pointer;border-radius:var(--radius-sm);transition:color var(--transition),background var(--transition);white-space:nowrap;font-family:'DM Sans',sans-serif;letter-spacing:.01em}
+    .nav-links>li>a:hover,.nav-links>li>button:hover{color:var(--white);background:rgba(255,255,255,.08)}
+    .nav-links>li>a.active{color:var(--sky-light)}
+    .chevron{width:14px;height:14px;transition:transform .2s ease}
+    .nav-links>li.open>button .chevron{transform:rotate(180deg)}
+    .dropdown{position:absolute;top:calc(100% + 8px);left:0;min-width:220px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-lg);border:1px solid var(--sand);opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity .22s ease,transform .22s ease;overflow:hidden;z-index:100}
+    .nav-links>li.open .dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
+    .dropdown a{display:flex;align-items:center;gap:.6rem;padding:.7rem 1.1rem;font-size:var(--fs-sm);color:var(--brown);transition:background var(--transition),color var(--transition);border-left:3px solid transparent}
+    .dropdown a:hover,.dropdown a.active{background:var(--beige);color:var(--navy);border-left-color:var(--blue)}
+    .dropdown-divider{height:1px;background:var(--sand);margin:.3rem 0}
+    .dropdown-label{padding:.5rem 1.1rem .25rem;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--bark)}
+    .nav-cta{background:var(--blue)!important;color:var(--white)!important;padding:.5rem 1.1rem!important;border-radius:var(--radius-sm)!important;font-weight:600!important;letter-spacing:.02em}
+    .nav-cta:hover{background:var(--royal)!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--navy);border-top:1px solid rgba(255,255,255,.06);max-height:calc(100vh - 68px);overflow-y:auto;z-index:999;padding:1rem 1.5rem 2rem;transform:translateX(100%);transition:transform .3s ease}
+    .mobile-menu.open{transform:translateX(0)}
+    .mobile-nav-section{border-bottom:1px solid rgba(255,255,255,.08);padding:.5rem 0}
+    .mobile-nav-toggle{display:flex;justify-content:space-between;align-items:center;width:100%;padding:.75rem 0;font-size:var(--fs-base);font-weight:500;color:rgba(255,255,255,.9);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;text-align:left}
+    .mobile-nav-toggle .chevron{transition:transform .25s ease}
+    .mobile-nav-toggle.open .chevron{transform:rotate(180deg)}
+    .mobile-sub{display:none;padding:0 0 .5rem 1rem}
+    .mobile-sub.open{display:block}
+    .mobile-sub a{display:block;padding:.55rem 0;font-size:var(--fs-sm);color:rgba(255,255,255,.68);border-left:2px solid rgba(255,255,255,.1);padding-left:1rem;transition:color var(--transition)}
+    .mobile-sub a:hover{color:var(--sky-light)}
+    .mobile-link{display:block;padding:.75rem 0;font-size:var(--fs-base);font-weight:500;color:rgba(255,255,255,.9)}
+    .mobile-cta{display:block;margin-top:1.25rem;text-align:center;padding:.85rem;background:var(--blue);color:var(--white);border-radius:var(--radius);font-weight:600}
+
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.75rem;font-size:var(--fs-sm);font-weight:600;font-family:'DM Sans',sans-serif;border-radius:var(--radius);border:none;cursor:pointer;transition:all var(--transition);letter-spacing:.02em;white-space:nowrap}
+    .btn-primary{background:var(--blue);color:var(--white);box-shadow:0 4px 16px rgba(43,91,181,.4)}
+    .btn-primary:hover{background:#3265C4;transform:translateY(-2px);box-shadow:0 8px 24px rgba(43,91,181,.5)}
+    .btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.3)}
+    .btn-outline:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.06);transform:translateY(-2px)}
+
+    /* PAGE CONTENT */
+    .page-content{padding-top:68px}
+    .article-section{max-width:1280px;margin:0 auto;padding:3.5rem 2rem 2rem}
+    .breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:var(--fs-sm);color:var(--bark);margin-bottom:2rem}
+    .breadcrumb a{color:var(--blue);transition:color var(--transition);font-weight:500}
+    .breadcrumb a:hover{color:var(--royal)}
+    .breadcrumb svg{width:14px;height:14px;color:var(--tan);flex-shrink:0}
+    .breadcrumb .current{color:var(--espresso);font-weight:500}
+    .article-header{margin-bottom:2.5rem}
+    .article-header h1{font-size:clamp(2rem,4vw,var(--fs-3xl));font-weight:600;color:var(--navy);margin-bottom:1rem}
+    .article-header h1 em{font-style:italic;color:var(--blue)}
+    .article-lead{font-size:var(--fs-md);color:var(--brown);max-width:720px;line-height:1.75;font-weight:300}
+    .section-divider{width:100%;height:1px;background:var(--sand);margin:2.5rem 0}
+    .category-heading{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+    .category-heading .cat-icon{width:40px;height:40px;background:var(--navy);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .category-heading .cat-icon svg{width:20px;height:20px;color:var(--white)}
+    .category-heading h2{font-size:var(--fs-2xl);font-weight:600;color:var(--navy)}
+    .category-desc{font-size:var(--fs-base);color:var(--bark);margin-bottom:2rem;max-width:680px;line-height:1.7;font-weight:300}
+
+    /* FILTERS */
+    .prog-filters{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-bottom:1.75rem;align-items:flex-start}
+    .filter-group{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center}
+    .filter-label{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--bark);padding-right:.4rem;white-space:nowrap}
+    .filter-btn{font-family:'DM Sans',sans-serif;font-size:var(--fs-xs);font-weight:500;padding:.3rem .7rem;border-radius:50px;border:1px solid var(--sand);background:var(--white);color:var(--bark);cursor:pointer;transition:all var(--transition)}
+    .filter-btn:hover{border-color:var(--sky-light);color:var(--navy)}
+    .filter-btn.active{background:var(--navy);border-color:var(--navy);color:var(--white)}
+
+    /* COURSE CARDS */
+    .course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;margin-bottom:2rem}
+    .course-card{background:var(--white);border:1px solid var(--sand);border-radius:var(--radius-lg);padding:1.75rem;display:flex;flex-direction:column;gap:1rem;transition:all var(--transition)}
+    .course-card:hover{box-shadow:var(--shadow);border-color:var(--sky-light);transform:translateY(-2px)}
+    .course-top{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem}
+    .course-provider-name{font-size:var(--fs-xs);font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--bark)}
+    .course-title{font-family:'Cormorant Garamond',serif;font-size:var(--fs-lg);font-weight:600;color:var(--navy);line-height:1.25}
+    .course-instructor{display:flex;align-items:center;gap:.4rem;font-size:var(--fs-xs);color:var(--bark);font-weight:400}
+    .course-instructor svg{width:12px;height:12px;flex-shrink:0;color:var(--tan)}
+    .course-desc{font-size:var(--fs-sm);color:var(--brown);line-height:1.65;font-weight:300;flex:1}
+    .course-meta{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto;padding-top:.75rem;border-top:1px solid var(--beige)}
+    .course-tag{display:inline-flex;align-items:center;font-size:.65rem;font-weight:500;padding:.2rem .55rem;border-radius:50px;background:var(--beige);color:var(--bark);border:1px solid var(--sand)}
+    .course-tag--online{background:rgba(43,91,181,.07);color:var(--blue);border-color:rgba(43,91,181,.15)}
+    .course-tag--live{background:rgba(5,150,105,.07);color:#065F46;border-color:rgba(5,150,105,.15)}
+    .course-tag--hybrid{background:rgba(124,58,237,.07);color:#5B21B6;border-color:rgba(124,58,237,.15)}
+    .course-tag--cert{background:rgba(234,179,8,.07);color:#92400e;border-color:rgba(234,179,8,.2)}
+    .course-tag--intl-cert{background:rgba(220,38,38,.07);color:#991B1B;border-color:rgba(220,38,38,.15)}
+    .course-tag--state-cert{background:rgba(5,150,105,.1);color:#065F46;border-color:rgba(5,150,105,.25)}
+    .course-link{display:inline-flex;align-items:center;gap:.35rem;font-size:var(--fs-xs);font-weight:600;color:var(--blue);text-decoration:none;margin-top:.25rem;transition:color var(--transition)}
+    .course-link:hover{color:var(--royal)}
+    .course-link svg{width:12px;height:12px}
+
+    /* LEVEL BADGES */
+    .level-badge{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.2rem .55rem;border-radius:50px;white-space:nowrap;flex-shrink:0}
+    .level-awareness{background:rgba(107,114,128,.1);color:#374151;border:1px solid rgba(107,114,128,.2)}
+    .level-beginner{background:rgba(5,150,105,.08);color:#065F46;border:1px solid rgba(5,150,105,.2)}
+    .level-intermediate{background:rgba(43,91,181,.09);color:var(--blue);border:1px solid rgba(43,91,181,.2)}
+    .level-advanced{background:rgba(220,38,38,.08);color:#991B1B;border:1px solid rgba(220,38,38,.18)}
+    .level-professional{background:rgba(124,58,237,.08);color:#5B21B6;border:1px solid rgba(124,58,237,.18)}
+
+    /* PRICE ROW */
+    .course-price{font-size:var(--fs-sm);font-weight:600;color:var(--navy)}
+    .course-price span{font-size:var(--fs-xs);font-weight:300;color:var(--bark);margin-left:.25rem}
+
+    /* INFO CALLOUT */
+    .info-callout{background:var(--beige);border:1px solid var(--sand);border-left:4px solid var(--blue);border-radius:var(--radius);padding:1.25rem 1.5rem;margin:2rem 0;display:flex;align-items:flex-start;gap:1rem}
+    .info-callout svg{width:20px;height:20px;color:var(--blue);flex-shrink:0;margin-top:.1rem}
+    .info-callout p{font-size:var(--fs-sm);color:var(--brown);line-height:1.65;font-weight:300}
+    .info-callout strong{font-weight:600;color:var(--navy)}
+    .info-callout a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+
+    /* WHY GRID (stats row) */
+    .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-bottom:2rem}
+    .why-card{background:var(--white);border:1px solid var(--sand);border-radius:var(--radius-lg);padding:1.5rem;display:flex;flex-direction:column;gap:.75rem}
+    .why-icon{width:40px;height:40px;background:rgba(43,91,181,.08);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .why-icon svg{width:20px;height:20px;color:var(--blue)}
+    .why-title{font-family:'Cormorant Garamond',serif;font-size:var(--fs-lg);font-weight:600;color:var(--navy)}
+    .why-desc{font-size:var(--fs-sm);color:var(--brown);line-height:1.65;font-weight:300}
+
+    /* MENTOR BAND */
+    .mentor-band{background:var(--navy);padding:4rem 2rem;margin-top:4rem}
+    .mentor-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap}
+    .mentor-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,3vw,var(--fs-2xl));font-weight:600;color:var(--white);margin-bottom:.75rem}
+    .mentor-title em{font-style:italic;color:var(--sky-light)}
+    .mentor-desc{font-size:var(--fs-sm);color:rgba(255,255,255,.65);line-height:1.7;max-width:480px;font-weight:300}
+    .mentor-actions{display:flex;gap:1rem;flex-wrap:wrap;flex-shrink:0}
+
+    /* PARTNERS */
+    .partners-section{background:var(--beige);padding:3rem 2rem;border-top:1px solid var(--sand)}
+    .partners-inner{max-width:1280px;margin:0 auto}
+    .partners-title{font-size:var(--fs-xs);font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--bark);margin-bottom:1.5rem}
+    .partners-grid{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+    .partner-item{display:flex;align-items:center;gap:.6rem;padding:.6rem 1rem;background:var(--white);border:1px solid var(--sand);border-radius:var(--radius);transition:all var(--transition);text-decoration:none}
+    .partner-item:hover{box-shadow:var(--shadow-sm);border-color:var(--sky-light)}
+    .partner-icon{width:28px;height:28px;background:var(--navy);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .partner-icon svg{width:14px;height:14px;color:var(--white)}
+    .partner-name{font-size:var(--fs-sm);font-weight:500;color:var(--navy)}
+    .partner-type{font-size:var(--fs-xs);color:var(--bark)}
+
+    /* FOOTER */
+    footer{background:var(--navy);padding:4rem 2rem 2rem;color:rgba(255,255,255,.55)}
+    .footer-inner{max-width:1280px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+    .footer-brand-name{display:flex;align-items:center;gap:.75rem;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:1rem}
+    .footer-brand-desc{font-size:var(--fs-sm);line-height:1.7;font-weight:300;max-width:280px;margin-bottom:1.5rem}
+    .footer-socials{display:flex;gap:.75rem}
+    .social-btn{width:36px;height:36px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:all var(--transition)}
+    .social-btn:hover{background:var(--blue);border-color:var(--blue)}
+    .social-btn svg{width:16px;height:16px;color:rgba(255,255,255,.7)}
+    .social-btn:hover svg{color:var(--white)}
+    .footer-col-title{font-size:var(--fs-sm);font-weight:600;color:rgba(255,255,255,.85);margin-bottom:1.25rem;text-transform:uppercase;letter-spacing:.08em}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+    .footer-links a{font-size:var(--fs-sm);color:rgba(255,255,255,.45);transition:color var(--transition);font-weight:300}
+    .footer-links a:hover{color:rgba(255,255,255,.85)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;border-top:1px solid rgba(255,255,255,.07);gap:1rem;flex-wrap:wrap}
+    .footer-copy{font-size:var(--fs-xs);font-weight:300}
+    .footer-legal{display:flex;gap:1.5rem}
+    .footer-legal a{font-size:var(--fs-xs);color:rgba(255,255,255,.3);transition:color var(--transition)}
+    .footer-legal a:hover{color:rgba(255,255,255,.7)}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:.1s}
+    .reveal-delay-2{transition-delay:.2s}
+    .reveal-delay-3{transition-delay:.3s}
+    .reveal-delay-4{transition-delay:.4s}
+
+    /* RESPONSIVE */
+    @media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr}.course-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}}
+    @media(max-width:860px){.nav-links{display:none}.hamburger{display:flex}.mobile-menu{display:block}.mentor-inner{flex-direction:column;gap:2rem}}
+    @media(max-width:640px){.article-section{padding:2.5rem 1.25rem 1.5rem}.course-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;align-items:flex-start}.prog-filters{gap:.5rem}}
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo_csf.png" height="40" alt="CSF.BG лого">
+        <div class="logo-text">
+          <span class="logo-abbr">CSF.BG</span>
+          <span class="logo-full">Българска Фондация за Киберсигурност</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="za-nas.html">За нас</a></li>
+        <li class="has-dropdown" id="dd-resources">
+          <button onclick="toggleDropdown('dd-resources')">Ресурси
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="dropdown">
+            <div class="dropdown-label">Директория</div>
+            <a href="organizacii.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Организации</a>
+            <a href="forumi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Форуми</a>
+            <a href="haklor.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>Хаклор</a>
+            <a href="phishing.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>Фишинг</a>
+            <a href="instrumenti.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Инструменти</a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-label">Учебни материали</div>
+            <a href="terminologiq.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>Терминология</a>
+            <a href="ctf.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>CTF</a>
+            <a href="knigi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>Книги</a>
+            <a href="video.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>Видео ресурси</a>
+          </div>
+        </li>
+        <li class="has-dropdown" id="dd-education">
+          <button onclick="toggleDropdown('dd-education')">Обучение
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="dropdown">
+            <a href="universiteti.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Университетски програми</a>
+            <a href="platformi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Платформи</a>
+            <a href="kursove.html" class="active"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Онлайн курсове</a>
+            <a href="index.html#certifications"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>Сертификации</a>
+          </div>
+        </li>
+        <li class="has-dropdown" id="dd-career">
+          <button onclick="toggleDropdown('dd-career')">Кариера
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="dropdown">
+            <a href="mentoring.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Менторство</a>
+            <a href="zaplati.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Заплати</a>
+            <a href="index.html#companies"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Компании</a>
+            <a href="obqvi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Обяви</a>
+            <a href="compass.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>Кариерен компас</a>
+            <a href="index.html#career-paths"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Проф. пътеки</a>
+          </div>
+        </li>
+        <li><a href="sabitia.html">Събития</a></li>
+        <li><a href="index.html#join" class="nav-cta">Включи се</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-nav-section">
+      <a href="za-nas.html" class="mobile-link" onclick="closeMobile()">За нас</a>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-resources', this)">Ресурси
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-sub" id="sub-resources">
+        <a href="organizacii.html" onclick="closeMobile()">Организации</a>
+        <a href="forumi.html" onclick="closeMobile()">Форуми</a>
+        <a href="haklor.html" onclick="closeMobile()">Хаклор</a>
+        <a href="phishing.html" onclick="closeMobile()">Фишинг</a>
+        <a href="instrumenti.html" onclick="closeMobile()">Инструменти</a>
+        <a href="terminologiq.html" onclick="closeMobile()">Терминология</a>
+        <a href="ctf.html" onclick="closeMobile()">CTF</a>
+        <a href="knigi.html" onclick="closeMobile()">Книги</a>
+        <a href="video.html" onclick="closeMobile()">Видео ресурси</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-education', this)">Обучение
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-sub" id="sub-education">
+        <a href="universiteti.html" onclick="closeMobile()">Университетски програми</a>
+        <a href="platformi.html" onclick="closeMobile()">Платформи</a>
+        <a href="kursove.html" onclick="closeMobile()">Онлайн курсове</a>
+        <a href="index.html#certifications" onclick="closeMobile()">Сертификации</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-career', this)">Кариера
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-sub" id="sub-career">
+        <a href="mentoring.html" onclick="closeMobile()">Менторство</a>
+        <a href="zaplati.html" onclick="closeMobile()">Заплати</a>
+        <a href="index.html#companies" onclick="closeMobile()">Компании</a>
+        <a href="obqvi.html" onclick="closeMobile()">Обяви</a>
+        <a href="compass.html" onclick="closeMobile()">Кариерен компас</a>
+        <a href="index.html#career-paths" onclick="closeMobile()">Проф. пътеки</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <a href="sabitia.html" class="mobile-link" onclick="closeMobile()">Събития</a>
+    </div>
+    <a href="index.html#join" class="mobile-cta" onclick="closeMobile()">Включи се &rarr;</a>
+  </div>
+
+  <div class="page-content">
+    <div class="article-section">
+
+      <nav class="breadcrumb reveal">
+        <a href="index.html">Начало</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Обучение</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span class="current">Онлайн курсове</span>
+      </nav>
+
+      <div class="article-header reveal">
+        <h1>Курсове по киберсигурност <em>на български</em></h1>
+        <p class="article-lead">
+          Академии и обучителни програми с български преподаватели — от въведение в осведомеността до напреднало тестване за проникване. Всички са проверени и активни към 2026 г.
+        </p>
+      </div>
+
+      <!-- STATS ROW -->
+      <div class="why-grid reveal">
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div class="why-title">8 обучителя</div>
+          <p class="why-desc">Академии и центрове с курсове изцяло на български език или с бългarski преподаватели.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="why-title">€20 – €2 440</div>
+          <p class="why-desc">Широк ценови диапазон — от самостоятелни модули до 5-дневни интензиви с международни сертификати.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
+          <div class="why-title">3 типа сертификат</div>
+          <p class="why-desc">Провайдърски, международно признати (CISSP, CEH, CompTIA) и държавно признати квалификации по НАПОО.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="why-title">3 000+ завършили</div>
+          <p class="why-desc">Само EHU отчита над 2 800 записани студента в самостоятелните си онлайн модули.</p>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- SECTION: КУРСОВЕ -->
+      <div class="category-heading reveal">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h2>Курсове и академии</h2>
+      </div>
+      <p class="category-desc reveal">Сортирай по ниво или формат за да намериш подходящото за теб обучение.</p>
+
+      <!-- FILTERS -->
+      <div class="prog-filters reveal">
+        <div class="filter-group">
+          <span class="filter-label">Ниво</span>
+          <button class="filter-btn active" data-group="level" data-value="all">Всички</button>
+          <button class="filter-btn" data-group="level" data-value="awareness">Осведоменост</button>
+          <button class="filter-btn" data-group="level" data-value="beginner">Начинаещ</button>
+          <button class="filter-btn" data-group="level" data-value="intermediate">Средно</button>
+          <button class="filter-btn" data-group="level" data-value="advanced">Напреднал</button>
+          <button class="filter-btn" data-group="level" data-value="professional">Професионален</button>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Формат</span>
+          <button class="filter-btn active" data-group="format" data-value="all">Всички</button>
+          <button class="filter-btn" data-group="format" data-value="online">Онлайн</button>
+          <button class="filter-btn" data-group="format" data-value="live">На живо</button>
+          <button class="filter-btn" data-group="format" data-value="hybrid">Хибридно</button>
+        </div>
+      </div>
+
+      <div class="course-grid" id="course-grid">
+
+        <!-- ── СофтУни ── -->
+        <div class="course-card reveal" data-level="beginner intermediate" data-format="online hybrid">
+          <div class="course-top">
+            <span class="course-provider-name">СофтУни</span>
+            <span class="level-badge level-beginner">Начинаещ</span>
+          </div>
+          <div class="course-title">Киберсигурност и Етично Хакерство</div>
+          <div class="course-instructor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Цветан Михайлов
+          </div>
+          <p class="course-desc">6-месечна програма от 4 последователни курса — от въведение в сигурността до компрометиране на платформи. Включва предварително записани видеа и ежеседмични сесии на живо. Дипломата е признатa по европейско законодателство.</p>
+          <div class="course-meta">
+            <span class="course-tag course-tag--hybrid">Онлайн / На живо</span>
+            <span class="course-tag course-tag--cert">Диплома СофтУни</span>
+            <span class="course-tag">~800 лв / ~€409</span>
+            <span class="course-tag">9 + 5 + 6 + 5 седмици</span>
+          </div>
+          <a href="https://softuni.bg/modules/145/cyber-security-and-ethical-hacking" target="_blank" rel="noopener" class="course-link">
+            softuni.bg
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <!-- ── EHU ── -->
+        <div class="course-card reveal reveal-delay-1" data-level="beginner intermediate advanced" data-format="online hybrid">
+          <div class="course-top">
+            <span class="course-provider-name">Ethical Hacking University</span>
+            <span class="level-badge level-advanced">Начинаещ–Напреднал</span>
+          </div>
+          <div class="course-title">Етично Хакерство — онлайн модули + CEH</div>
+          <div class="course-instructor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Ростислав Петров
+          </div>
+          <p class="course-desc">Найголемият каталог от самостоятелни онлайн модули на български — Ethical Hacking за начинаещи и напреднали, System Hacking, Sniffing, Trojans и CEH v12 интензиви. Над 2 800 записани студента. 5-дневните CEH курсове включват ваучер за изпит на EC-Council.</p>
+          <div class="course-meta">
+            <span class="course-tag course-tag--online">Онлайн самостоятелно</span>
+            <span class="course-tag course-tag--cert">EHU сертификат</span>
+            <span class="course-tag course-tag--intl-cert">EC-Council CEH</span>
+            <span class="course-tag">€20 – €150 (онлайн)</span>
+          </div>
+          <a href="https://ehu.bg" target="_blank" rel="noopener" class="course-link">
+            ehu.bg
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <!-- ── Прагматик ── -->
+        <div class="course-card reveal reveal-delay-2" data-level="beginner intermediate advanced" data-format="live">
+          <div class="course-top">
+            <span class="course-provider-name">Прагматик</span>
+            <span class="level-badge level-advanced">Начинаещ–Напреднал</span>
+          </div>
+          <div class="course-title">Penetration Testing и Информационна Сигурност</div>
+          <div class="course-instructor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Милан Велев
+          </div>
+          <p class="course-desc">Двустепенна програма на живо — 54 часа за начинаещи (мрежов pentesting, web security, криптография, облак) и 42 часа за напреднали (Red Team, Active Directory, MITRE ATT&CK, AI атаки, blockchain). Единственият провайдър с напреднал Red Team курс в България на умерена цена.</p>
+          <div class="course-meta">
+            <span class="course-tag course-tag--live">На живо / Онлайн</span>
+            <span class="course-tag">Начинаещи: €490</span>
+            <span class="course-tag">Напреднали: €560</span>
+            <span class="course-tag">9 + 7 седмици</span>
+          </div>
+          <a href="https://pragmatic.bg/courses/penetration-testing-and-information-security-course/" target="_blank" rel="noopener" class="course-link">
+            pragmatic.bg
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <!-- ── ProgressBG ── -->
+        <div class="course-card reveal" data-level="beginner intermediate" data-format="hybrid">
+          <div class="course-top">
+            <span class="course-provider-name">Образователен Център Прогрес</span>
+            <span class="level-badge level-intermediate">Начинаещ–Средно</span>
+          </div>
+          <div class="course-title">Информационна Сигурност и Киберзащита</div>
+          <div class="course-instructor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Николай Цеков (CompTIA PenTest+, CISM, CCNA; HP / Amazon / NASA)
+          </div>
+          <p class="course-desc">80-часов курс с до 8 участника в група — оценка на заплахи, мрежова сигурност, криптография, Nmap, Metasploit, Burp Suite, AI сигурност и реакция при инциденти. Провежда се при достатъчен брой записани. Може да се проведе онлайн чрез Zoom.</p>
+          <div class="course-meta">
+            <span class="course-tag course-tag--hybrid">На живо / Zoom</span>
+            <span class="course-tag course-tag--cert">Сертификат (при изпит)</span>
+            <span class="course-tag">€560 + €40 сертификат</span>
+            <span class="course-tag">80 часа · макс. 8 души</span>
+          </div>
+          <a href="https://progressbg.net/kurs-po-information-security-penetration-testing-course/" target="_blank" rel="noopener" class="course-link">
+            progressbg.net
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <!-- ── New Horizons ── -->
+        <div class="course-card reveal reveal-delay-1" data-level="professional" data-format="live">
+          <div class="course-top">
+            <span class="course-provider-name">New Horizons Bulgaria</span>
+            <span class="level-badge level-professional">Професионален</span>
+          </div>
+          <div class="course-title">CISSP / CompTIA Security+ / CEH</div>
+          <div class="course-instructor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Борис Гончаров (CISSP) · Борислав Сестримски (Security+)
+          </div>
+          <p class="course-desc">5-дневни интензиви (40 часа) на живо в София на български език, подготвящи за международно признати сертификати. CISSP — един от най-престижните в управлението на сигурността. Security+ — ISO 17024 и DoD-одобрен. Включват ваучери за изпит.</p>
+          <div class="course-meta">
+            <span class="course-tag course-tag--live">На живо · 5 дни</span>
+            <span class="course-tag course-tag--intl-cert">CISSP / CompTIA / CEH</span>
+            <span class="course-tag">€1 395 – €2 440</span>
+            <span class="course-tag">Разсрочено плащане</span>
+          </div>
+          <a href="https://courses.newhorizons.bg" target="_blank" rel="noopener" class="course-link">
+            courses.newhorizons.bg
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <!-- ── Cyber360 Academy ── -->
+        <div class="course-card reveal reveal-delay-2" data-level="awareness beginner intermediate" data-format="online hybrid">
+          <div class="course-top">
+            <span class="course-provider-name">Кибер Академия 360</span>
+            <span class="level-badge level-awareness">Осведоменост</span>
+          </div>
+          <div class="course-title">Киберсигурност за служители, родители и мениджъри</div>
+          <div class="course-instructor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Д-р Искрен Янков · Зоя Василев · Симеон Нгуен · Явор Колев
+          </div>
+          <p class="course-desc">Академия за широка аудитория — безплатен модул „Сигурност в интернет", платени курсове за родители, служители и управленски длъжности. Предлага и корпоративни tabletop exercises и Blue Team обучения. Курсовете носят квалификационни кредити по Министерство на образованието.</p>
+          <div class="course-meta">
+            <span class="course-tag course-tag--online">Онлайн / На живо</span>
+            <span class="course-tag course-tag--cert">Официален сертификат</span>
+            <span class="course-tag">Безплатно – €61</span>
+            <span class="course-tag">45 мин – 5 дни</span>
+          </div>
+          <a href="https://cyber360.bg" target="_blank" rel="noopener" class="course-link">
+            cyber360.bg
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <!-- ── НИТ ── -->
+        <div class="course-card reveal" data-level="awareness" data-format="online">
+          <div class="course-top">
+            <span class="course-provider-name">НИТ — Нови Интернет Технологии</span>
+            <span class="level-badge level-awareness">Осведоменост</span>
+          </div>
+          <div class="course-title">Корпоративни курсове по киберсигурност</div>
+          <div class="course-instructor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Екип НИТ
+          </div>
+          <p class="course-desc">15+ самостоятелни онлайн модула — GDPR, социално инженерство, двуфакторна автентикация, пароли, WiFi рискове, фишинг, BEC, DORA и антивирусен софтуер. Идеални за корпоративни обучения на служители. Достъп за 3 месеца след закупуване.</p>
+          <div class="course-meta">
+            <span class="course-tag course-tag--online">Самостоятелно онлайн</span>
+            <span class="course-tag course-tag--cert">Сертификат</span>
+            <span class="course-tag">€30 – €130 / модул</span>
+            <span class="course-tag">3 месеца достъп</span>
+          </div>
+          <a href="https://store.nit.bg/product-category/kibersigurnost" target="_blank" rel="noopener" class="course-link">
+            store.nit.bg
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <!-- ── Кибер Академия (cyber-acad.eu) ── -->
+        <div class="course-card reveal reveal-delay-1" data-level="intermediate advanced professional" data-format="live hybrid">
+          <div class="course-top">
+            <span class="course-provider-name">Кибер Академия</span>
+            <span class="level-badge level-professional">Професионален</span>
+          </div>
+          <div class="course-title">Квалификационни програми по киберсигурност (НАПОО)</div>
+          <div class="course-instructor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Екип Кибер Академия
+          </div>
+          <p class="course-desc">Единственият лицензиран ЦПО (лиц. № 2025121676 от НАПОО) за киберсигурност в България. Програмите са базирани на ENISA European Cybersecurity Skills Framework и покриват 12 профе­сионални роли. Завършилите получават държавно признато свидетелство за квалификация.</p>
+          <div class="course-meta">
+            <span class="course-tag course-tag--hybrid">По запитване</span>
+            <span class="course-tag course-tag--state-cert">Държавно признат сертификат</span>
+            <span class="course-tag">Цена при запитване</span>
+          </div>
+          <a href="https://cyber-acad.eu" target="_blank" rel="noopener" class="course-link">
+            cyber-acad.eu
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+      </div><!-- /course-grid -->
+
+      <div class="info-callout reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p><strong>Забележка за актуалност:</strong> Датите на групи и цените се актуализират редовно от провайдърите. Препоръчваме да проверявате директно на уебсайта на академията преди записване. Ако знаеш за активна програма, която не е включена тук, <a href="mailto:info@csf.bg">пиши ни</a>.</p>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- SECTION: КАК ДА ИЗБЕРА -->
+      <div class="category-heading reveal">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        </div>
+        <h2>Как да избера курс?</h2>
+      </div>
+      <p class="category-desc reveal">Четири въпроса, с които да стесниш избора преди да инвестираш.</p>
+
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="why-title">Каква е целта ти?</div>
+          <p class="why-desc">Ако целта е кариерна смяна — избери структурирана програма (СофтУни, Прагматик). За корпоративно съответствие или осведоменост — НИТ или Cyber360. За международна позиция — New Horizons (CISSP / Security+).</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="why-title">Какво е нивото ти?</div>
+          <p class="why-desc">Начинаещи без IT опит — СофтУни или EHU начинаещ модул. Вече работещи в IT — Прагматик или ProgressBG. Старши специалист с 5+ години — New Horizons CISSP или напредналия курс на Прагматик.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="why-title">Колко време имаш?</div>
+          <p class="why-desc">Ако имаш свободно разписание — EHU онлайн модули или НИТ (самостоятелно). За интензивно обучение в рамките на седмица — New Horizons или ProgressBG. За дълготраен план — СофтУни 6-месечна програма.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div class="why-title">Какъв бюджет имаш?</div>
+          <p class="why-desc">До €200 — EHU онлайн, НИТ модули, Cyber360. €400–600 — СофтУни, Прагматик начинаещи, ProgressBG. Над €1 000 — New Horizons с международен сертификат. За най-ниска цена с най-голяма стойност: Прагматик напреднали (€560 за 42 часа Red Team).</p>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- SECTION: ПАРАЛЕЛНИ ПЪТИЩА -->
+      <div class="category-heading reveal">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        </div>
+        <h2>Допълни с практика</h2>
+      </div>
+      <p class="category-desc reveal">Курсовете дават знания — платформите дават умения. Използвай двете паралелно.</p>
+
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="why-title">Практически платформи</div>
+          <p class="why-desc">Hack The Box, TryHackMe и PortSwigger Academy предоставят реални лаборатории паралелно с теоретичния курс. Безплатни нива са достатъчни за начало.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="why-title">Намери ментор</div>
+          <p class="why-desc">Програмата за менторство на CSF.BG свързва начинаещи с практикуващи специалисти в България. Безплатно и на български.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="why-title">Участвай в CTF</div>
+          <p class="why-desc">Capture The Flag турнирите затвърдят наученото в реална среда на натиск. ECSC (националният отбор) е открит за 14–25-годишни. CTFTime.org показва всички активни турнири.</p>
+        </div>
+      </div>
+
+    </div><!-- /article-section -->
+  </div><!-- /page-content -->
+
+  <!-- MENTOR BAND -->
+  <section class="mentor-band">
+    <div class="mentor-inner">
+      <div>
+        <h2 class="mentor-title">Търсиш <em>ментор</em> за старт?</h2>
+        <p class="mentor-desc">Курсовете дават основата — менторите дават посоката. Свържи се с практикуващ специалист, който да те насочи в избора на специализация и да отговори на въпроси, на които учебникът не отговаря.</p>
+      </div>
+      <div class="mentor-actions">
+        <a href="mentoring.html" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Намери ментор
+        </a>
+        <a href="platformi.html" class="btn btn-outline">
+          Практически платформи
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="partners-section">
+    <div class="partners-inner">
+      <div class="partners-title">Обучителни партньори</div>
+      <div class="partners-grid">
+        <a href="https://softuni.bg" target="_blank" rel="noopener" class="partner-item">
+          <div class="partner-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg></div>
+          <div><div class="partner-name">СофтУни</div><div class="partner-type">Онлайн академия</div></div>
+        </a>
+        <a href="https://ehu.bg" target="_blank" rel="noopener" class="partner-item">
+          <div class="partner-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><div class="partner-name">EHU Bulgaria</div><div class="partner-type">Онлайн / CEH</div></div>
+        </a>
+        <a href="https://pragmatic.bg" target="_blank" rel="noopener" class="partner-item">
+          <div class="partner-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+          <div><div class="partner-name">Прагматик</div><div class="partner-type">Red Team обучение</div></div>
+        </a>
+        <a href="https://progressbg.net" target="_blank" rel="noopener" class="partner-item">
+          <div class="partner-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
+          <div><div class="partner-name">ProgressBG</div><div class="partner-type">Малки групи</div></div>
+        </a>
+        <a href="https://courses.newhorizons.bg" target="_blank" rel="noopener" class="partner-item">
+          <div class="partner-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
+          <div><div class="partner-name">New Horizons</div><div class="partner-type">CISSP / Security+</div></div>
+        </a>
+        <a href="https://cyber360.bg" target="_blank" rel="noopener" class="partner-item">
+          <div class="partner-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M1 6s7-5 11 0 11 0 11 0v12s-7 5-11 0-11 0-11 0z"/></svg></div>
+          <div><div class="partner-name">Cyber360 Academy</div><div class="partner-type">Осведоменост</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            CSF.BG
+          </div>
+          <p class="footer-brand-desc">Българска Фондация за Киберсигурност — образование, кариера и общност за специалистите по сигурност в България.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Ресурси</div>
+          <ul class="footer-links">
+            <li><a href="organizacii.html">Организации</a></li>
+            <li><a href="forumi.html">Форуми</a></li>
+            <li><a href="haklor.html">Хаклор</a></li>
+            <li><a href="phishing.html">Фишинг</a></li>
+            <li><a href="instrumenti.html">Инструменти</a></li>
+            <li><a href="terminologiq.html">Терминология</a></li>
+            <li><a href="ctf.html">CTF</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Обучение</div>
+          <ul class="footer-links">
+            <li><a href="universiteti.html">Университетски програми</a></li>
+            <li><a href="platformi.html">Платформи</a></li>
+            <li><a href="kursove.html">Онлайн курсове</a></li>
+            <li><a href="index.html#certifications">Сертификации</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Кариера</div>
+          <ul class="footer-links">
+            <li><a href="mentoring.html">Менторство</a></li>
+            <li><a href="zaplati.html">Заплати</a></li>
+            <li><a href="obqvi.html">Обяви</a></li>
+            <li><a href="compass.html">Кариерен компас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2024 Българска Фондация за Киберсигурност · ЕИК 206640938</span>
+        <div class="footer-legal">
+          <a href="za-nas.html">За фондацията</a>
+          <a href="#">Поверителност</a>
+          <a href="mailto:info@csf.bg">Контакти</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+    // Dropdown toggles
+    function toggleDropdown(id) {
+      const item = document.getElementById(id);
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.has-dropdown')) document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
+    });
+
+    // Mobile menu
+    function toggleMobile() {
+      const menu = document.getElementById('mobile-menu');
+      const btn = document.getElementById('hamburger');
+      menu.classList.toggle('open');
+      btn.classList.toggle('open');
+    }
+    function closeMobile() {
+      document.getElementById('mobile-menu').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    }
+    function toggleMobileSub(id, btn) {
+      const sub = document.getElementById(id);
+      sub.classList.toggle('open');
+      btn.classList.toggle('open');
+    }
+
+    // Filters
+    const activeFilters = { level: 'all', format: 'all' };
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const group = this.dataset.group;
+        const value = this.dataset.value;
+        activeFilters[group] = value;
+        document.querySelectorAll(`.filter-btn[data-group="${group}"]`).forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        applyFilters();
+      });
+    });
+    function applyFilters() {
+      document.querySelectorAll('#course-grid .course-card').forEach(card => {
+        const levelOk  = activeFilters.level  === 'all' || (card.dataset.level  || '').split(' ').includes(activeFilters.level);
+        const formatOk = activeFilters.format === 'all' || (card.dataset.format || '').split(' ').includes(activeFilters.format);
+        card.style.display = (levelOk && formatOk) ? '' : 'none';
+      });
+    }
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

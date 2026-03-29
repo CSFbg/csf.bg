@@ -1,0 +1,3921 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кариерен Компас в Киберсигурността · CSF.BG</title>
+  <meta name="description"
+    content="Намери своя път в киберсигурността. Персонализиран кариерен анализ базиран на ENISA ECSF, NIST NICE и Българския пазар на труда." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ============================================================
+       CSS VARIABLES & RESET
+    ============================================================ */
+    :root {
+      --navy: #0D1F3C;
+      --navy-mid: #162B52;
+      --royal: #1E3E7A;
+      --blue: #2B5BB5;
+      --sky: #4A7EC5;
+      --sky-light: #A8C4E8;
+      --beige: #F4EFE4;
+      --cream: #FAF8F3;
+      --sand: #D8CEBC;
+      --tan: #C4B49A;
+      --espresso: #1C120A;
+      --brown: #4A3020;
+      --bark: #7A5C3C;
+      --white: #FFFFFF;
+      --fs-xs: 0.75rem;
+      --fs-sm: 0.875rem;
+      --fs-base: 1rem;
+      --fs-md: 1.125rem;
+      --fs-lg: 1.375rem;
+      --fs-xl: 1.75rem;
+      --fs-2xl: 2.5rem;
+      --fs-3xl: 3.5rem;
+      --fs-4xl: 5rem;
+      --radius-sm: 4px;
+      --radius: 8px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 2px 8px rgba(13, 31, 60, .08);
+      --shadow: 0 6px 24px rgba(13, 31, 60, .12);
+      --shadow-lg: 0 16px 48px rgba(13, 31, 60, .18);
+      --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--espresso);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .display {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.15;
+      letter-spacing: -.01em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      transition: box-shadow var(--transition), background var(--transition);
+    }
+
+    .navbar.scrolled {
+      background: rgba(13, 31, 60, .97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 32px rgba(0, 0, 0, .3);
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      text-decoration: none;
+    }
+
+    .logo-shield {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-abbr {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: .06em;
+    }
+
+    .logo-full {
+      font-size: .6rem;
+      font-weight: 400;
+      color: var(--sky-light);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+      list-style: none;
+    }
+
+    .nav-links>li {
+      position: relative;
+    }
+
+    .nav-links>li>a,
+    .nav-links>li>button {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      padding: .5rem .85rem;
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      color: rgba(255, 255, 255, .82);
+      background: none;
+      border: none;
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: color var(--transition), background var(--transition);
+      white-space: nowrap;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: .01em;
+    }
+
+    .nav-links>li>a:hover,
+    .nav-links>li>button:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .nav-links>li>a.active {
+      color: var(--sky-light);
+    }
+
+    .chevron {
+      width: 14px;
+      height: 14px;
+      transition: transform .2s ease;
+    }
+
+    .nav-links>li.open>button .chevron {
+      transform: rotate(180deg);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 220px;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--sand);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition: opacity .22s ease, transform .22s ease;
+      overflow: hidden;
+      z-index: 100;
+    }
+
+    .nav-links>li.open .dropdown {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+
+    .dropdown a {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .7rem 1.1rem;
+      font-size: var(--fs-sm);
+      color: var(--brown);
+      transition: background var(--transition), color var(--transition);
+      border-left: 3px solid transparent;
+    }
+
+    .dropdown a:hover {
+      background: var(--beige);
+      color: var(--navy);
+      border-left-color: var(--blue);
+    }
+
+    .dropdown-divider {
+      height: 1px;
+      background: var(--sand);
+      margin: .3rem 0;
+    }
+
+    .dropdown-label {
+      padding: .5rem 1.1rem .25rem;
+      font-size: .65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--bark);
+    }
+
+    .nav-cta {
+      background: var(--blue) !important;
+      color: var(--white) !important;
+      padding: .5rem 1.1rem !important;
+      border-radius: var(--radius-sm) !important;
+      font-weight: 600 !important;
+      letter-spacing: .02em;
+    }
+
+    .nav-cta:hover {
+      background: var(--royal) !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform .25s ease, opacity .2s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--navy);
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      max-height: calc(100vh - 68px);
+      overflow-y: auto;
+      z-index: 999;
+      padding: 1rem 1.5rem 2rem;
+      transform: translateX(100%);
+      transition: transform .3s ease;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-nav-section {
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+      padding: .5rem 0;
+    }
+
+    .mobile-nav-section:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-nav-toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: .75rem 0;
+      font-size: var(--fs-base);
+      font-weight: 500;
+      color: rgba(255, 255, 255, .9);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      text-align: left;
+    }
+
+    .mobile-nav-toggle .chevron {
+      transition: transform .25s ease;
+    }
+
+    .mobile-nav-toggle.open .chevron {
+      transform: rotate(180deg);
+    }
+
+    .mobile-sub {
+      display: none;
+      padding: 0 0 .5rem 1rem;
+    }
+
+    .mobile-sub.open {
+      display: block;
+    }
+
+    .mobile-sub a {
+      display: block;
+      padding: .55rem 0;
+      font-size: var(--fs-sm);
+      color: rgba(255, 255, 255, .68);
+      border-left: 2px solid rgba(255, 255, 255, .1);
+      padding-left: 1rem;
+      transition: color var(--transition);
+    }
+
+    .mobile-sub a:hover {
+      color: var(--sky-light);
+    }
+
+    .mobile-link {
+      display: block;
+      padding: .75rem 0;
+      font-size: var(--fs-base);
+      font-weight: 500;
+      color: rgba(255, 255, 255, .9);
+    }
+
+    .mobile-cta {
+      display: block;
+      margin-top: 1.25rem;
+      text-align: center;
+      padding: .85rem;
+      background: var(--blue);
+      color: var(--white);
+      border-radius: var(--radius);
+      font-weight: 600;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .85rem 1.75rem;
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      letter-spacing: .02em;
+      white-space: nowrap;
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(43, 91, 181, .4);
+    }
+
+    .btn-primary:hover {
+      background: #3265C4;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(43, 91, 181, .5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255, 255, 255, .3);
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(255, 255, 255, .6);
+      background: rgba(255, 255, 255, .06);
+      transform: translateY(-2px);
+    }
+
+    .btn-dark {
+      background: var(--navy);
+      color: var(--white);
+      border: 1.5px solid var(--sand);
+    }
+
+    .btn-dark:hover {
+      background: var(--navy-mid);
+      border-color: var(--tan);
+      transform: translateY(-2px);
+    }
+
+    /* ── SECTION GLOBALS ── */
+    .section {
+      padding: 5rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: var(--blue);
+      margin-bottom: .75rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--blue);
+      border-radius: 2px;
+    }
+
+    .section-label-light {
+      color: var(--sky-light);
+    }
+
+    .section-label-light::before {
+      background: var(--sky-light);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, var(--fs-3xl));
+      font-weight: 600;
+      color: var(--espresso);
+      margin-bottom: 1rem;
+    }
+
+    .section-title-light {
+      color: var(--white);
+    }
+
+    .section-desc {
+      font-size: var(--fs-md);
+      color: var(--bark);
+      max-width: 600px;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .section-desc-light {
+      color: rgba(255, 255, 255, .6);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .section-header-left {
+      max-width: 600px;
+    }
+
+    .tag {
+      font-size: .68rem;
+      font-weight: 500;
+      padding: .25rem .6rem;
+      border-radius: 50px;
+      background: var(--beige);
+      color: var(--brown);
+      border: 1px solid var(--sand);
+      letter-spacing: .04em;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: .1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: .2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: .3s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: .4s;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(43, 91, 181, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: #3265C4;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(43, 91, 181, 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-2px);
+    }
+
+    /* ── PAGE CONTENT ── */
+    .page-content {
+      padding-top: 68px;
+    }
+
+    .article-section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 2rem;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: var(--fs-sm);
+      color: var(--bark);
+      margin-bottom: 2rem;
+    }
+
+    .breadcrumb a {
+      color: var(--blue);
+      transition: color var(--transition);
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--royal);
+    }
+
+    .breadcrumb svg {
+      width: 14px;
+      height: 14px;
+      color: var(--tan);
+      flex-shrink: 0;
+    }
+
+    .breadcrumb .current {
+      color: var(--espresso);
+      font-weight: 500;
+    }
+
+    .article-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .article-header h1 {
+      font-size: clamp(2rem, 4vw, var(--fs-3xl));
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .article-header h1 em {
+      font-style: italic;
+      color: var(--blue);
+    }
+
+    .article-lead {
+      font-size: var(--fs-md);
+      color: var(--brown);
+      max-width: 720px;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ── MENTORING CTA ── */
+    .mentor-band {
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid), var(--royal));
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mentor-band::after {
+      content: '\201C';
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28rem;
+      color: rgba(255, 255, 255, 0.02);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .mentor-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .mentor-title {
+      font-size: clamp(1.75rem, 3vw, var(--fs-3xl));
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .mentor-title em {
+      font-style: italic;
+      color: var(--sky-light);
+    }
+
+    .mentor-desc {
+      font-size: var(--fs-md);
+      color: rgba(255, 255, 255, 0.55);
+      font-weight: 300;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .mentor-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: flex-end;
+      flex-shrink: 0;
+    }
+
+    /* ── PARTNERS ── */
+    .partners-section {
+      background: var(--beige);
+      padding: 4rem 2rem;
+      border-top: 1px solid var(--sand);
+    }
+
+    .partners-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .partners-title {
+      text-align: center;
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--bark);
+      margin-bottom: 2.5rem;
+    }
+
+    .partners-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .partner-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.25rem 1.75rem;
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition);
+      min-width: 150px;
+      text-align: center;
+    }
+
+    .partner-item:hover {
+      box-shadow: var(--shadow-sm);
+      border-color: var(--sky-light);
+      transform: translateY(-2px);
+    }
+
+    .partner-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--navy);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .partner-icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--white);
+    }
+
+    .partner-name {
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--espresso);
+    }
+
+    .partner-type {
+      font-size: 0.65rem;
+      color: var(--bark);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── WIZARD ── */
+    #wizard-wrap {
+      background: var(--beige);
+      padding: 4rem 2rem;
+    }
+
+    .wizard-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* Progress stepper */
+    .progress-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .prog-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      position: relative;
+    }
+
+    .prog-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: calc(50% + 18px);
+      right: calc(-50% + 18px);
+      height: 2px;
+      background: var(--sand);
+      transition: background .4s ease;
+    }
+
+    .prog-step:not(:last-child).done::after {
+      background: var(--blue);
+    }
+
+    .prog-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--sand);
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--bark);
+      transition: all .3s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .prog-step.active .prog-dot {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: rgba(43, 91, 181, .08);
+    }
+
+    .prog-step.done .prog-dot {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .prog-label {
+      font-size: .65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--bark);
+      margin-top: .4rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .prog-step.active .prog-label {
+      color: var(--blue);
+    }
+
+    .prog-step.done .prog-label {
+      color: var(--navy);
+    }
+
+    /* Wizard stages */
+    .wizard-stage {
+      display: none;
+      animation: fadeUp .4s ease both;
+    }
+
+    .wizard-stage.active {
+      display: block;
+    }
+
+    .wiz-label {
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: var(--blue);
+      margin-bottom: .75rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .wiz-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--blue);
+      border-radius: 2px;
+    }
+
+    .wiz-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 600;
+      color: var(--espresso);
+      margin-bottom: .75rem;
+    }
+
+    .wiz-desc {
+      font-size: var(--fs-sm);
+      color: var(--bark);
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* Option cards */
+    .opt-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .opt-grid-3 {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    .opt-card {
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .opt-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transition: transform var(--transition);
+    }
+
+    .opt-card:hover {
+      box-shadow: var(--shadow-sm);
+      border-color: var(--sky-light);
+      transform: translateY(-2px);
+    }
+
+    .opt-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .opt-card.selected {
+      border-color: var(--blue);
+      background: rgba(43, 91, 181, .03);
+    }
+
+    .opt-card.selected::before {
+      transform: scaleX(1);
+    }
+
+    .opt-icon {
+      font-size: 1.75rem;
+      margin-bottom: .75rem;
+      display: block;
+    }
+
+    .opt-title {
+      font-size: var(--fs-base);
+      font-weight: 600;
+      color: var(--espresso);
+      margin-bottom: .3rem;
+    }
+
+    .opt-desc {
+      font-size: var(--fs-xs);
+      color: var(--bark);
+      line-height: 1.55;
+      font-weight: 300;
+    }
+
+    .opt-check {
+      position: absolute;
+      top: .75rem;
+      right: .75rem;
+      width: 20px;
+      height: 20px;
+      background: var(--blue);
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .opt-card.selected .opt-check {
+      display: flex;
+    }
+
+    .opt-check svg {
+      width: 10px;
+      height: 10px;
+      color: var(--white);
+    }
+
+    /* Interest tags */
+    .interest-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .int-tag {
+      padding: .55rem 1.1rem;
+      border: 1px solid var(--sand);
+      border-radius: 50px;
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      color: var(--brown);
+      background: var(--white);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .int-tag:hover {
+      border-color: var(--sky-light);
+      color: var(--navy);
+    }
+
+    .int-tag.selected {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--white);
+    }
+
+    /* Slider */
+    .slider-wrap {
+      margin-bottom: 2.5rem;
+    }
+
+    .slider-display {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: .5rem;
+    }
+
+    .slider-sub {
+      font-size: var(--fs-xs);
+      color: var(--bark);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 1.5rem;
+    }
+
+    input[type=range] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      background: var(--sand);
+      border-radius: 3px;
+      outline: none;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--blue);
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(43, 91, 181, .4);
+    }
+
+    input[type=range]::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--blue);
+      cursor: pointer;
+      border: none;
+    }
+
+    .slider-ticks {
+      display: flex;
+      justify-content: space-between;
+      margin-top: .75rem;
+    }
+
+    .slider-tick {
+      font-size: .65rem;
+      color: var(--bark);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    /* Certs grid */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: .75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cert-opt {
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius);
+      padding: .85rem 1rem;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .cert-opt:hover {
+      border-color: var(--sky-light);
+    }
+
+    .cert-opt.selected {
+      border-color: var(--blue);
+      background: rgba(43, 91, 181, .03);
+    }
+
+    .cert-name {
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--espresso);
+      margin-bottom: .2rem;
+    }
+
+    .cert-opt.selected .cert-name {
+      color: var(--blue);
+    }
+
+    .cert-cat {
+      font-size: .65rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--bark);
+    }
+
+    /* Buttons */
+    .wiz-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .btn-back {
+      background: none;
+      border: 1.5px solid var(--sand);
+      color: var(--bark);
+      padding: .85rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: all var(--transition);
+    }
+
+    .btn-back:hover {
+      border-color: var(--tan);
+      color: var(--brown);
+    }
+
+    .skip-note {
+      font-size: var(--fs-xs);
+      color: var(--bark);
+      margin-top: 1rem;
+    }
+
+    /* Divider in stage 3 */
+    .stage-divider {
+      border: none;
+      border-top: 1px solid var(--sand);
+      margin: 2.5rem 0;
+    }
+
+    /* ── RESULTS ── */
+    #results-wrap {
+      display: none;
+    }
+
+    /* Results hero */
+    .results-hero {
+      background: var(--navy);
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .results-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(74, 126, 197, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(74, 126, 197, .04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .results-hero::after {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(43, 91, 181, .2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .results-hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .results-hero h2 {
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: .75rem;
+      line-height: 1.1;
+    }
+
+    .results-hero h2 em {
+      font-style: italic;
+      color: var(--sky-light);
+    }
+
+    .results-hero-desc {
+      font-size: var(--fs-md);
+      color: rgba(255, 255, 255, .6);
+      font-weight: 300;
+      max-width: 580px;
+      margin-bottom: 2rem;
+      line-height: 1.75;
+    }
+
+    .share-bar {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-share {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .65rem 1.25rem;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: .04em;
+      transition: all var(--transition);
+    }
+
+    .btn-share svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .btn-share-copy {
+      background: rgba(255, 255, 255, .1);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, .2);
+    }
+
+    .btn-share-copy:hover {
+      background: rgba(255, 255, 255, .18);
+    }
+
+    .btn-share-print {
+      background: transparent;
+      color: rgba(255, 255, 255, .7);
+      border: 1px solid rgba(255, 255, 255, .15);
+    }
+
+    .btn-share-print:hover {
+      background: rgba(255, 255, 255, .08);
+      color: var(--white);
+    }
+
+    .btn-share-restart {
+      background: transparent;
+      color: rgba(255, 255, 255, .5);
+      border: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .btn-share-restart:hover {
+      background: rgba(255, 255, 255, .06);
+      color: rgba(255, 255, 255, .8);
+    }
+
+    .copy-toast {
+      font-size: var(--fs-xs);
+      color: var(--sky-light);
+      padding: .4rem .75rem;
+      background: rgba(74, 126, 197, .15);
+      border: 1px solid rgba(74, 126, 197, .3);
+      border-radius: var(--radius-sm);
+      display: none;
+    }
+
+    /* Match cards */
+    .matches-section {
+      background: var(--cream);
+      padding: 5rem 2rem;
+    }
+
+    .match-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .match-card {
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .match-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transition: transform var(--transition);
+    }
+
+    .match-card:hover,
+    .match-card.active-role {
+      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+    }
+
+    .match-card:hover::before,
+    .match-card.active-role::before {
+      transform: scaleX(1);
+    }
+
+    .match-card.top-match {
+      border-color: rgba(43, 91, 181, .35);
+    }
+
+    .match-card.top-match::before {
+      transform: scaleX(1);
+    }
+
+    .match-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: .85rem;
+    }
+
+    .match-icon {
+      font-size: 2rem;
+    }
+
+    .match-pct-badge {
+      font-size: .65rem;
+      font-weight: 700;
+      padding: .3rem .7rem;
+      border-radius: 50px;
+      letter-spacing: .06em;
+    }
+
+    .pct-high {
+      background: #E3F2FD;
+      color: #1565C0;
+    }
+
+    .pct-mid {
+      background: #FFF8E1;
+      color: #F57F17;
+    }
+
+    .pct-low {
+      background: var(--beige);
+      color: var(--bark);
+    }
+
+    .match-name {
+      font-size: var(--fs-lg);
+      font-weight: 600;
+      color: var(--espresso);
+      margin-bottom: .2rem;
+    }
+
+    .match-enisa {
+      font-size: .65rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--bark);
+      margin-bottom: .65rem;
+    }
+
+    .match-desc {
+      font-size: var(--fs-xs);
+      color: var(--bark);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+
+    .match-chips {
+      display: flex;
+      gap: .4rem;
+      flex-wrap: wrap;
+    }
+
+    .match-chip {
+      font-size: .65rem;
+      padding: .25rem .55rem;
+      border-radius: 50px;
+      font-weight: 500;
+    }
+
+    .chip-salary {
+      background: #E8F5E9;
+      color: #2E7D32;
+    }
+
+    .chip-demand {
+      background: #E3F2FD;
+      color: #1565C0;
+    }
+
+    .chip-entry {
+      background: var(--beige);
+      color: var(--brown);
+      border: 1px solid var(--sand);
+    }
+
+    .role-select-hint {
+      font-size: var(--fs-xs);
+      color: var(--bark);
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    /* Detail sections — full width blocks */
+    .detail-block {
+      padding: 4rem 2rem;
+    }
+
+    .detail-block:nth-child(odd) {
+      background: var(--beige);
+    }
+
+    .detail-block:nth-child(even) {
+      background: var(--cream);
+    }
+
+    .detail-block-navy {
+      background: var(--navy) !important;
+    }
+
+    .detail-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .detail-role-banner {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(43, 91, 181, .08);
+      border: 1px solid rgba(43, 91, 181, .2);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .detail-role-icon {
+      font-size: 2.5rem;
+    }
+
+    .detail-role-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-xl);
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: .2rem;
+    }
+
+    .detail-role-sub {
+      font-size: var(--fs-xs);
+      color: var(--bark);
+    }
+
+    .detail-role-chips {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-top: .5rem;
+    }
+
+    /* Roadmap timeline */
+    .roadmap-timeline {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+
+    .roadmap-timeline::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue), var(--sky), var(--sand));
+    }
+
+    .timeline-phase {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-phase:last-child {
+      margin-bottom: 0;
+    }
+
+    .phase-dot {
+      position: absolute;
+      left: -2.5rem;
+      top: 1.4rem;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--blue);
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
+      z-index: 1;
+    }
+
+    .phase-card {
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+    }
+
+    .phase-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: .75rem;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    .phase-title {
+      font-size: var(--fs-lg);
+      font-weight: 600;
+      color: var(--espresso);
+    }
+
+    .phase-dur {
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--blue);
+      background: rgba(43, 91, 181, .08);
+      padding: .25rem .75rem;
+      border-radius: 50px;
+    }
+
+    .phase-body {
+      font-size: var(--fs-sm);
+      color: var(--bark);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+
+    .phase-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .phase-items li {
+      font-size: var(--fs-sm);
+      color: var(--brown);
+      display: flex;
+      align-items: flex-start;
+      gap: .6rem;
+      line-height: 1.5;
+    }
+
+    .phase-items li::before {
+      content: '→';
+      color: var(--blue);
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: .05rem;
+    }
+
+    /* Career map */
+    #careerMapCanvas {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      display: block;
+      border: 1px solid var(--sand);
+    }
+
+    /* Cert path */
+    .cert-path-visual {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .5rem;
+      padding: 1.5rem;
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius-lg);
+    }
+
+    .cert-node {
+      background: var(--beige);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius);
+      padding: .6rem 1rem;
+      text-align: center;
+      min-width: 100px;
+    }
+
+    .cert-node-name {
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--espresso);
+    }
+
+    .cert-node-price {
+      font-size: var(--fs-xs);
+      color: var(--bark);
+    }
+
+    .cert-node-arrow {
+      color: var(--sky);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-bar-item {
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+    }
+
+    .skill-bar-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: .5rem;
+    }
+
+    .skill-bar-name {
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      color: var(--espresso);
+    }
+
+    .skill-bar-pct {
+      font-size: var(--fs-xs);
+      color: var(--bark);
+    }
+
+    .skill-bar-track {
+      height: 6px;
+      background: var(--sand);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue), var(--sky));
+      border-radius: 3px;
+      transition: width 1.2s ease;
+    }
+
+    /* Companies */
+    .companies-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-top: 1.5rem;
+    }
+
+    .company-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: 50px;
+      padding: .45rem .9rem;
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      color: var(--brown);
+      transition: all var(--transition);
+    }
+
+    .company-chip:hover {
+      border-color: var(--sky-light);
+      color: var(--navy);
+    }
+
+    .company-chip-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--blue);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Data tables */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--fs-sm);
+    }
+
+    .data-table th {
+      font-size: .65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--bark);
+      text-align: left;
+      padding: .75rem 1rem;
+      border-bottom: 1px solid var(--sand);
+      background: var(--beige);
+    }
+
+    .data-table td {
+      padding: .85rem 1rem;
+      border-bottom: 1px solid var(--sand);
+      color: var(--brown);
+      vertical-align: top;
+      line-height: 1.4;
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .data-table tr:hover td {
+      background: rgba(43, 91, 181, .02);
+    }
+
+    .data-table td:first-child {
+      color: var(--espresso);
+      font-weight: 500;
+    }
+
+    .table-wrap {
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .salary-high {
+      color: #2E7D32;
+      font-weight: 600;
+    }
+
+    .demand-badge {
+      font-size: .65rem;
+      font-weight: 600;
+      padding: .2rem .55rem;
+      border-radius: 50px;
+    }
+
+    .d-high {
+      background: #E8F5E9;
+      color: #2E7D32;
+    }
+
+    .d-mid {
+      background: #FFF8E1;
+      color: #F57F17;
+    }
+
+    .d-v-high {
+      background: #E3F2FD;
+      color: #1565C0;
+    }
+
+    /* Resources grid */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .resource-card {
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      transition: all var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+
+    .resource-card:hover {
+      box-shadow: var(--shadow-sm);
+      border-color: var(--sky-light);
+      transform: translateY(-2px);
+    }
+
+    .resource-cat {
+      font-size: .65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--blue);
+    }
+
+    .resource-name {
+      font-size: var(--fs-base);
+      font-weight: 600;
+      color: var(--espresso);
+    }
+
+    .resource-desc {
+      font-size: var(--fs-xs);
+      color: var(--bark);
+      line-height: 1.55;
+      font-weight: 300;
+      flex: 1;
+    }
+
+    .resource-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--blue);
+    }
+
+    .resource-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Events */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .event-card {
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+
+    .event-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+    }
+
+    .event-header {
+      background: var(--navy);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .event-icon {
+      font-size: 1.5rem;
+    }
+
+    .event-type-badge {
+      font-size: .65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: .25rem .6rem;
+      border-radius: 50px;
+      background: rgba(74, 126, 197, .25);
+      color: var(--sky-light);
+    }
+
+    .event-body {
+      padding: 1.25rem 1.5rem;
+    }
+
+    .event-date {
+      font-size: .65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--blue);
+      margin-bottom: .4rem;
+    }
+
+    .event-title {
+      font-size: var(--fs-base);
+      font-weight: 600;
+      color: var(--espresso);
+      margin-bottom: .4rem;
+    }
+
+    .event-desc {
+      font-size: var(--fs-xs);
+      color: var(--bark);
+      line-height: 1.55;
+      font-weight: 300;
+      margin-bottom: .85rem;
+    }
+
+    .event-link {
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--blue);
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+    }
+
+    .event-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Market stats */
+    .market-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .market-stat-card {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+
+    .market-stat-label {
+      font-size: .65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--sky-light);
+      margin-bottom: .5rem;
+    }
+
+    .market-stat-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: .25rem;
+    }
+
+    .market-stat-sub {
+      font-size: var(--fs-xs);
+      color: rgba(255, 255, 255, .45);
+    }
+
+    .table-wrap-dark {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .data-table-dark th {
+      background: rgba(255, 255, 255, .06);
+      color: rgba(255, 255, 255, .5);
+    }
+
+    .data-table-dark td {
+      color: rgba(255, 255, 255, .7);
+      border-bottom-color: rgba(255, 255, 255, .08);
+    }
+
+    .data-table-dark td:first-child {
+      color: var(--white);
+    }
+
+    .data-table-dark tr:hover td {
+      background: rgba(255, 255, 255, .03);
+    }
+
+    .salary-green {
+      color: #81C784;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--espresso);
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-xl);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .75rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .footer-brand-desc {
+      font-size: var(--fs-sm);
+      color: rgba(255, 255, 255, .45);
+      line-height: 1.65;
+      font-weight: 300;
+      max-width: 280px;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: .75rem;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, .6);
+      transition: all var(--transition);
+    }
+
+    .social-btn:hover {
+      background: rgba(255, 255, 255, .15);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .social-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .footer-col-title {
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: rgba(255, 255, 255, .4);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+
+    .footer-links a {
+      font-size: var(--fs-sm);
+      color: rgba(255, 255, 255, .5);
+      transition: color var(--transition);
+      font-weight: 300;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: var(--fs-xs);
+      color: rgba(255, 255, 255, .3);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-legal a {
+      font-size: var(--fs-xs);
+      color: rgba(255, 255, 255, .35);
+      transition: color var(--transition);
+    }
+
+    .footer-legal a:hover {
+      color: rgba(255, 255, 255, .6);
+    }
+
+    /* Responsive */
+    @media(max-width:900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+    }
+
+    @media(max-width:600px) {
+      .article-section {
+        padding: 2.5rem 1.25rem 1.5rem;
+      }
+
+      .mentor-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .mentor-actions {
+        align-items: flex-start;
+      }
+
+      .opt-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .match-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-block {
+        padding: 3rem 1.5rem;
+      }
+    }
+
+    @media print {
+
+      .navbar,
+      .mobile-menu,
+      .share-bar,
+      .wiz-actions,
+      .btn-back,
+      #wizard-wrap {
+        display: none !important;
+      }
+
+      .results-hero {
+        padding-top: 2rem !important;
+      }
+
+      body {
+        background: white;
+      }
+
+      .detail-block {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo_csf.png" height="40" alt="CSF.BG лого">
+        <div class="logo-text">
+          <span class="logo-abbr">CSF.BG</span>
+          <span class="logo-full">Българска Фондация за Киберсигурност</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="za-nas.html">За нас</a></li>
+        <li class="has-dropdown" id="dd-resources">
+          <button onclick="toggleDropdown('dd-resources')">
+            Ресурси
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="dropdown">
+            <div class="dropdown-label">Директория</div>
+            <a href="organizacii.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+              </svg>
+              Организации
+            </a>
+            <a href="forumi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+              </svg>
+              Форуми
+            </a>
+            <a href="haklor.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+              </svg>
+              Хаклор
+            </a>
+            <a href="phishing.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              Фишинг
+            </a>
+            <a href="instrumenti.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+              </svg>
+              Инструменти
+            </a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-label">Учебни материали</div>
+            <a href="terminologiq.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
+                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+              </svg>
+              Терминология
+            </a>
+            <a href="ctf.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              CTF
+            </a>
+            <a href="knigi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
+                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+              </svg>
+              Книги
+            </a>
+            <a href="video.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="23 7 16 12 23 17 23 7" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+              Видео ресурси
+            </a>
+          </div>
+        </li>
+        <li class="has-dropdown" id="dd-education">
+          <button onclick="toggleDropdown('dd-education')">
+            Обучение
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="dropdown">
+            <a href="universiteti.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+              Университетски програми
+            </a>
+            <a href="platformi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+              </svg>
+              Платформи
+            </a>
+            <a href="kursove.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+              Онлайн курсове
+            </a>
+            <a href="index.html#certifications">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="8" r="7" />
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+              </svg>
+              Сертификации
+            </a>
+          </div>
+        </li>
+        <li class="has-dropdown" id="dd-career">
+          <button onclick="toggleDropdown('dd-career')">
+            Кариера
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="dropdown">
+            <a href="mentoring.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+              </svg>
+              Менторство
+            </a>
+            <a href="index.html#companies">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              </svg>
+              Компании
+            </a>
+            <a href="obqvi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+                <line x1="9" y1="11" x2="15" y2="11" />
+                <line x1="9" y1="15" x2="12" y2="15" />
+              </svg>
+              Обяви
+            </a>
+            <a href="compass.html" class="active">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+              </svg>
+              Кариерен компас
+            </a>
+            <a href="index.html#career-paths">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+              Професионални пътеки
+            </a>
+            <a href="zaplati.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+              </svg>
+              Заплати
+            </a>
+          </div>
+        </li>
+        <li><a href="sabitia.html">Събития</a></li>
+        <li><a href="index.html#join" class="nav-cta">Включи се</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-nav-section">
+      <a href="index.html#about" class="mobile-link" onclick="closeMobile()">За нас</a>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-resources', this)">
+        Ресурси
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+      <div class="mobile-sub" id="sub-resources">
+        <a href="organizacii.html" onclick="closeMobile()">Организации</a>
+        <a href="forumi.html" onclick="closeMobile()">Форуми</a>
+        <a href="haklor.html" onclick="closeMobile()">Хаклор</a>
+        <a href="phishing.html" onclick="closeMobile()">Фишинг</a>
+        <a href="instrumenti.html" onclick="closeMobile()">Инструменти</a>
+        <a href="terminologiq.html" onclick="closeMobile()">Терминология</a>
+        <a href="ctf.html" onclick="closeMobile()">CTF</a>
+        <a href="knigi.html" onclick="closeMobile()">Книги</a>
+        <a href="video.html" onclick="closeMobile()">Видео ресурси</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-education', this)">
+        Обучение
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+      <div class="mobile-sub" id="sub-education">
+        <a href="universiteti.html" onclick="closeMobile()">Университетски програми</a>
+        <a href="platformi.html" onclick="closeMobile()">Платформи</a>
+        <a href="kursove.html" onclick="closeMobile()">Онлайн курсове</a>
+        <a href="index.html#certifications" onclick="closeMobile()">Сертификации</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-career', this)">
+        Кариера
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+      <div class="mobile-sub" id="sub-career">
+        <a href="mentoring.html" onclick="closeMobile()">Менторство</a>
+        <a href="index.html#companies" onclick="closeMobile()">Компании</a>
+        <a href="obqvi.html" onclick="closeMobile()">Обяви</a>
+        <a href="compass.html" onclick="closeMobile()">Кариерен компас</a>
+        <a href="index.html#career-paths" onclick="closeMobile()">Професионални пътеки</a>
+        <a href="zaplati.html" onclick="closeMobile()">Заплати</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <a href="sabitia.html" class="mobile-link" onclick="closeMobile()">Събития</a>
+    </div>
+    <a href="index.html#join" class="mobile-cta" onclick="closeMobile()">Включи се &rarr;</a>
+  </div>
+
+  <div class="page-content">
+    <div class="article-section">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb reveal">
+        <a href="index.html">Начало</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+        <span>Кариера</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+        <span class="current">Кариерен компас</span>
+      </nav>
+
+      <!-- Article Header -->
+      <div class="article-header reveal">
+        <h1>Кариерен <em>Компас</em></h1>
+        <p class="article-lead">
+          Отговори на пет въпроса за твоя профил и ние ще съпоставим уменията ти с всичките 12
+          роли по ENISA ECSF — с персонализирана пътека за Българския пазар.
+        </p>
+      </div>
+
+    </div><!-- /.article-section -->
+  </div><!-- /.page-content -->
+
+  <!-- ── WIZARD ── -->
+  <div id="wizard-wrap">
+    <div class="wizard-inner">
+
+      <!-- Progress -->
+      <div class="progress-bar" id="progressBar">
+        <div class="prog-step active" id="ps1">
+          <div class="prog-dot">1</div>
+          <div class="prog-label">Произход</div>
+        </div>
+        <div class="prog-step" id="ps2">
+          <div class="prog-dot">2</div>
+          <div class="prog-label">Интереси</div>
+        </div>
+        <div class="prog-step" id="ps3">
+          <div class="prog-dot">3</div>
+          <div class="prog-label">Опит</div>
+        </div>
+        <div class="prog-step" id="ps4">
+          <div class="prog-dot">4</div>
+          <div class="prog-label">Сертификати</div>
+        </div>
+        <div class="prog-step" id="ps5">
+          <div class="prog-dot">5</div>
+          <div class="prog-label">Цел</div>
+        </div>
+      </div>
+
+      <!-- Stage 1: Background -->
+      <div class="wizard-stage active" id="stage1">
+        <div class="wiz-label">Стъпка 1 от 5</div>
+        <h2 class="wiz-title">Какъв е твоят настоящ профил?</h2>
+        <p class="wiz-desc">Избери опцията, която най-добре те описва. Киберсигурността е отворена за всички — и
+          нетехническите профили са добре дошли.</p>
+        <div class="opt-grid">
+          <div class="opt-card" onclick="selectSingle('bg','student',2)" data-val="student">
+            <div class="opt-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            <span class="opt-icon">🎓</span>
+            <div class="opt-title">Студент / Нова кариера</div>
+            <div class="opt-desc">Започваш от нулата или правиш пълен преход</div>
+          </div>
+          <div class="opt-card" onclick="selectSingle('bg','other',2)" data-val="other">
+            <div class="opt-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            <span class="opt-icon">✨</span>
+            <div class="opt-title">Друго (Нетехническо)</div>
+            <div class="opt-desc">Финанси, здравеопазване, военно дело, наука, медицина…</div>
+          </div>
+          <div class="opt-card" onclick="selectSingle('bg','developer',2)" data-val="developer">
+            <div class="opt-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            <span class="opt-icon">💻</span>
+            <div class="opt-title">Разработчик</div>
+            <div class="opt-desc">Уеб, мобилно, бекенд, API разработка</div>
+          </div>
+          <div class="opt-card" onclick="selectSingle('bg','sysadmin',2)" data-val="sysadmin">
+            <div class="opt-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            <span class="opt-icon">🖥️</span>
+            <div class="opt-title">IT / Сисадмин / Мрежи</div>
+            <div class="opt-desc">Сървъри, мрежи, firewalls, VPN, инфраструктура, helpdesk</div>
+          </div>
+          <div class="opt-card" onclick="selectSingle('bg','secops',2)" data-val="secops">
+            <div class="opt-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            <span class="opt-icon">🔍</span>
+            <div class="opt-title">Вече в сигурността</div>
+            <div class="opt-desc">SOC анализатор, инженер, GRC, пентестер</div>
+          </div>
+          <div class="opt-card" onclick="selectSingle('bg','data',2)" data-val="data">
+            <div class="opt-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            <span class="opt-icon">📊</span>
+            <div class="opt-title">Данни / Анализи</div>
+            <div class="opt-desc">Анализ на данни, BI, Python/SQL, статистика</div>
+          </div>
+          <div class="opt-card" onclick="selectSingle('bg','legal',2)" data-val="legal">
+            <div class="opt-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            <span class="opt-icon">⚖️</span>
+            <div class="opt-title">Юрист / Съответствие</div>
+            <div class="opt-desc">Право, GDPR, договори, регулаторни въпроси</div>
+          </div>
+          <div class="opt-card" onclick="selectSingle('bg','manager',2)" data-val="manager">
+            <div class="opt-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            <span class="opt-icon">👔</span>
+            <div class="opt-title">Бизнес / Мениджмънт</div>
+            <div class="opt-desc">Управление на проекти, операции, HR</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 2: Interests -->
+      <div class="wizard-stage" id="stage2">
+        <div class="wiz-label">Стъпка 2 от 5</div>
+        <h2 class="wiz-title">Какво те привлича в сигурността?</h2>
+        <p class="wiz-desc">Избери всичко, което те вдъхновява. Колкото повече изберeш, толкова по-точно съпоставяне ще
+          получиш.</p>
+        <div class="interest-grid" id="interestGrid">
+          <span class="int-tag" onclick="toggleInterest(this,'hacking')">🔓 Етично хакване и офанзивни тактики</span>
+          <span class="int-tag" onclick="toggleInterest(this,'defending')">🛡️ Защита и реагиране при атаки</span>
+          <span class="int-tag" onclick="toggleInterest(this,'forensics')">🔬 Цифрова криминалистика и
+            разследвания</span>
+          <span class="int-tag" onclick="toggleInterest(this,'risk')">📋 Риск, съответствие и управление</span>
+          <span class="int-tag" onclick="toggleInterest(this,'cloud')">☁️ Облачна и инфраструктурна сигурност</span>
+          <span class="int-tag" onclick="toggleInterest(this,'appsec')">📱 Сигурна разработка и AppSec</span>
+          <span class="int-tag" onclick="toggleInterest(this,'intel')">🕵️ Разузнаване на заплахи и изследвания</span>
+          <span class="int-tag" onclick="toggleInterest(this,'architecture')">🏗️ Проектиране на сигурни системи</span>
+          <span class="int-tag" onclick="toggleInterest(this,'teaching')">📚 Обучение и осведоменост</span>
+          <span class="int-tag" onclick="toggleInterest(this,'policy')">📜 Киберправо и политика</span>
+          <span class="int-tag" onclick="toggleInterest(this,'malware')">🦠 Анализ на злонамерен код</span>
+          <span class="int-tag" onclick="toggleInterest(this,'leadership')">👑 Ръководство на екипи по сигурност</span>
+          <span class="int-tag" onclick="toggleInterest(this,'puzzle')">🧩 Решаване на CTF предизвикателства</span>
+          <span class="int-tag" onclick="toggleInterest(this,'audit')">📝 Одитиране и оценка</span>
+        </div>
+        <div class="wiz-actions">
+          <button class="btn btn-primary" onclick="goToStage(3)">Продължи →</button>
+          <button class="btn-back" onclick="goToStage(1)">← Назад</button>
+        </div>
+      </div>
+
+      <!-- Stage 3: Experience + Tech -->
+      <div class="wizard-stage" id="stage3">
+        <div class="wiz-label">Стъпка 3 от 5</div>
+        <h2 class="wiz-title">Колко опит имаш?</h2>
+        <p class="wiz-desc">В IT или всяка друга сфера — не само в киберсигурност.</p>
+        <div class="slider-wrap">
+          <div class="slider-display" id="expDisplay">3 години</div>
+          <div class="slider-sub">Години опит</div>
+          <input type="range" min="0" max="20" value="3" id="expSlider" oninput="updateSlider()">
+          <div class="slider-ticks">
+            <span class="slider-tick">0 — Начало</span>
+            <span class="slider-tick">5 години</span>
+            <span class="slider-tick">10 години</span>
+            <span class="slider-tick">15 години</span>
+            <span class="slider-tick">20+</span>
+          </div>
+        </div>
+        <hr class="stage-divider">
+        <h2 class="wiz-title" style="font-size:clamp(1.4rem,2.5vw,2rem);margin-bottom:.5rem;">Ниво на техническа
+          подготовка</h2>
+        <p class="wiz-desc">Колко се чувстваш комфортно с технически инструменти, командния ред или програмиране?</p>
+        <div class="slider-wrap" id="techSliderWrap">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.5rem;">
+            <div class="slider-display" id="techIconDisplay" style="font-size:2.8rem;line-height:1;min-width:3rem;">🌱
+            </div>
+            <div>
+              <div class="slider-display" id="techLevelDisplay" style="font-size:2rem;">Нетехнически</div>
+              <div class="slider-sub" id="techLevelSub">Без опит с код или командния ред</div>
+            </div>
+          </div>
+          <input type="range" min="0" max="4" value="0" id="techSlider" oninput="updateTechSlider()">
+          <div class="slider-ticks"
+            style="grid-template-columns:none;display:flex;justify-content:space-between;margin-top:.75rem;">
+            <span class="slider-tick">🌱 Нетехн.</span>
+            <span class="slider-tick">📗 Базово</span>
+            <span class="slider-tick">💡 Средно</span>
+            <span class="slider-tick">⚡ Напред.</span>
+            <span class="slider-tick">🤖 Изключ.</span>
+          </div>
+        </div>
+        <div class="wiz-actions">
+          <button class="btn btn-primary" onclick="goToStage(4)">Продължи →</button>
+          <button class="btn-back" onclick="goToStage(2)">← Назад</button>
+        </div>
+      </div>
+
+      <!-- Stage 4: Certs -->
+      <div class="wizard-stage" id="stage4">
+        <div class="wiz-label">Стъпка 4 от 5</div>
+        <h2 class="wiz-title">Имаш ли вече сертификати?</h2>
+        <p class="wiz-desc">Избери всички, с които разполагаш. Ако нямаш — просто пропусни. Ние ще ти покажем кои са ти
+          нужни.</p>
+        <div class="certs-grid" id="certsGrid"></div>
+        <div class="wiz-actions">
+          <button class="btn btn-primary" onclick="goToStage(5)">Продължи →</button>
+          <button class="btn-back" onclick="goToStage(3)">← Назад</button>
+        </div>
+      </div>
+
+      <!-- Stage 5: Goal -->
+      <div class="wizard-stage" id="stage5">
+        <div class="wiz-label">Стъпка 5 от 5</div>
+        <h2 class="wiz-title">Каква е твоята амбиция?</h2>
+        <p class="wiz-desc">Накъде искаш да стигнеш? Това определя дълбочината на твоята персонализирана пътека.</p>
+        <div class="opt-grid opt-grid-3" id="goalCards">
+          <div class="opt-card" onclick="selectGoal('entry')" data-val="entry">
+            <div class="opt-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            <span class="opt-icon">🚀</span>
+            <div class="opt-title">Влизане в сферата</div>
+            <div class="opt-desc">Искам първа работа в сигурността до 6–12 месеца</div>
+          </div>
+          <div class="opt-card" onclick="selectGoal('specialist')" data-val="specialist">
+            <div class="opt-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            <span class="opt-icon">🎯</span>
+            <div class="opt-title">Технически специалист</div>
+            <div class="opt-desc">Искам да стана дълбок технически експерт в дадена област</div>
+          </div>
+          <div class="opt-card" onclick="selectGoal('leadership')" data-val="leadership">
+            <div class="opt-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            <span class="opt-icon">🏆</span>
+            <div class="opt-title">Лидерство / CISO</div>
+            <div class="opt-desc">Искам да ръководя екипи по сигурност и стратегия</div>
+          </div>
+          <div class="opt-card" onclick="selectGoal('consulting')" data-val="consulting">
+            <div class="opt-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            <span class="opt-icon">💼</span>
+            <div class="opt-title">Консулт / Свободна практика</div>
+            <div class="opt-desc">Искам да работя с различни клиенти: одити, оценки</div>
+          </div>
+          <div class="opt-card" onclick="selectGoal('research')" data-val="research">
+            <div class="opt-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            <span class="opt-icon">🔭</span>
+            <div class="opt-title">Изследвания / Академия</div>
+            <div class="opt-desc">CVE изследвания, академична работа, иновации</div>
+          </div>
+          <div class="opt-card" onclick="selectGoal('pivot')" data-val="pivot">
+            <div class="opt-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg></div>
+            <span class="opt-icon">🔄</span>
+            <div class="opt-title">Проучвам възможностите</div>
+            <div class="opt-desc">Не съм сигурен/а все още — покажи ми всичко</div>
+          </div>
+        </div>
+        <div class="wiz-actions">
+          <button class="btn btn-primary" onclick="generateResults()">Генерирай моята пътека →</button>
+          <button class="btn-back" onclick="goToStage(4)">← Назад</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── RESULTS ── -->
+  <div id="results-wrap">
+
+    <!-- Results Hero -->
+    <div class="results-hero">
+      <div class="results-hero-inner">
+        <div class="section-label section-label-light">Твоят персонализиран доклад</div>
+        <h2 id="resultsTitle">Намерихме твоята пътека в <em>Киберсигурността</em></h2>
+        <p class="results-hero-desc" id="resultsDesc">Базирано на твоя профил, ето как можеш да изградиш кариера в
+          киберсигурността на Българския пазар.</p>
+        <div class="share-bar">
+          <button class="btn-share btn-share-copy" onclick="copyShareUrl()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            </svg>
+            Копирай линк
+          </button>
+          <button class="btn-share btn-share-print" onclick="window.print()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 6 2 18 2 18 9" />
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+              <rect x="6" y="14" width="12" height="8" />
+            </svg>
+            Отпечатай
+          </button>
+          <button class="btn-share btn-share-restart" onclick="restartWizard()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="1 4 1 10 7 10" />
+              <path d="M3.51 15a9 9 0 1 0 .49-3.36" />
+            </svg>
+            Започни отново
+          </button>
+          <span class="copy-toast" id="copyToast">✓ Линкът е копиран!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Role Matches -->
+    <div class="matches-section">
+      <div class="section-inner">
+        <div class="section-label">Съпоставяне с ENISA ECSF</div>
+        <h2 class="section-title">Твоите кариерни съответствия</h2>
+        <p class="section-desc">Кликни върху роля за да видиш подробната пътека надолу. Топ 3 са маркирани.</p>
+        <div class="match-grid" id="matchGrid"></div>
+        <p class="role-select-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            style="width:14px;height:14px;flex-shrink:0;">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="16" />
+            <line x1="8" y1="12" x2="16" y2="12" />
+          </svg>
+          Кликни върху всяка роля по-горе за да превключиш детайлния доклад по-долу
+        </p>
+      </div>
+    </div>
+
+    <!-- Roadmap Block -->
+    <div class="detail-block" id="block-roadmap">
+      <div class="detail-inner">
+        <div class="section-label">Пълна пътека · ENISA ECSF</div>
+        <h2 class="section-title" id="roadmap-title">Твоята пътека</h2>
+        <div class="detail-role-banner" id="roadmap-banner"></div>
+        <div class="roadmap-timeline" id="roadmapTimeline"></div>
+      </div>
+    </div>
+
+    <!-- Career Map Block -->
+    <div class="detail-block" style="background:var(--cream)!important;">
+      <div class="detail-inner">
+        <div class="section-label">Визуализация</div>
+        <h2 class="section-title">Карта на кариерните пътища</h2>
+        <p class="section-desc" style="margin-bottom:2rem;">Всичките 12 ENISA ECSF роли и техните връзки. Твоите
+          съответствия са открояени. Кликни върху роля за детайли.</p>
+        <canvas id="careerMapCanvas" height="460"></canvas>
+      </div>
+    </div>
+
+    <!-- Certifications Block -->
+    <div class="detail-block" id="block-certs">
+      <div class="detail-inner">
+        <div class="section-label">Сертификационна пътека</div>
+        <h2 class="section-title" id="certs-title">Препоръчани сертификации</h2>
+        <p class="section-desc" style="margin-bottom:2rem;">Базирано на Българския пазар — кои сертификати действително
+          се търсят в обявите.</p>
+        <div class="cert-path-visual" id="certPath"></div>
+        <div
+          style="background:var(--white);border:1px solid var(--sand);border-radius:var(--radius-lg);padding:1.75rem;margin-top:1.5rem;">
+          <div class="section-label" style="margin-bottom:1rem;">Пазарна бележка за България</div>
+          <p id="certMarketNote" style="font-size:var(--fs-sm);color:var(--bark);line-height:1.75;font-weight:300;"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills Block -->
+    <div class="detail-block" style="background:var(--cream)!important;" id="block-skills">
+      <div class="detail-inner">
+        <div class="section-label">Ключови компетенции</div>
+        <h2 class="section-title" id="skills-title">Умения, които ще изградиш</h2>
+        <p class="section-desc" style="margin-bottom:2rem;">Основните компетенции за успех в тази роля по ENISA ECSF и
+          Българските работодатели.</p>
+        <div class="skills-grid" id="skillsGrid"></div>
+      </div>
+    </div>
+
+    <!-- Companies + Where to Apply Block -->
+    <div class="detail-block" id="block-companies">
+      <div class="detail-inner">
+        <div class="section-header">
+          <div class="section-header-left">
+            <div class="section-label">Работодатели · България</div>
+            <h2 class="section-title" id="companies-title">Къде да кандидатстваш</h2>
+            <p class="section-desc">Компании, наемащи за тази роля на Българския пазар, плюс основните платформи за
+              търсене.</p>
+          </div>
+        </div>
+        <div class="companies-list" id="companiesList"></div>
+        <div style="margin-top:2.5rem;">
+          <div class="section-label" style="margin-bottom:1.25rem;">Платформи за обяви</div>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+            <a href="https://dev.bg/company/jobs/it-security/" target="_blank" class="company-chip"><span
+                class="company-chip-dot"></span>DEV.BG IT Security</a>
+            <a href="https://h512.com/company/jobs/it-security/" target="_blank" class="company-chip"><span
+                class="company-chip-dot"></span>H512.com</a>
+            <a href="https://bg.linkedin.com/jobs" target="_blank" class="company-chip"><span
+                class="company-chip-dot"></span>LinkedIn България</a>
+            <a href="https://www.cybersecurityjobsite.com/jobs/security/bulgaria/" target="_blank"
+              class="company-chip"><span class="company-chip-dot"></span>CyberSecurityJobsite</a>
+            <a href="https://www.csf.bg/blgarska-fondaciya-za-kibersigurnost/karierno-razvitie/kariera/obyavi-za-rabota"
+              target="_blank" class="company-chip"><span class="company-chip-dot"></span>CSF.bg Кариера</a>
+            <a href="https://jobs.bg" target="_blank" class="company-chip"><span
+                class="company-chip-dot"></span>Jobs.bg</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resources Block -->
+    <div class="detail-block" style="background:var(--cream)!important;" id="block-resources">
+      <div class="detail-inner">
+        <div class="section-label">Учебни ресурси</div>
+        <h2 class="section-title">Ресурси за твоята пътека</h2>
+        <p class="section-desc" style="margin-bottom:0;">Платформи, канали и общности — препоръчани от Българската
+          киберсигурностна общност.</p>
+        <div class="resources-grid" id="resourcesGrid"></div>
+      </div>
+    </div>
+
+    <!-- Events Block -->
+    <div class="detail-block" id="block-events">
+      <div class="detail-inner">
+        <div class="section-label">Мрежи и събития</div>
+        <h2 class="section-title">Събития в България и региона</h2>
+        <p class="section-desc" style="margin-bottom:0;">Ключови киберсигурностни събития за нетуъркинг, знание и
+          кариерни срещи.</p>
+        <div class="events-grid" id="eventsGrid"></div>
+      </div>
+    </div>
+
+    <!-- BG Market Block -->
+    <div class="detail-block detail-block-navy" id="block-market">
+      <div class="detail-inner">
+        <div class="section-label section-label-light">Пазарен анализ · Март 2026</div>
+        <h2 class="section-title section-title-light">Пазарът на киберсигурност в България</h2>
+        <p class="section-desc section-desc-light" style="margin-bottom:3rem;">Реални данни от DEV.BG, Jobs.bg,
+          LinkedIn, Zaplatomer.bg и CSF.bg. Всички заплати в нето €/мес.</p>
+        <div class="market-stats-grid" id="marketStats"></div>
+        <div style="margin-bottom:2rem;">
+          <div class="section-label section-label-light" style="margin-bottom:1.25rem;">Заплати по роля (нето EUR/мес)
+          </div>
+          <div class="table-wrap-dark">
+            <table class="data-table data-table-dark">
+              <thead>
+                <tr>
+                  <th>Роля</th>
+                  <th>Junior</th>
+                  <th>Senior</th>
+                  <th>Търсене</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SOC Анализатор</td>
+                  <td>€1,000–1,800</td>
+                  <td class="salary-green">€2,600–5,100</td>
+                  <td><span class="demand-badge d-high">Високо</span></td>
+                </tr>
+                <tr>
+                  <td>Инженер по сигурността</td>
+                  <td>€1,500–2,300</td>
+                  <td class="salary-green">€3,600–5,600+</td>
+                  <td><span class="demand-badge d-v-high">⭐ Най-търсено</span></td>
+                </tr>
+                <tr>
+                  <td>DevSecOps инженер</td>
+                  <td>€2,000–2,800</td>
+                  <td class="salary-green">€4,100–7,200+</td>
+                  <td><span class="demand-badge d-v-high">Много търсено</span></td>
+                </tr>
+                <tr>
+                  <td>Пентестер</td>
+                  <td>€1,300–2,000</td>
+                  <td class="salary-green">€3,100–6,200+</td>
+                  <td><span class="demand-badge d-mid">Стабилно</span></td>
+                </tr>
+                <tr>
+                  <td>GRC / Съответствие</td>
+                  <td>€1,300–2,000</td>
+                  <td class="salary-green">€3,100–5,100+</td>
+                  <td><span class="demand-badge d-high">Растящо</span></td>
+                </tr>
+                <tr>
+                  <td>Облачен архитект</td>
+                  <td>€2,600–3,600</td>
+                  <td class="salary-green">€4,600–7,700+</td>
+                  <td><span class="demand-badge d-mid">Специалист</span></td>
+                </tr>
+                <tr>
+                  <td>DFIR / Реакция при инциденти</td>
+                  <td>€1,800–2,600</td>
+                  <td class="salary-green">€3,600–6,200+</td>
+                  <td><span class="demand-badge d-mid">Стабилно</span></td>
+                </tr>
+                <tr>
+                  <td>CISO / Директор</td>
+                  <td>—</td>
+                  <td class="salary-green">€5,100–11,200+</td>
+                  <td><span class="demand-badge d-mid">Селективно</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p style="font-size:var(--fs-xs);color:rgba(255,255,255,.35);">Всички стойности са нето EUR/месец. Фиксиран
+          курс: 1 EUR = 1.956 BGN. София носи 20–30% премия спрямо Пловдив/Варна. Данни: DEV.BG, Zaplatomer.bg, реални
+          обяви март 2026.</p>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">
+            <img src="logo_csf.png" height="40" alt="CSF.BG лого">
+            CSF.BG
+          </div>
+          <p class="footer-brand-desc">
+            Българска Фондация за Киберсигурност — изграждаме по-сигурна дигитална среда чрез образование, общност и
+            сътрудничество.
+          </p>
+          <div class="footer-socials">
+            <a href="https://discord.gg/xakep" target="_blank" rel="noopener" class="social-btn" aria-label="Discord">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/csfbg" target="_blank" rel="noopener" class="social-btn"
+              aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/csfbg" target="_blank" rel="noopener" class="social-btn"
+              aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://github.com/csf-bg" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Ресурси</div>
+          <ul class="footer-links">
+            <li><a href="organizacii.html">Организации</a></li>
+            <li><a href="forumi.html">Форуми</a></li>
+            <li><a href="haklor.html">Хаклор</a></li>
+            <li><a href="phishing.html">Фишинг</a></li>
+            <li><a href="instrumenti.html">Инструменти</a></li>
+            <li><a href="terminologiq.html">Терминология</a></li>
+            <li><a href="ctf.html">CTF</a></li>
+            <li><a href="knigi.html">Книги</a></li>
+            <li><a href="video.html">Видео ресурси</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Обучение</div>
+          <ul class="footer-links">
+            <li><a href="universiteti.html">Университетски програми</a></li>
+            <li><a href="kursove.html">Онлайн курсове</a></li>
+            <li><a href="index.html#certifications">Сертификации</a></li>
+            <li><a href="platformi.html">Платформи</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Кариера</div>
+          <ul class="footer-links">
+            <li><a href="mentoring.html">Менторство</a></li>
+            <li><a href="index.html#companies">Компании</a></li>
+            <li><a href="obqvi.html">Обяви</a></li>
+            <li><a href="compass.html">Кариерен компас</a></li>
+            <li><a href="index.html#career-paths">Професионални пътеки</a></li>
+            <li><a href="zaplati.html">Заплати</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2024 Българска Фондация за Киберсигурност &middot; ЕИК 206640938</span>
+        <div class="footer-legal">
+          <a href="za-nas.html">За фондацията</a>
+          <a href="index.html#privacy">Поверителност</a>
+          <a href="index.html#contact">Контакти</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================ JAVASCRIPT ============================================================ -->
+  <script>
+    // ── Navbar ──
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+    // ── Dropdowns ──
+    function toggleDropdown(id) {
+      const item = document.getElementById(id), isOpen = item.classList.contains('open');
+      document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+    document.addEventListener('click', e => { if (!e.target.closest('.has-dropdown')) document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open')); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open')); closeMobile(); } });
+
+    // ── Mobile ──
+    let mobileOpen = false;
+    function toggleMobile() { mobileOpen = !mobileOpen; document.getElementById('hamburger').classList.toggle('open', mobileOpen); document.getElementById('mobile-menu').classList.toggle('open', mobileOpen); document.body.style.overflow = mobileOpen ? 'hidden' : ''; }
+    function closeMobile() { mobileOpen = false; document.getElementById('hamburger').classList.remove('open'); document.getElementById('mobile-menu').classList.remove('open'); document.body.style.overflow = ''; }
+    function toggleMobileSub(id, btn) { const sub = document.getElementById(id), open = sub.classList.toggle('open'); btn.classList.toggle('open', open); }
+
+    // ── Reveal ──
+    const revealObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } }); }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // ============================================================
+    // PROFILE & DATA
+    // ============================================================
+    const profile = { bg: '', tech: '', exp: 3, interests: [], certs: [], goal: '' };
+
+    const TECH_LEVELS = [
+      { val: 'none', icon: '🌱', label: 'Нетехнически', sub: 'Без опит с код или командния ред' },
+      { val: 'basic', icon: '📗', label: 'Базово', sub: 'Скриптове, таблици, основни инструменти' },
+      { val: 'intermediate', icon: '💡', label: 'Средно', sub: 'Удобно с CLI, Python, мрежи и сървъри' },
+      { val: 'advanced', icon: '⚡', label: 'Напреднало', sub: 'Силни умения в код, инфраструктура или security инструменти' },
+      { val: 'expert', icon: '🤖', label: 'Изключително', sub: 'AI/ML, reverse engineering, exploit разработка, изследвания на ниско ниво' },
+    ];
+
+    function updateTechSlider() {
+      const v = parseInt(document.getElementById('techSlider').value);
+      const lvl = TECH_LEVELS[v];
+      profile.tech = lvl.val;
+      document.getElementById('techIconDisplay').textContent = lvl.icon;
+      document.getElementById('techLevelDisplay').textContent = lvl.label;
+      document.getElementById('techLevelSub').textContent = lvl.sub;
+    }
+
+    // Initialise tech slider display on load
+    updateTechSlider();
+
+    const ALL_CERTS = [
+      { id: 'security+', name: 'CompTIA Security+', cat: 'Начално' },
+      { id: 'ceh', name: 'CEH', cat: 'Начално' },
+      { id: 'ejpt', name: 'eJPT', cat: 'Пентест' },
+      { id: 'oscp', name: 'OSCP', cat: 'Пентест' },
+      { id: 'cpts', name: 'HTB CPTS', cat: 'Пентест' },
+      { id: 'ecppt', name: 'eCPPT', cat: 'Пентест' },
+      { id: 'sc200', name: 'Microsoft SC-200', cat: 'SOC' },
+      { id: 'cysa+', name: 'CompTIA CySA+', cat: 'SOC' },
+      { id: 'iso27001', name: 'ISO 27001', cat: 'GRC' },
+      { id: 'cism', name: 'CISM', cat: 'GRC' },
+      { id: 'cisa', name: 'CISA', cat: 'GRC' },
+      { id: 'crisc', name: 'CRISC', cat: 'Риск' },
+      { id: 'cissp', name: 'CISSP', cat: 'Управление' },
+      { id: 'az500', name: 'AZ-500', cat: 'Облак' },
+      { id: 'awssec', name: 'AWS Security Specialty', cat: 'Облак' },
+      { id: 'ccna', name: 'CCNA', cat: 'Мрежи' },
+      { id: 'gcih', name: 'GCIH / GCFA', cat: 'DFIR' },
+    ];
+
+    // ENISA 12 Roles — full data
+    const ROLES = [
+      {
+        id: 'ciso', name: 'CISO', full: 'Директор по информационна сигурност', icon: '👑', enisa: 'ECSF-01',
+        desc: 'Ръководи организационната стратегия за киберсигурност, управлява екипи и взаимодейства с ръководството и регулаторите.',
+        bgMatch: ['secops', 'manager', 'legal'], interestMatch: ['leadership', 'risk', 'policy'], techMin: 'none', expMin: 8,
+        demand: 'Селективно', demandClass: 'd-mid',
+        salary: '€5,100–11,200+', entry: '8–10+ години',
+        certPath: [{ name: 'CISSP', price: '~€700' }, { name: 'CISM', price: '~€600' }, { name: 'CISA', price: '~€600' }],
+        certNote: 'В Bulgarian обявите: CISSP е задължителен за CISO. CISM и CISA са много предпочитани. NIS2 (Феб 2026) изисква задължително обучение на ръководството на 2-годишен интервал.',
+        skills: ['Стратегическо ръководство', 'Управление на риска', 'Съответствие с NIS2/DORA', 'Управление на бюджет', 'Командване при инциденти', 'Комуникация с борд'],
+        companies: ['Evrotrust', 'Payhawk', 'DSK Bank', 'Telelink Business Services', 'A1 България', 'Пощенска банка', 'Fibank'],
+        phases: [
+          { icon: '🎯', title: 'Техническа и управленска основа', dur: '0–5 години', body: 'Не можеш да станеш CISO без дълбок технически или управленски опит. Започни като Security Engineer или GRC специалист.', items: ['Роля: Security Engineer или GRC анализатор', 'CISSP (изисква 5г. опит в 2 домейна)', 'ISO 27001 Lead Implementer', 'Ръководи малък security проект'] },
+          { icon: '📈', title: 'Мениджмент и ниво „Глава"', dur: '5–8 години', body: 'Преходи към Head of Security или Security Manager. Управлявай екипи, бюджети, представяй пред борда.', items: ['Head of Security или Security Manager', 'CISM / CISA сертификат', 'Дълбоко познаване на NIS2 и DORA', 'Собственост на risk management framework'] },
+          { icon: '🏆', title: 'CISO ниво', dur: '8+ години', body: 'Готов за CISO с доказан cross-domain опит, регулаторен авторитет и executive присъствие.', items: ['Пълна P&L / бюджетна отговорност', 'Отчитане пред борда директорите', 'CISSP активен', 'Активен в BCSA / OWASP Sofia / CSF.bg'] },
+        ]
+      },
+      {
+        id: 'incident_responder', name: 'Специалист реакция при инциденти', full: 'Специалист по реакция при киберинциденти', icon: '🚨', enisa: 'ECSF-02',
+        desc: 'Управлява и разследва инциденти с киберсигурност, координира реакцията и ръководи анализа след инцидента.',
+        bgMatch: ['sysadmin', 'network', 'secops'], interestMatch: ['defending', 'forensics', 'puzzle'], techMin: 'intermediate', expMin: 1,
+        demand: 'Голямо търсене', demandClass: 'd-high',
+        salary: '€1,800–6,200+', entry: '1–3 години IT',
+        certPath: [{ name: 'CompTIA Security+', price: '~€350' }, { name: 'CySA+', price: '~€370' }, { name: 'SC-200', price: '~€165' }, { name: 'GCIH', price: '~€2,500' }],
+        certNote: 'За SOC и IR роли в България: Microsoft SC-200 е много търсен (Sentinel), CompTIA Security+ е стандартен вход. GCIH е ценен за Senior IR позиции в DXC, Deloitte DFIR.',
+        skills: ['SIEM анализ (Sentinel, Splunk)', 'Мрежова форензика', 'Тriage на зловреден код', 'IR playbooks', 'Python scripting', 'Threat hunting'],
+        companies: ['DXC Technology (500+ SOC)', 'Amatas', 'CyberOne', 'Integrity360', 'Deloitte Bulgaria', 'Tietoevry', 'Crypto.com'],
+        phases: [
+          { icon: '💡', title: 'SOC Tier 1 — Влизане', dur: '0–12 месеца', body: 'Започни като SOC Анализатор Tier 1. Научи SIEM инструменти, triaging на alerts, TTPs.', items: ['TryHackMe SOC Level 1 path', 'CompTIA Security+ (~€350)', 'Microsoft SC-200 (Sentinel) (~€165)', 'Научи CrowdStrike или SentinelOne EDR'] },
+          { icon: '🔍', title: 'SOC Tier 2 / IR Анализатор', dur: '1–3 години', body: 'Поеми реални разследвания на инциденти. Научи пълния IR жизнен цикъл.', items: ['CompTIA CySA+ (~€370)', 'NIST IR framework', 'Hands-on с Wireshark + ELK / Splunk', 'Писане на IR доклади'] },
+          { icon: '🚨', title: 'Lead IR / DFIR специалист', dur: '3–6 години', body: 'Ръководи IR ангажименти. Memory forensics, threat hunting, кризисна координация.', items: ['SANS GCIH или GCFE (~€2,500)', 'Memory forensics с Volatility 3', 'Изграждане на вътрешни IR playbooks', 'On-call IR ротация'] },
+        ]
+      },
+      {
+        id: 'legal_compliance', name: 'Киберправо и съответствие', full: 'Специалист по киберправо и съответствие', icon: '⚖️', enisa: 'ECSF-03',
+        desc: 'Осигурява съответствие с киберсигурностните закони, рамки и политики. Ключова роля под NIS2 и GDPR.',
+        bgMatch: ['legal', 'manager', 'other'], interestMatch: ['risk', 'policy', 'audit'], techMin: 'none', expMin: 1,
+        demand: 'Растящо', demandClass: 'd-high',
+        salary: '€1,300–5,100+', entry: 'Всякакъв профил',
+        certPath: [{ name: 'ISO 27001 Foundation', price: '~€500' }, { name: 'ISO 27001 LA', price: '~€2,500' }, { name: 'CISM/CISA', price: '~€600' }],
+        certNote: 'NIS2 в България (Феб 2026) обхваща 10,000+ организации — огромно търсене на GRC специалисти. ISO 27001 Lead Auditor е найтърсеният сертификат за тази роля. GDPR DPO е отделна специализация.',
+        skills: ['NIS2 / GDPR / DORA', 'ISO 27001 внедряване', 'Оценка на риска', 'Писане на политики', 'Third-party risk management', 'Управление на одити'],
+        companies: ['PwC Bulgaria', 'Deloitte Bulgaria', 'EY Bulgaria', 'SAP Labs Bulgaria', 'Fibank', 'EnduroSat', 'Paysafe'],
+        phases: [
+          { icon: '📋', title: 'Основи на съответствието', dur: '0–6 месеца', body: 'Научи основните рамки: ISO 27001, GDPR, NIS2, DORA. Сега е задължително знание в България.', items: ['ISO 27001 Foundation курс (~€500)', 'GDPR практик курс', 'NIS2 Български закон (Феб 2026)', 'Shadow external audit в Big4'] },
+          { icon: '📝', title: 'Junior GRC Анализатор', dur: '6 месеца–2 години', body: 'Присъедини се към Big4 (PwC, Deloitte) или корпоративен GRC екип.', items: ['ISO 27001 Internal Auditor', 'Поддържане на risk register', 'Писане на политики и процедури', 'Оценки на доставчици'] },
+          { icon: '🏛️', title: 'Senior GRC / DPO', dur: '2–5 години', body: 'Ръководи compliance програми, управлявай одити, стани DPO.', items: ['ISO 27001 Lead Auditor (~€2,500)', 'CISM или CISA (~€600)', 'Специализация в DORA ICT risk', 'Ръководи external audit програми'] },
+        ]
+      },
+      {
+        id: 'threat_intel', name: 'Разузнаване на заплахи', full: 'Специалист по разузнаване на киберзаплахи', icon: '🕵️', enisa: 'ECSF-04',
+        desc: 'Събира и анализира данни за заплахи за да предвиди атаки. Изготвя разузнавателни доклади.',
+        bgMatch: ['secops', 'data', 'sysadmin'], interestMatch: ['intel', 'malware', 'puzzle'], techMin: 'intermediate', expMin: 3,
+        demand: 'Специалист', demandClass: 'd-mid',
+        salary: '€2,600–5,100+', entry: '3+ години SOC/сигурност',
+        certPath: [{ name: 'CompTIA Security+', price: '~€350' }, { name: 'CySA+', price: '~€370' }, { name: 'GCTI', price: '~€2,500' }],
+        certNote: 'Threat Intelligence е нишова роля в БГ — основно в Acronis, DXC и MSSP компании. MITRE ATT&CK Navigator е задължително. Комбинирана с SOC/DFIR опит.',
+        skills: ['MITRE ATT&CK', 'OSINT техники', 'Malware индикатори', 'Threat feeds', 'Писане на доклади', 'Dark web мониторинг'],
+        companies: ['Acronis', 'DXC Technology', 'CyberOne', 'Amatas', 'Mnemonica'],
+        phases: [
+          { icon: '🔍', title: 'SOC основа', dur: '0–2 години', body: 'Нужен е SOC опит първо — разузнаването на заплахи е построено върху реални атаки.', items: ['SOC Анализатор Tier 1/2 роля', 'MITRE ATT&CK Navigator', 'OSINT инструменти: Shodan, theHarvester', 'Maltego и анализ на връзки'] },
+          { icon: '📡', title: 'Intel Анализатор', dur: '2–4 години', body: 'Преход към TI роля. Пиши IOC доклади, изграждай threat профили.', items: ['MISP платформа (threat sharing)', 'Dark web мониторинг основи', 'Профилиране на threat actors', 'Intelligence lifecycle процес'] },
+          { icon: '🌐', title: 'Senior CTI / Изследовател', dur: '4+ години', body: 'Стратегическо разузнаване, дълго наблюдение на кампании, executive брифинги.', items: ['GIAC GCTI (~€2,500)', 'Конференционни презентации', 'Attribution на threat кампании', 'Секторно разузнаване (банкиране, OT)'] },
+        ]
+      },
+      {
+        id: 'architect', name: 'Архитект по сигурността', full: 'Архитект по киберсигурност', icon: '🏗️', enisa: 'ECSF-05',
+        desc: 'Проектира и контролира архитектурата на сигурността на системи и мрежи. Дефинира Zero Trust, IAM и контроли за сигурност.',
+        bgMatch: ['developer', 'sysadmin', 'network'], interestMatch: ['architecture', 'cloud', 'appsec'], techMin: 'advanced', expMin: 8,
+        demand: 'Висока стойност', demandClass: 'd-mid',
+        salary: '€4,100–7,700+', entry: '8–10+ години технически',
+        certPath: [{ name: 'CISSP', price: '~€700' }, { name: 'AZ-500', price: '~€165' }, { name: 'AWS Security Specialty', price: '~€300' }],
+        certNote: 'Архитектите в България обикновено са Senior Engineer с 8-10+ години опит. CISSP е стандарт. Akkodis и Telelink търсят активно. Позициите са ниска честота, но са най-добре платени.',
+        skills: ['Zero Trust дизайн', 'IAM архитектура', 'Threat modeling', 'Облачна сигурност', 'Мрежова сегментация', 'Security patterns'],
+        companies: ['Akkodis', 'Telelink Business Services', 'DXC Technology', 'Commerzbank DTC', 'Progress Software', 'Bosch'],
+        phases: [
+          { icon: '🔧', title: 'Технически специалист', dur: '0–5 години', body: 'Дълбок технически опит е неотменим. Започни като Security/Network/Cloud Engineer.', items: ['Security Engineer или Cloud Engineer роля', 'Threat modeling (STRIDE, PASTA)', 'AWS/Azure security архитектура', 'CISSP подготовка (5г. prereq)'] },
+          { icon: '📐', title: 'Senior Engineer → Архитект', dur: '5–8 години', body: 'Поеми архитектурни отговорности. Проектирай сигурност за мащабни системи.', items: ['CISSP сертификат (~€700)', 'Zero Trust архитектурен проект', 'IAM платформен дизайн', 'Архитектурни прегледи пред CISO'] },
+          { icon: '🏆', title: 'Principal Архитект', dur: '8+ години', body: 'Собственост на организационна security архитектура. Дефинирай стандарти.', items: ['Cross-cloud security архитектура', 'NIST CSF / Zero Trust maturity assessment', 'Security reference architecture авторство', 'Mentoring на по-младите инженери'] },
+        ]
+      },
+      {
+        id: 'auditor', name: 'Одитор по сигурността', full: 'Одитор по киберсигурност', icon: '📝', enisa: 'ECSF-06',
+        desc: 'Провежда одити за сигурност за да провери съответствие с ISO 27001, PCI DSS, NIS2. Голямо търсене след NIS2.',
+        bgMatch: ['legal', 'manager', 'secops', 'other'], interestMatch: ['audit', 'risk', 'policy'], techMin: 'basic', expMin: 2,
+        demand: 'NIS2 бум', demandClass: 'd-high',
+        salary: '€1,300–5,100+', entry: '2+ години всякакъв профил',
+        certPath: [{ name: 'ISO 27001 LI', price: '~€2,500' }, { name: 'CISA', price: '~€600' }, { name: 'QSA (PCI DSS)', price: 'varies' }],
+        certNote: 'A-LIGN (единственият PCI DSS QSA в България) активно наема одитори. ISO 27001 Lead Auditor е единственото задължително. CISA открива вратите към Big4. 7Security е единственият BG QSA.',
+        skills: ['ISO 27001 одитиране', 'GDPR оценки', 'NIS2 gap анализ', 'PCI DSS', 'Писане на доклади', 'Събиране на доказателства'],
+        companies: ['A-LIGN', 'PwC Bulgaria', 'Deloitte Bulgaria', '7Security (7Sec)', 'EY Bulgaria', 'KPMG Bulgaria'],
+        phases: [
+          { icon: '📗', title: 'Основи на рамките', dur: '0–6 месеца', body: 'Ключовият вход: ISO 27001 Lead Auditor е най-нанятото сертификат за тази пътека.', items: ['ISO 27001 Foundation → Lead Auditor (~€2,500)', 'GDPR практик курс', 'NIS2 Български закон (Феб 2026)', 'Shadow external audit при Big4'] },
+          { icon: '📝', title: 'Junior Одитор', dur: '6 месеца–2 години', body: 'Присъедини се към одитна фирма. Провеждай gap оценки и одитни доклади.', items: ['Роля: A-LIGN / PwC Junior Auditor', 'CISA подготовка (~€600)', 'PCI DSS знания (за финтех)', 'Шаблони и методологии за одит'] },
+          { icon: '✅', title: 'Lead Одитор', dur: '2–5 години', body: 'Ръководи пълни одитни ангажименти, управлявай клиентски отношения.', items: ['CISA или CISM активни', 'ISO 27001 Lead Auditor сертифициран', 'Секторна специализация: банкиране (DORA), OT', 'Самостоятелен консулт или Big4 мениджър'] },
+        ]
+      },
+      {
+        id: 'educator', name: 'Обучител по сигурността', full: 'Обучител по киберсигурност', icon: '📚', enisa: 'ECSF-07',
+        desc: 'Разработва и доставя обучения за киберсигурност и програми за осведоменост за организации и обществото.',
+        bgMatch: ['manager', 'secops', 'other'], interestMatch: ['teaching', 'risk', 'policy'], techMin: 'basic', expMin: 2,
+        demand: 'Нишово', demandClass: 'd-mid',
+        salary: '€1,000–3,500+', entry: 'Всякакъв с педагогически умения',
+        certPath: [{ name: 'CompTIA Security+', price: '~€350' }, { name: 'ISO 27001', price: '~€2,500' }, { name: 'CISSP', price: '~€700' }],
+        certNote: 'NIS2 изисква задължително обучение на ръководството на двугодишни интервали — голямо търсене от обучители! KnowBe4 и Proofpoint за phishing симулации са масово използвани в БГ.',
+        skills: ['Дизайн на учебна програма', 'Security awareness', 'Доставка на обучение', 'Phishing симулации', 'NIS2 задължително обучение', 'E-learning платформи'],
+        companies: ['Нов Български Университет', 'Telelink Business Services', 'CSF.bg', 'BCSA', 'KnowBe4 партньори', 'Корпоративни роли'],
+        phases: [
+          { icon: '🎓', title: 'Security + Педагогически умения', dur: '0–1 година', body: 'Комбинирай security основи с комуникационни умения.', items: ['CompTIA Security+ (~€350)', 'Основи на instructional design', 'Изгради курс за phishing awareness', 'ABLE Mentor програма'] },
+          { icon: '📢', title: 'Awareness & Training практик', dur: '1–3 години', body: 'Управлявай awareness програми, доставяй NIS2 задължително обучение за ръководство.', items: ['Security awareness programme management', 'KnowBe4 / Proofpoint phishing симулации', 'NIS2 Чл.20 обучение за управление', 'Вътрешен trainer в голяма организация'] },
+          { icon: '🏫', title: 'Senior Trainer / Академичен', dur: '3+ години', body: 'Разработвай национални/EU обучителни програми, лекторства в университети.', items: ['CISSP или CISM активни', 'Университетско партньорство (НБУ, ПУ)', 'CSF.bg trainer мрежа', 'ENISA ECSF educator mapping'] },
+        ]
+      },
+      {
+        id: 'researcher', name: 'Изследовател по сигурността', full: 'Изследовател по киберсигурност', icon: '🔭', enisa: 'ECSF-08',
+        desc: 'Провежда оригинални изследвания в сигурността, открива уязвимости, разработва нови техники. CVE hunting, академични и частни изследвания.',
+        bgMatch: ['developer', 'secops', 'data'], interestMatch: ['malware', 'intel', 'puzzle'], techMin: 'advanced', expMin: 3,
+        demand: 'Елитна ниша', demandClass: 'd-mid',
+        salary: '€3,600–7,700+', entry: '3+ години технически',
+        certPath: [{ name: 'OSCP', price: '~€1,500' }, { name: 'OSCE3', price: 'Напреднало' }, { name: 'PhD/Публикации', price: 'Варира' }],
+        certNote: 'Изследователската роля изисква най-дълбоките технически умения. Acronis, Secragon и dFsec са основните БГ работодатели. CVE disclosure track record е по-ценен от всякакъв сертификат.',
+        skills: ['Reverse engineering', 'Exploit разработка', 'Уязвимостни изследвания', 'Публикационно писане', 'CVE disclosure', 'Assembly и OS internals'],
+        companies: ['Acronis', 'Secragon', 'dFsec', 'SoCyber', 'LogSentinel', 'Academic institutions'],
+        phases: [
+          { icon: '⚡', title: 'Дълбока техническа основа', dur: '0–3 години', body: 'Тази роля изисква най-дълбоките технически умения: Assembly, OS internals, exploit техники.', items: ['Силен C/C++ и Assembly', 'Linux/Windows kernel internals', 'CTF heavy участие (pwn/rev категории)', 'Binary exploitation: buffer overflows, ROP'] },
+          { icon: '🔬', title: 'Уязвимостен изследовател', dur: '3–6 години', body: 'Намери и отговорно докладвай CVEs. Изгради публично изследователско портфолио.', items: ['Първи CVE disclosure', 'IDA Pro или Ghidra умения', 'Fuzz testing frameworks', 'Bug bounty програми (HackerOne, Bugcrowd)'] },
+          { icon: '🌟', title: 'Senior Изследовател', dur: '6+ години', body: 'Конференции (DEFCon, Black Hat, OffensiveCon), елитни изследвания.', items: ['Публичен CVE track record', 'Презентация (BSides Sofia, DefCamp)', 'Академична публикация или whitepaper', 'Изследователски екип в Acronis/Secragon'] },
+        ]
+      },
+      {
+        id: 'risk_manager', name: 'Мениджър на киберрискове', full: 'Мениджър на киберрискове', icon: '📊', enisa: 'ECSF-09',
+        desc: 'Идентифицира, анализира и управлява киберрискове. Неразделна роля за NIS2 съответствие, DORA и enterprise GRC.',
+        bgMatch: ['legal', 'manager', 'data', 'other'], interestMatch: ['risk', 'policy', 'leadership'], techMin: 'basic', expMin: 2,
+        demand: 'NIS2 движен', demandClass: 'd-high',
+        salary: '€2,000–5,100+', entry: '2+ години бизнес/IT',
+        certPath: [{ name: 'ISO 27001 LI', price: '~€2,500' }, { name: 'CRISC', price: '~€600' }, { name: 'CISM', price: '~€600' }],
+        certNote: 'NIS2 (Феб 2026) в България означава 10,000+ организации, нуждаещи се от risk managers — отличен timing! DORA е специфичен за финансовия сектор. CRISC е водещият сертификат за risk management.',
+        skills: ['Методологии за оценка на риска', 'DORA ICT risk', 'NIS2 управление на риска', 'BIA / BCP', 'Third-party risk', 'Отчитане на риска'],
+        companies: ['SAP Labs Bulgaria', 'PwC Bulgaria', 'Deloitte Bulgaria', 'Commerzbank DTC', 'Fibank', 'EnduroSat', 'Unicredit Bulbank'],
+        phases: [
+          { icon: '📋', title: 'Основи на риска и съответствието', dur: '0–6 месеца', body: 'NIS2 в България (Феб 2026) означава 10,000+ компании се нуждаят от risk managers.', items: ['ISO 27001 Lead Implementer (~€2,500)', 'GDPR / NIS2 изисквания за риска', 'Risk register методология', 'GRC инструменти: ServiceNow, Archer'] },
+          { icon: '📊', title: 'Risk Анализатор / GRC Специалист', dur: '1–3 години', body: 'Собственост на risk assessments, third-party risk прегледи, NIS2 отчетност.', items: ['CRISC сертификат (~€600)', 'DORA ICT risk framework (финтех)', 'Количествен анализ на риска (FAIR model)', 'Executive risk отчитане'] },
+          { icon: '🎯', title: 'Senior Risk Manager', dur: '3–7 години', body: 'Ръководи enterprise risk функцията. Управлявай risk committees и борд отчитане.', items: ['CISM сертификат (~€600)', 'DORA ICT risk manager роля (банка/финтех)', 'Risk KPIs и metrics frameworks', 'Board-level risk appetite statements'] },
+        ]
+      },
+      {
+        id: 'dfir', name: 'Цифрова криминалистика', full: 'Специалист по цифрова криминалистика', icon: '🔬', enisa: 'ECSF-10',
+        desc: 'Извършва разследвания на цифрова криминалистика на компрометирани системи. Подпомага правоохранителните органи и вътрешни разследвания.',
+        bgMatch: ['sysadmin', 'secops', 'other'], interestMatch: ['forensics', 'puzzle', 'malware'], techMin: 'intermediate', expMin: 2,
+        demand: 'Специализирано', demandClass: 'd-mid',
+        salary: '€1,800–6,200+', entry: '2+ години IT/сигурност',
+        certPath: [{ name: 'CompTIA Security+', price: '~€350' }, { name: 'GCFE / GCFA', price: '~€2,500' }, { name: 'CHFI', price: '~€1,000' }],
+        certNote: 'DFIR е специализирана роля в БГ. ГДБОП (киберпрестъпления) е уникален работодател. DXC и Deloitte имат DFIR практики. GCFE/GCFA са стандартите за серфоника криминалистика.',
+        skills: ['Дисков форензика', 'Memory анализ', 'Log анализ', 'Chain of custody', 'Правни доклади', 'Реконструкция на timeline'],
+        companies: ['ГДБОП', 'DXC Technology', 'Deloitte DFIR', 'Amatas', 'Mnemonica', 'Baseline/CENTIO'],
+        phases: [
+          { icon: '🖥️', title: 'Криминалистична основа', dur: '0–1 година', body: 'Научи OS internals, файлови системи и базови криминалистични инструменти.', items: ['TryHackMe DFIR path', 'Autopsy + FTK Imager основи', 'Wireshark мрежова форензика', 'Windows artifact анализ (registry, prefetch)'] },
+          { icon: '🔎', title: 'Форензичен Анализатор', dur: '1–3 години', body: 'Работи на реални разследвания — корпоративни пробиви, e-discovery, подпомагане на правоохранителните.', items: ['GCFE (GIAC Certified Forensic Examiner) (~€2,500)', 'Memory forensics: Volatility 3', 'Log корелация с Splunk/ELK', 'Chain-of-custody правни процедури'] },
+          { icon: '⚖️', title: 'Senior Изследовател / Експерт свидетел', dur: '3+ години', body: 'Ръководи сложни разследвания, осигурява експертни показания.', items: ['GCFA сертификат', 'Познаване на ГДБОП процедури', 'Подготовка за expert witness', 'ICS/OT форензика (растящ сектор)'] },
+        ]
+      },
+      {
+        id: 'pentester', name: 'Тестер за проникване', full: 'Пентестер (Тестер за проникване)', icon: '🎯', enisa: 'ECSF-11',
+        desc: 'Симулира реални атаки срещу системи, мрежи и приложения за да открие уязвимости преди злонамерени актьори.',
+        bgMatch: ['developer', 'sysadmin', 'network', 'student'], interestMatch: ['hacking', 'puzzle', 'malware'], techMin: 'intermediate', expMin: 1,
+        demand: 'Стабилно търсене', demandClass: 'd-mid',
+        salary: '€1,300–6,200+', entry: '1–2 години IT/програмиране',
+        certPath: [{ name: 'eJPT', price: '~€200' }, { name: 'HTB CPTS', price: '~€400' }, { name: 'OSCP', price: '~€1,500' }],
+        certNote: 'OSCP е стандартът в БГ обяви. A-LIGN изисква OSCP. eJPT → CPTS → OSCP е правилната прогресия. CEH е главно HR филтър — знанието тежи повече.',
+        skills: ['Уеб тестване (OWASP)', 'Мрежов пентест', 'Active Directory атаки', 'Burp Suite', 'Metasploit', 'Писане на доклади'],
+        companies: ['A-LIGN', 'Amatas', '7Security (7Sec)', 'Secragon', 'dFsec', 'Lirex', 'Nordic Recruitment'],
+        phases: [
+          { icon: '🌱', title: 'Хакинг основи', dur: '0–6 месеца', body: 'TryHackMe → HackTheBox Academy. Linux, мрежи и базова уеб експлоатация са задължителни.', items: ['TryHackMe Jr. Pentester path (~€10/мес)', 'Linux & мрежи — задълбочаване', 'OWASP Top 10 labs (PortSwigger Academy, безплатно)', 'Burp Suite Community Edition'] },
+          { icon: '⚔️', title: 'eJPT + HTB практика', dur: '6–18 месеца', body: 'Първи сертификат: eJPT (~€200). Практика на HTB retired машини + ippsec видеа.', items: ['eJPT сертификат (~€200)', '40+ HTB retired машини + writeups', 'Active Directory атаки основи', 'Писане на пентест доклади'] },
+          { icon: '🏆', title: 'OSCP и Професионален', dur: '18 месеца+', body: 'OSCP е златният стандарт в БГ обяви. Отваря врати в A-LIGN, Amatas, 7Sec.', items: ['OSCP сертификат (~€1,500)', 'Уеб апп специализация (Burp Pro)', 'Корпоративни пентест ангажименти', 'Публично портфолио (HTB, CTFs, writeups)'] },
+        ]
+      },
+      {
+        id: 'security_engineer', name: 'Инженер по сигурността', full: 'Инженер по сигурността', icon: '⚙️', enisa: 'ECSF-12',
+        desc: 'Внедрява и поддържа инструменти и технологии за сигурност. Най-търсената роля в България — SIEM, EDR, firewalls, DevSecOps.',
+        bgMatch: ['developer', 'sysadmin', 'network', 'secops'], interestMatch: ['defending', 'cloud', 'appsec', 'architecture'], techMin: 'intermediate', expMin: 2,
+        demand: '⭐ Най-търсено', demandClass: 'd-v-high',
+        salary: '€1,500–7,200+', entry: '2+ години IT/разработка',
+        certPath: [{ name: 'CompTIA Security+', price: '~€350' }, { name: 'SC-200', price: '~€165' }, { name: 'CISSP', price: '~€700' }, { name: 'AZ-500', price: '~€165' }],
+        certNote: 'Security Engineer е позицията с рейтинг 7/10 търсене по CSF.bg. Microsoft SC-200 е много търсен за Sentinel роли. AZ-500 за Azure среди. CISSP за Senior/Lead нива.',
+        skills: ['SIEM/SOAR (Sentinel, Splunk)', 'Firewall и WAF управление', 'Vulnerability management', 'Облачна сигурност', 'DevSecOps/SDLC', 'IAM/PAM'],
+        companies: ['Payhawk', 'DXC Technology', 'Commerzbank DTC', 'Progress Software', 'Bosch', 'Integrity360', 'Experian'],
+        phases: [
+          { icon: '🛠️', title: 'Техническа IT основа', dur: '0–2 години', body: 'Най-силен вход: системна администрация, мрежово инженерство или разработка.', items: ['CompTIA Security+ (~€350)', 'SIEM основи: Microsoft Sentinel или Splunk', 'Мрежова сигурност: firewalls, VPN, IDS/IPS', 'Cloud основи: AZ-900 или AWS Cloud Practitioner'] },
+          { icon: '⚙️', title: 'Security Engineer', dur: '2–5 години', body: 'Собственост върху конкретни security инструменти. Vulnerability management, SIEM tuning, облачна сигурност.', items: ['Microsoft SC-200 или AZ-500 (~€165)', 'Vulnerability scanner: Qualys/Tenable', 'DevSecOps основи: SAST/DAST инструменти', 'Security Engineer роля в БГ финтех или банка'] },
+          { icon: '🚀', title: 'Senior / DevSecOps', dur: '5+ години', body: 'Senior Engineer или DevSecOps. Най-високи заплати в БГ пазара — до €7,200+/мес.', items: ['CISSP (~€700) или cloud security specialty', 'CI/CD pipeline security (GitHub Actions, GitLab)', 'Kubernetes security', 'Threat modeling в SDLC процес'] },
+        ]
+      },
+    ];
+
+    // Events data
+    const EVENTS = [
+      { icon: '🛡️', type: 'Конференция', date: 'Март всяка година', title: 'BSides Sofia', desc: 'Водещата независима security конференция в България. Идеална за нетуъркинг и начинаещи специалисти.', link: 'https://securitybsides.bg' },
+      { icon: '💬', type: 'Месечно', date: 'Всеки месец', title: 'Cyber Security Talks Bulgaria', desc: 'Ежемесечни разговори с практикуващи специалисти. Открита и достъпна за всички нива.', link: 'https://cybersecuritytalks.bg' },
+      { icon: '🌍', type: 'Конференция', date: 'Ноември всяка година', title: 'DefCamp Букурещ', desc: 'Водещата регионална киберсигурностна конференция — близо до БГ, с отлично ниво.', link: 'https://def.camp' },
+      { icon: '🏆', type: 'CTF', date: 'Веднъж годишно', title: 'ECSC/CCBC CTF', desc: 'Националният CTF отбор на България. Участвай и се класирай за Европейски CTF.', link: 'https://ecsc-bg.eu' },
+      { icon: '🐧', type: 'Фестивал', date: 'Ноември всяка година', title: 'OpenFest', desc: 'Open source и tech фестивал с security track. Достъпен и разнообразен.', link: 'https://openfest.org' },
+      { icon: '🔐', type: 'Meetup', date: 'Редовни срещи', title: 'OWASP Sofia Chapter', desc: 'Местната OWASP глава — фокус върху уеб сигурност. Прекрасно за AppSec и разработчици.', link: 'https://owasp.org/www-chapter-sofia/' },
+    ];
+
+    // Resources data
+    const RESOURCES = [
+      { cat: 'Практическа платформа', name: 'TryHackMe', desc: 'Интерактивно учебно пространство — идеалното начало за абсолютни новаци. Безплатен + premium.', link: 'https://tryhackme.com' },
+      { cat: 'Практическа платформа', name: 'HackTheBox Academy', desc: 'Структурирани модули с обяснения. Platinum за CPTS подготовка. Частично безплатен.', link: 'https://academy.hackthebox.com' },
+      { cat: 'Уеб сигурност (безплатно)', name: 'PortSwigger Web Security Academy', desc: 'Безплатен — OWASP уязвимости с интерактивни labs от хората зад Burp Suite.', link: 'https://portswigger.net/web-security' },
+      { cat: 'YouTube канал', name: 'ippsec', desc: 'HackTheBox решения с детайлни обяснения. Задължителен за всяка пентест пътека.', link: 'https://youtube.com/@ippsec' },
+      { cat: 'YouTube канал', name: 'John Hammond', desc: 'CTF решения, malware анализ, практически демонстрации. Широк обхват.', link: 'https://youtube.com/@_JohnHammond' },
+      { cat: 'БГ Организация', name: 'CSF.bg', desc: 'Фондацията за киберсигурност — обяви, компании, кариерни пътеки, обучения.', link: 'https://csf.bg' },
+      { cat: 'Обучителна платформа', name: 'Over The Wire Wargames', desc: 'Безплатни wargames. Bandit за Linux, Natas за уеб. Класика за начинаещи.', link: 'https://overthewire.org' },
+      { cat: 'Рамка', name: 'ENISA ECSF', desc: 'Официалната европейска рамка за компетенции в киберсигурността — 12 роли.', link: 'https://www.enisa.europa.eu/topics/skills-and-competences/skills-development/european-cybersecurity-skills-framework-ecsf' },
+      { cat: 'Рамка', name: 'NIST NICE Framework', desc: 'Американската национална рамка за кибер работна сила — широко използвана глобално.', link: 'https://www.nist.gov/itl/applied-cybersecurity/nice' },
+      { cat: 'Обяви за работа', name: 'DEV.BG IT Security', desc: 'Водещата БГ IT борса с отделна категория IT Security. ~92 активни обяви.', link: 'https://dev.bg/company/jobs/it-security/' },
+      { cat: 'Подкаст', name: 'Darknet Diaries', desc: 'Подкаст с реални истории от индустрията. Отличен за разбиране на threat landscape.', link: 'https://darknetdiaries.com' },
+    ];
+
+    // ============================================================
+    // WIZARD LOGIC
+    // ============================================================
+    let currentStage = 1;
+
+    // Safe scroll helper — silently fails in sandboxed iframes
+    function safeScroll(target) {
+      try {
+        if (typeof target === 'number') window.scrollTo({ top: target, behavior: 'smooth' });
+        else if (target && target.scrollIntoView) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch (e) { }
+    }
+
+    function goToStage(n) {
+      document.getElementById('stage' + currentStage).classList.remove('active');
+      currentStage = n;
+      document.getElementById('stage' + n).classList.add('active');
+      updateProgressBar(n);
+      safeScroll(document.getElementById('wizard-wrap').offsetTop - 80);
+    }
+
+    function updateProgressBar(n) {
+      for (let i = 1; i <= 5; i++) {
+        const ps = document.getElementById('ps' + i);
+        ps.classList.remove('active', 'done');
+        if (i < n) { ps.classList.add('done'); ps.querySelector('.prog-dot').innerHTML = '✓'; }
+        else if (i === n) { ps.classList.add('active'); ps.querySelector('.prog-dot').textContent = i; }
+        else { ps.querySelector('.prog-dot').textContent = i; }
+      }
+    }
+
+    function selectSingle(group, val, stageAfter) {
+      profile[group] = val;
+      // Also treat 'sysadmin' as covering the old 'network' profile for scoring
+      if (group === 'bg' && val === 'sysadmin') profile._bgAlt = 'network';
+      else if (group === 'bg') delete profile._bgAlt;
+
+      let container;
+      if (group === 'bg') container = document.querySelector('#stage1 .opt-grid');
+      else if (group === 'tech') container = document.getElementById('techCards');
+      else if (group === 'goal') container = document.getElementById('goalCards');
+      if (!container) return;
+      container.querySelectorAll('.opt-card').forEach(c => c.classList.toggle('selected', c.dataset.val === val));
+      // Auto-advance after short delay
+      setTimeout(() => goToStage(stageAfter), 280);
+    }
+
+    function selectGoal(val) {
+      profile.goal = val;
+      const container = document.getElementById('goalCards');
+      container.querySelectorAll('.opt-card').forEach(c => c.classList.toggle('selected', c.dataset.val === val));
+      setTimeout(() => generateResults(), 320);
+    }
+
+    function toggleInterest(el, val) {
+      el.classList.toggle('selected');
+      if (el.classList.contains('selected')) { if (!profile.interests.includes(val)) profile.interests.push(val); }
+      else { profile.interests = profile.interests.filter(v => v !== val); }
+    }
+
+    function updateSlider() {
+      const v = parseInt(document.getElementById('expSlider').value);
+      profile.exp = v;
+      const labels = ['0 — Начало', '1 година', '2 години', '3 години', '4 години', '5 години', '6 години', '7 години', '8 години', '9 години', '10 години', '11 години', '12 години', '13 години', '14 години', '15 години', '16 години', '17 години', '18 години', '19 години', '20+ години'];
+      document.getElementById('expDisplay').textContent = labels[v] || v + ' години';
+    }
+
+    // Build certs grid
+    (function renderCerts() {
+      const g = document.getElementById('certsGrid');
+      g.innerHTML = ALL_CERTS.map(c => `
+      <div class="cert-opt" onclick="toggleCert(this,'${c.id}')" data-val="${c.id}">
+        <div class="cert-name">${c.name}</div>
+        <div class="cert-cat">${c.cat}</div>
+      </div>`).join('');
+    })();
+
+    function toggleCert(el, val) {
+      el.classList.toggle('selected');
+      if (el.classList.contains('selected')) { if (!profile.certs.includes(val)) profile.certs.push(val); }
+      else { profile.certs = profile.certs.filter(v => v !== val); }
+    }
+
+    // ============================================================
+    // SCORING
+    // ============================================================
+    function scoreRoles() {
+      const techLevels = ['none', 'basic', 'intermediate', 'advanced', 'expert'];
+      // sysadmin now covers the merged IT/Network profile — match both
+      const bgVal = profile.bg;
+      const bgVals = bgVal === 'sysadmin' ? ['sysadmin', 'network'] : [bgVal];
+      return ROLES.map(r => {
+        let score = 0;
+        if (bgVals.some(v => r.bgMatch.includes(v))) score += 30;
+        score += profile.interests.filter(i => r.interestMatch.includes(i)).length * 15;
+        const expGap = Math.max(0, r.expMin - profile.exp);
+        score -= expGap * 5;
+        if (profile.exp >= r.expMin) score += 10;
+        if (profile.exp >= r.expMin + 3) score += 5;
+        const ut = techLevels.indexOf(profile.tech), rt = techLevels.indexOf(r.techMin);
+        if (ut >= rt) score += 10; else score -= (rt - ut) * 10;
+        const hasCert = profile.certs.some(c => r.certPath.some(cp => cp.name.toLowerCase().includes(c.toLowerCase().replace('+', ' plus').replace('+', ''))));
+        if (hasCert) score += 15;
+        if (profile.goal === 'leadership' && ['ciso', 'architect'].includes(r.id)) score += 20;
+        if (profile.goal === 'entry' && r.expMin <= 2) score += 15;
+        if (profile.goal === 'specialist' && ['pentester', 'dfir', 'threat_intel', 'researcher'].includes(r.id)) score += 15;
+        if (profile.goal === 'consulting' && ['auditor', 'pentester', 'legal_compliance'].includes(r.id)) score += 15;
+        if (profile.goal === 'research' && ['researcher', 'threat_intel'].includes(r.id)) score += 20;
+        if (profile.goal === 'pivot') score += 5;
+        return { ...r, score: Math.max(0, Math.min(100, score)) };
+      }).sort((a, b) => b.score - a.score);
+    }
+
+    // ============================================================
+    // GENERATE RESULTS
+    // ============================================================
+    let scoredRoles = [];
+    let activeRoleId = null;
+
+    function generateResults() {
+      scoredRoles = scoreRoles();
+      const topRole = scoredRoles[0];
+      activeRoleId = topRole.id;
+
+      // Encode to URL (safe — fails silently in sandboxed iframes)
+      try {
+        const params = new URLSearchParams({
+          bg: profile.bg, tech: profile.tech, exp: profile.exp,
+          interests: profile.interests.join(','), certs: profile.certs.join(','), goal: profile.goal
+        });
+        history.replaceState(null, '', '?' + params.toString());
+      } catch (e) { /* sandboxed environment — skip URL update */ }
+
+      // Show results
+      document.getElementById('wizard-wrap').style.display = 'none';
+      document.getElementById('results-wrap').style.display = 'block';
+      safeScroll(0);
+
+      // Results title
+      document.getElementById('resultsTitle').innerHTML = `Намерихме твоята пътека: <em>${topRole.name}</em>`;
+      document.getElementById('resultsDesc').textContent = `Топ съответствие с ${topRole.full} (${topRole.enisa}) — базирано на твоя профил и Българския пазар на труда 2025–2026.`;
+
+      // Render match grid
+      renderMatchGrid();
+      // Render role detail
+      renderRoleDetail(topRole.id);
+      // Render career map
+      setTimeout(drawCareerMap, 300);
+      // Render market stats
+      renderMarketStats();
+      // Render resources + events
+      renderResources();
+      renderEvents();
+      // Trigger skill bar animation
+      setTimeout(triggerSkillBars, 600);
+
+      // Setup skill bar observer
+      const skillObs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { triggerSkillBars(); skillObs.unobserve(e.target); } });
+      }, { threshold: .3 });
+      const sg = document.getElementById('skillsGrid');
+      if (sg) skillObs.observe(sg);
+    }
+
+    function renderMatchGrid() {
+      const top3 = scoredRoles.slice(0, 3), rest = scoredRoles.slice(3, 9);
+      const all = [...top3.map((r, i) => ({ ...r, isTop: i < 3 })), ...rest.map(r => ({ ...r, isTop: false }))];
+      document.getElementById('matchGrid').innerHTML = all.map(r => {
+        const cls = r.score >= 60 ? 'pct-high' : r.score >= 35 ? 'pct-mid' : 'pct-low';
+        return `<div class="match-card${r.isTop && scoredRoles.indexOf(r) < 3 ? ' top-match' : ''}${r.id === activeRoleId ? ' active-role' : ''}" onclick="renderRoleDetail('${r.id}')">
+        <div class="match-header"><span class="match-icon">${r.icon}</span><span class="match-pct-badge ${cls}">${r.score}% съответствие</span></div>
+        <div class="match-name">${r.name}</div>
+        <div class="match-enisa">${r.enisa} · ENISA ECSF</div>
+        <div class="match-desc">${r.desc.substring(0, 90)}…</div>
+        <div class="match-chips">
+          <span class="match-chip chip-salary">${r.salary}</span>
+          <span class="match-chip chip-demand">${r.demand}</span>
+          <span class="match-chip chip-entry">От: ${r.entry}</span>
+        </div>
+      </div>`;
+      }).join('');
+    }
+
+    function renderRoleDetail(roleId) {
+      activeRoleId = roleId;
+      const r = ROLES.find(x => x.id === roleId);
+      if (!r) return;
+      document.querySelectorAll('.match-card').forEach(c => {
+        c.classList.toggle('active-role', c.querySelector('.match-name')?.textContent === r.name);
+      });
+
+      // Banner
+      document.getElementById('roadmap-title').textContent = 'Пътека: ' + r.full;
+      document.getElementById('roadmap-banner').innerHTML = `
+      <div class="detail-role-icon">${r.icon}</div>
+      <div>
+        <div class="detail-role-name">${r.full}</div>
+        <div class="detail-role-sub">${r.enisa} · ENISA ECSF · NICE: ${r.niceRole || '—'}</div>
+        <div class="detail-role-chips" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem;">
+          <span class="match-chip chip-salary">${r.salary}</span>
+          <span class="match-chip chip-demand">${r.demand}</span>
+          <span class="match-chip chip-entry">Вход: ${r.entry}</span>
+        </div>
+      </div>`;
+
+      // Roadmap
+      document.getElementById('roadmapTimeline').innerHTML = r.phases.map((p, i) => `
+      <div class="timeline-phase">
+        <div class="phase-dot">${p.icon}</div>
+        <div class="phase-card">
+          <div class="phase-header">
+            <div class="phase-title">Фаза ${i + 1}: ${p.title}</div>
+            <span class="phase-dur">${p.dur}</span>
+          </div>
+          <div class="phase-body">${p.body}</div>
+          <ul class="phase-items">${p.items.map(it => `<li>${it}</li>`).join('')}</ul>
+        </div>
+      </div>`).join('');
+
+      // Certs
+      document.getElementById('certs-title').textContent = 'Сертификации за ' + r.name;
+      document.getElementById('certPath').innerHTML = r.certPath.map((c, i) => `
+      ${i > 0 ? '<span class="cert-node-arrow">→</span>' : ''}
+      <div class="cert-node"><div class="cert-node-name">${c.name}</div><div class="cert-node-price">${c.price}</div></div>`).join('');
+      document.getElementById('certMarketNote').textContent = r.certNote;
+
+      // Skills
+      document.getElementById('skills-title').textContent = 'Умения: ' + r.name;
+      document.getElementById('skillsGrid').innerHTML = r.skills.map(s => {
+        const pct = 55 + Math.floor(Math.random() * 40);
+        return `<div class="skill-bar-item">
+        <div class="skill-bar-label"><span class="skill-bar-name">${s}</span><span class="skill-bar-pct">${pct}%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:0%" data-target="${pct}%"></div></div>
+      </div>`;
+      }).join('');
+      setTimeout(triggerSkillBars, 100);
+
+      // Companies
+      document.getElementById('companies-title').textContent = 'Работодатели за ' + r.name;
+      document.getElementById('companiesList').innerHTML = r.companies.map(c => `
+      <span class="company-chip"><span class="company-chip-dot"></span>${c}</span>`).join('');
+
+      // Scroll to roadmap
+      setTimeout(() => {
+        safeScroll(document.getElementById('block-roadmap'));
+      }, 100);
+
+      // Redraw map
+      drawCareerMap();
+    }
+
+    function triggerSkillBars() {
+      document.querySelectorAll('.skill-bar-fill[data-target]').forEach(bar => {
+        bar.style.width = bar.dataset.target;
+      });
+    }
+
+    // ============================================================
+    // MARKET STATS
+    // ============================================================
+    function renderMarketStats() {
+      document.getElementById('marketStats').innerHTML = `
+      <div class="market-stat-card"><div class="market-stat-label">Пазарен размер (2024)</div><div class="market-stat-val">$74M</div><div class="market-stat-sub">→ $115M до 2029 (~9% CAGR)</div></div>
+      <div class="market-stat-card"><div class="market-stat-label">Активни обяви (март 2026)</div><div class="market-stat-val">60–92</div><div class="market-stat-sub">DEV.BG, LinkedIn, Jobs.bg</div></div>
+      <div class="market-stat-card"><div class="market-stat-label">NIS2 организации (БГ)</div><div class="market-stat-val">10 000+</div><div class="market-stat-sub">В обхват от Феб 2026</div></div>
+      <div class="market-stat-card"><div class="market-stat-label">Средна ИКТ заплата (бруто)</div><div class="market-stat-val">€3 070</div><div class="market-stat-sub">Най-високо в БГ по сектори</div></div>
+      <div class="market-stat-card"><div class="market-stat-label">Дял ИКТ от БВП</div><div class="market-stat-val">9.6%</div><div class="market-stat-sub">Сред най-високите в ЕС</div></div>
+      <div class="market-stat-card"><div class="market-stat-label">Remote EU/UK premium</div><div class="market-stat-val">~€57K</div><div class="market-stat-sub">Средна годишна за remote кибер</div></div>`;
+    }
+
+    // ============================================================
+    // RESOURCES & EVENTS
+    // ============================================================
+    function renderResources() {
+      document.getElementById('resourcesGrid').innerHTML = RESOURCES.map(r => `
+      <div class="resource-card">
+        <div class="resource-cat">${r.cat}</div>
+        <div class="resource-name">${r.name}</div>
+        <div class="resource-desc">${r.desc}</div>
+        <a href="${r.link}" target="_blank" rel="noopener" class="resource-link">Посети →</a>
+      </div>`).join('');
+    }
+
+    function renderEvents() {
+      document.getElementById('eventsGrid').innerHTML = EVENTS.map(e => `
+      <div class="event-card">
+        <div class="event-header"><span class="event-icon">${e.icon}</span><span class="event-type-badge">${e.type}</span></div>
+        <div class="event-body">
+          <div class="event-date">${e.date}</div>
+          <div class="event-title">${e.title}</div>
+          <div class="event-desc">${e.desc}</div>
+          <a href="${e.link}" target="_blank" rel="noopener" class="event-link">Научи повече →</a>
+        </div>
+      </div>`).join('');
+    }
+
+    // ============================================================
+    // CAREER MAP CANVAS
+    // ============================================================
+    function drawCareerMap() {
+      const canvas = document.getElementById('careerMapCanvas');
+      if (!canvas) return;
+      const W = canvas.offsetWidth || 900, H = 460;
+      canvas.width = W; canvas.height = H;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, W, H);
+
+      // Background
+      ctx.fillStyle = '#FAF8F3'; ctx.fillRect(0, 0, W, H);
+
+      // Grid
+      ctx.strokeStyle = 'rgba(216,206,188,0.5)'; ctx.lineWidth = 1;
+      for (let x = 0; x < W; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+      for (let y = 0; y < H; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+
+      const cx = W * 0.5, cy = H * 0.5;
+      const nodes = {
+        security_engineer: { x: cx, y: cy, r: 30, label: 'Инженер', icon: '⚙️', c: '#2B5BB5' },
+        architect: { x: cx, y: cy - 140, r: 25, label: 'Архитект', icon: '🏗️', c: '#10b981' },
+        ciso: { x: cx, y: cy - 215, r: 28, label: 'CISO', icon: '👑', c: '#8b5cf6' },
+        pentester: { x: cx - 195, y: cy - 75, r: 25, label: 'Пентест', icon: '🎯', c: '#ef4444' },
+        researcher: { x: cx - 275, y: cy - 155, r: 20, label: 'Изследовател', icon: '🔭', c: '#8b5cf6' },
+        dfir: { x: cx - 215, y: cy + 80, r: 22, label: 'DFIR', icon: '🔬', c: '#06b6d4' },
+        incident_responder: { x: cx + 185, y: cy - 65, r: 25, label: 'IR', icon: '🚨', c: '#f97316' },
+        threat_intel: { x: cx + 275, y: cy - 145, r: 21, label: 'Threat Intel', icon: '🕵️', c: '#06b6d4' },
+        risk_manager: { x: cx - 95, y: cy + 145, r: 23, label: 'Risk Mgr', icon: '📊', c: '#f59e0b' },
+        legal_compliance: { x: cx + 100, y: cy + 145, r: 23, label: 'Правo/Съответствие', icon: '⚖️', c: '#f59e0b' },
+        auditor: { x: cx, y: cy + 200, r: 22, label: 'Одитор', icon: '📝', c: '#f59e0b' },
+        educator: { x: cx + 278, y: cy + 100, r: 19, label: 'Обучител', icon: '📚', c: '#6366f1' },
+      };
+
+      const edges = [['security_engineer', 'architect'], ['security_engineer', 'pentester'], ['security_engineer', 'incident_responder'],
+      ['security_engineer', 'risk_manager'], ['security_engineer', 'legal_compliance'], ['security_engineer', 'dfir'],
+      ['architect', 'ciso'], ['incident_responder', 'ciso'], ['risk_manager', 'ciso'], ['legal_compliance', 'ciso'], ['auditor', 'ciso'],
+      ['pentester', 'researcher'], ['pentester', 'dfir'], ['dfir', 'incident_responder'],
+      ['threat_intel', 'incident_responder'], ['threat_intel', 'researcher'],
+      ['risk_manager', 'auditor'], ['legal_compliance', 'auditor'],
+      ['incident_responder', 'educator'], ['security_engineer', 'educator']];
+
+      const scoreMap = {};
+      scoredRoles.forEach(r => { scoreMap[r.id] = r.score; });
+
+      // Draw edges
+      edges.forEach(([a, b]) => {
+        const f = nodes[a], t = nodes[b]; if (!f || !t) return;
+        const isActive = activeRoleId && (a === activeRoleId || b === activeRoleId);
+        ctx.beginPath(); ctx.moveTo(f.x, f.y); ctx.lineTo(t.x, t.y);
+        ctx.strokeStyle = isActive ? 'rgba(43,91,181,0.4)' : 'rgba(216,206,188,0.8)';
+        ctx.lineWidth = isActive ? 2 : 1; ctx.stroke();
+      });
+
+      // Draw nodes
+      Object.entries(nodes).forEach(([id, n]) => {
+        const score = scoreMap[id] || 0;
+        const isTop = scoredRoles[0]?.id === id;
+        const isActive = id === activeRoleId;
+
+        // Glow
+        if (score > 40 || isActive) {
+          const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r + 18);
+          g.addColorStop(0, n.c + '33'); g.addColorStop(1, 'transparent');
+          ctx.fillStyle = g; ctx.beginPath(); ctx.arc(n.x, n.y, n.r + 18, 0, Math.PI * 2); ctx.fill();
+        }
+
+        // Circle
+        ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = isActive ? n.c + '22' : isTop ? n.c + '18' : '#FFFFFF';
+        ctx.fill();
+        ctx.strokeStyle = isActive || isTop ? n.c : (score > 40 ? n.c + '99' : 'rgba(216,206,188,1)');
+        ctx.lineWidth = isActive ? 2.5 : isTop ? 2 : 1.5; ctx.stroke();
+
+        // Icon
+        ctx.font = `${n.r * 0.9}px serif`;
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(n.icon, n.x, n.y);
+
+        // Label
+        ctx.font = '11px "DM Sans",sans-serif';
+        ctx.fillStyle = isActive || isTop ? n.c : (score > 40 ? n.c : '#7A5C3C');
+        ctx.fillText(n.label, n.x, n.y + n.r + 14);
+
+        // Score
+        if (score > 0) {
+          ctx.font = 'bold 9px monospace';
+          ctx.fillStyle = isActive || isTop ? n.c : '#C4B49A';
+          ctx.fillText(score + '%', n.x, n.y + n.r + 26);
+        }
+
+        // Top star
+        if (isTop) { ctx.font = '11px serif'; ctx.fillStyle = n.c; ctx.fillText('★', n.x + n.r - 2, n.y - n.r + 4); }
+      });
+
+      // Legend
+      [['#2E7D32', 'Топ съответствие'], ['#1565C0', 'Добро съответствие'], ['#7A5C3C', 'Останали роли']].forEach(([c, l], i) => {
+        ctx.fillStyle = c; ctx.fillRect(12, 12 + i * 18, 8, 8);
+        ctx.font = '10px "DM Sans",sans-serif'; ctx.fillStyle = '#7A5C3C'; ctx.textAlign = 'left'; ctx.fillText(l, 26, 19 + i * 18);
+      });
+
+      // Click
+      canvas.onclick = e => {
+        const rect = canvas.getBoundingClientRect();
+        const sx = canvas.width / rect.width, sy = canvas.height / rect.height;
+        const px = (e.clientX - rect.left) * sx, py = (e.clientY - rect.top) * sy;
+        let hit = null;
+        Object.entries(nodes).forEach(([id, n]) => { if (Math.sqrt((px - n.x) ** 2 + (py - n.y) ** 2) <= n.r + 8) hit = id; });
+        if (hit) { renderRoleDetail(hit); }
+      };
+    }
+
+    window.addEventListener('resize', () => { if (document.getElementById('results-wrap').style.display !== 'none') setTimeout(drawCareerMap, 100); });
+
+    // ============================================================
+    // SHARE & RESTART
+    // ============================================================
+    function copyShareUrl() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const t = document.getElementById('copyToast');
+        t.style.display = 'inline-block';
+        setTimeout(() => { t.style.display = 'none'; }, 2500);
+      });
+    }
+
+    function restartWizard() {
+      profile.bg = ''; profile.tech = ''; profile.exp = 3; profile.interests = []; profile.certs = []; profile.goal = '';
+      document.querySelectorAll('.opt-card.selected,.int-tag.selected,.cert-opt.selected').forEach(e => e.classList.remove('selected'));
+      document.getElementById('expSlider').value = 3; updateSlider();
+      try { history.replaceState(null, '', window.location.pathname); } catch (e) { }
+      document.getElementById('results-wrap').style.display = 'none';
+      document.getElementById('wizard-wrap').style.display = 'block';
+      currentStage = 1;
+      document.querySelectorAll('.wizard-stage').forEach(s => s.classList.remove('active'));
+      document.getElementById('stage1').classList.add('active');
+      updateProgressBar(1);
+      safeScroll(0);
+    }
+
+    // ============================================================
+    // AUTO-LOAD FROM URL PARAMS
+    // ============================================================
+    (function loadFromUrl() {
+      const p = new URLSearchParams(window.location.search);
+      if (!p.get('bg') || !p.get('goal')) return;
+      profile.bg = p.get('bg') || '';
+      profile.tech = p.get('tech') || '';
+      profile.exp = parseInt(p.get('exp')) || 3;
+      profile.interests = p.get('interests') ? p.get('interests').split(',').filter(Boolean) : [];
+      profile.certs = p.get('certs') ? p.get('certs').split(',').filter(Boolean) : [];
+      profile.goal = p.get('goal') || '';
+
+      // Pre-select UI
+      const bgCard = document.querySelector(`#stage1 .opt-grid .opt-card[data-val="${profile.bg}"]`);
+      if (bgCard) bgCard.classList.add('selected');
+      const techCard = document.querySelector(`#techCards .opt-card[data-val="${profile.tech}"]`);
+      if (techCard) techCard.classList.add('selected');
+      // Set tech slider
+      const techIdx = TECH_LEVELS.findIndex(t => t.val === profile.tech);
+      if (techIdx >= 0) { document.getElementById('techSlider').value = techIdx; updateTechSlider(); }
+      const goalCard = document.querySelector(`#goalCards .opt-card[data-val="${profile.goal}"]`);
+      if (goalCard) goalCard.classList.add('selected');
+      profile.interests.forEach(i => {
+        const tag = document.querySelector(`.int-tag[onclick*="'${i}'"]`);
+        if (tag) tag.classList.add('selected');
+      });
+      profile.certs.forEach(c => {
+        const cert = document.querySelector(`.cert-opt[data-val="${c}"]`);
+        if (cert) cert.classList.add('selected');
+      });
+
+      document.getElementById('expSlider').value = profile.exp;
+      updateSlider();
+      generateResults();
+    })();
+  </script>
+
+</body>
+
+</html>
