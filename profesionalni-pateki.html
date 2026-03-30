@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Професионални пътеки в киберсигурността (ECSF) | CSF.BG</title>
+  <meta name="description"
+    content="Интерактивен навигатор на ECSF профилите — 12 кариерни пътеки в киберсигурността с описания на задачи, умения, знания и сертификации на български." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0D1F3C;
+      --navy-mid: #162B52;
+      --royal: #1E3E7A;
+      --blue: #2B5BB5;
+      --sky: #4A7EC5;
+      --sky-light: #A8C4E8;
+      --beige: #F4EFE4;
+      --cream: #FAF8F3;
+      --sand: #D8CEBC;
+      --tan: #C4B49A;
+      --espresso: #1C120A;
+      --brown: #4A3020;
+      --bark: #7A5C3C;
+      --white: #FFFFFF;
+      --fs-xs: 0.75rem;
+      --fs-sm: 0.875rem;
+      --fs-base: 1rem;
+      --fs-md: 1.125rem;
+      --fs-lg: 1.375rem;
+      --fs-xl: 1.75rem;
+      --fs-2xl: 2.5rem;
+      --fs-3xl: 3.5rem;
+      --radius-sm: 4px;
+      --radius: 8px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 2px 8px rgba(13, 31, 60, 0.08);
+      --shadow: 0 6px 24px rgba(13, 31, 60, 0.12);
+      --shadow-lg: 0 16px 48px rgba(13, 31, 60, 0.18);
+      --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--espresso);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: box-shadow var(--transition), background var(--transition);
+    }
+
+    .navbar.scrolled {
+      background: rgba(13, 31, 60, 0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-abbr {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.06em;
+    }
+
+    .logo-full {
+      font-size: 0.6rem;
+      font-weight: 400;
+      color: var(--sky-light);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links>li {
+      position: relative;
+    }
+
+    .nav-links>li>a,
+    .nav-links>li>button {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.5rem 0.85rem;
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.82);
+      background: none;
+      border: none;
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: color var(--transition), background var(--transition);
+      white-space: nowrap;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links>li>a:hover,
+    .nav-links>li>button:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-links>li>a.active {
+      color: var(--sky-light);
+    }
+
+    .chevron {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-links>li.open>button .chevron {
+      transform: rotate(180deg);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 220px;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--sand);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      overflow: hidden;
+      z-index: 100;
+    }
+
+    .nav-links>li.open .dropdown {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+
+    .dropdown a {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.7rem 1.1rem;
+      font-size: var(--fs-sm);
+      color: var(--brown);
+      transition: background var(--transition), color var(--transition);
+      border-left: 3px solid transparent;
+    }
+
+    .dropdown a:hover {
+      background: var(--beige);
+      color: var(--navy);
+      border-left-color: var(--blue);
+    }
+
+    .dropdown-divider {
+      height: 1px;
+      background: var(--sand);
+      margin: 0.3rem 0;
+    }
+
+    .dropdown-label {
+      padding: 0.5rem 1.1rem 0.25rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--bark);
+    }
+
+    .nav-cta {
+      background: var(--blue) !important;
+      color: var(--white) !important;
+      padding: 0.5rem 1.1rem !important;
+      border-radius: var(--radius-sm) !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-cta:hover {
+      background: var(--royal) !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--navy);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      max-height: calc(100vh - 68px);
+      overflow-y: auto;
+      z-index: 999;
+      padding: 1rem 1.5rem 2rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-nav-section {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.5rem 0;
+    }
+
+    .mobile-nav-toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0.75rem 0;
+      font-size: var(--fs-base);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      text-align: left;
+    }
+
+    .mobile-nav-toggle .chevron {
+      transition: transform 0.25s ease;
+    }
+
+    .mobile-nav-toggle.open .chevron {
+      transform: rotate(180deg);
+    }
+
+    .mobile-sub {
+      display: none;
+      padding: 0 0 0.5rem 1rem;
+    }
+
+    .mobile-sub.open {
+      display: block;
+    }
+
+    .mobile-sub a {
+      display: block;
+      padding: 0.55rem 0;
+      font-size: var(--fs-sm);
+      color: rgba(255, 255, 255, 0.68);
+      border-left: 2px solid rgba(255, 255, 255, 0.1);
+      padding-left: 1rem;
+      transition: color var(--transition);
+    }
+
+    .mobile-sub a:hover {
+      color: var(--sky-light);
+    }
+
+    .mobile-link {
+      display: block;
+      padding: 0.75rem 0;
+      font-size: var(--fs-base);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .mobile-cta {
+      display: block;
+      margin-top: 1.25rem;
+      text-align: center;
+      padding: 0.85rem;
+      background: var(--blue);
+      color: var(--white);
+      border-radius: var(--radius);
+      font-weight: 600;
+    }
+
+    /* PAGE CONTENT */
+    .page-content {
+      padding-top: 68px;
+    }
+
+    .article-section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 2rem;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: var(--fs-sm);
+      color: var(--bark);
+      margin-bottom: 2rem;
+    }
+
+    .breadcrumb a {
+      color: var(--blue);
+      transition: color var(--transition);
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--royal);
+    }
+
+    .breadcrumb svg {
+      width: 14px;
+      height: 14px;
+      color: var(--tan);
+      flex-shrink: 0;
+    }
+
+    .breadcrumb .current {
+      color: var(--espresso);
+      font-weight: 500;
+    }
+
+    .article-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .article-header h1 {
+      font-size: clamp(2rem, 4vw, var(--fs-3xl));
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .article-header h1 em {
+      font-style: italic;
+      color: var(--blue);
+    }
+
+    .article-lead {
+      font-size: var(--fs-md);
+      color: var(--brown);
+      max-width: 720px;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--sand);
+      margin: 2.5rem 0;
+    }
+
+    /* ECSF BADGE */
+    .ecsf-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(43, 91, 181, 0.08);
+      border: 1px solid rgba(43, 91, 181, 0.2);
+      border-radius: 20px;
+      padding: 0.35rem 0.85rem;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+
+    /* PROFILE GRID */
+    .profiles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .profile-tile {
+      background: var(--white);
+      border: 2px solid var(--sand);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.25rem;
+      cursor: pointer;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-tile::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--tile-color, var(--blue));
+    }
+
+    .profile-tile:hover {
+      border-color: var(--tile-color, var(--blue));
+      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+    }
+
+    .profile-tile.selected {
+      border-color: var(--tile-color, var(--blue));
+      box-shadow: 0 0 0 3px rgba(43, 91, 181, 0.15), var(--shadow);
+      background: var(--cream);
+    }
+
+    .tile-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      background: color-mix(in srgb, var(--tile-color, var(--blue)) 12%, transparent);
+    }
+
+    .tile-icon svg {
+      width: 22px;
+      height: 22px;
+      color: var(--tile-color, var(--blue));
+    }
+
+    .tile-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-lg);
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.35rem;
+      line-height: 1.2;
+    }
+
+    .tile-tagline {
+      font-size: var(--fs-xs);
+      color: var(--bark);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    .tile-level {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      background: color-mix(in srgb, var(--tile-color, var(--blue)) 10%, transparent);
+      color: var(--tile-color, var(--blue));
+    }
+
+    /* DETAIL PANEL */
+    .detail-panel {
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 3rem;
+      display: none;
+    }
+
+    .detail-panel.visible {
+      display: block;
+    }
+
+    .detail-header {
+      padding: 2rem 2.5rem 1.5rem;
+      border-bottom: 1px solid var(--sand);
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .detail-header::after {
+      content: '';
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 50%;
+    }
+
+    .detail-header-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .detail-header-icon svg {
+      width: 28px;
+      height: 28px;
+      color: var(--white);
+    }
+
+    .detail-header-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, var(--fs-xl));
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .detail-en-name {
+      font-size: var(--fs-sm);
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 0.5rem;
+    }
+
+    .detail-tagline {
+      font-size: var(--fs-sm);
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 300;
+      line-height: 1.5;
+      max-width: 600px;
+    }
+
+    /* TABS */
+    .tabs-bar {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--sand);
+      background: var(--beige);
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      padding: 0.85rem 1.4rem;
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      color: var(--bark);
+      background: none;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      transition: all var(--transition);
+      font-family: 'DM Sans', sans-serif;
+      margin-bottom: -1px;
+    }
+
+    .tab-btn:hover {
+      color: var(--navy);
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .tab-btn.active {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+      background: var(--white);
+      font-weight: 600;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 2rem 2.5rem;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* TAB CONTENT STYLES */
+    .description-text {
+      font-size: var(--fs-base);
+      color: var(--brown);
+      line-height: 1.8;
+      font-weight: 300;
+      max-width: 800px;
+    }
+
+    .description-text p {
+      margin-bottom: 1rem;
+    }
+
+    .items-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .items-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: var(--fs-sm);
+      color: var(--brown);
+      line-height: 1.55;
+    }
+
+    .items-list li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+      margin-top: 0.5rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .skill-item {
+      background: var(--cream);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius);
+      padding: 0.85rem 1rem;
+      font-size: var(--fs-sm);
+      color: var(--espresso);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .skill-item svg {
+      width: 14px;
+      height: 14px;
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+
+    .knowledge-cols {
+      columns: 2;
+      column-gap: 2rem;
+    }
+
+    .knowledge-cols li {
+      break-inside: avoid;
+      margin-bottom: 0.5rem;
+    }
+
+    .certs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .cert-item {
+      background: var(--cream);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .cert-name {
+      font-weight: 600;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+    }
+
+    .cert-body {
+      font-size: var(--fs-xs);
+      color: var(--bark);
+      margin-top: 0.1rem;
+    }
+
+    .cert-level {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 20px;
+      flex-shrink: 0;
+    }
+
+    .level-beginner {
+      background: #E8F5E9;
+      color: #2E7D32;
+    }
+
+    .level-mid {
+      background: #FFF3E0;
+      color: #E65100;
+    }
+
+    .level-advanced {
+      background: #E3F2FD;
+      color: #1565C0;
+    }
+
+    .resources-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .resource-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      background: var(--cream);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius);
+      font-size: var(--fs-sm);
+      color: var(--brown);
+      transition: all var(--transition);
+    }
+
+    .resource-item:hover {
+      border-color: var(--sky-light);
+      color: var(--navy);
+    }
+
+    .resource-item svg {
+      width: 14px;
+      height: 14px;
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+
+    /* INTRO INFO */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .intro-card {
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+
+    .intro-card-label {
+      font-size: var(--fs-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      color: var(--bark);
+      margin-bottom: 0.4rem;
+    }
+
+    .intro-card-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-lg);
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* EMPTY STATE */
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--bark);
+    }
+
+    .empty-state svg {
+      width: 48px;
+      height: 48px;
+      color: var(--sand);
+      margin-bottom: 1rem;
+    }
+
+    .empty-state p {
+      font-size: var(--fs-sm);
+      max-width: 360px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--espresso);
+      color: rgba(255, 255, 255, 0.55);
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-xl);
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .footer-brand-desc {
+      font-size: var(--fs-sm);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col-title {
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-links a {
+      font-size: var(--fs-sm);
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: var(--fs-xs);
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1024px) {
+      .profiles-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .nav-links,
+      .hamburger {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .article-section {
+        padding: 2.5rem 1.25rem 1.5rem;
+      }
+
+      .profiles-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      }
+
+      .detail-header {
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .tab-content {
+        padding: 1.5rem;
+      }
+
+      .knowledge-cols {
+        columns: 1;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .profiles-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .tabs-bar {
+        gap: 0;
+      }
+
+      .tab-btn {
+        padding: 0.75rem 1rem;
+        font-size: var(--fs-xs);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo_csf.png" height="40" alt="CSF.BG лого">
+        <div class="logo-text">
+          <span class="logo-abbr">CSF.BG</span>
+          <span class="logo-full">Българска Фондация за Киберсигурност</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li>
+          <a href="za-nas.html">За нас</a>
+        </li>
+        <li class="has-dropdown" id="dd-resources">
+          <button onclick="toggleDropdown('dd-resources')">
+            Ресурси
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="dropdown">
+            <div class="dropdown-label">Директория</div>
+            <a href="organizacii.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+              </svg>
+              Организации
+            </a>
+            <a href="forumi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+              </svg>
+              Форуми
+            </a>
+            <a href="haklor.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+              </svg>
+              Хаклор
+            </a>
+            <a href="phishing.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+              Фишинг
+            </a>
+            <a href="instrumenti.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+              </svg>
+              Инструменти
+            </a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-label">Учебни материали</div>
+            <a href="terminologiq.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+              </svg>
+              Терминология
+            </a>
+            <a href="ctf.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              CTF
+            </a>
+            <a href="knigi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
+                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+              </svg>
+              Книги
+            </a>
+            <a href="video.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="23 7 16 12 23 17 23 7" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+              Видео ресурси
+            </a>
+          </div>
+        </li>
+        <li class="has-dropdown" id="dd-education">
+          <button onclick="toggleDropdown('dd-education')">
+            Обучение
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="dropdown">
+            <a href="universiteti.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+              Университетски програми
+            </a>
+            <a href="kursove.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+              Онлайн курсове
+            </a>
+            <a href="sertifikacii.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="8" r="7" />
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+              </svg>
+              Сертификации
+            </a>
+            <a href="platformi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+              </svg>
+              Платформи
+            </a>
+          </div>
+        </li>
+        <li class="has-dropdown" id="dd-career">
+          <button onclick="toggleDropdown('dd-career')">
+            Кариера
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="dropdown">
+            <a href="mentoring.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+              </svg>
+              Менторство
+            </a>
+            <a href="kompanii.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              </svg>
+              Компании
+            </a>
+            <a href="obqvi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+                <line x1="9" y1="11" x2="15" y2="11" />
+                <line x1="9" y1="15" x2="12" y2="15" />
+              </svg>
+              Обяви
+            </a>
+            <a href="compass.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+              </svg>
+              Кариерен компас
+            </a>
+            <a href="profesionalni-pateki.html" class="active">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+              Професионални пътеки
+            </a>
+            <a href="zaplati.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+              </svg>
+              Заплати
+            </a>
+          </div>
+        </li>
+        <li><a href="sabitia.html">Събития</a></li>
+        <li><a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="nav-cta">Включи се</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-nav-section">
+      <a href="za-nas.html" class="mobile-link" onclick="closeMobile()">За нас</a>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-resources', this)">
+        Ресурси
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+      <div class="mobile-sub" id="sub-resources">
+        <a href="organizacii.html" onclick="closeMobile()">Организации</a>
+        <a href="forumi.html" onclick="closeMobile()">Форуми</a>
+        <a href="haklor.html" onclick="closeMobile()">Хаклор</a>
+        <a href="phishing.html" onclick="closeMobile()">Фишинг</a>
+        <a href="instrumenti.html" onclick="closeMobile()">Инструменти</a>
+        <a href="terminologiq.html" onclick="closeMobile()">Терминология</a>
+        <a href="ctf.html" onclick="closeMobile()">CTF</a>
+        <a href="knigi.html" onclick="closeMobile()">Книги</a>
+        <a href="video.html" onclick="closeMobile()">Видео ресурси</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-education', this)">
+        Обучение
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+      <div class="mobile-sub" id="sub-education">
+        <a href="universiteti.html" onclick="closeMobile()">Университетски програми</a>
+        <a href="platformi.html" onclick="closeMobile()">Платформи</a>
+        <a href="kursove.html" onclick="closeMobile()">Онлайн курсове</a>
+        <a href="sertifikacii.html" onclick="closeMobile()">Сертификации</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-career', this)">
+        Кариера
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+      <div class="mobile-sub" id="sub-career">
+        <a href="mentoring.html" onclick="closeMobile()">Менторство</a>
+        <a href="zaplati.html" onclick="closeMobile()">Заплати</a>
+        <a href="kompanii.html" onclick="closeMobile()">Компании</a>
+        <a href="obqvi.html" onclick="closeMobile()">Обяви</a>
+        <a href="compass.html" onclick="closeMobile()">Кариерен компас</a>
+        <a href="profesionalni-pateki.html" onclick="closeMobile()">Професионални пътеки</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <a href="sabitia.html" class="mobile-link" onclick="closeMobile()">Събития</a>
+    </div>
+    <a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="mobile-cta" onclick="closeMobile()">Включи се →</a>
+  </div>
+
+
+  <!-- PAGE CONTENT -->
+  <div class="page-content">
+    <div class="article-section">
+
+      <nav class="breadcrumb">
+        <a href="index.html">Начало</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+        <span>Кариера</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+        <span class="current">Професионални пътеки</span>
+      </nav>
+
+      <div class="article-header">
+        <div class="ecsf-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          ECSF — European Cybersecurity Skills Framework
+        </div>
+        <h1>Професионални пътеки в <em>киберсигурността</em></h1>
+        <p class="article-lead">
+          Интерактивен навигатор на 12-те профила от Европейската рамка за умения в киберсигурността (ECSF), разработена
+          от ENISA. Изберете профил, за да видите детайлно описание, задачи, умения, знания и препоръчани сертификации.
+        </p>
+      </div>
+      <!-- ECSF EXPLAINER -->
+      <div style="max-width:720px;margin-bottom:0.5rem;margin-top:0.5rem">
+        <h2
+          style="font-family:'Cormorant Garamond',serif;font-size:var(--fs-2xl);font-weight:600;color:var(--navy);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem">
+          <span
+            style="width:40px;height:40px;background:var(--navy);border-radius:var(--radius);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+            </svg>
+          </span>
+          Какво е ECSF?
+        </h2>
+        <p style="font-size:var(--fs-sm);color:var(--brown);line-height:1.65;font-weight:300;margin-bottom:0.9rem">
+          <strong style="font-weight:500">European Cybersecurity Skills Framework (ECSF)</strong> е рамка, разработена
+          от <a href="https://www.enisa.europa.eu/" target="_blank" rel="noopener"
+            style="color:var(--blue);text-decoration:underline;text-underline-offset:2px">ENISA</a> (Агенцията на ЕС за
+          киберсигурност), която обобщава професионалните роли в киберсигурността в <strong style="font-weight:500">12
+            профила</strong>. Всеки профил е анализиран детайлно — мисия, задачи, умения, знания и компетенции — за да
+          се създаде общ език между работодатели, обучители и специалисти в целия Европейски съюз.
+        </p>
+        <p style="font-size:var(--fs-sm);color:var(--brown);line-height:1.65;font-weight:300;margin-bottom:0.9rem">
+          Рамката е представена за първи път през септември 2022 г. и е в основата на инициативата <strong
+            style="font-weight:500">EU Cybersecurity Skills Academy</strong>, целяща да преодолее дефицита на кадри в
+          сектора. ECSF се прилага активно от организации, HR отдели, университети и сертифициращи органи за изготвяне
+          на длъжностни характеристики, учебни програми и кариерни пътеки. Водещи сертифициращи организации като ISACA,
+          EC-Council, SANS и ISC2 вече са привели своите сертификации в съответствие с 12-те профила.
+        </p>
+        <p style="font-size:var(--fs-sm);color:var(--brown);line-height:1.65;font-weight:300;margin-bottom:1.5rem">
+          Рамката е технологично неутрална и се развива непрекъснато — последният преглед на ENISA потвърди нейната
+          приложимост и в контекста на AI.
+        </p>
+
+        <div style="display:flex;flex-direction:column;gap:0.65rem;margin-bottom:0.5rem">
+          <a href="https://www.enisa.europa.eu/topics/skills-and-competences/skills-development/european-cybersecurity-skills-framework-ecsf"
+            target="_blank" rel="noopener"
+            style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem 1rem;background:var(--white);border:1px solid var(--sand);border-radius:var(--radius);font-size:var(--fs-sm);color:var(--brown);transition:all 0.28s cubic-bezier(0.4,0,0.2,1);text-decoration:none"
+            onmouseover="this.style.borderColor='var(--sky-light)';this.style.color='var(--navy)'"
+            onmouseout="this.style.borderColor='var(--sand)';this.style.color='var(--brown)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"
+              style="flex-shrink:0">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+            </svg>
+            ENISA — Официална страница на ECSF
+          </a>
+          <a href="https://www.enisa.europa.eu/sites/default/files/publications/European%20Cybersecurity%20Skills%20Framework%20Role%20Profiles.pdf"
+            target="_blank" rel="noopener"
+            style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem 1rem;background:var(--white);border:1px solid var(--sand);border-radius:var(--radius);font-size:var(--fs-sm);color:var(--brown);transition:all 0.28s cubic-bezier(0.4,0,0.2,1);text-decoration:none"
+            onmouseover="this.style.borderColor='var(--sky-light)';this.style.color='var(--navy)'"
+            onmouseout="this.style.borderColor='var(--sand)';this.style.color='var(--brown)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"
+              style="flex-shrink:0">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+            ECSF Role Profiles (PDF) — 12-те профила на ENISA
+          </a>
+          <a href="https://www.eccouncil.org/european-cybersecurity-skills-framework-ecsf-ec-council/" target="_blank"
+            rel="noopener"
+            style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem 1rem;background:var(--white);border:1px solid var(--sand);border-radius:var(--radius);font-size:var(--fs-sm);color:var(--brown);transition:all 0.28s cubic-bezier(0.4,0,0.2,1);text-decoration:none"
+            onmouseover="this.style.borderColor='var(--sky-light)';this.style.color='var(--navy)'"
+            onmouseout="this.style.borderColor='var(--sand)';this.style.color='var(--brown)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"
+              style="flex-shrink:0">
+              <circle cx="12" cy="8" r="7" />
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+            </svg>
+            EC-Council — Mapping на сертификации към ECSF
+          </a>
+          <a href="https://www.isaca.org/career-center/european-cybersecurity-skills-framework-and-isaca-credentials"
+            target="_blank" rel="noopener"
+            style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem 1rem;background:var(--white);border:1px solid var(--sand);border-radius:var(--radius);font-size:var(--fs-sm);color:var(--brown);transition:all 0.28s cubic-bezier(0.4,0,0.2,1);text-decoration:none"
+            onmouseover="this.style.borderColor='var(--sky-light)';this.style.color='var(--navy)'"
+            onmouseout="this.style.borderColor='var(--sand)';this.style.color='var(--brown)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"
+              style="flex-shrink:0">
+              <circle cx="12" cy="8" r="7" />
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+            </svg>
+            ISACA — ECSF и ISACA сертификации
+          </a>
+          <a href="https://www.sans.org/ecsf-framework" target="_blank" rel="noopener"
+            style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem 1rem;background:var(--white);border:1px solid var(--sand);border-radius:var(--radius);font-size:var(--fs-sm);color:var(--brown);transition:all 0.28s cubic-bezier(0.4,0,0.2,1);text-decoration:none"
+            onmouseover="this.style.borderColor='var(--sky-light)';this.style.color='var(--navy)'"
+            onmouseout="this.style.borderColor='var(--sand)';this.style.color='var(--brown)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"
+              style="flex-shrink:0">
+              <circle cx="12" cy="8" r="7" />
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+            </svg>
+            SANS — ECSF Framework Overview
+          </a>
+          <a href="https://road2cyber.eu/resources/european-cybersecurity-skills-framework-ecsf" target="_blank"
+            rel="noopener"
+            style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem 1rem;background:var(--white);border:1px solid var(--sand);border-radius:var(--radius);font-size:var(--fs-sm);color:var(--brown);transition:all 0.28s cubic-bezier(0.4,0,0.2,1);text-decoration:none"
+            onmouseover="this.style.borderColor='var(--sky-light)';this.style.color='var(--navy)'"
+            onmouseout="this.style.borderColor='var(--sand)';this.style.color='var(--brown)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"
+              style="flex-shrink:0">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+            Road2Cyber — ECSF ресурси
+          </a>
+        </div>
+      </div>
+      <div class="section-divider"></div>
+
+      <!-- PROFILE GRID -->
+      <div class="profiles-grid" id="profiles-grid">
+        <!-- rendered by JS -->
+      </div>
+
+      <!-- DETAIL PANEL -->
+      <div class="detail-panel" id="detail-panel">
+        <div class="detail-header" id="detail-header">
+          <div class="detail-header-icon" id="detail-icon"></div>
+          <div class="detail-header-text">
+            <h2 id="detail-title"></h2>
+            <div class="detail-en-name" id="detail-en"></div>
+            <div class="detail-tagline" id="detail-tagline"></div>
+          </div>
+        </div>
+
+        <div class="tabs-bar" id="tabs-bar">
+          <button class="tab-btn active" onclick="switchTab('opisanie')">Описание</button>
+          <button class="tab-btn" onclick="switchTab('zadachi')">Задачи</button>
+          <button class="tab-btn" onclick="switchTab('umeniq')">Умения</button>
+          <button class="tab-btn" onclick="switchTab('znania')">Знания</button>
+          <button class="tab-btn" onclick="switchTab('sertifikacii')">Сертификации</button>
+          <button class="tab-btn" onclick="switchTab('resursi')">Ресурси</button>
+        </div>
+
+        <div class="tab-content active" id="tab-opisanie"></div>
+        <div class="tab-content" id="tab-zadachi"></div>
+        <div class="tab-content" id="tab-umeniq"></div>
+        <div class="tab-content" id="tab-znania"></div>
+        <div class="tab-content" id="tab-sertifikacii"></div>
+        <div class="tab-content" id="tab-resursi"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">CSF.BG</div>
+          <p class="footer-brand-desc">Българска Фондация за Киберсигурност — изграждаме общност, развиваме таланти и
+            укрепваме дигиталната сигурност на България.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Ресурси</div>
+          <ul class="footer-links">
+            <li><a href="organizacii.html">Организации</a></li>
+            <li><a href="instrumenti.html">Инструменти</a></li>
+            <li><a href="terminologiq.html">Терминология</a></li>
+            <li><a href="knigi.html">Книги</a></li>
+            <li><a href="video.html">Видео</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Обучение</div>
+          <ul class="footer-links">
+            <li><a href="universiteti.html">Университети</a></li>
+            <li><a href="platformi.html">Платформи</a></li>
+            <li><a href="kursove.html">Курсове</a></li>
+            <li><a href="ctf.html">CTF</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Кариера</div>
+          <ul class="footer-links">
+            <li><a href="mentoring.html">Менторство</a></li>
+            <li><a href="kompanii.html">Компании</a></li>
+            <li><a href="profesionalni-pateki.html">Пътеки</a></li>
+            <li><a href="zaplati.html">Заплати</a></li>
+            <li><a href="obqvi.html">Обяви</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 CSF.BG — Българска Фондация за Киберсигурност</span>
+        <span>Базирано на <a href="https://www.enisa.europa.eu/topics/education/european-cybersecurity-skills-framework"
+            target="_blank" rel="noopener" style="color:rgba(255,255,255,0.45);text-decoration:underline;">ENISA
+            ECSF</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ============================================================
+    // ECSF PROFILES DATA
+    // ============================================================
+    const PROFILES = [
+      {
+        slug: 'ciso',
+        name: 'Директор по информационна сигурност',
+        enName: 'Chief Information Security Officer (CISO)',
+        color: '#1E3E7A',
+        tagline: 'Стратегическо ръководство на цялостната сигурностна политика на организацията',
+        level: 'Стратегически',
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+        description: `<div class="description-text"><p>Директорът по информационна сигурност (CISO) е висш ръководител, отговорен за разработването и прилагането на цялостна стратегия за киберсигурност в организацията. Той осигурява съответствие с нормативните изисквания и управлява рисковете, свързани с информационната сигурност.</p><p>CISO работи в тясна връзка с изпълнителното ръководство, борда на директорите и всички бизнес звена, за да гарантира, че сигурността е интегрирана в бизнес процесите. Ролята изисква комбинация от технически познания, бизнес разбиране и лидерски умения.</p><p>В условията на нарастващи киберзаплахи CISO играе ключова роля в защитата на активите, репутацията и непрекъснатостта на бизнеса. Тази позиция е сред най-търсените и добре заплащани в сферата на киберсигурността.</p></div>`,
+        tasks: ['Разработване и прилагане на стратегия за информационна сигурност в съответствие с бизнес целите', 'Управление на екипа по киберсигурност и разпределяне на ресурси', 'Докладване на борда и изпълнителното ръководство за рисковете и програмата за сигурност', 'Осигуряване на съответствие с регулаторни изисквания (NIS2, GDPR, ISO 27001)', 'Управление на инциденти и кризисна комуникация', 'Изграждане на култура на сигурност в организацията', 'Управление на бюджета за киберсигурност и обосноваване на инвестиции', 'Оценка и управление на рискове от трети страни'],
+        skills: ['Стратегическо планиране и управление на програми за сигурност', 'Управление на риска и бизнес непрекъснатост', 'Лидерство и управление на екипи', 'Комуникация с изпълнително ръководство и борд', 'Бюджетиране и управление на ресурси', 'Познаване на регулаторна рамка (NIS2, GDPR, ISO 27001)', 'Управление на инциденти и кризисна комуникация', 'Оценка и управление на доставчици'],
+        knowledge: ['Регулаторни рамки и стандарти (ISO 27001, NIST CSF, NIS2)', 'Принципи на управление на риска', 'Архитектура на сигурността на предприятието', 'Бизнес процеси и стратегическо управление', 'Технологии за сигурност и тяхното приложение', 'Правни и нормативни изисквания в ЕС', 'Принципи на кризисното управление', 'Управление на веригата на доставки'],
+        certs: [
+          { name: 'CISSP', body: '(ISC)²', level: 'advanced', levelBg: 'Напреднал' },
+          { name: 'CISM', body: 'ISACA', level: 'advanced', levelBg: 'Напреднал' },
+          { name: 'CGEIT', body: 'ISACA', level: 'advanced', levelBg: 'Напреднал' },
+          { name: 'CRISC', body: 'ISACA', level: 'mid', levelBg: 'Средно' },
+          { name: 'ISO/IEC 27001 Lead Implementer', body: 'PECB / BSI', level: 'mid', levelBg: 'Средно' }
+        ],
+        resources: [
+          { text: 'ENISA ECSF — CISO профил', url: 'https://www.enisa.europa.eu/topics/education/european-cybersecurity-skills-framework' },
+          { text: 'NIST Cybersecurity Framework', url: 'https://www.nist.gov/cyberframework' },
+          { text: 'ISO/IEC 27001 стандарт', url: 'https://www.iso.org/isoiec-27001-information-security.html' },
+          { text: 'NIS2 Директива', url: 'https://digital-strategy.ec.europa.eu/en/policies/nis2-directive' }
+        ]
+      },
+      {
+        slug: 'incident-responder',
+        name: 'Специалист по реакция на инциденти',
+        enName: 'Cyber Incident Responder',
+        color: '#C0392B',
+        tagline: 'Идентифициране, анализ и ограничаване на активни киберзаплахи и инциденти',
+        level: 'Оперативен',
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
+        description: `<div class="description-text"><p>Специалистът по реакция на инциденти е оперативният щит на организацията при кибератаки. Той идентифицира, ограничава и ликвидира заплахи в реално време, като минимизира щетите и времето за възстановяване.</p><p>Ролята изисква задълбочени технически познания, умения за работа под стрес и способност за бързо вземане на решения. Специалистът работи в CERT/CSIRT екипи или SOC центрове, координирайки отговора при инциденти.</p><p>След всеки инцидент той провежда задълбочен анализ, идентифицира причините и предлага мерки за предотвратяване на бъдещи атаки. Тази роля е изключително динамична и предлага ежедневни предизвикателства.</p></div>`,
+        tasks: ['Мониторинг на сигурностни събития и алерти в реално време', 'Триаж и приоритизиране на инциденти', 'Ограничаване (containment) на активни заплахи', 'Провеждане на анализ на причините за инциденти (root cause analysis)', 'Координиране с вътрешни и външни заинтересовани страни', 'Документиране на инциденти и изготвяне на доклади', 'Разработване и актуализиране на playbooks за реакция', 'Провеждане на симулации и учения (tabletop exercises)'],
+        skills: ['Анализ на мрежов трафик и логове', 'Работа с SIEM системи (Splunk, Sentinel, QRadar)', 'Дигитална форензика и събиране на доказателства', 'Анализ на малуер (базово ниво)', 'Incident response процеси и методологии', 'Работа под стрес и управление на кризи', 'Техническа документация и докладване', 'Координация на екипи при инциденти'],
+        knowledge: ['MITRE ATT&CK рамка', 'Фази на incident response (PICERL)', 'Мрежови протоколи и архитектури', 'Операционни системи (Windows, Linux, macOS)', 'Видове киберзаплахи и тактики на атакуващите', 'Chain of custody при дигитална форензика', 'Регулаторни изисквания за докладване на инциденти', 'Threat intelligence и IOC анализ'],
+        certs: [
+          { name: 'GCIH', body: 'GIAC', level: 'mid', levelBg: 'Средно' },
+          { name: 'GCFE', body: 'GIAC', level: 'mid', levelBg: 'Средно' },
+          { name: 'CEH', body: 'EC-Council', level: 'beginner', levelBg: 'Начинаещ' },
+          { name: 'ECIH', body: 'EC-Council', level: 'mid', levelBg: 'Средно' },
+          { name: 'BTL1', body: 'Security Blue Team', level: 'beginner', levelBg: 'Начинаещ' }
+        ],
+        resources: [
+          { text: 'MITRE ATT&CK Framework', url: 'https://attack.mitre.org' },
+          { text: 'NIST SP 800-61 — Computer Security Incident Handling', url: 'https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final' },
+          { text: 'ENISA Good Practice Guide for Incident Management', url: 'https://www.enisa.europa.eu/publications/good-practice-guide-for-incident-management' },
+          { text: 'Awesome Incident Response (GitHub)', url: 'https://github.com/meirwah/awesome-incident-response' }
+        ]
+      },
+      {
+        slug: 'compliance-officer',
+        name: 'Специалист по правна съответност',
+        enName: 'Cyber Legal, Policy & Compliance Officer',
+        color: '#27AE60',
+        tagline: 'Осигуряване на съответствие с правни норми, политики и регулаторни изисквания',
+        level: 'Управленски',
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
+        description: `<div class="description-text"><p>Специалистът по правна съответност в киберсигурността осигурява, че организацията спазва всички приложими закони, наредби и вътрешни политики, свързани с информационната сигурност и защитата на данните.</p><p>Тази роля е все по-критична в контекста на NIS2 директивата, GDPR и нарастващата регулаторна натовареност в ЕС. Специалистът тълкува правни изисквания и ги превежда в конкретни технически и организационни мерки.</p><p>Той работи на границата между правото, технологиите и бизнеса, изграждайки политики, процедури и програми за обучение, които правят съответствието реалност, а не просто документация.</p></div>`,
+        tasks: ['Анализ и тълкуване на приложимото законодателство (NIS2, GDPR, DORA)', 'Разработване на политики и процедури за информационна сигурност', 'Провеждане на оценки на съответствието (compliance assessments)', 'Подготовка за одити и регулаторни проверки', 'Обучение на служители по изисквания за съответствие', 'Управление на данни за лични данни и GDPR изисквания', 'Докладване на инциденти към регулаторни органи', 'Преглед на договори с доставчици от гледна точка на сигурността'],
+        skills: ['Познаване на правна рамка за киберсигурност в ЕС', 'Разработване на политики и процедури', 'Провеждане на gap analysis и risk assessment', 'Комуникация с регулаторни органи', 'Управление на програми за съответствие', 'Обучение и повишаване на осведомеността', 'Управление на договори и доставчици', 'Технически одит и документация'],
+        knowledge: ['GDPR и законодателство за защита на данни', 'NIS2 Директива и нейното транспониране', 'DORA (Digital Operational Resilience Act)', 'ISO/IEC 27001 и свързани стандарти', 'Принципи на Privacy by Design', 'Регулаторни органи в България и ЕС (КЗЛД, CERT-BG)', 'Договорно право и IT доставчици', 'Принципи на управление на риска'],
+        certs: [
+          { name: 'CIPP/E', body: 'IAPP', level: 'mid', levelBg: 'Средно' },
+          { name: 'CIPM', body: 'IAPP', level: 'mid', levelBg: 'Средно' },
+          { name: 'ISO 27001 Lead Auditor', body: 'PECB / BSI', level: 'mid', levelBg: 'Средно' },
+          { name: 'CRISC', body: 'ISACA', level: 'mid', levelBg: 'Средно' },
+          { name: 'CISM', body: 'ISACA', level: 'advanced', levelBg: 'Напреднал' }
+        ],
+        resources: [
+          { text: 'GDPR — Официален текст', url: 'https://eur-lex.europa.eu/legal-content/BG/TXT/?uri=CELEX:32016R0679' },
+          { text: 'NIS2 Директива', url: 'https://digital-strategy.ec.europa.eu/en/policies/nis2-directive' },
+          { text: 'IAPP — Privacy Resources', url: 'https://iapp.org/resources/' },
+          { text: 'КЗЛД — Комисия за защита на личните данни', url: 'https://www.cpdp.bg' }
+        ]
+      },
+      {
+        slug: 'threat-intelligence',
+        name: 'Анализатор на киберзаплахи',
+        enName: 'Cyber Threat Intelligence Specialist',
+        color: '#8E44AD',
+        tagline: 'Събиране, анализ и разпространение на разузнавателна информация за киберзаплахи',
+        level: 'Аналитичен',
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+        description: `<div class="description-text"><p>Анализаторът на киберзаплахи (CTI специалист) събира, обработва и анализира информация за актуални и потенциални заплахи, за да помогне на организацията да вземе информирани решения за защита.</p><p>Работата включва анализ на тактики, техники и процедури (TTP) на заплашващи актьори, мониторинг на dark web, анализ на малуер и корелиране на индикатори за компрометиране (IOC). CTI специалистът трансформира суровите данни в полезна разузнавателна информация.</p><p>Тази роля е критична за проактивната защита — вместо да реагира на атаки, CTI специалистът помага на организацията да предвиди и предотврати заплахите, преди те да са причинили щети.</p></div>`,
+        tasks: ['Събиране на информация от open source (OSINT) и специализирани източници', 'Анализ на тактики, техники и процедури на заплашващи актьори', 'Мониторинг на dark web и хакерски форуми', 'Създаване и разпространяване на threat intelligence доклади', 'Интегриране на IOC в сигурностни инструменти', 'Профилиране на APT групи и хакерски организации', 'Сътрудничество с ISAC общности и партньори', 'Поддържане на threat intelligence платформи (MISP, OpenCTI)'],
+        skills: ['OSINT събиране и анализ', 'Анализ на малуер (статичен и динамичен)', 'Работа с threat intelligence платформи', 'Писане на аналитични доклади', 'Разбиране на MITRE ATT&CK', 'Анализ на мрежов трафик', 'Критично мислене и аналитични умения', 'Работа с structured threat information (STIX/TAXII)'],
+        knowledge: ['MITRE ATT&CK и D3FEND рамки', 'Видове заплашващи актьори (APT, киберпрестъпници, хактивисти)', 'Индикатори за компрометиране (IOC, TTP)', 'Dark web екосистема', 'Анализ на малуер и обратен инженеринг (базово)', 'Мрежови протоколи и архитектури', 'Threat intelligence lifecycle', 'Геополитически контекст на киберзаплахите'],
+        certs: [
+          { name: 'GCTI', body: 'GIAC', level: 'mid', levelBg: 'Средно' },
+          { name: 'CTIA', body: 'EC-Council', level: 'mid', levelBg: 'Средно' },
+          { name: 'CREST CCI', body: 'CREST', level: 'advanced', levelBg: 'Напреднал' },
+          { name: 'Recorded Future Intelligence Analyst', body: 'Recorded Future', level: 'beginner', levelBg: 'Начинаещ' }
+        ],
+        resources: [
+          { text: 'MITRE ATT&CK', url: 'https://attack.mitre.org' },
+          { text: 'MISP Threat Intelligence Platform', url: 'https://www.misp-project.org' },
+          { text: 'OpenCTI Platform', url: 'https://www.opencti.io' },
+          { text: 'Awesome Threat Intelligence (GitHub)', url: 'https://github.com/hslatman/awesome-threat-intelligence' }
+        ]
+      },
+      {
+        slug: 'architect',
+        name: 'Архитект по киберсигурност',
+        enName: 'Cybersecurity Architect',
+        color: '#2980B9',
+        tagline: 'Проектиране на сигурни системи, мрежи и облачни архитектури',
+        level: 'Технически',
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>`,
+        description: `<div class="description-text"><p>Архитектът по киберсигурност проектира и внедрява сигурни технологични архитектури, като интегрира принципите на security by design от самото начало на системите и мрежите.</p><p>Тази роля изисква задълбочени технически познания в областта на мрежовата сигурност, облачните технологии, криптографията и управлението на идентичности. Архитектът работи с разработчиците, DevOps екипите и бизнес звената, за да гарантира, че сигурността е вградена в архитектурата, а не добавена като допълнителен слой.</p><p>В ерата на Zero Trust и Cloud-first стратегии ролята на архитекта по киберсигурност е от критично значение за дигиталната трансформация на организациите.</p></div>`,
+        tasks: ['Проектиране на Zero Trust архитектури', 'Оценка и одобрение на нови технологии от гледна точка на сигурността', 'Разработване на стандарти и ръководства за сигурна разработка', 'Архитектурен преглед на нови системи и приложения', 'Проектиране на Identity and Access Management решения', 'Облачна сигурностна архитектура (AWS, Azure, GCP)', 'Сегментация на мрежи и микросегментация', 'Threat modeling за нови системи'],
+        skills: ['Проектиране на мрежова архитектура и сигурност', 'Zero Trust архитектурни принципи', 'Облачна сигурност (AWS, Azure, GCP)', 'Identity and Access Management (IAM)', 'Криптография и PKI инфраструктура', 'DevSecOps практики', 'Threat modeling (STRIDE, DREAD)', 'Документиране на архитектурни решения'],
+        knowledge: ['SABSA и TOGAF рамки', 'Zero Trust принципи (NIST SP 800-207)', 'Облачни сигурностни стандарти (CSA CCM)', 'Мрежови протоколи и архитектури', 'Криптографски алгоритми и протоколи', 'Принципи на secure software development', 'Регулаторни изисквания за архитектурата', 'Управление на привилегирован достъп (PAM)'],
+        certs: [
+          { name: 'CISSP-ISSAP', body: '(ISC)²', level: 'advanced', levelBg: 'Напреднал' },
+          { name: 'SABSA Chartered Architect', body: 'SABSA Institute', level: 'advanced', levelBg: 'Напреднал' },
+          { name: 'AWS Certified Security Specialty', body: 'Amazon', level: 'mid', levelBg: 'Средно' },
+          { name: 'Microsoft SC-100', body: 'Microsoft', level: 'mid', levelBg: 'Средно' },
+          { name: 'CCSP', body: '(ISC)²', level: 'mid', levelBg: 'Средно' }
+        ],
+        resources: [
+          { text: 'NIST SP 800-207 — Zero Trust Architecture', url: 'https://csrc.nist.gov/publications/detail/sp/800-207/final' },
+          { text: 'CSA Cloud Security Alliance', url: 'https://cloudsecurityalliance.org' },
+          { text: 'OWASP Architecture Cheat Sheet', url: 'https://cheatsheetseries.owasp.org' },
+          { text: 'SABSA Framework', url: 'https://sabsa.org' }
+        ]
+      },
+      {
+        slug: 'auditor',
+        name: 'Одитор по киберсигурност',
+        enName: 'Cybersecurity Auditor',
+        color: '#16A085',
+        tagline: 'Независима оценка на ефективността на контролите и съответствието с изискванията',
+        level: 'Оценъчен',
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>`,
+        description: `<div class="description-text"><p>Одиторът по киберсигурност провежда независими оценки на сигурностните контроли, политики и процедури на организацията, за да установи тяхната ефективност и съответствие с приложимите стандарти.</p><p>Тази роля изисква обективност, методичност и задълбочени технически и регулаторни познания. Одиторът работи независимо от оперативните екипи и предоставя обективна оценка на сигурностното положение на организацията.</p><p>В условията на нарастваща регулаторна натовареност търсенето на квалифицирани одитори по киберсигурност нараства значително. Тази роля е подходяща за хора с висок праг на прецизност и аналитично мислене.</p></div>`,
+        tasks: ['Планиране и провеждане на одити на информационна сигурност', 'Преглед на политики, процедури и контроли за сигурност', 'Оценка на съответствието с ISO 27001, NIS2, GDPR', 'Идентифициране на пропуски (gap analysis)', 'Изготвяне на одитни доклади с препоръки', 'Проследяване на изпълнението на препоръките', 'Одит на достъпа и управлението на привилегии', 'Технически преглед на конфигурации и логове'],
+        skills: ['Методология на одита (планиране, изпълнение, докладване)', 'Технически одит на системи и мрежи', 'Оценка на съответствие с регулаторни изисквания', 'Анализ на политики и процедури', 'Интервюиране и събиране на доказателства', 'Изготвяне на одитни доклади', 'Risk-based audit approach', 'Управление на одитната документация'],
+        knowledge: ['ISO/IEC 27001 и свързани стандарти', 'ISACA IS Audit Standards', 'COBIT рамка', 'NIS2 и GDPR изисквания', 'Технически контроли за сигурност', 'Управление на идентичности и достъп', 'Криптография и PKI', 'Управление на инциденти'],
+        certs: [
+          { name: 'CISA', body: 'ISACA', level: 'mid', levelBg: 'Средно' },
+          { name: 'ISO 27001 Lead Auditor', body: 'PECB / BSI', level: 'mid', levelBg: 'Средно' },
+          { name: 'CISSP', body: '(ISC)²', level: 'advanced', levelBg: 'Напреднал' },
+          { name: 'QSA (PCI DSS)', body: 'PCI SSC', level: 'advanced', levelBg: 'Напреднал' }
+        ],
+        resources: [
+          { text: 'ISACA IS Audit Standards', url: 'https://www.isaca.org/resources/isaca-journal/issues/2019/volume-1/is-audit-standards' },
+          { text: 'ISO/IEC 27001 Standard', url: 'https://www.iso.org/isoiec-27001-information-security.html' },
+          { text: 'COBIT Framework', url: 'https://www.isaca.org/resources/cobit' },
+          { text: 'BSI — Information Security Auditing', url: 'https://www.bsi.bund.de' }
+        ]
+      },
+      {
+        slug: 'educator',
+        name: 'Преподавател по киберсигурност',
+        enName: 'Cybersecurity Educator',
+        color: '#D35400',
+        tagline: 'Обучение, развитие и повишаване на осведомеността в областта на киберсигурността',
+        level: 'Образователен',
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>`,
+        description: `<div class="description-text"><p>Преподавателят по киберсигурност разработва и провежда обучения, курсове и програми, насочени към изграждане на знания и умения в областта на киберсигурността. Тази роля е ключова за преодоляването на дефицита от кадри в сектора.</p><p>Преподавателят може да работи в академична среда, корпоративни обучителни центрове или като независим консултант. Той трябва да комбинира задълбочени технически познания с педагогически умения и способност за адаптиране на съдържанието към различни целеви аудитории.</p><p>В допълнение към формалното обучение, преподавателите по киберсигурност играят важна роля в повишаването на общественото осъзнаване за киберрискове и добрите практики за сигурност.</p></div>`,
+        tasks: ['Разработване на учебни програми и материали по киберсигурност', 'Провеждане на обучения, семинари и уъркшопи', 'Оценяване на знанията и уменията на обучаемите', 'Адаптиране на съдържанието към различни аудитории', 'Провеждане на awareness кампании в организации', 'Поддържане на актуалност на учебните материали', 'Менторство на начинаещи специалисти', 'Разработване на CTF предизвикателства и лабораторни среди'],
+        skills: ['Педагогически умения и методики', 'Разработване на учебни програми (curriculum design)', 'Презентационни и комуникационни умения', 'Работа с e-learning платформи', 'Технически умения в обучаваната област', 'Менторство и коучинг', 'Разработване на практически упражнения', 'Оценяване и измерване на учебни резултати'],
+        knowledge: ['Педагогика за възрастни (андрагогика)', 'Принципи на instructional design', 'Технически основи на киберсигурността', 'Актуални киберзаплахи и тенденции', 'E-learning технологии и платформи', 'Gamification в обучението', 'Оценъчни методики', 'Регулаторни изисквания за обучение по сигурност'],
+        certs: [
+          { name: 'CISSP', body: '(ISC)²', level: 'advanced', levelBg: 'Напреднал' },
+          { name: 'CEH', body: 'EC-Council', level: 'mid', levelBg: 'Средно' },
+          { name: 'CompTIA Security+', body: 'CompTIA', level: 'beginner', levelBg: 'Начинаещ' },
+          { name: 'CompTIA CTT+', body: 'CompTIA', level: 'mid', levelBg: 'Средно' }
+        ],
+        resources: [
+          { text: 'SANS Cyber Aces — Free Training', url: 'https://www.sans.org/cyberaces/' },
+          { text: 'ENISA Training Resources', url: 'https://www.enisa.europa.eu/topics/education' },
+          { text: 'NICCS Cybersecurity Education', url: 'https://niccs.cisa.gov/education-training' },
+          { text: 'CyberSeek — Cyber Career Pathway', url: 'https://www.cyberseek.org/pathway.html' }
+        ]
+      },
+      {
+        slug: 'implementer',
+        name: 'Внедрител на решения за сигурност',
+        enName: 'Cybersecurity Implementer',
+        color: '#2471A3',
+        tagline: 'Изграждане, конфигуриране и поддържане на технологии и контроли за сигурност',
+        level: 'Технически',
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>`,
+        description: `<div class="description-text"><p>Внедрителят на решения за киберсигурност отговаря за практическото изграждане, конфигуриране и поддържане на технологии за сигурност — firewall, IDS/IPS, SIEM, EDR, IAM системи и много други.</p><p>Тази роля е "ръцете" на сигурностния екип — тя превръща архитектурните решения в реални работещи системи. Внедрителят работи в тясно сътрудничество с архитекти, SOC анализатори и системни администратори.</p><p>С нарастването на облачните технологии и DevSecOps практиките, тази роля еволюира към автоматизация на сигурността, infrastructure as code и CI/CD pipeline security.</p></div>`,
+        tasks: ['Инсталиране и конфигуриране на firewall, IDS/IPS, SIEM системи', 'Внедряване на Identity and Access Management решения', 'Hardening на операционни системи и мрежова оборудване', 'Управление на PKI инфраструктура и сертификати', 'Автоматизация на сигурностни задачи (scripting)', 'Интегриране на сигурностни инструменти', 'Patch management и управление на уязвимости', 'Конфигурация на облачна сигурност (AWS, Azure, GCP)'],
+        skills: ['Конфигурация и управление на firewall решения', 'Работа с SIEM и log management системи', 'Scripting (Python, PowerShell, Bash)', 'Мрежова сигурност и VPN технологии', 'Endpoint security и EDR инструменти', 'Облачна сигурност и DevSecOps', 'Управление на уязвимости', 'Документация на конфигурации и промени'],
+        knowledge: ['Мрежови протоколи и архитектури', 'Операционни системи (Windows Server, Linux)', 'Принципи на hardening', 'Криптография и PKI', 'Облачни технологии (IaaS, PaaS, SaaS)', 'CI/CD pipelines и DevOps практики', 'Управление на промените (change management)', 'Регулаторни изисквания за техническа сигурност'],
+        certs: [
+          { name: 'CompTIA Security+', body: 'CompTIA', level: 'beginner', levelBg: 'Начинаещ' },
+          { name: 'CompTIA CySA+', body: 'CompTIA', level: 'mid', levelBg: 'Средно' },
+          { name: 'Cisco CCNA Security', body: 'Cisco', level: 'beginner', levelBg: 'Начинаещ' },
+          { name: 'Certified Cloud Security Professional (CCSP)', body: '(ISC)²', level: 'mid', levelBg: 'Средно' },
+          { name: 'AWS Security Specialty', body: 'Amazon', level: 'mid', levelBg: 'Средно' }
+        ],
+        resources: [
+          { text: 'CIS Benchmarks — Hardening Guides', url: 'https://www.cisecurity.org/cis-benchmarks/' },
+          { text: 'NIST SP 800-53 — Security Controls', url: 'https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final' },
+          { text: 'OWASP Top 10', url: 'https://owasp.org/Top10/' },
+          { text: 'Awesome Security (GitHub)', url: 'https://github.com/sbilly/awesome-security' }
+        ]
+      },
+      {
+        slug: 'researcher',
+        name: 'Изследовател по киберсигурност',
+        enName: 'Cybersecurity Researcher',
+        color: '#6C3483',
+        tagline: 'Научни изследвания, открития на уязвимости и разработване на нови методи за защита',
+        level: 'Изследователски',
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>`,
+        description: `<div class="description-text"><p>Изследователят по киберсигурност провежда задълбочени технически изследвания с цел разкриване на нови уязвимости, разработване на нови методи за атака и защита, и разширяване на знанията в областта.</p><p>Тази роля изисква изключително задълбочени технически познания, творческо мислене и упоритост. Изследователите работят в академична среда, компании за сигурност, bug bounty програми или правителствени агенции.</p><p>Резултатите от изследванията им директно допринасят за подобряване на сигурността на целия интернет — чрез отговорно разкриване на уязвимости (responsible disclosure), публикации и разработване на защитни инструменти.</p></div>`,
+        tasks: ['Изследване на нови уязвимости в софтуер и хардуер', 'Анализ на малуер и напреднали заплахи', 'Публикуване на изследователски доклади и CVE', 'Участие в bug bounty програми', 'Разработване на proof-of-concept (PoC) код', 'Обратен инженеринг на протоколи и системи', 'Анализ на нови атакуващи техники', 'Сътрудничество с академичната общност'],
+        skills: ['Обратен инженеринг (reverse engineering)', 'Анализ на уязвимости (vulnerability research)', 'Exploit development', 'Анализ на малуер', 'Програмиране (C, C++, Python, Assembly)', 'Работа с дебъгери (GDB, WinDbg, IDA Pro)', 'Fuzzing и динамичен анализ', 'Академично писане и публикуване'],
+        knowledge: ['Архитектура на процесори и операционни системи (ниско ниво)', 'Видове уязвимости (buffer overflow, use-after-free, RCE)', 'Exploit mitigation техники (ASLR, DEP, CFG)', 'Протоколи и криптографски реализации', 'Методология на научното изследване', 'Responsible disclosure процеси', 'Академична литература и конференции', 'Правни аспекти на изследванията'],
+        certs: [
+          { name: 'GREM', body: 'GIAC', level: 'advanced', levelBg: 'Напреднал' },
+          { name: 'GXPN', body: 'GIAC', level: 'advanced', levelBg: 'Напреднал' },
+          { name: 'OSCP', body: 'Offensive Security', level: 'mid', levelBg: 'Средно' },
+          { name: 'OSED', body: 'Offensive Security', level: 'advanced', levelBg: 'Напреднал' }
+        ],
+        resources: [
+          { text: 'CVE — Common Vulnerabilities and Exposures', url: 'https://cve.mitre.org' },
+          { text: 'Exploit Database', url: 'https://www.exploit-db.com' },
+          { text: 'Google Project Zero Blog', url: 'https://googleprojectzero.blogspot.com' },
+          { text: 'DEF CON & Black Hat Research Papers', url: 'https://defcon.org/html/links/dc-archives.html' }
+        ]
+      },
+      {
+        slug: 'risk-manager',
+        name: 'Мениджър на киберрискове',
+        enName: 'Cybersecurity Risk Manager',
+        color: '#E67E22',
+        tagline: 'Идентифициране, оценка и управление на рисковете за информационните активи',
+        level: 'Управленски',
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
+        description: `<div class="description-text"><p>Мениджърът на киберрискове е отговорен за системното идентифициране, оценяване, третиране и мониторинг на рисковете, свързани с киберсигурността, в контекста на бизнес целите на организацията.</p><p>Тази роля изисква способност за превеждане на технически рискове в бизнес термини, разбираеми за ръководството и борда. Мениджърът на рискове разработва методологии за оценка на риска, поддържа риск регистри и предлага стратегии за намаляване на рисковете.</p><p>В условията на нарастваща регулаторна натовареност (NIS2, DORA) управлението на киберрискове се превръща в ключова компетентност за всяка организация, а квалифицираните специалисти в тази роля са изключително търсени.</p></div>`,
+        tasks: ['Разработване на методология за оценка на киберрискове', 'Провеждане на risk assessments и поддържане на риск регистри', 'Превод на технически рискове в бизнес въздействие', 'Разработване на стратегии за намаляване на рисковете (risk treatment)', 'Докладване на рискове пред ръководството', 'Мониторинг на KRI (Key Risk Indicators)', 'Управление на третостранни рискове', 'Интегриране на кибер рискове в корпоративното управление на риска'],
+        skills: ['Методологии за оценка на риска (ISO 27005, OCTAVE, FAIR)', 'Количествена и качествена оценка на риска', 'Комуникация на риска на бизнес ниво', 'Разработване на risk treatment планове', 'Управление на риск регистри', 'Познаване на регулаторни изисквания', 'Бизнес анализ и разбиране на бизнес процеси', 'Управление на заинтересовани страни'],
+        knowledge: ['ISO 31000 — Risk Management', 'ISO/IEC 27005 — Information Security Risk Management', 'NIST Risk Management Framework (RMF)', 'FAIR модел за количествена оценка на риска', 'Принципи на бизнес непрекъснатост (BCM)', 'Регулаторни изисквания за управление на риска', 'Застрахователни аспекти на киберриска', 'Управление на корпоративен риск (ERM)'],
+        certs: [
+          { name: 'CRISC', body: 'ISACA', level: 'mid', levelBg: 'Средно' },
+          { name: 'ISO 31000 Risk Manager', body: 'PECB', level: 'mid', levelBg: 'Средно' },
+          { name: 'CISM', body: 'ISACA', level: 'advanced', levelBg: 'Напреднал' },
+          { name: 'FAIR Analyst', body: 'FAIR Institute', level: 'mid', levelBg: 'Средно' },
+          { name: 'CompTIA CySA+', body: 'CompTIA', level: 'beginner', levelBg: 'Начинаещ' }
+        ],
+        resources: [
+          { text: 'ISACA CRISC Review Manual', url: 'https://www.isaca.org/credentialing/crisc' },
+          { text: 'NIST Risk Management Framework', url: 'https://csrc.nist.gov/projects/risk-management' },
+          { text: 'FAIR Institute', url: 'https://www.fairinstitute.org' },
+          { text: 'ENISA Threat Landscape', url: 'https://www.enisa.europa.eu/publications/enisa-threat-landscape-2024' }
+        ]
+      },
+      {
+        slug: 'forensics',
+        name: 'Дигитален форензичен следовател',
+        enName: 'Digital Forensics Investigator',
+        color: '#1A5276',
+        tagline: 'Събиране, запазване и анализ на дигитални доказателства при киберинциденти',
+        level: 'Специализиран',
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>`,
+        description: `<div class="description-text"><p>Дигиталният форензичен следовател събира, запазва и анализира дигитални доказателства от компютри, мрежи и мобилни устройства при разследване на киберинциденти и киберпрестъпления.</p><p>Тази роля изисква изключително прецизна работа, тъй като грешки в процеса на събиране и запазване на доказателства могат да ги направят неприемливи в съда. Следователят работи в тясно сътрудничество с правоприлагащите органи, юридически екипи и incident response специалисти.</p><p>С нарастването на облачните технологии, мобилните устройства и криптираните комуникации дигиталната форензика се усложнява, но и предлага нови предизвикателства за специалистите.</p></div>`,
+        tasks: ['Събиране на дигитални доказателства при спазване на chain of custody', 'Форензичен анализ на твърди дискове и файлови системи', 'Мрежова форензика и анализ на pcap файлове', 'Мобилна форензика (iOS, Android)', 'Анализ на паметта (memory forensics)', 'Изготвяне на форензични доклади за съда', 'Свидетелски показания като вещо лице', 'Работа с форензични инструменти (Autopsy, EnCase, FTK)'],
+        skills: ['Форензична методология и chain of custody', 'Анализ на файлови системи и метаданни', 'Мрежова форензика и анализ на трафик', 'Мобилна форензика', 'Анализ на паметта', 'Работа с форензични инструменти', 'Изготвяне на технически доклади', 'Правни аспекти на дигиталните доказателства'],
+        knowledge: ['Файлови системи (NTFS, FAT32, ext4, APFS)', 'Принципи на форензичното копиране (imaging)', 'Артефакти в Windows и Linux системи', 'Мрежови протоколи и логове', 'Процеси на наказателно преследване', 'Приложими закони за дигитални доказателства', 'Anti-forensics техники', 'Облачна форензика'],
+        certs: [
+          { name: 'GCFE', body: 'GIAC', level: 'mid', levelBg: 'Средно' },
+          { name: 'GCFA', body: 'GIAC', level: 'advanced', levelBg: 'Напреднал' },
+          { name: 'EnCE', body: 'OpenText', level: 'mid', levelBg: 'Средно' },
+          { name: 'CHFI', body: 'EC-Council', level: 'mid', levelBg: 'Средно' },
+          { name: 'CCE', body: 'ISFCE', level: 'advanced', levelBg: 'Напреднал' }
+        ],
+        resources: [
+          { text: 'SANS DFIR — Digital Forensics & Incident Response', url: 'https://www.sans.org/digital-forensics-incident-response/' },
+          { text: 'Autopsy — Digital Forensics Platform', url: 'https://www.autopsy.com' },
+          { text: 'Volatility — Memory Forensics', url: 'https://www.volatilityfoundation.org' },
+          { text: 'NIST Computer Forensics Tool Testing', url: 'https://www.nist.gov/system-integrity/computer-forensics' }
+        ]
+      },
+      {
+        slug: 'pentest',
+        name: 'Специалист по тестване за проникване',
+        enName: 'Penetration Tester',
+        color: '#922B21',
+        tagline: 'Симулиране на реални атаки за разкриване на уязвимости преди злонамерени актьори',
+        level: 'Офензивен',
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>`,
+        description: `<div class="description-text"><p>Специалистът по тестване за проникване (пентестър) симулира реални кибератаки срещу системите, мрежите и приложенията на организацията с цел разкриване на уязвимости, преди злонамерените актьори да ги открият и използват.</p><p>Тази роля изисква задълбочени офензивни технически познания и непрекъснато обучение, тъй като заплахите и техниките непрекъснато еволюират. Пентестърът трябва да мисли като атакуващ, но да действа в интерес на защитата.</p><p>Работата включва разнообразни типове тестове — мрежова инфраструктура, уеб приложения, мобилни приложения, social engineering, физическа сигурност и Red Team операции. Пентестърите изготвят детайлни доклади с препоръки за отстраняване на откритите уязвимости.</p></div>`,
+        tasks: ['Провеждане на penetration testing на мрежова инфраструктура', 'Тестване за уязвимости на уеб и мобилни приложения', 'Red Team операции и симулации на APT', 'Social engineering тестове (фишинг, vishing)', 'Физически тестове за сигурност', 'Изготвяне на детайлни технически доклади', 'Представяне на резултатите пред ръководството', 'Верификация на отстранените уязвимости'],
+        skills: ['Мрежов пентест (Nmap, Metasploit, Nessus)', 'Уеб приложения (Burp Suite, OWASP методология)', 'Мобилни приложения (iOS, Android)', 'Social engineering и фишинг симулации', 'Post-exploitation техники', 'Privilege escalation (Windows, Linux)', 'Active Directory атаки и защити', 'Изготвяне на технически и изпълнителни доклади'],
+        knowledge: ['MITRE ATT&CK за Enterprise и Mobile', 'OWASP Top 10 и OWASP Testing Guide', 'Мрежови протоколи и exploitи', 'Active Directory архитектура и атаки', 'Криптографски слабости', 'Принципи на exploit development', 'Правна рамка за penetration testing (лицензи, договори)', 'Bug bounty програми и responsible disclosure'],
+        certs: [
+          { name: 'OSCP', body: 'Offensive Security', level: 'mid', levelBg: 'Средно' },
+          { name: 'OSEP', body: 'Offensive Security', level: 'advanced', levelBg: 'Напреднал' },
+          { name: 'CEH', body: 'EC-Council', level: 'beginner', levelBg: 'Начинаещ' },
+          { name: 'GPEN', body: 'GIAC', level: 'mid', levelBg: 'Средно' },
+          { name: 'GWAPT', body: 'GIAC', level: 'mid', levelBg: 'Средно' },
+          { name: 'CREST CRT', body: 'CREST', level: 'mid', levelBg: 'Средно' }
+        ],
+        resources: [
+          { text: 'HackTheBox — Practical Pentesting Labs', url: 'https://www.hackthebox.com' },
+          { text: 'TryHackMe — Learn Cybersecurity', url: 'https://tryhackme.com' },
+          { text: 'PortSwigger Web Security Academy', url: 'https://portswigger.net/web-security' },
+          { text: 'Offensive Security Proving Grounds', url: 'https://www.offsec.com/labs/' }
+        ]
+      }
+    ];
+
+    // ============================================================
+    // RENDER
+    // ============================================================
+    let activeSlug = null;
+    let activeTab = 'opisanie';
+
+    function renderGrid() {
+      const grid = document.getElementById('profiles-grid');
+      grid.innerHTML = PROFILES.map(p => `
+        <div class="profile-tile${activeSlug === p.slug ? ' selected' : ''}"
+          style="--tile-color:${p.color}"
+          onclick="selectProfile('${p.slug}')"
+          data-slug="${p.slug}">
+          <div class="tile-icon">${p.icon}</div>
+          <div class="tile-name">${p.name}</div>
+          <div class="tile-tagline">${p.tagline}</div>
+          <span class="tile-level">${p.level}</span>
+        </div>
+      `).join('');
+    }
+
+    function selectProfile(slug) {
+      if (activeSlug === slug) {
+        activeSlug = null;
+        document.getElementById('detail-panel').classList.remove('visible');
+        renderGrid();
+        window.location.hash = '';
+        return;
+      }
+      activeSlug = slug;
+      const p = PROFILES.find(x => x.slug === slug);
+      if (!p) return;
+      renderGrid();
+      renderDetail(p);
+      window.location.hash = slug;
+      setTimeout(() => {
+        document.getElementById('detail-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
+    }
+
+    function renderDetail(p) {
+      const panel = document.getElementById('detail-panel');
+      panel.classList.add('visible');
+
+      document.getElementById('detail-icon').innerHTML = p.icon;
+      document.getElementById('detail-title').textContent = p.name;
+      document.getElementById('detail-en').textContent = p.enName;
+      document.getElementById('detail-tagline').textContent = p.tagline;
+
+      // Tab: Описание
+      document.getElementById('tab-opisanie').innerHTML = p.description + `
+        <div class="intro-grid">
+          <div class="intro-card"><div class="intro-card-label">Ниво</div><div class="intro-card-value">${p.level}</div></div>
+          <div class="intro-card"><div class="intro-card-label">Задачи</div><div class="intro-card-value">${p.tasks.length} основни</div></div>
+          <div class="intro-card"><div class="intro-card-label">Сертификации</div><div class="intro-card-value">${p.certs.length} препоръчани</div></div>
+          <div class="intro-card"><div class="intro-card-label">Рамка</div><div class="intro-card-value">ENISA ECSF</div></div>
+        </div>`;
+
+      // Tab: Задачи
+      document.getElementById('tab-zadachi').innerHTML = `
+        <h3 style="font-size:var(--fs-lg);color:var(--navy);margin-bottom:1.25rem;">Основни задачи и отговорности</h3>
+        <ul class="items-list">${p.tasks.map(t => `<li>${t}</li>`).join('')}</ul>`;
+
+      // Tab: Умения
+      document.getElementById('tab-umeniq').innerHTML = `
+        <h3 style="font-size:var(--fs-lg);color:var(--navy);margin-bottom:1.25rem;">Ключови умения</h3>
+        <div class="skills-grid">${p.skills.map(s => `
+          <div class="skill-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            ${s}
+          </div>`).join('')}</div>`;
+
+      // Tab: Знания
+      document.getElementById('tab-znania').innerHTML = `
+        <h3 style="font-size:var(--fs-lg);color:var(--navy);margin-bottom:1.25rem;">Необходими знания</h3>
+        <ul class="items-list knowledge-cols">${p.knowledge.map(k => `<li>${k}</li>`).join('')}</ul>`;
+
+      // Tab: Сертификации
+      document.getElementById('tab-sertifikacii').innerHTML = `
+        <h3 style="font-size:var(--fs-lg);color:var(--navy);margin-bottom:1.25rem;">Препоръчани сертификации</h3>
+        <div class="certs-list">${p.certs.map(c => `
+          <div class="cert-item">
+            <div>
+              <div class="cert-name">${c.name}</div>
+              <div class="cert-body">${c.body}</div>
+            </div>
+            <span class="cert-level level-${c.level}">${c.levelBg}</span>
+          </div>`).join('')}</div>`;
+
+      // Tab: Ресурси
+      document.getElementById('tab-resursi').innerHTML = `
+        <h3 style="font-size:var(--fs-lg);color:var(--navy);margin-bottom:1.25rem;">Полезни ресурси</h3>
+        <div class="resources-list">${p.resources.map(r => `
+          <a href="${r.url}" target="_blank" rel="noopener" class="resource-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            ${r.text}
+          </a>`).join('')}</div>`;
+
+      // Reset to first tab
+      switchTab('opisanie');
+    }
+
+    function switchTab(tabId) {
+      activeTab = tabId;
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      const tabEl = document.getElementById('tab-' + tabId);
+      if (tabEl) tabEl.classList.add('active');
+      const tabMap = { opisanie: 0, zadachi: 1, umeniq: 2, znania: 3, sertifikacii: 4, resursi: 5 };
+      const idx = tabMap[tabId];
+      const btns = document.querySelectorAll('.tab-btn');
+      if (btns[idx]) btns[idx].classList.add('active');
+    }
+
+    // NAVBAR
+    function toggleDropdown(id) {
+      const li = document.getElementById(id);
+      const wasOpen = li.classList.contains('open');
+      document.querySelectorAll('.nav-links li.has-dropdown').forEach(el => el.classList.remove('open'));
+      if (!wasOpen) li.classList.add('open');
+    }
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.has-dropdown')) {
+        document.querySelectorAll('.nav-links li.has-dropdown').forEach(el => el.classList.remove('open'));
+      }
+    });
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    function toggleMobile() {
+      document.getElementById('hamburger').classList.toggle('open');
+      document.getElementById('mobile-menu').classList.toggle('open');
+    }
+    function closeMobile() {
+      document.getElementById('hamburger').classList.remove('open');
+      document.getElementById('mobile-menu').classList.remove('open');
+    }
+    function toggleMobileSub(id, btn) {
+      document.getElementById(id).classList.toggle('open');
+      btn.classList.toggle('open');
+    }
+
+    // HASH ROUTING
+    function handleHash() {
+      const hash = window.location.hash.slice(1);
+      if (hash && PROFILES.find(p => p.slug === hash)) {
+        activeSlug = null;
+        selectProfile(hash);
+      }
+    }
+    window.addEventListener('hashchange', handleHash);
+
+    // INIT
+    renderGrid();
+    handleHash();
+  </script>
+</body>
+
+</html>

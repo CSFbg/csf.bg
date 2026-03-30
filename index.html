@@ -736,6 +736,13 @@
       align-items: center;
       gap: 0.65rem;
       animation: float 4s ease-in-out infinite;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.22s ease, background 0.22s ease;
+    }
+    .hero-card:hover {
+      border-color: rgba(74, 126, 197, 0.6);
+      background: rgba(30, 62, 122, 0.92);
     }
 
     .hero-card:nth-child(1) {
@@ -2024,14 +2031,14 @@
               </svg>
               CTF
             </a>
-            <a href="#books">
+            <a href="knigi.html">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
                 <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
               </svg>
               Книги
             </a>
-            <a href="#videos">
+            <a href="video.html">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polygon points="23 7 16 12 23 17 23 7" />
                 <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
@@ -2063,7 +2070,7 @@
               </svg>
               Онлайн курсове
             </a>
-            <a href="#certifications">
+            <a href="sertifikacii.html">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="8" r="7" />
                 <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
@@ -2095,7 +2102,7 @@
               </svg>
               Менторство
             </a>
-            <a href="#companies">
+            <a href="kompanii.html">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
               </svg>
@@ -2117,7 +2124,7 @@
               </svg>
               Кариерен компас
             </a>
-            <a href="#career-paths">
+            <a href="profesionalni-pateki.html">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
               </svg>
@@ -2133,7 +2140,7 @@
           </div>
         </li>
         <li><a href="sabitia.html">Събития</a></li>
-        <li><a href="#join" class="nav-cta">Включи се</a></li>
+        <li><a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="nav-cta">Включи се</a></li>
       </ul>
 
       <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Меню">
@@ -2163,8 +2170,8 @@
         <a href="instrumenti.html" onclick="closeMobile()">Инструменти</a>
         <a href="terminologiq.html" onclick="closeMobile()">Терминология</a>
         <a href="ctf.html" onclick="closeMobile()">CTF</a>
-        <a href="#books" onclick="closeMobile()">Книги</a>
-        <a href="#videos" onclick="closeMobile()">Видео ресурси</a>
+        <a href="knigi.html" onclick="closeMobile()">Книги</a>
+        <a href="video.html" onclick="closeMobile()">Видео ресурси</a>
       </div>
     </div>
     <div class="mobile-nav-section">
@@ -2179,7 +2186,7 @@
         <a href="universiteti.html" onclick="closeMobile()">Университетски програми</a>
         <a href="platformi.html" onclick="closeMobile()">Платформи</a>
         <a href="kursove.html" onclick="closeMobile()">Онлайн курсове</a>
-        <a href="#certifications" onclick="closeMobile()">Сертификации</a>
+        <a href="sertifikacii.html" onclick="closeMobile()">Сертификации</a>
       </div>
     </div>
     <div class="mobile-nav-section">
@@ -2193,16 +2200,16 @@
       <div class="mobile-sub" id="sub-career">
         <a href="mentoring.html" onclick="closeMobile()">Менторство</a>
         <a href="zaplati.html" onclick="closeMobile()">Заплати</a>
-        <a href="#companies" onclick="closeMobile()">Компании</a>
+        <a href="kompanii.html" onclick="closeMobile()">Компании</a>
         <a href="obqvi.html" onclick="closeMobile()">Обяви</a>
         <a href="compass.html" onclick="closeMobile()">Кариерен компас</a>
-        <a href="#career-paths" onclick="closeMobile()">Професионални пътеки</a>
+        <a href="profesionalni-pateki.html" onclick="closeMobile()">Професионални пътеки</a>
       </div>
     </div>
     <div class="mobile-nav-section">
       <a href="sabitia.html" class="mobile-link" onclick="closeMobile()">Събития</a>
     </div>
-    <a href="#join" class="mobile-cta" onclick="closeMobile()">Включи се →</a>
+    <a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="mobile-cta" onclick="closeMobile()">Включи се →</a>
   </div>
 
 
@@ -2233,7 +2240,7 @@
             </svg>
             Разгледай ресурсите
           </a>
-          <a href="#join" class="btn btn-outline">Стани член</a>
+          <a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="btn btn-outline">Стани член</a>
         </div>
         <div class="hero-stats">
           <div class="stat-item">
@@ -2306,21 +2313,20 @@
           </div>
         </div> -->
 
-        <div class="hero-card">
+        <a href="universiteti.html" class="hero-card">
           <div class="hero-card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
-              <line x1="12" y1="9" x2="12" y2="13" />
-              <line x1="12" y1="17" x2="12.01" y2="17" />
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+              <path d="M6 12v5c3 3 9 3 12 0v-5" />
             </svg>
           </div>
           <div class="hero-card-text">
             <span class="hero-card-title">Университетски програми</span>
             <span class="hero-card-sub">Виж къде да следваш →</span>
           </div>
-        </div>
+        </a>
 
-        <div class="hero-card">
+        <a href="mentoring.html" class="hero-card">
           <div class="hero-card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
@@ -2332,9 +2338,9 @@
             <span class="hero-card-title">Менторска програма</span>
             <span class="hero-card-sub">Намери своя ментор →</span>
           </div>
-        </div>
+        </a>
 
-        <div class="hero-card">
+        <a href="compass.html" class="hero-card">
           <div class="hero-card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10" />
@@ -2345,9 +2351,9 @@
             <span class="hero-card-title">Кариерен компас</span>
             <span class="hero-card-sub">Открий своята пътека →</span>
           </div>
-        </div>
+        </a>
 
-        <div class="hero-card">
+        <a href="zaplati.html" class="hero-card">
           <div class="hero-card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="12" y1="1" x2="12" y2="23" />
@@ -2358,33 +2364,35 @@
             <span class="hero-card-title">Заплати в сектора</span>
             <span class="hero-card-sub">Стартират от €1,000/мес</span>
           </div>
-        </div>
+        </a>
 
-        <div class="hero-card" style="right:0px;">
+        <a href="sabitia.html" class="hero-card" style="right:0px;">
           <div class="hero-card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="12" y1="1" x2="12" y2="23" />
-              <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
             </svg>
           </div>
           <div class="hero-card-text">
             <span class="hero-card-title">Събития</span>
-            <span class="hero-card-sub">Срещни се с общтността →</span>
+            <span class="hero-card-sub">Срещни се с общността →</span>
           </div>
-        </div>
+        </a>
 
-        <div class="hero-card" style="left:0px;">
+        <a href="kompanii.html" class="hero-card" style="left:0px;">
           <div class="hero-card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="12" y1="1" x2="12" y2="23" />
-              <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              <path d="M9 22V12h6v10" />
             </svg>
           </div>
           <div class="hero-card-text">
             <span class="hero-card-title">Компании</span>
             <span class="hero-card-sub">Двигателите на бизнеса →</span>
           </div>
-        </div>
+        </a>
 
       </div><!-- end hero-visual -->
 
@@ -2496,7 +2504,7 @@
             <span class="tag">Работа</span>
             <span class="tag">Заплати</span>
           </div>
-          <a href="#career-paths" class="area-link">
+          <a href="profesionalni-pateki.html" class="area-link">
             Разгледай
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
@@ -2571,7 +2579,7 @@
           <h2 class="section-title">Събития и конференции</h2>
           <p class="section-desc">Конференции, работилници и meetups за специалистите по киберсигурност в България.</p>
         </div>
-        <a href="#all-events" class="btn btn-dark">
+        <a href="sabitia.html" class="btn btn-dark">
           Всички събития
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M12 5l7 7-7 7" />
@@ -2683,7 +2691,7 @@
           <p class="section-desc">Шест основни кариерни пътеки с реални данни за заплати, търсенето на пазара и нужните
             сертификации.</p>
         </div>
-        <a href="#all-careers" class="btn btn-dark">
+        <a href="obqvi.html" class="btn btn-dark">
           Всички пътеки
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M12 5l7 7-7 7" />
@@ -2840,7 +2848,7 @@
           <p class="section-desc">Актуален преглед на кибер заплахите и инцидентите засягащи България, базиран на данни
             от CERT.BG, cybercrime.bg и ENISA.</p>
         </div>
-        <a href="#threat-details" class="btn btn-outline">
+        <a href="haklor.html" class="btn btn-outline">
           Пълен доклад
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M12 5l7 7-7 7" />
@@ -2950,7 +2958,7 @@
       </div>
     </div>
     <div style="text-align:center; margin-top:2.5rem;">
-      <a href="#all-companies" class="btn btn-dark">
+      <a href="kompanii.html" class="btn btn-dark">
         Виж всички компании
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
           <path d="M5 12h14M12 5l7 7-7 7" />
@@ -2973,8 +2981,8 @@
         </p>
       </div>
       <div class="mentor-actions">
-        <a href="#mentor-register" class="btn btn-primary">Регистрирай се като ментор</a>
-        <a href="#mentee-register" class="btn btn-outline">Намери ментор</a>
+        <a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="btn btn-primary">Регистрирай се като ментор</a>
+        <a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="btn btn-outline">Намери ментор</a>
       </div>
     </div>
   </div>
@@ -2988,73 +2996,59 @@
       <div class="partners-title">Партньори и приятели</div>
       <div class="partners-grid">
 
-        <a href="https://xakep.bg" target="_blank" rel="noopener" class="partner-item">
-          <div class="partner-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-          </div>
-          <div class="partner-name">XaKeP.bg</div>
-          <div class="partner-type">Общност</div>
-        </a>
+  <a href="https://xakep.bg" target="_blank" rel="noopener" class="partner-item">
+    <div class="partner-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    </div>
+    <div class="partner-name">XaKeP.bg</div>
+    <div class="partner-type">Общност</div>
+  </a>
 
-        <a href="https://cybersecuritytalks.bg" target="_blank" rel="noopener" class="partner-item">
-          <div class="partner-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
-            </svg>
-          </div>
-          <div class="partner-name">CyberSecurityTalks.bg</div>
-          <div class="partner-type">Месечни срещи</div>
-        </a>
+  <a href="https://cybersecuritytalks.bg" target="_blank" rel="noopener" class="partner-item">
+    <div class="partner-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+      </svg>
+    </div>
+    <div class="partner-name">CyberSecurityTalks.bg</div>
+    <div class="partner-type">Месечни срещи</div>
+  </a>
 
-        <a href="https://cybercrime.bg" target="_blank" rel="noopener" class="partner-item">
-          <div class="partner-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10" />
-              <line x1="12" y1="8" x2="12" y2="12" />
-              <line x1="12" y1="16" x2="12.01" y2="16" />
-            </svg>
-          </div>
-          <div class="partner-name">Cybercrime.bg</div>
-          <div class="partner-type">ГДБОП · МВР</div>
-        </a>
+  <a href="https://cybercrime.bg" target="_blank" rel="noopener" class="partner-item">
+    <div class="partner-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="12" y1="8" x2="12" y2="12" />
+        <line x1="12" y1="16" x2="12.01" y2="16" />
+      </svg>
+    </div>
+    <div class="partner-name">Cybercrime.bg</div>
+    <div class="partner-type">ГДБОП · МВР</div>
+  </a>
 
-        <a href="https://securitybsides.bg" target="_blank" rel="noopener" class="partner-item">
-          <div class="partner-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
-              <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
-            </svg>
-          </div>
-          <div class="partner-name">BSides Sofia</div>
-          <div class="partner-type">Конференция</div>
-        </a>
+  <a href="https://phishing.bg" target="_blank" rel="noopener" class="partner-item">
+    <div class="partner-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/>
+      </svg>
+    </div>
+    <div class="partner-name">Phishing.bg</div>
+    <div class="partner-type">Фишинг</div>
+  </a>
 
-        <a href="https://issa-bulgaria.eu" target="_blank" rel="noopener" class="partner-item">
-          <div class="partner-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-            </svg>
-          </div>
-          <div class="partner-name">ISSA Bulgaria</div>
-          <div class="partner-type">Асоциация</div>
-        </a>
+  <a href="https://dora.bg" target="_blank" rel="noopener" class="partner-item">
+    <div class="partner-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>
+      </svg>
+    </div>
+    <div class="partner-name">Dora.bg</div>
+    <div class="partner-type">ДОРА</div>
+  </a>
 
-        <a href="https://isaca-sofia.org" target="_blank" rel="noopener" class="partner-item">
-          <div class="partner-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="8" r="7" />
-              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
-            </svg>
-          </div>
-          <div class="partner-name">ISACA Sofia Chapter</div>
-          <div class="partner-type">Сертификации</div>
-        </a>
-
-      </div>
+</div>
     </div>
   </section>
 
@@ -3115,8 +3109,8 @@
             <li><a href="instrumenti.html">Инструменти</a></li>
             <li><a href="terminologiq.html">Терминология</a></li>
             <li><a href="ctf.html">CTF</a></li>
-            <li><a href="#books">Книги</a></li>
-            <li><a href="#videos">Видео ресурси</a></li>
+            <li><a href="knigi.html">Книги</a></li>
+            <li><a href="video.html">Видео ресурси</a></li>
           </ul>
         </div>
 
@@ -3126,7 +3120,7 @@
             <li><a href="universiteti.html">Университетски програми</a></li>
             <li><a href="platformi.html">Платформи</a></li>
             <li><a href="kursove.html">Онлайн курсове</a></li>
-            <li><a href="#certifications">Сертификации</a></li>
+            <li><a href="sertifikacii.html">Сертификации</a></li>
           </ul>
         </div>
 
@@ -3135,10 +3129,10 @@
           <ul class="footer-links">
             <li><a href="mentoring.html">Менторство</a></li>
             <li><a href="zaplati.html">Заплати</a></li>
-            <li><a href="#companies">Компании</a></li>
+            <li><a href="kompanii.html">Компании</a></li>
             <li><a href="obqvi.html">Обяви</a></li>
             <li><a href="compass.html">Кариерен компас</a></li>
-            <li><a href="#career-paths">Професионални пътеки</a></li>
+            <li><a href="profesionalni-pateki.html">Професионални пътеки</a></li>
           </ul>
         </div>
       </div>

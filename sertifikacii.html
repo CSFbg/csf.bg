@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Сертификации по киберсигурност | CSF.BG</title>
+  <meta name="description" content="Пълен каталог на 75+ сертификации по киберсигурност с филтри по тип, ниво, цена и специализация. Базиран на Paul Jerimy Security Certification Roadmap." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:#0D1F3C; --navy-mid:#162B52; --royal:#1E3E7A; --blue:#2B5BB5; --sky:#4A7EC5; --sky-light:#A8C4E8;
+      --beige:#F4EFE4; --cream:#FAF8F3; --sand:#D8CEBC; --tan:#C4B49A;
+      --espresso:#1C120A; --brown:#4A3020; --bark:#7A5C3C;
+      --white:#FFFFFF;
+      --fs-xs:0.75rem; --fs-sm:0.875rem; --fs-base:1rem; --fs-md:1.125rem; --fs-lg:1.375rem; --fs-xl:1.75rem; --fs-2xl:2.5rem; --fs-3xl:3.5rem;
+      --radius-sm:4px; --radius:8px; --radius-lg:16px;
+      --shadow-sm:0 2px 8px rgba(13,31,60,0.08); --shadow:0 6px 24px rgba(13,31,60,0.12); --shadow-lg:0 16px 48px rgba(13,31,60,0.18);
+      --transition:0.28s cubic-bezier(0.4,0,0.2,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--espresso);line-height:1.6;overflow-x:hidden}
+    h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-spacing:-0.01em}
+    a{color:inherit;text-decoration:none}
+
+    /* NAVBAR */
+    .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.06);transition:box-shadow var(--transition),background var(--transition)}
+    .navbar.scrolled{background:rgba(13,31,60,0.97);backdrop-filter:blur(12px);box-shadow:0 4px 32px rgba(0,0,0,0.3)}
+    .nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem}
+    .logo-text{display:flex;flex-direction:column;line-height:1.1}
+    .logo-abbr{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:0.06em}
+    .logo-full{font-size:0.6rem;font-weight:400;color:var(--sky-light);text-transform:uppercase;letter-spacing:0.12em}
+    .nav-links{display:flex;align-items:center;gap:0.25rem;list-style:none}
+    .nav-links>li{position:relative}
+    .nav-links>li>a,.nav-links>li>button{display:flex;align-items:center;gap:0.35rem;padding:0.5rem 0.85rem;font-size:var(--fs-sm);font-weight:500;color:rgba(255,255,255,0.82);background:none;border:none;cursor:pointer;border-radius:var(--radius-sm);transition:color var(--transition),background var(--transition);white-space:nowrap;font-family:'DM Sans',sans-serif;letter-spacing:0.01em}
+    .nav-links>li>a:hover,.nav-links>li>button:hover{color:var(--white);background:rgba(255,255,255,0.08)}
+    .nav-links>li>a.active{color:var(--sky-light)}
+    .chevron{width:14px;height:14px;transition:transform 0.2s ease}
+    .nav-links>li.open>button .chevron{transform:rotate(180deg)}
+    .dropdown{position:absolute;top:calc(100% + 8px);left:0;min-width:220px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-lg);border:1px solid var(--sand);opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity 0.22s ease,transform 0.22s ease;overflow:hidden;z-index:100}
+    .nav-links>li.open .dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
+    .dropdown a{display:flex;align-items:center;gap:0.6rem;padding:0.7rem 1.1rem;font-size:var(--fs-sm);color:var(--brown);transition:background var(--transition),color var(--transition);border-left:3px solid transparent}
+    .dropdown a:hover{background:var(--beige);color:var(--navy);border-left-color:var(--blue)}
+    .dropdown-divider{height:1px;background:var(--sand);margin:0.3rem 0}
+    .dropdown-label{padding:0.5rem 1.1rem 0.25rem;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--bark)}
+    .nav-cta{background:var(--blue)!important;color:var(--white)!important;padding:0.5rem 1.1rem!important;border-radius:var(--radius-sm)!important;font-weight:600!important;letter-spacing:0.02em}
+    .nav-cta:hover{background:var(--royal)!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:transform 0.25s ease,opacity 0.2s ease}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);max-height:calc(100vh - 68px);overflow-y:auto;z-index:999;padding:1rem 1.5rem 2rem;transform:translateX(100%);transition:transform 0.3s ease}
+    .mobile-menu.open{transform:translateX(0)}
+    .mobile-nav-section{border-bottom:1px solid rgba(255,255,255,0.08);padding:0.5rem 0}
+    .mobile-nav-toggle{display:flex;justify-content:space-between;align-items:center;width:100%;padding:0.75rem 0;font-size:var(--fs-base);font-weight:500;color:rgba(255,255,255,0.9);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;text-align:left}
+    .mobile-nav-toggle.open .chevron{transform:rotate(180deg)}
+    .mobile-sub{display:none;padding:0 0 0.5rem 1rem}
+    .mobile-sub.open{display:block}
+    .mobile-sub a{display:block;padding:0.55rem 0;font-size:var(--fs-sm);color:rgba(255,255,255,0.68);border-left:2px solid rgba(255,255,255,0.1);padding-left:1rem;transition:color var(--transition)}
+    .mobile-sub a:hover{color:var(--sky-light)}
+    .mobile-link{display:block;padding:0.75rem 0;font-size:var(--fs-base);font-weight:500;color:rgba(255,255,255,0.9)}
+    .mobile-cta{display:block;margin-top:1.25rem;text-align:center;padding:0.85rem;background:var(--blue);color:var(--white);border-radius:var(--radius);font-weight:600}
+
+    /* PAGE */
+    .page-content{padding-top:68px}
+    .article-section{max-width:1280px;margin:0 auto;padding:3.5rem 2rem 2rem}
+    .breadcrumb{display:flex;align-items:center;gap:0.5rem;font-size:var(--fs-sm);color:var(--bark);margin-bottom:2rem}
+    .breadcrumb a{color:var(--blue);transition:color var(--transition);font-weight:500}
+    .breadcrumb svg{width:14px;height:14px;color:var(--tan);flex-shrink:0}
+    .breadcrumb .current{color:var(--espresso);font-weight:500}
+    .article-header{margin-bottom:2rem}
+    .article-header h1{font-size:clamp(2rem,4vw,var(--fs-3xl));font-weight:600;color:var(--navy);margin-bottom:1rem}
+    .article-header h1 em{font-style:italic;color:var(--blue)}
+    .article-lead{font-size:var(--fs-md);color:var(--brown);max-width:720px;line-height:1.75;font-weight:300}
+    .section-divider{width:100%;height:1px;background:var(--sand);margin:2rem 0}
+
+    /* STATS ROW */
+    .stats-row{display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:2rem}
+    .stat-item{display:flex;flex-direction:column}
+    .stat-num{font-family:'Cormorant Garamond',serif;font-size:var(--fs-2xl);font-weight:600;color:var(--navy);line-height:1}
+    .stat-label{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--bark);margin-top:0.25rem}
+
+    /* FILTER BAR */
+    .filter-bar{background:var(--white);border:1px solid var(--sand);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:2rem;display:flex;flex-direction:column;gap:1.25rem;box-shadow:var(--shadow-sm)}
+    .filter-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+    .filter-label{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;color:var(--bark);white-space:nowrap;min-width:90px}
+    .chips{display:flex;flex-wrap:wrap;gap:0.5rem}
+    .chip{display:inline-flex;align-items:center;gap:0.3rem;padding:0.35rem 0.85rem;border-radius:20px;font-size:var(--fs-xs);font-weight:600;cursor:pointer;border:1.5px solid var(--sand);background:var(--cream);color:var(--brown);transition:all var(--transition);white-space:nowrap}
+    .chip:hover{border-color:var(--sky);color:var(--blue)}
+    .chip.active{background:var(--blue);border-color:var(--blue);color:var(--white)}
+    .filter-actions{display:flex;align-items:center;gap:1rem;padding-top:0.5rem;border-top:1px solid var(--sand)}
+    .results-count{font-size:var(--fs-sm);color:var(--bark)}
+    .results-count strong{color:var(--navy);font-weight:600}
+    .btn-reset{background:none;border:1px solid var(--sand);border-radius:var(--radius-sm);padding:0.4rem 0.85rem;font-size:var(--fs-xs);font-weight:600;color:var(--bark);cursor:pointer;transition:all var(--transition);font-family:'DM Sans',sans-serif}
+    .btn-reset:hover{border-color:var(--blue);color:var(--blue)}
+
+    /* SORT / VIEW ROW */
+    .toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;gap:1rem;flex-wrap:wrap}
+    .sort-select{border:1px solid var(--sand);border-radius:var(--radius-sm);padding:0.4rem 0.75rem;font-size:var(--fs-sm);font-family:'DM Sans',sans-serif;color:var(--brown);background:var(--white);cursor:pointer}
+
+    /* CERT GRID */
+    .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;margin-bottom:3rem}
+    .cert-card{background:var(--white);border:1px solid var(--sand);border-radius:var(--radius-lg);padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem;transition:all var(--transition);cursor:pointer;position:relative;overflow:hidden}
+    .cert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--card-color,var(--blue));opacity:0.7}
+    .cert-card:hover{border-color:var(--sky-light);box-shadow:var(--shadow);transform:translateY(-2px)}
+    .cert-card.hidden{display:none}
+    .cert-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:0.5rem}
+    .cert-abbr{font-family:'Cormorant Garamond',serif;font-size:var(--fs-xl);font-weight:700;color:var(--navy);line-height:1}
+    .cert-badges{display:flex;flex-direction:column;align-items:flex-end;gap:0.3rem;flex-shrink:0}
+    .badge{display:inline-block;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.2rem 0.55rem;border-radius:20px;white-space:nowrap}
+    .badge-practical{background:#E8F5E9;color:#2E7D32}
+    .badge-theoretical{background:#E3F2FD;color:#1565C0}
+    .badge-beginner{background:#F3E5F5;color:#6A1B9A}
+    .badge-intermediate{background:#FFF3E0;color:#E65100}
+    .badge-advanced{background:#FCE4EC;color:#B71C1C}
+    .cert-name{font-size:var(--fs-sm);font-weight:600;color:var(--espresso);line-height:1.35}
+    .cert-body{font-size:var(--fs-xs);color:var(--bark);font-weight:400}
+    .cert-desc{font-size:var(--fs-xs);color:var(--brown);line-height:1.55;font-weight:300;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    .cert-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:0.75rem;border-top:1px solid var(--sand)}
+    .cert-cost{font-size:var(--fs-sm);font-weight:600;color:var(--navy)}
+    .cert-cost span{font-size:var(--fs-xs);font-weight:400;color:var(--bark)}
+    .cert-areas{display:flex;flex-wrap:wrap;gap:0.3rem}
+    .area-tag{font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;padding:0.15rem 0.45rem;border-radius:3px;background:var(--beige);color:var(--bark)}
+    .cert-link{display:inline-flex;align-items:center;gap:0.3rem;font-size:var(--fs-xs);color:var(--blue);font-weight:600;transition:color var(--transition);margin-top:0.5rem}
+    .cert-link:hover{color:var(--royal)}
+    .cert-link svg{width:12px;height:12px}
+
+    /* EMPTY STATE */
+    .empty-state{text-align:center;padding:4rem 2rem;color:var(--bark);display:none}
+    .empty-state.visible{display:block}
+    .empty-state svg{width:48px;height:48px;color:var(--sand);margin-bottom:1rem}
+
+    /* MODAL */
+    .modal-overlay{position:fixed;inset:0;background:rgba(13,31,60,0.6);backdrop-filter:blur(6px);z-index:2000;opacity:0;pointer-events:none;transition:opacity 0.25s ease;display:flex;align-items:center;justify-content:center;padding:1.5rem}
+    .modal-overlay.open{opacity:1;pointer-events:all}
+    .modal{background:var(--white);border-radius:var(--radius-lg);max-width:680px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(20px) scale(0.97);transition:transform 0.25s ease;box-shadow:var(--shadow-lg)}
+    .modal-overlay.open .modal{transform:translateY(0) scale(1)}
+    .modal-header{background:linear-gradient(135deg,var(--navy),var(--navy-mid));padding:2rem;position:relative}
+    .modal-close{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius-sm);width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--white);transition:background var(--transition)}
+    .modal-close:hover{background:rgba(255,255,255,0.2)}
+    .modal-abbr{font-family:'Cormorant Garamond',serif;font-size:var(--fs-2xl);font-weight:700;color:var(--white);margin-bottom:0.25rem}
+    .modal-name{font-size:var(--fs-sm);color:rgba(255,255,255,0.7);margin-bottom:0.75rem}
+    .modal-badges{display:flex;gap:0.5rem;flex-wrap:wrap}
+    .modal-body{padding:2rem}
+    .modal-section{margin-bottom:1.5rem}
+    .modal-section-title{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;color:var(--bark);margin-bottom:0.6rem}
+    .modal-desc{font-size:var(--fs-sm);color:var(--brown);line-height:1.7;font-weight:300}
+    .modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+    .modal-stat{background:var(--cream);border:1px solid var(--sand);border-radius:var(--radius);padding:0.85rem 1rem}
+    .modal-stat-label{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--bark);margin-bottom:0.3rem}
+    .modal-stat-value{font-family:'Cormorant Garamond',serif;font-size:var(--fs-lg);font-weight:600;color:var(--navy)}
+    .modal-areas{display:flex;flex-wrap:wrap;gap:0.4rem}
+    .modal-area-tag{font-size:var(--fs-xs);font-weight:600;padding:0.3rem 0.75rem;border-radius:20px;background:var(--beige);color:var(--brown);border:1px solid var(--sand)}
+    .btn-cert-link{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;background:var(--blue);color:var(--white);border-radius:var(--radius);font-size:var(--fs-sm);font-weight:600;transition:all var(--transition)}
+    .btn-cert-link:hover{background:var(--royal);transform:translateY(-1px)}
+
+    /* FOOTER */
+    footer{background:var(--espresso);color:rgba(255,255,255,0.55);padding:4rem 2rem 2rem}
+    .footer-inner{max-width:1280px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+    .footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:var(--fs-xl);font-weight:600;color:var(--white);margin-bottom:0.75rem}
+    .footer-brand-desc{font-size:var(--fs-sm);line-height:1.7;max-width:280px}
+    .footer-col-title{font-size:var(--fs-xs);font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.35);margin-bottom:1.25rem}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+    .footer-links a{font-size:var(--fs-sm);transition:color var(--transition)}
+    .footer-links a:hover{color:var(--white)}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.06);font-size:var(--fs-xs);gap:1rem;flex-wrap:wrap}
+
+    @media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:768px){
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .mobile-menu{display:block}
+      .article-section{padding:2.5rem 1.25rem 1.5rem}
+      .cert-grid{grid-template-columns:1fr}
+      .modal-grid{grid-template-columns:1fr}
+      .filter-label{min-width:70px}
+    }
+    @media(max-width:640px){
+      .footer-grid{grid-template-columns:1fr;gap:2rem}
+      .stats-row{gap:1.5rem}
+      .cert-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo_csf.png" height="40" alt="CSF.BG лого">
+        <div class="logo-text">
+          <span class="logo-abbr">CSF.BG</span>
+          <span class="logo-full">Българска Фондация за Киберсигурност</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li>
+          <a href="za-nas.html">За нас</a>
+        </li>
+        <li class="has-dropdown" id="dd-resources">
+          <button onclick="toggleDropdown('dd-resources')">
+            Ресурси
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="dropdown">
+            <div class="dropdown-label">Директория</div>
+            <a href="organizacii.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+              </svg>
+              Организации
+            </a>
+            <a href="forumi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+              </svg>
+              Форуми
+            </a>
+            <a href="haklor.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+              </svg>
+              Хаклор
+            </a>
+            <a href="phishing.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+              Фишинг
+            </a>
+            <a href="instrumenti.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+              </svg>
+              Инструменти
+            </a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-label">Учебни материали</div>
+            <a href="terminologiq.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+              </svg>
+              Терминология
+            </a>
+            <a href="ctf.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              CTF
+            </a>
+            <a href="knigi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
+                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+              </svg>
+              Книги
+            </a>
+            <a href="video.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="23 7 16 12 23 17 23 7" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+              Видео ресурси
+            </a>
+          </div>
+        </li>
+        <li class="has-dropdown" id="dd-education">
+          <button onclick="toggleDropdown('dd-education')">
+            Обучение
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="dropdown">
+            <a href="universiteti.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+              Университетски програми
+            </a>
+            <a href="kursove.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+              Онлайн курсове
+            </a>
+            <a href="sertifikacii.html" class="active">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="8" r="7" />
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+              </svg>
+              Сертификации
+            </a>
+            <a href="platformi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+              </svg>
+              Платформи
+            </a>
+          </div>
+        </li>
+        <li class="has-dropdown" id="dd-career">
+          <button onclick="toggleDropdown('dd-career')">
+            Кариера
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="dropdown">
+            <a href="mentoring.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+              </svg>
+              Менторство
+            </a>
+            <a href="kompanii.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              </svg>
+              Компании
+            </a>
+            <a href="obqvi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+                <line x1="9" y1="11" x2="15" y2="11" />
+                <line x1="9" y1="15" x2="12" y2="15" />
+              </svg>
+              Обяви
+            </a>
+            <a href="compass.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+              </svg>
+              Кариерен компас
+            </a>
+            <a href="profesionalni-pateki.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+              Професионални пътеки
+            </a>
+            <a href="zaplati.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+              </svg>
+              Заплати
+            </a>
+          </div>
+        </li>
+        <li><a href="sabitia.html">Събития</a></li>
+        <li><a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="nav-cta">Включи се</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-nav-section">
+      <a href="za-nas.html" class="mobile-link" onclick="closeMobile()">За нас</a>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-resources', this)">
+        Ресурси
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+      <div class="mobile-sub" id="sub-resources">
+        <a href="organizacii.html" onclick="closeMobile()">Организации</a>
+        <a href="forumi.html" onclick="closeMobile()">Форуми</a>
+        <a href="haklor.html" onclick="closeMobile()">Хаклор</a>
+        <a href="phishing.html" onclick="closeMobile()">Фишинг</a>
+        <a href="instrumenti.html" onclick="closeMobile()">Инструменти</a>
+        <a href="terminologiq.html" onclick="closeMobile()">Терминология</a>
+        <a href="ctf.html" onclick="closeMobile()">CTF</a>
+        <a href="knigi.html" onclick="closeMobile()">Книги</a>
+        <a href="video.html" onclick="closeMobile()">Видео ресурси</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-education', this)">
+        Обучение
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+      <div class="mobile-sub" id="sub-education">
+        <a href="universiteti.html" onclick="closeMobile()">Университетски програми</a>
+        <a href="platformi.html" onclick="closeMobile()">Платформи</a>
+        <a href="kursove.html" onclick="closeMobile()">Онлайн курсове</a>
+        <a href="sertifikacii.html" onclick="closeMobile()">Сертификации</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-career', this)">
+        Кариера
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+      <div class="mobile-sub" id="sub-career">
+        <a href="mentoring.html" onclick="closeMobile()">Менторство</a>
+        <a href="zaplati.html" onclick="closeMobile()">Заплати</a>
+        <a href="kompanii.html" onclick="closeMobile()">Компании</a>
+        <a href="obqvi.html" onclick="closeMobile()">Обяви</a>
+        <a href="compass.html" onclick="closeMobile()">Кариерен компас</a>
+        <a href="profesionalni-pateki.html" onclick="closeMobile()">Професионални пътеки</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <a href="sabitia.html" class="mobile-link" onclick="closeMobile()">Събития</a>
+    </div>
+    <a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="mobile-cta" onclick="closeMobile()">Включи се →</a>
+  </div>
+
+
+  <!-- PAGE CONTENT -->
+  <div class="page-content">
+    <div class="article-section">
+
+      <nav class="breadcrumb">
+        <a href="index.html">Начало</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Обучение</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span class="current">Сертификации</span>
+      </nav>
+
+      <div class="article-header">
+        <h1>Сертификации по <em>киберсигурност</em></h1>
+        <p class="article-lead">Пълен каталог на водещите сертификации в индустрията — от начални до напреднали. Използвайте филтрите за да намерите правилния следващ сертификат за вашата кариера. Базиран на Paul Jerimy Security Certification Roadmap.</p>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-item"><span class="stat-num" id="total-count">75</span><span class="stat-label">Сертификации</span></div>
+        <div class="stat-item"><span class="stat-num">20+</span><span class="stat-label">Издаващи органи</span></div>
+        <div class="stat-item"><span class="stat-num">12</span><span class="stat-label">Специализации</span></div>
+        <div class="stat-item"><span class="stat-num">€150–€2000</span><span class="stat-label">Диапазон цени</span></div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- FILTER BAR -->
+      <div class="filter-bar">
+        <div class="filter-row">
+          <span class="filter-label">Тип изпит</span>
+          <div class="chips" id="chips-type">
+            <span class="chip active" data-group="type" data-value="all">Всички</span>
+            <span class="chip" data-group="type" data-value="practical">🧪 Практически</span>
+            <span class="chip" data-group="type" data-value="theoretical">📝 Теоретичен</span>
+          </div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">Ниво</span>
+          <div class="chips" id="chips-level">
+            <span class="chip active" data-group="level" data-value="all">Всички</span>
+            <span class="chip" data-group="level" data-value="beginner">Начинаещ</span>
+            <span class="chip" data-group="level" data-value="intermediate">Средно</span>
+            <span class="chip" data-group="level" data-value="advanced">Напреднал</span>
+          </div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">Специализация</span>
+          <div class="chips" id="chips-area">
+            <span class="chip active" data-group="area" data-value="all">Всички</span>
+            <span class="chip" data-group="area" data-value="networks">Мрежи</span>
+            <span class="chip" data-group="area" data-value="secops">SecOps</span>
+            <span class="chip" data-group="area" data-value="testing">Тестване</span>
+            <span class="chip" data-group="area" data-value="cloud">Облак</span>
+            <span class="chip" data-group="area" data-value="risk">Риск</span>
+            <span class="chip" data-group="area" data-value="management">Управление</span>
+            <span class="chip" data-group="area" data-value="compliance">Съответствие</span>
+            <span class="chip" data-group="area" data-value="forensics">Форензика</span>
+            <span class="chip" data-group="area" data-value="iam">Идентичност</span>
+            <span class="chip" data-group="area" data-value="architecture">Архитектура</span>
+            <span class="chip" data-group="area" data-value="software">Софтуер</span>
+            <span class="chip" data-group="area" data-value="assets">Активи</span>
+          </div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">Цена (EUR)</span>
+          <div class="chips" id="chips-cost">
+            <span class="chip active" data-group="cost" data-value="all">Всички</span>
+            <span class="chip" data-group="cost" data-value="0-300">До €300</span>
+            <span class="chip" data-group="cost" data-value="300-600">€300–600</span>
+            <span class="chip" data-group="cost" data-value="600-1000">€600–1000</span>
+            <span class="chip" data-group="cost" data-value="1000+">€1000+</span>
+          </div>
+        </div>
+        <div class="filter-actions">
+          <span class="results-count">Показани: <strong id="shown-count">75</strong> от <strong id="total-count2">75</strong> сертификации</span>
+          <button class="btn-reset" onclick="resetFilters()">Изчисти филтри</button>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div></div>
+        <select class="sort-select" id="sort-select" onchange="applyFilters()">
+          <option value="abbr">Сортиране: по съкращение (A→Z)</option>
+          <option value="cost-asc">Сортиране: цена ↑</option>
+          <option value="cost-desc">Сортиране: цена ↓</option>
+          <option value="level">Сортиране: ниво</option>
+          <option value="body">Сортиране: издател</option>
+        </select>
+      </div>
+
+      <!-- CERT GRID -->
+      <div class="cert-grid" id="cert-grid"></div>
+      <div class="empty-state" id="empty-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <p>Няма сертификации отговарящи на избраните филтри.<br>Опитайте с по-широки критерии.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModalIfOverlay(event)">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <button class="modal-close" onclick="closeModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="modal-abbr" id="m-abbr"></div>
+        <div class="modal-name" id="m-name"></div>
+        <div class="modal-badges" id="m-badges"></div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-grid" id="m-grid"></div>
+        <div class="modal-section">
+          <div class="modal-section-title">Описание</div>
+          <div class="modal-desc" id="m-desc"></div>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-title">Специализации</div>
+          <div class="modal-areas" id="m-areas"></div>
+        </div>
+        <a href="#" id="m-link" target="_blank" rel="noopener" class="btn-cert-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          Официален сайт / запиши се
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">CSF.BG</div>
+          <p class="footer-brand-desc">Българска Фондация за Киберсигурност — изграждаме общност, развиваме таланти и укрепваме дигиталната сигурност на България.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Ресурси</div>
+          <ul class="footer-links">
+            <li><a href="organizacii.html">Организации</a></li>
+            <li><a href="instrumenti.html">Инструменти</a></li>
+            <li><a href="terminologiq.html">Терминология</a></li>
+            <li><a href="knigi.html">Книги</a></li>
+            <li><a href="video.html">Видео</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Обучение</div>
+          <ul class="footer-links">
+            <li><a href="universiteti.html">Университети</a></li>
+            <li><a href="platformi.html">Платформи</a></li>
+            <li><a href="kursove.html">Курсове</a></li>
+            <li><a href="sertifikacii.html">Сертификации</a></li>
+            <li><a href="ctf.html">CTF</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Кариера</div>
+          <ul class="footer-links">
+            <li><a href="mentoring.html">Менторство</a></li>
+            <li><a href="kompanii.html">Компании</a></li>
+            <li><a href="profesionalni-pateki.html">Пътеки</a></li>
+            <li><a href="zaplati.html">Заплати</a></li>
+            <li><a href="obqvi.html">Обяви</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 CSF.BG — Българска Фондация за Киберсигурност</span>
+        <span>Базирано на <a href="https://pauljerimy.com/security-certification-roadmap/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.45);text-decoration:underline;">Paul Jerimy Security Certification Roadmap</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // ============================================================
+  // DATA
+  // ============================================================
+  const USD_TO_EUR = 0.93;
+  const AREA_BG = {
+    networks:'Мрежи', iam:'Идентичност', architecture:'Архитектура', assets:'Активи',
+    risk:'Риск', testing:'Тестване', software:'Софтуер', secops:'SecOps',
+    forensics:'Форензика', management:'Управление', cloud:'Облак', compliance:'Съответствие'
+  };
+  const LEVEL_BG = { beginner:'Начинаещ', intermediate:'Средно', advanced:'Напреднал' };
+  const TYPE_BG = { practical:'Практически', theoretical:'Теоретичен' };
+  const BODY_COLORS = {
+    'CompTIA':'#C0392B','(ISC)²':'#1A5276','ISACA':'#1E8449','EC-Council':'#7D3C98',
+    'Offensive Security':'#922B21','GIAC':'#B7950B','CREST':'#1A5276','IAPP':'#117A65',
+    'Amazon Web Services':'#E67E22','Microsoft':'#2471A3','Google Cloud':'#1E8449',
+    'Cisco':'#154360','Palo Alto Networks':'#922B21','Fortinet':'#7B241C',
+    'Mile2':'#4A235A','INE / eLearnSecurity':'#1A5276','TCM Security':'#2C3E50',
+    'Cloud Security Alliance':'#117A65','PECB / BSI / Bureau Veritas':'#1C2833',
+    'SABSA Institute':'#4A235A','FAIR Institute / RiskLens':'#17202A',
+    'default':'#2B5BB5'
+  };
+
+  const CERTS = [
+    {slug:"comptia-network-plus",name:"CompTIA Network+",abbr:"Network+",body:"CompTIA",type:"theoretical",level:"beginner",cost:358,areas:["networks"],description:"Validates foundational networking skills including infrastructure, operations, security, and troubleshooting. Covers TCP/IP, network protocols, and basic network security concepts. A widely recognized entry-level networking credential.",url:"https://www.comptia.org/certifications/network"},
+    {slug:"comptia-security-plus",name:"CompTIA Security+",abbr:"Security+",body:"CompTIA",type:"theoretical",level:"beginner",cost:392,areas:["networks","risk","secops"],description:"The industry-standard baseline certification for cybersecurity roles, covering threats, vulnerabilities, architecture, implementation, and governance. Widely required by US federal contractors and employers globally. Validates core security competencies for IT security generalists.",url:"https://www.comptia.org/certifications/security"},
+    {slug:"comptia-cysa-plus",name:"CompTIA Cybersecurity Analyst",abbr:"CySA+",body:"CompTIA",type:"theoretical",level:"intermediate",cost:392,areas:["secops","forensics","risk"],description:"Focuses on behavioral analytics applied to networks and devices to prevent, detect, and combat cybersecurity threats. Covers threat and vulnerability management, security operations, incident response, and reporting. Bridges the gap between Security+ and advanced analyst roles.",url:"https://www.comptia.org/certifications/cybersecurity-analyst"},
+    {slug:"comptia-pentest-plus",name:"CompTIA PenTest+",abbr:"PenTest+",body:"CompTIA",type:"practical",level:"intermediate",cost:392,areas:["testing"],description:"Validates skills for planning, scoping, and performing penetration testing and vulnerability management across various environments. Includes performance-based questions alongside multiple choice. Covers legal/compliance requirements, tools, and reporting for pen testers.",url:"https://www.comptia.org/certifications/pentest"},
+    {slug:"comptia-casp-plus",name:"CompTIA Advanced Security Practitioner",abbr:"CASP+",body:"CompTIA",type:"practical",level:"advanced",cost:509,areas:["architecture","risk","secops","networks"],description:"An advanced-level certification for security architects and senior engineers who design and implement enterprise security solutions. Covers enterprise security, risk management, cryptography, and research & collaboration.",url:"https://www.comptia.org/certifications/casp"},
+    {slug:"comptia-cloud-plus",name:"CompTIA Cloud+",abbr:"Cloud+",body:"CompTIA",type:"theoretical",level:"intermediate",cost:358,areas:["cloud","networks","secops"],description:"Validates skills needed to deploy and automate secure cloud environments, covering multiple vendor platforms. Covers cloud architecture, security, deployment, and operations.",url:"https://www.comptia.org/certifications/cloud"},
+    {slug:"isc2-sscp",name:"Systems Security Certified Practitioner",abbr:"SSCP",body:"(ISC)²",type:"theoretical",level:"intermediate",cost:249,areas:["secops","iam","networks","risk"],description:"An intermediate practitioner-level credential validating technical skills in implementing, monitoring, and administering IT infrastructure using security best practices. Requires one year of cumulative paid work experience.",url:"https://www.isc2.org/certifications/sscp"},
+    {slug:"isc2-cissp",name:"Certified Information Systems Security Professional",abbr:"CISSP",body:"(ISC)²",type:"theoretical",level:"advanced",cost:749,areas:["architecture","risk","management","iam","networks","software"],description:"The gold standard for senior security practitioners, covering all eight CISSP Common Body of Knowledge (CBK) domains. Requires five years of paid work experience across two or more domains. Globally recognized as the benchmark for experienced security professionals.",url:"https://www.isc2.org/certifications/cissp"},
+    {slug:"isc2-cissp-issap",name:"Information Systems Security Architecture Professional",abbr:"CISSP-ISSAP",body:"(ISC)²",type:"theoretical",level:"advanced",cost:599,areas:["architecture","risk","iam"],description:"A CISSP concentration for security architects, validating expertise in designing and implementing security architectures aligned with business requirements. Requires an active CISSP and two years of professional experience in the ISSAP domain.",url:"https://www.isc2.org/certifications/cissp-concentrations"},
+    {slug:"isc2-cissp-issep",name:"Information Systems Security Engineering Professional",abbr:"CISSP-ISSEP",body:"(ISC)²",type:"theoretical",level:"advanced",cost:599,areas:["architecture","risk","compliance"],description:"A CISSP concentration focusing on integrating security into all facets of business operations, projects, and systems. Developed in partnership with the US NSA. Requires active CISSP plus two years of ISSEP domain experience.",url:"https://www.isc2.org/certifications/cissp-concentrations"},
+    {slug:"isc2-cissp-issmp",name:"Information Systems Security Management Professional",abbr:"CISSP-ISSMP",body:"(ISC)²",type:"theoretical",level:"advanced",cost:599,areas:["management","risk","compliance"],description:"A CISSP concentration for security managers and CISOs, covering leadership and business management skills alongside security program management. Requires active CISSP plus two years of ISSMP domain experience.",url:"https://www.isc2.org/certifications/cissp-concentrations"},
+    {slug:"isc2-ccsp",name:"Certified Cloud Security Professional",abbr:"CCSP",body:"(ISC)²",type:"theoretical",level:"advanced",cost:599,areas:["cloud","architecture","risk","compliance"],description:"Validates advanced technical skills in cloud security design, implementation, architecture, operations, controls, and compliance. Jointly developed by (ISC)² and Cloud Security Alliance. Requires five years of IT experience.",url:"https://www.isc2.org/certifications/ccsp"},
+    {slug:"isc2-cgrc",name:"Certified in Governance, Risk and Compliance",abbr:"CGRC",body:"(ISC)²",type:"theoretical",level:"intermediate",cost:599,areas:["risk","compliance","management"],description:"Formerly known as CAP, validates the ability to authorize and maintain information systems within the Risk Management Framework. Covers information security risk management, security authorization, and continuous monitoring.",url:"https://www.isc2.org/certifications/cgrc"},
+    {slug:"isaca-cisa",name:"Certified Information Systems Auditor",abbr:"CISA",body:"ISACA",type:"theoretical",level:"advanced",cost:760,areas:["compliance","risk","assets","management"],description:"The globally recognized standard for IT auditors, assessing skills in auditing, controlling, and assuring information systems. Requires five years of professional experience in information systems auditing, control, or security.",url:"https://www.isaca.org/credentialing/cisa"},
+    {slug:"isaca-cism",name:"Certified Information Security Manager",abbr:"CISM",body:"ISACA",type:"theoretical",level:"advanced",cost:760,areas:["management","risk","compliance"],description:"Designed for information security managers and aspiring managers, validating expertise in managing, designing, overseeing, and assessing an enterprise's information security program. Requires five years of work experience.",url:"https://www.isaca.org/credentialing/cism"},
+    {slug:"isaca-crisc",name:"Certified in Risk and Information Systems Control",abbr:"CRISC",body:"ISACA",type:"theoretical",level:"advanced",cost:760,areas:["risk","compliance","management"],description:"Validates expertise in identifying and managing IT and business risks through the development and maintenance of information systems controls. Requires three years of cumulative work experience in IS risk management.",url:"https://www.isaca.org/credentialing/crisc"},
+    {slug:"isaca-cgeit",name:"Certified in the Governance of Enterprise IT",abbr:"CGEIT",body:"ISACA",type:"theoretical",level:"advanced",cost:760,areas:["management","risk","compliance"],description:"Recognizes professionals who bring IT governance knowledge and application to their enterprise. Covers governance frameworks, strategic management, benefits realization, risk optimization, and resource optimization.",url:"https://www.isaca.org/credentialing/cgeit"},
+    {slug:"isaca-csx-p",name:"CSX Cybersecurity Practitioner",abbr:"CSX-P",body:"ISACA",type:"practical",level:"intermediate",cost:575,areas:["secops","forensics","testing"],description:"A performance-based certification where candidates must demonstrate cybersecurity skills in a live, proctored virtual environment. Tests the ability to identify, protect, detect, respond to, and recover from cybersecurity incidents.",url:"https://www.isaca.org/credentialing/csx-p"},
+    {slug:"ec-council-ceh",name:"Certified Ethical Hacker",abbr:"CEH",body:"EC-Council",type:"theoretical",level:"intermediate",cost:1199,areas:["testing","networks"],description:"One of the most recognized ethical hacking certifications, covering hacking tools, techniques, and methodologies used by malicious hackers. The exam covers footprinting, scanning, enumeration, system hacking, malware, sniffing, social engineering, and web application hacking.",url:"https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/"},
+    {slug:"ec-council-ceh-master",name:"Certified Ethical Hacker Master",abbr:"CEH Master",body:"EC-Council",type:"practical",level:"advanced",cost:550,areas:["testing","networks"],description:"An advanced credential earned by passing both the CEH theoretical exam and the CEH Practical exam in a live cyberrange environment. Validates the ability to apply ethical hacking skills in real-world scenarios within a six-hour hands-on challenge.",url:"https://www.eccouncil.org/train-certify/ceh-master/"},
+    {slug:"ec-council-cpent",name:"Certified Penetration Testing Professional",abbr:"CPENT",body:"EC-Council",type:"practical",level:"advanced",cost:999,areas:["testing","networks"],description:"A fully practical penetration testing certification conducted in a live cyberrange with multiple targets across enterprise networks, OT/SCADA, IoT, and cloud. Candidates have 24 or 48 hours to complete the live exam.",url:"https://www.eccouncil.org/train-certify/cpent/"},
+    {slug:"ec-council-chfi",name:"Computer Hacking Forensic Investigator",abbr:"CHFI",body:"EC-Council",type:"theoretical",level:"intermediate",cost:999,areas:["forensics","secops"],description:"Validates skills in detecting hacking attacks and properly extracting evidence for legal proceedings. Covers digital forensics investigation processes, forensic tools, dark web forensics, and cloud forensics.",url:"https://www.eccouncil.org/train-certify/computer-hacking-forensic-investigator-chfi/"},
+    {slug:"ec-council-ctia",name:"Certified Threat Intelligence Analyst",abbr:"CTIA",body:"EC-Council",type:"theoretical",level:"intermediate",cost:999,areas:["secops","risk"],description:"Covers the entire threat intelligence lifecycle from planning and direction to dissemination. Validates skills in collecting, processing, analyzing, and acting on threat intelligence using structured methodologies.",url:"https://www.eccouncil.org/train-certify/ctia-certified-threat-intelligence-analyst/"},
+    {slug:"ec-council-ecih",name:"EC-Council Certified Incident Handler",abbr:"ECIH",body:"EC-Council",type:"theoretical",level:"intermediate",cost:999,areas:["secops","forensics"],description:"Validates skills in handling and responding to various types of cybersecurity incidents using a structured methodology. Covers post-incident activities, forensics basics, and how to minimize business impact.",url:"https://www.eccouncil.org/train-certify/ecih-certified-incident-handler/"},
+    {slug:"offsec-oscp",name:"OffSec Certified Professional",abbr:"OSCP",body:"Offensive Security",type:"practical",level:"intermediate",cost:1499,areas:["testing"],description:"The most respected hands-on penetration testing certification in the industry, requiring candidates to compromise multiple machines in a 24-hour live exam. Tests enumeration, exploitation, privilege escalation, and lateral movement.",url:"https://www.offsec.com/courses/pen-200/"},
+    {slug:"offsec-osep",name:"OffSec Experienced Penetration Tester",abbr:"OSEP",body:"Offensive Security",type:"practical",level:"advanced",cost:1499,areas:["testing"],description:"Focuses on advanced evasion techniques, Active Directory attacks, and bypassing modern endpoint defenses. Requires candidates to compromise an entire Active Directory lab in a 48-hour exam.",url:"https://www.offsec.com/courses/pen-300/"},
+    {slug:"offsec-osed",name:"OffSec Exploit Developer",abbr:"OSED",body:"Offensive Security",type:"practical",level:"advanced",cost:1499,areas:["testing","software"],description:"Covers Windows exploit development including custom shellcode creation, format string attacks, DEP bypass, and ASLR bypass techniques. The 48-hour exam requires candidates to develop working exploits from scratch.",url:"https://www.offsec.com/courses/exp-301/"},
+    {slug:"offsec-oswe",name:"OffSec Web Expert",abbr:"OSWE",body:"Offensive Security",type:"practical",level:"advanced",cost:1499,areas:["testing","software"],description:"Focuses on white-box web application penetration testing by reviewing source code to identify and exploit vulnerabilities. The 48-hour exam requires writing custom exploit code to attack two web application targets.",url:"https://www.offsec.com/courses/web-300/"},
+    {slug:"offsec-oswa",name:"OffSec Web Assessor",abbr:"OSWA",body:"Offensive Security",type:"practical",level:"intermediate",cost:1299,areas:["testing","software"],description:"Validates foundational to intermediate web application penetration testing skills using a black-box methodology. The 24-hour exam requires compromising multiple web application targets in a live environment.",url:"https://www.offsec.com/courses/web-200/"},
+    {slug:"offsec-osmr",name:"OffSec macOS Researcher",abbr:"OSMR",body:"Offensive Security",type:"practical",level:"advanced",cost:1499,areas:["testing"],description:"Covers macOS-specific offensive security techniques including Objective-C and Swift exploitation, macOS memory corruption, and bypassing macOS security mitigations. Unique in the market for its macOS-specific focus.",url:"https://www.offsec.com/courses/exp-312/"},
+    {slug:"giac-gsec",name:"GIAC Security Essentials",abbr:"GSEC",body:"GIAC",type:"theoretical",level:"beginner",cost:949,areas:["networks","secops","risk"],description:"Validates a broad understanding of information security fundamentals beyond simple terminology and concepts. Covers active defense, network security, cryptography, incident handling, and Linux/Windows security.",url:"https://www.giac.org/certifications/security-essentials-gsec/"},
+    {slug:"giac-gcih",name:"GIAC Certified Incident Handler",abbr:"GCIH",body:"GIAC",type:"theoretical",level:"intermediate",cost:949,areas:["secops","forensics"],description:"Validates skills in detecting, responding to, and resolving computer security incidents. Covers attack techniques, incident handling steps, and the tools used by both attackers and defenders.",url:"https://www.giac.org/certifications/certified-incident-handler-gcih/"},
+    {slug:"giac-gcfe",name:"GIAC Certified Forensic Examiner",abbr:"GCFE",body:"GIAC",type:"theoretical",level:"intermediate",cost:949,areas:["forensics"],description:"Validates skills in conducting formal incident investigations and using forensic techniques to analyze Windows systems. Covers browser forensics, file system analysis, registry analysis, and evidence acquisition.",url:"https://www.giac.org/certifications/certified-forensic-examiner-gcfe/"},
+    {slug:"giac-gcfa",name:"GIAC Certified Forensic Analyst",abbr:"GCFA",body:"GIAC",type:"theoretical",level:"advanced",cost:949,areas:["forensics","secops"],description:"Validates advanced skills in forensic analysis of compromised systems, covering memory forensics, timeline analysis, and anti-forensics detection. Highly regarded for DFIR (Digital Forensics and Incident Response) professionals.",url:"https://www.giac.org/certifications/certified-forensic-analyst-gcfa/"},
+    {slug:"giac-gpen",name:"GIAC Penetration Tester",abbr:"GPEN",body:"GIAC",type:"theoretical",level:"intermediate",cost:949,areas:["testing","networks"],description:"Validates skills in conducting penetration tests using best-practice techniques and methodologies. Covers password attacks, exploitation, reconnaissance, and scanning.",url:"https://www.giac.org/certifications/penetration-tester-gpen/"},
+    {slug:"giac-gwapt",name:"GIAC Web Application Penetration Tester",abbr:"GWAPT",body:"GIAC",type:"theoretical",level:"intermediate",cost:949,areas:["testing","software"],description:"Validates skills in assessing and exploiting web application vulnerabilities using both manual and tool-assisted techniques. Covers SQL injection, cross-site scripting, authentication attacks, and web application reconnaissance.",url:"https://www.giac.org/certifications/web-application-penetration-tester-gwapt/"},
+    {slug:"giac-grem",name:"GIAC Reverse Engineering Malware",abbr:"GREM",body:"GIAC",type:"theoretical",level:"advanced",cost:949,areas:["forensics","secops"],description:"Validates skills in reverse-engineering malicious code including Windows malware, malicious web scripts, and obfuscated code. One of the most respected certifications for malware analysts and reverse engineers.",url:"https://www.giac.org/certifications/reverse-engineering-malware-grem/"},
+    {slug:"giac-gcti",name:"GIAC Cyber Threat Intelligence",abbr:"GCTI",body:"GIAC",type:"theoretical",level:"intermediate",cost:949,areas:["secops","risk"],description:"Validates the ability to apply structured threat intelligence methods to support an organization's defense posture. Covers intelligence frameworks (ATT&CK, STIX/TAXII), threat modeling, and intelligence-driven defense.",url:"https://www.giac.org/certifications/cyber-threat-intelligence-gcti/"},
+    {slug:"giac-gxpn",name:"GIAC Exploit Researcher and Advanced Penetration Tester",abbr:"GXPN",body:"GIAC",type:"theoretical",level:"advanced",cost:949,areas:["testing","software"],description:"Validates skills in advanced exploitation techniques including network-based exploitation, shellcode development, and advanced fuzzing. One of the most technically challenging GIAC certifications.",url:"https://www.giac.org/certifications/exploit-researcher-advanced-penetration-tester-gxpn/"},
+    {slug:"giac-gcia",name:"GIAC Certified Intrusion Analyst",abbr:"GCIA",body:"GIAC",type:"theoretical",level:"intermediate",cost:949,areas:["networks","secops"],description:"Validates skills in configuring and monitoring intrusion detection systems (IDS), analyzing network traffic, and identifying malicious activity. Highly valued for SOC network analyst roles.",url:"https://www.giac.org/certifications/intrusion-analyst-gcia/"},
+    {slug:"mile2-cpte",name:"Certified Penetration Testing Engineer",abbr:"CPTE",body:"Mile2",type:"theoretical",level:"intermediate",cost:500,areas:["testing","networks"],description:"Covers a structured methodology for conducting professional penetration tests across networks and systems. Addresses enumeration, exploitation, privilege escalation, and report writing. Recognized by the US DoD and NSA.",url:"https://mile2.com/penetration-testing-engineer-outline/"},
+    {slug:"mile2-cpeh",name:"Certified Professional Ethical Hacker",abbr:"CPEH",body:"Mile2",type:"theoretical",level:"beginner",cost:400,areas:["testing","networks"],description:"An entry-level ethical hacking certification covering foundational penetration testing concepts, tools, and methodologies. Covers reconnaissance, scanning, exploitation, and reporting.",url:"https://mile2.com/professional-ethical-hacker-outline/"},
+    {slug:"ine-ejpt",name:"eLearnSecurity Junior Penetration Tester",abbr:"eJPT",body:"INE / eLearnSecurity",type:"practical",level:"beginner",cost:200,areas:["testing","networks"],description:"An entry-level practical penetration testing certification requiring candidates to attack a real network in a browser-based lab environment. An affordable and accessible starting point for aspiring penetration testers.",url:"https://ine.com/certifications/ejpt-certification"},
+    {slug:"ine-ecppt",name:"eLearnSecurity Certified Professional Penetration Tester",abbr:"eCPPT",body:"INE / eLearnSecurity",type:"practical",level:"intermediate",cost:400,areas:["testing","networks","software"],description:"A professional-level practical certification covering network penetration testing, web application testing, and basic exploit development. Candidates must complete a full penetration test and submit a professional report.",url:"https://ine.com/certifications/ecppt-certification"},
+    {slug:"ine-ewpt",name:"eLearnSecurity Web Application Penetration Tester",abbr:"eWPT",body:"INE / eLearnSecurity",type:"practical",level:"intermediate",cost:200,areas:["testing","software"],description:"A practical web application penetration testing certification where candidates must test a real multi-tier web application and write a penetration test report. Covers OWASP Top 10, authentication attacks, XSS, SQLi, and CSRF.",url:"https://ine.com/certifications/ewpt-certification"},
+    {slug:"tcm-pnpt",name:"Practical Network Penetration Tester",abbr:"PNPT",body:"TCM Security",type:"practical",level:"intermediate",cost:399,areas:["testing","networks"],description:"A fully practical, five-day penetration testing exam with an additional two days to write a professional report. Covers external and internal network penetration testing, Active Directory attacks, and OSINT. Known for its affordability relative to OSCP.",url:"https://certifications.tcm-sec.com/pnpt/"},
+    {slug:"aws-security-specialty",name:"AWS Certified Security – Specialty",abbr:"AWS Security",body:"Amazon Web Services",type:"theoretical",level:"advanced",cost:300,areas:["cloud","iam","compliance"],description:"Validates advanced security knowledge specific to the AWS platform, including data protection, infrastructure security, identity management, and logging. Requires at least two years of hands-on experience securing AWS workloads.",url:"https://aws.amazon.com/certification/certified-security-specialty/"},
+    {slug:"microsoft-sc-100",name:"Microsoft Cybersecurity Architect",abbr:"SC-100",body:"Microsoft",type:"theoretical",level:"advanced",cost:165,areas:["cloud","architecture","risk"],description:"Validates expertise in designing and evolving cybersecurity strategy for all aspects of an enterprise architecture using Microsoft technologies. Covers Zero Trust, governance, risk, compliance, and security operations.",url:"https://learn.microsoft.com/en-us/credentials/certifications/cybersecurity-architect-expert/"},
+    {slug:"microsoft-sc-200",name:"Microsoft Security Operations Analyst",abbr:"SC-200",body:"Microsoft",type:"theoretical",level:"intermediate",cost:165,areas:["cloud","secops","forensics"],description:"Validates skills in using Microsoft Sentinel, Defender XDR, and Defender for Cloud to investigate and respond to cybersecurity threats. Covers threat hunting, alert management, and SIEM/SOAR workflows in Microsoft environments.",url:"https://learn.microsoft.com/en-us/credentials/certifications/security-operations-analyst/"},
+    {slug:"microsoft-sc-300",name:"Microsoft Identity and Access Administrator",abbr:"SC-300",body:"Microsoft",type:"theoretical",level:"intermediate",cost:165,areas:["cloud","iam"],description:"Validates skills in designing, implementing, and operating identity and access management solutions using Microsoft Entra ID (formerly Azure AD). Covers authentication, authorization, conditional access, and privileged identity management.",url:"https://learn.microsoft.com/en-us/credentials/certifications/identity-and-access-administrator/"},
+    {slug:"gcp-pcse",name:"Google Cloud Professional Cloud Security Engineer",abbr:"PCSE",body:"Google Cloud",type:"theoretical",level:"advanced",cost:200,areas:["cloud","iam","compliance"],description:"Validates the ability to design and implement a secure infrastructure on Google Cloud, covering IAM, data protection, network security, and logging. The most respected cloud security credential for GCP environments.",url:"https://cloud.google.com/learn/certification/cloud-security-engineer"},
+    {slug:"cisco-ccna-security",name:"Cisco Certified Network Associate Security",abbr:"CCNA Security",body:"Cisco",type:"theoretical",level:"intermediate",cost:330,areas:["networks","secops"],description:"Validates skills in securing Cisco networks, including firewall configuration, VPNs, IPS/IDS, and identity management for Cisco devices. Particularly valuable for network engineers managing Cisco infrastructure.",url:"https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/ccna.html"},
+    {slug:"cisco-cyberops-associate",name:"Cisco Certified CyberOps Associate",abbr:"CyberOps Assoc.",body:"Cisco",type:"theoretical",level:"beginner",cost:330,areas:["secops","networks"],description:"Validates foundational skills needed to work in a Security Operations Center (SOC), covering security monitoring, host-based analysis, and network intrusion analysis. An entry point for aspiring SOC analysts.",url:"https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/cyberops-associate.html"},
+    {slug:"cisco-cyberops-professional",name:"Cisco Certified CyberOps Professional",abbr:"CyberOps Pro",body:"Cisco",type:"theoretical",level:"advanced",cost:400,areas:["secops","forensics","networks"],description:"An advanced-level certification validating the ability to design and implement threat detection, incident response, and forensics processes within a SOC. Covers advanced security monitoring, attack attribution, and automation.",url:"https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/professional/cyberops-professional.html"},
+    {slug:"palo-alto-pcnse",name:"Palo Alto Networks Certified Network Security Engineer",abbr:"PCNSE",body:"Palo Alto Networks",type:"theoretical",level:"advanced",cost:175,areas:["networks","secops"],description:"Validates deep knowledge of designing, deploying, configuring, maintaining, and troubleshooting Palo Alto Networks Next-Generation Firewalls. The premier certification for Palo Alto Networks firewall professionals.",url:"https://www.paloaltonetworks.com/services/education/certification"},
+    {slug:"palo-alto-pccse",name:"Palo Alto Networks Certified Cloud Security Engineer",abbr:"PCCSE",body:"Palo Alto Networks",type:"theoretical",level:"advanced",cost:175,areas:["cloud","secops"],description:"Validates expertise in securing cloud environments using the Prisma Cloud platform across AWS, Azure, and GCP. Covers cloud security posture management (CSPM), workload protection, and network security.",url:"https://www.paloaltonetworks.com/services/education/certification"},
+    {slug:"fortinet-nse4",name:"Fortinet Network Security Professional",abbr:"NSE 4",body:"Fortinet",type:"theoretical",level:"intermediate",cost:200,areas:["networks","secops"],description:"Validates the ability to install and configure FortiGate firewalls to protect networks at the enterprise level. One of the most popular vendor-specific network security certifications globally.",url:"https://training.fortinet.com/local/staticpage/view.php?page=nse_4"},
+    {slug:"fortinet-nse7",name:"Fortinet Network Security Architect",abbr:"NSE 7",body:"Fortinet",type:"theoretical",level:"advanced",cost:400,areas:["networks","architecture","secops"],description:"Validates advanced skills in designing, implementing, and troubleshooting complex Fortinet enterprise security solutions. Available in multiple specializations including SD-WAN, OT Security, and Public Cloud Security.",url:"https://training.fortinet.com/local/staticpage/view.php?page=nse_7"},
+    {slug:"fortinet-nse8",name:"Fortinet Network Security Expert",abbr:"NSE 8",body:"Fortinet",type:"practical",level:"advanced",cost:2000,areas:["networks","architecture","secops"],description:"The highest level Fortinet certification, combining a multiple-choice written exam with a complex eight-hour practical lab exam. One of the most challenging vendor certifications in the networking and security space.",url:"https://training.fortinet.com/local/staticpage/view.php?page=nse_8"},
+    {slug:"crest-cpsa",name:"CREST Practitioner Security Analyst",abbr:"CPSA",body:"CREST",type:"theoretical",level:"beginner",cost:450,areas:["testing","networks"],description:"An entry-level CREST qualification testing foundational knowledge in vulnerability assessment and penetration testing theory. Often used as a prerequisite for more advanced CREST qualifications.",url:"https://www.crest-approved.org/examination/practitioner-security-analyst/"},
+    {slug:"crest-crt",name:"CREST Registered Penetration Tester",abbr:"CRT",body:"CREST",type:"practical",level:"intermediate",cost:1200,areas:["testing","networks"],description:"A rigorous practical and theoretical penetration testing certification highly respected in the UK and internationally. Often a baseline requirement for penetration testers at UK government and financial sector suppliers.",url:"https://www.crest-approved.org/examination/registered-penetration-tester/"},
+    {slug:"crest-cct-inf",name:"CREST Certified Infrastructure Tester",abbr:"CCT INF",body:"CREST",type:"practical",level:"advanced",cost:2200,areas:["testing","networks"],description:"An advanced CREST certification demonstrating expert-level infrastructure penetration testing skills. Widely considered one of the most difficult penetration testing certifications available.",url:"https://www.crest-approved.org/examination/certified-infrastructure-tester/"},
+    {slug:"crest-cct-app",name:"CREST Certified Web Application Tester",abbr:"CCT APP",body:"CREST",type:"practical",level:"advanced",cost:2200,areas:["testing","software"],description:"An advanced CREST certification demonstrating expert-level web application penetration testing skills. Required by many UK financial sector organizations and government bodies for authorized penetration testing work.",url:"https://www.crest-approved.org/examination/certified-web-application-tester/"},
+    {slug:"iapp-cippe",name:"Certified Information Privacy Professional / Europe",abbr:"CIPP/E",body:"IAPP",type:"theoretical",level:"intermediate",cost:550,areas:["compliance","risk","management"],description:"The leading privacy certification for professionals working with European data protection law, including GDPR. Essential for data protection officers, privacy lawyers, and compliance professionals in Europe.",url:"https://iapp.org/certify/cipp/europe/"},
+    {slug:"iapp-cipm",name:"Certified Information Privacy Manager",abbr:"CIPM",body:"IAPP",type:"theoretical",level:"intermediate",cost:550,areas:["management","compliance","risk"],description:"Validates skills in structuring and managing a data privacy program within an organization. Designed for privacy managers, DPOs, and compliance officers responsible for program implementation.",url:"https://iapp.org/certify/cipm/"},
+    {slug:"iapp-cipt",name:"Certified Information Privacy Technologist",abbr:"CIPT",body:"IAPP",type:"theoretical",level:"intermediate",cost:550,areas:["software","compliance","assets"],description:"Validates the ability to embed privacy practices into technical design and IT infrastructure. Covers privacy-by-design principles, identity management, encryption, and privacy-enhancing technologies.",url:"https://iapp.org/certify/cipt/"},
+    {slug:"iso27001-lead-auditor",name:"ISO/IEC 27001 Lead Auditor",abbr:"ISO 27001 LA",body:"PECB / BSI / Bureau Veritas",type:"theoretical",level:"advanced",cost:900,areas:["compliance","risk","management"],description:"Validates the ability to plan and conduct audits of Information Security Management Systems (ISMS) based on the ISO/IEC 27001 standard. Widely required for third-party auditors and internal audit leads.",url:"https://pecb.com/en/education-and-certification-for-individuals/iso-iec-27001/iso-iec-27001-lead-auditor"},
+    {slug:"iso27001-lead-implementer",name:"ISO/IEC 27001 Lead Implementer",abbr:"ISO 27001 LI",body:"PECB / BSI / Bureau Veritas",type:"theoretical",level:"advanced",cost:900,areas:["compliance","risk","management","architecture"],description:"Validates the ability to implement an Information Security Management System (ISMS) based on ISO/IEC 27001. Designed for security managers and consultants implementing organizational security programs.",url:"https://pecb.com/en/education-and-certification-for-individuals/iso-iec-27001/iso-iec-27001-lead-implementer"},
+    {slug:"sabsa-scf",name:"SABSA Chartered Security Architect Foundation",abbr:"SCF",body:"SABSA Institute",type:"theoretical",level:"advanced",cost:1500,areas:["architecture","risk","management"],description:"Validates mastery of the SABSA enterprise security architecture framework used by large organizations worldwide. Covers the full SABSA lifecycle from business requirements through architecture design to operations.",url:"https://sabsa.org/certification/"},
+    {slug:"fair-analyst",name:"FAIR Analyst Certification",abbr:"FAIR",body:"FAIR Institute / RiskLens",type:"theoretical",level:"intermediate",cost:895,areas:["risk","management","compliance"],description:"Validates proficiency in the FAIR (Factor Analysis of Information Risk) quantitative risk analysis model. Covers risk scoping, Monte Carlo simulation, and communicating cyber risk in financial terms to executives.",url:"https://www.fairinstitute.org/fair-training-certification"},
+    {slug:"giac-gslc",name:"GIAC Security Leadership Certification",abbr:"GSLC",body:"GIAC",type:"theoretical",level:"advanced",cost:949,areas:["management","risk","compliance"],description:"Validates technical and managerial knowledge required for IT security leadership roles. Designed for security managers who need to bridge technical and business domains.",url:"https://www.giac.org/certifications/security-leadership-gslc/"},
+    {slug:"csa-ccsk",name:"Certificate of Cloud Security Knowledge",abbr:"CCSK",body:"Cloud Security Alliance",type:"theoretical",level:"intermediate",cost:395,areas:["cloud","risk","architecture"],description:"A vendor-neutral cloud security certification covering the CSA Guidance and the ENISA cloud computing risk assessment. Covers cloud architecture, data security, infrastructure security, and compliance in cloud environments.",url:"https://cloudsecurityalliance.org/education/ccsk/"},
+    {slug:"ec-council-csa",name:"Certified SOC Analyst",abbr:"CSA",body:"EC-Council",type:"theoretical",level:"beginner",cost:600,areas:["secops","networks"],description:"Validates foundational skills needed to work as a Tier 1 or Tier 2 SOC analyst, covering network security monitoring, log management, and SIEM operation. Designed as an entry point for individuals pursuing a career in security operations.",url:"https://www.eccouncil.org/train-certify/certified-soc-analyst-csa/"},
+    {slug:"giac-gmon",name:"GIAC Continuous Monitoring Certification",abbr:"GMON",body:"GIAC",type:"theoretical",level:"intermediate",cost:949,areas:["secops","networks"],description:"Validates skills in implementing and running a continuous security monitoring program aligned with the CIS Critical Security Controls. Suited for network security monitoring roles.",url:"https://www.giac.org/certifications/continuous-monitoring-gmon/"},
+    {slug:"isaca-cdpse",name:"Certified Data Privacy Solutions Engineer",abbr:"CDPSE",body:"ISACA",type:"theoretical",level:"intermediate",cost:760,areas:["compliance","software","assets"],description:"Validates technical privacy skills focused on implementing privacy by design in systems, applications, and infrastructure. Bridges the gap between privacy law and technical implementation.",url:"https://www.isaca.org/credentialing/cdpse"}
+  ];
+
+  // ============================================================
+  // FILTERS STATE
+  // ============================================================
+  const filters = { type:'all', level:'all', area:'all', cost:'all' };
+
+  function usdToEur(usd) { return Math.round(usd * USD_TO_EUR); }
+
+  function costInRange(usd, range) {
+    const eur = usdToEur(usd);
+    if (range === 'all') return true;
+    if (range === '0-300') return eur <= 300;
+    if (range === '300-600') return eur > 300 && eur <= 600;
+    if (range === '600-1000') return eur > 600 && eur <= 1000;
+    if (range === '1000+') return eur > 1000;
+    return true;
+  }
+
+  function getColor(body) {
+    return BODY_COLORS[body] || BODY_COLORS['default'];
+  }
+
+  function sortCerts(list) {
+    const val = document.getElementById('sort-select').value;
+    const levelOrder = { beginner:0, intermediate:1, advanced:2 };
+    return [...list].sort((a, b) => {
+      if (val === 'abbr') return a.abbr.localeCompare(b.abbr);
+      if (val === 'cost-asc') return a.cost - b.cost;
+      if (val === 'cost-desc') return b.cost - a.cost;
+      if (val === 'level') return levelOrder[a.level] - levelOrder[b.level];
+      if (val === 'body') return a.body.localeCompare(b.body);
+      return 0;
+    });
+  }
+
+  function applyFilters() {
+    let visible = 0;
+    const sorted = sortCerts(CERTS);
+    sorted.forEach(c => {
+      const card = document.querySelector(`[data-slug="${c.slug}"]`);
+      if (!card) return;
+      const show =
+        (filters.type === 'all' || c.type === filters.type) &&
+        (filters.level === 'all' || c.level === filters.level) &&
+        (filters.area === 'all' || c.areas.includes(filters.area)) &&
+        costInRange(c.cost, filters.cost);
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    // Re-order cards in DOM
+    const grid = document.getElementById('cert-grid');
+    sorted.forEach(c => {
+      const card = document.querySelector(`[data-slug="${c.slug}"]`);
+      if (card) grid.appendChild(card);
+    });
+    document.getElementById('shown-count').textContent = visible;
+    document.getElementById('empty-state').classList.toggle('visible', visible === 0);
+  }
+
+  function renderGrid() {
+    const grid = document.getElementById('cert-grid');
+    grid.innerHTML = CERTS.map(c => {
+      const eur = usdToEur(c.cost);
+      const color = getColor(c.body);
+      const areas = c.areas.slice(0, 3).map(a => `<span class="area-tag">${AREA_BG[a] || a}</span>`).join('');
+      return `<div class="cert-card" data-slug="${c.slug}" style="--card-color:${color}" onclick="openModal('${c.slug}')">
+        <div class="cert-card-top">
+          <div class="cert-abbr">${c.abbr}</div>
+          <div class="cert-badges">
+            <span class="badge badge-${c.type}">${TYPE_BG[c.type]}</span>
+            <span class="badge badge-${c.level}">${LEVEL_BG[c.level]}</span>
+          </div>
+        </div>
+        <div class="cert-name">${c.name}</div>
+        <div class="cert-body">${c.body}</div>
+        <div class="cert-desc">${c.description}</div>
+        <div class="cert-footer">
+          <div class="cert-cost">€${eur} <span>прибл.</span></div>
+          <div class="cert-areas">${areas}</div>
+        </div>
+        <a href="${c.url}" target="_blank" rel="noopener" class="cert-link" onclick="event.stopPropagation()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Официален сайт
+        </a>
+      </div>`;
+    }).join('');
+    document.getElementById('total-count').textContent = CERTS.length;
+    document.getElementById('total-count2').textContent = CERTS.length;
+    document.getElementById('shown-count').textContent = CERTS.length;
+  }
+
+  // CHIPS
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const group = chip.dataset.group;
+      document.querySelectorAll(`.chip[data-group="${group}"]`).forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      filters[group] = chip.dataset.value;
+      applyFilters();
+    });
+  });
+
+  function resetFilters() {
+    Object.keys(filters).forEach(k => filters[k] = 'all');
+    document.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.value === 'all'));
+    document.getElementById('sort-select').value = 'abbr';
+    applyFilters();
+  }
+
+  // MODAL
+  function openModal(slug) {
+    const c = CERTS.find(x => x.slug === slug);
+    if (!c) return;
+    const eur = usdToEur(c.cost);
+    document.getElementById('m-abbr').textContent = c.abbr;
+    document.getElementById('m-name').textContent = c.name;
+    document.getElementById('m-badges').innerHTML =
+      `<span class="badge badge-${c.type}" style="font-size:0.7rem;padding:0.25rem 0.7rem">${TYPE_BG[c.type]}</span>
+       <span class="badge badge-${c.level}" style="font-size:0.7rem;padding:0.25rem 0.7rem">${LEVEL_BG[c.level]}</span>`;
+    document.getElementById('m-grid').innerHTML = `
+      <div class="modal-stat"><div class="modal-stat-label">Издател</div><div class="modal-stat-value" style="font-size:1rem">${c.body}</div></div>
+      <div class="modal-stat"><div class="modal-stat-label">Цена (прибл.)</div><div class="modal-stat-value">€${eur}</div></div>
+      <div class="modal-stat"><div class="modal-stat-label">Тип изпит</div><div class="modal-stat-value" style="font-size:1rem">${TYPE_BG[c.type]}</div></div>
+      <div class="modal-stat"><div class="modal-stat-label">Ниво</div><div class="modal-stat-value" style="font-size:1rem">${LEVEL_BG[c.level]}</div></div>`;
+    document.getElementById('m-desc').textContent = c.description;
+    document.getElementById('m-areas').innerHTML = c.areas.map(a =>
+      `<span class="modal-area-tag">${AREA_BG[a] || a}</span>`).join('');
+    document.getElementById('m-link').href = c.url;
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeModalIfOverlay(e) {
+    if (e.target === document.getElementById('modal-overlay')) closeModal();
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // NAVBAR
+  function toggleDropdown(id) {
+    const li = document.getElementById(id);
+    const wasOpen = li.classList.contains('open');
+    document.querySelectorAll('.nav-links li.has-dropdown').forEach(el => el.classList.remove('open'));
+    if (!wasOpen) li.classList.add('open');
+  }
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.has-dropdown')) {
+      document.querySelectorAll('.nav-links li.has-dropdown').forEach(el => el.classList.remove('open'));
+    }
+  });
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+  function toggleMobile() {
+    document.getElementById('hamburger').classList.toggle('open');
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+  function closeMobile() {
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('mobile-menu').classList.remove('open');
+  }
+  function toggleMobileSub(id, btn) {
+    document.getElementById(id).classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+
+  // INIT
+  renderGrid();
+  </script>
+</body>
+</html>

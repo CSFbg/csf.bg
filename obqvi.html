@@ -1106,7 +1106,9 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="za-nas.html">За нас</a></li>
+        <li>
+          <a href="za-nas.html">За нас</a>
+        </li>
         <li class="has-dropdown" id="dd-resources">
           <button onclick="toggleDropdown('dd-resources')">
             Ресурси
@@ -1139,8 +1141,7 @@
             </a>
             <a href="phishing.html">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                <polyline points="22,6 12,13 2,6" />
+                <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/>
               </svg>
               Фишинг
             </a>
@@ -1155,8 +1156,7 @@
             <div class="dropdown-label">Учебни материали</div>
             <a href="terminologiq.html">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
-                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
               </svg>
               Терминология
             </a>
@@ -1198,13 +1198,6 @@
               </svg>
               Университетски програми
             </a>
-            <a href="platformi.html">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="7" width="20" height="14" rx="2" />
-                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
-              </svg>
-              Платформи
-            </a>
             <a href="kursove.html">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -1213,12 +1206,19 @@
               </svg>
               Онлайн курсове
             </a>
-            <a href="index.html#certifications">
+            <a href="sertifikacii.html">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="8" r="7" />
                 <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
               </svg>
               Сертификации
+            </a>
+            <a href="platformi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+              </svg>
+              Платформи
             </a>
           </div>
         </li>
@@ -1238,7 +1238,7 @@
               </svg>
               Менторство
             </a>
-            <a href="index.html#companies">
+            <a href="kompanii.html">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
               </svg>
@@ -1260,7 +1260,7 @@
               </svg>
               Кариерен компас
             </a>
-            <a href="index.html#career-paths">
+            <a href="profesionalni-pateki.html">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
               </svg>
@@ -1276,7 +1276,7 @@
           </div>
         </li>
         <li><a href="sabitia.html">Събития</a></li>
-        <li><a href="index.html#join" class="nav-cta">Включи се</a></li>
+        <li><a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="nav-cta">Включи се</a></li>
       </ul>
 
       <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Меню">
@@ -1288,7 +1288,7 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobile-menu">
     <div class="mobile-nav-section">
-      <a href="index.html#about" class="mobile-link" onclick="closeMobile()">За нас</a>
+      <a href="za-nas.html" class="mobile-link" onclick="closeMobile()">За нас</a>
     </div>
     <div class="mobile-nav-section">
       <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-resources', this)">
@@ -1322,7 +1322,7 @@
         <a href="universiteti.html" onclick="closeMobile()">Университетски програми</a>
         <a href="platformi.html" onclick="closeMobile()">Платформи</a>
         <a href="kursove.html" onclick="closeMobile()">Онлайн курсове</a>
-        <a href="index.html#certifications" onclick="closeMobile()">Сертификации</a>
+        <a href="sertifikacii.html" onclick="closeMobile()">Сертификации</a>
       </div>
     </div>
     <div class="mobile-nav-section">
@@ -1335,17 +1335,17 @@
       </button>
       <div class="mobile-sub" id="sub-career">
         <a href="mentoring.html" onclick="closeMobile()">Менторство</a>
-        <a href="index.html#companies" onclick="closeMobile()">Компании</a>
+        <a href="zaplati.html" onclick="closeMobile()">Заплати</a>
+        <a href="kompanii.html" onclick="closeMobile()">Компании</a>
         <a href="obqvi.html" onclick="closeMobile()">Обяви</a>
         <a href="compass.html" onclick="closeMobile()">Кариерен компас</a>
-        <a href="index.html#career-paths" onclick="closeMobile()">Професионални пътеки</a>
-        <a href="zaplati.html" onclick="closeMobile()">Заплати</a>
+        <a href="profesionalni-pateki.html" onclick="closeMobile()">Професионални пътеки</a>
       </div>
     </div>
     <div class="mobile-nav-section">
       <a href="sabitia.html" class="mobile-link" onclick="closeMobile()">Събития</a>
     </div>
-    <a href="index.html#join" class="mobile-cta" onclick="closeMobile()">Включи се &rarr;</a>
+    <a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="mobile-cta" onclick="closeMobile()">Включи се →</a>
   </div>
 
 
@@ -1737,8 +1737,8 @@
         </p>
       </div>
       <div class="mentor-actions">
-        <a href="index.html#mentor-register" class="btn btn-primary">Регистрирай се като ментор</a>
-        <a href="index.html#mentee-register" class="btn btn-outline">Намери ментор</a>
+        <a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="btn btn-primary">Регистрирай се като ментор</a>
+        <a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="btn btn-outline">Намери ментор</a>
       </div>
     </div>
   </div>
@@ -1882,7 +1882,7 @@
             <li><a href="universiteti.html">Университетски програми</a></li>
             <li><a href="platformi.html">Платформи</a></li>
             <li><a href="kursove.html">Онлайн курсове</a></li>
-            <li><a href="index.html#certifications">Сертификации</a></li>
+            <li><a href="sertifikacii.html">Сертификации</a></li>
           </ul>
         </div>
 

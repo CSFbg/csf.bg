@@ -168,6 +168,42 @@
     .reveal-delay-3{transition-delay:.3s}
     .reveal-delay-4{transition-delay:.4s}
 
+    code{font-family:'Courier New',Courier,monospace;font-size:.85em;background:var(--beige);border:1px solid var(--sand);border-radius:3px;padding:.1em .35em;color:var(--navy)}
+    .table-wrap{overflow-x:auto;margin-bottom:2rem;border-radius:var(--radius);border:1px solid var(--sand)}
+    .term-table{width:100%;border-collapse:collapse;font-size:var(--fs-sm)}
+    .term-table th{background:var(--navy);color:var(--white);padding:.6rem 1rem;text-align:left;font-size:var(--fs-xs);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+    .term-table td{padding:.6rem 1rem;border-bottom:1px solid var(--beige);color:var(--brown);vertical-align:top;line-height:1.55}
+    .term-table tr:last-child td{border-bottom:none}
+    .term-table tr:hover td{background:rgba(43,91,181,.03)}
+    .cvss-calc{background:var(--white);border:1px solid var(--sand);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:2rem}
+    .cvss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:1rem 1.5rem;margin-bottom:1.5rem}
+    .cvss-group-label{font-size:var(--fs-xs);font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--bark);margin-bottom:.45rem}
+    .cvss-opts{display:flex;flex-wrap:wrap;gap:.3rem}
+    .cvss-opts label{cursor:pointer}
+    .cvss-opts input[type=radio]{display:none}
+    .cvss-opts span{display:inline-block;font-size:.7rem;font-weight:500;padding:.25rem .55rem;border-radius:50px;border:1px solid var(--sand);background:var(--beige);color:var(--bark);transition:all var(--transition);cursor:pointer;user-select:none}
+    .cvss-opts input[type=radio]:checked+span{background:var(--navy);border-color:var(--navy);color:var(--white)}
+    .cvss-result{display:flex;align-items:center;gap:1.5rem;padding-top:1.25rem;border-top:1px solid var(--sand);flex-wrap:wrap}
+    .cvss-score-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:var(--navy);line-height:1;min-width:4.5rem;transition:color .3s}
+    .cvss-meta{display:flex;flex-direction:column;gap:.4rem}
+    .cvss-sev{font-size:var(--fs-sm);font-weight:600;padding:.3rem .9rem;border-radius:50px;display:inline-block;transition:all .3s}
+    .sev-none{background:var(--beige);color:var(--bark)}
+    .sev-low{background:rgba(34,197,94,.12);color:#166534}
+    .sev-medium{background:rgba(234,179,8,.14);color:#92400e}
+    .sev-high{background:rgba(249,115,22,.12);color:#9a3412}
+    .sev-critical{background:rgba(239,68,68,.12);color:#991b1b}
+    .cvss-hint{font-size:var(--fs-xs);color:var(--bark);line-height:1.55;max-width:400px}
+    .risk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:2rem}
+    .risk-card{background:var(--white);border:1px solid var(--sand);border-radius:var(--radius-lg);padding:1.25rem 1.5rem}
+    .risk-icon{width:38px;height:38px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;margin-bottom:.75rem}
+    .risk-icon svg{width:19px;height:19px}
+    .risk-card h3{font-family:'Cormorant Garamond',serif;font-size:var(--fs-lg);font-weight:600;color:var(--navy);margin-bottom:.4rem}
+    .risk-card p{font-size:var(--fs-sm);color:var(--brown);line-height:1.65;font-weight:300}
+    .ri-accept .risk-icon{background:rgba(34,197,94,.08)} .ri-accept .risk-icon svg{color:#15803d}
+    .ri-transfer .risk-icon{background:rgba(43,91,181,.08)} .ri-transfer .risk-icon svg{color:var(--blue)}
+    .ri-mitigate .risk-icon{background:rgba(249,115,22,.08)} .ri-mitigate .risk-icon svg{color:#c2410c}
+    .ri-avoid .risk-icon{background:rgba(239,68,68,.08)} .ri-avoid .risk-icon svg{color:#dc2626}
+
     /* RESPONSIVE */
     @media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:860px){.nav-links{display:none}.hamburger{display:flex}.mobile-menu{display:block}.mentor-inner{flex-direction:column;gap:2rem}}
@@ -186,50 +222,177 @@
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="za-nas.html">За нас</a></li>
+        <li>
+          <a href="za-nas.html">За нас</a>
+        </li>
         <li class="has-dropdown" id="dd-resources">
-          <button onclick="toggleDropdown('dd-resources')">Ресурси
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          <button onclick="toggleDropdown('dd-resources')">
+            Ресурси
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="dropdown">
-            <a href="organizacii.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Организации</a>
-            <a href="forumi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Форуми</a>
-            <a href="haklor.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Хаклор</a>
-            <a href="phishing.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>Фишинг</a>
-            <a href="instrumenti.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Инструменти</a>
+            <div class="dropdown-label">Директория</div>
+            <a href="organizacii.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+              </svg>
+              Организации
+            </a>
+            <a href="forumi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+              </svg>
+              Форуми
+            </a>
+            <a href="haklor.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+              </svg>
+              Хаклор
+            </a>
+            <a href="phishing.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+              Фишинг
+            </a>
+            <a href="instrumenti.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+              </svg>
+              Инструменти
+            </a>
             <div class="dropdown-divider"></div>
-            <a href="terminologiq.html" class="active"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>Терминология</a>
-            <a href="ctf.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>CTF</a>
-            <a href="knigi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>Книги</a>
-            <a href="video.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>Видео ресурси</a>
+            <div class="dropdown-label">Учебни материали</div>
+            <a href="terminologiq.html" class="active">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+              </svg>
+              Терминология
+            </a>
+            <a href="ctf.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              CTF
+            </a>
+            <a href="knigi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
+                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+              </svg>
+              Книги
+            </a>
+            <a href="video.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="23 7 16 12 23 17 23 7" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+              Видео ресурси
+            </a>
           </div>
         </li>
         <li class="has-dropdown" id="dd-education">
-          <button onclick="toggleDropdown('dd-education')">Обучение
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          <button onclick="toggleDropdown('dd-education')">
+            Обучение
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="dropdown">
-            <a href="universiteti.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Университетски програми</a>
-            <a href="platformi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Платформи</a>
-            <a href="kursove.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Онлайн курсове</a>
-            <a href="index.html#certifications"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>Сертификации</a>
+            <a href="universiteti.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+              Университетски програми
+            </a>
+            <a href="kursove.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+              Онлайн курсове
+            </a>
+            <a href="sertifikacii.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="8" r="7" />
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+              </svg>
+              Сертификации
+            </a>
+            <a href="platformi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+              </svg>
+              Платформи
+            </a>
           </div>
         </li>
         <li class="has-dropdown" id="dd-career">
-          <button onclick="toggleDropdown('dd-career')">Кариера
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          <button onclick="toggleDropdown('dd-career')">
+            Кариера
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="dropdown">
-            <a href="mentoring.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Менторство</a>
-            <a href="zaplati.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Заплати</a>
-            <a href="index.html#companies"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Компании</a>
-            <a href="obqvi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Обяви</a>
-            <a href="compass.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>Кариерен компас</a>
-            <a href="index.html#career-paths"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Професионални пътеки</a>
+            <a href="mentoring.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+              </svg>
+              Менторство
+            </a>
+            <a href="kompanii.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              </svg>
+              Компании
+            </a>
+            <a href="obqvi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+                <line x1="9" y1="11" x2="15" y2="11" />
+                <line x1="9" y1="15" x2="12" y2="15" />
+              </svg>
+              Обяви
+            </a>
+            <a href="compass.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+              </svg>
+              Кариерен компас
+            </a>
+            <a href="profesionalni-pateki.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+              Професионални пътеки
+            </a>
+            <a href="zaplati.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+              </svg>
+              Заплати
+            </a>
           </div>
         </li>
         <li><a href="sabitia.html">Събития</a></li>
-        <li><a href="index.html#join" class="nav-cta">Включи се</a></li>
+        <li><a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="nav-cta">Включи се</a></li>
       </ul>
       <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Меню">
         <span></span><span></span><span></span>
@@ -242,8 +405,12 @@
       <a href="za-nas.html" class="mobile-link" onclick="closeMobile()">За нас</a>
     </div>
     <div class="mobile-nav-section">
-      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-resources', this)">Ресурси
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-resources', this)">
+        Ресурси
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
       </button>
       <div class="mobile-sub" id="sub-resources">
         <a href="organizacii.html" onclick="closeMobile()">Организации</a>
@@ -258,34 +425,43 @@
       </div>
     </div>
     <div class="mobile-nav-section">
-      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-education', this)">Обучение
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-education', this)">
+        Обучение
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
       </button>
       <div class="mobile-sub" id="sub-education">
         <a href="universiteti.html" onclick="closeMobile()">Университетски програми</a>
         <a href="platformi.html" onclick="closeMobile()">Платформи</a>
         <a href="kursove.html" onclick="closeMobile()">Онлайн курсове</a>
-        <a href="index.html#certifications" onclick="closeMobile()">Сертификации</a>
+        <a href="sertifikacii.html" onclick="closeMobile()">Сертификации</a>
       </div>
     </div>
     <div class="mobile-nav-section">
-      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-career', this)">Кариера
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-career', this)">
+        Кариера
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
       </button>
       <div class="mobile-sub" id="sub-career">
         <a href="mentoring.html" onclick="closeMobile()">Менторство</a>
         <a href="zaplati.html" onclick="closeMobile()">Заплати</a>
-        <a href="index.html#companies" onclick="closeMobile()">Компании</a>
+        <a href="kompanii.html" onclick="closeMobile()">Компании</a>
         <a href="obqvi.html" onclick="closeMobile()">Обяви</a>
         <a href="compass.html" onclick="closeMobile()">Кариерен компас</a>
-        <a href="index.html#career-paths" onclick="closeMobile()">Професионални пътеки</a>
+        <a href="profesionalni-pateki.html" onclick="closeMobile()">Професионални пътеки</a>
       </div>
     </div>
     <div class="mobile-nav-section">
       <a href="sabitia.html" class="mobile-link" onclick="closeMobile()">Събития</a>
     </div>
-    <a href="index.html#join" class="mobile-cta" onclick="closeMobile()">Включи се &rarr;</a>
+    <a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="mobile-cta" onclick="closeMobile()">Включи се →</a>
   </div>
+
 
   <div class="page-content">
     <div class="article-section">
@@ -474,47 +650,77 @@
         </div>
       </div>
 
-      <!-- SECTION 4: OWASP TOP 10 -->
+      <!-- SECTION 4: OWASP -->
       <div class="section-divider"></div>
       <div class="category-heading reveal">
         <div class="cat-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h2>OWASP Top 10</h2>
+        <h2>OWASP</h2>
       </div>
-      <p class="category-desc reveal">OWASP (Open Web Application Security Project) публикува Top 10 — списъкът на най-критичните уязвимости в уеб приложенията, обновяван на всеки 3-4 години.</p>
+      <p class="category-desc reveal">OWASP (Open Web Application Security Project) е международна организация с нестопанска цел, посветена на сигурността на уеб приложенията. Разработва безплатни стандарти, инструменти и ръководства — достъпни за всички. Местната глава <a href="https://owasp.org/www-chapter-sofia/" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:underline;text-underline-offset:2px">OWASP Sofia Chapter</a> организира редовни срещи и уъркшопи в България.</p>
+
+      <div class="info-callout reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p><strong>OWASP Top 10 (2025)</strong> е списъкът на десетте най-критични класа уязвимости в уеб приложенията — актуализиран на всеки 3–4 години. Спрямо 2021: SSRF отпада, влиза новата категория за грешна обработка на изключения. Редът значително се е променил.</p>
+      </div>
 
       <div class="why-grid">
         <div class="why-card reveal">
           <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
           <div class="why-title">A01: Broken Access Control</div>
-          <p class="why-desc">Потребители получават достъп до ресурси извън предназначените им права. Най-честата уязвимост.</p>
+          <p class="why-desc">Потребители достъпват ресурси извън правата си. IDOR, privilege escalation, missing authorization checks. Запазва позицията си като най-честата уязвимост.</p>
         </div>
         <div class="why-card reveal reveal-delay-1">
-          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
-          <div class="why-title">A02: Cryptographic Failures</div>
-          <p class="why-desc">Незащитено предаване или съхранение на чувствителни данни. Липса на HTTPS, слабо криптиране.</p>
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div>
+          <div class="why-title">A02: Security Misconfiguration</div>
+          <p class="why-desc">Прескача от A05 на A02. Default credentials, излишни услуги, verbose грешки, cloud storage misconfiguration, XXE. Изключително честа в облачни среди.</p>
         </div>
         <div class="why-card reveal reveal-delay-2">
-          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
-          <div class="why-title">A03: Injection</div>
-          <p class="why-desc">SQL Injection, Command Injection, LDAP Injection. Невалидирани входни данни, интерпретирани като команди.</p>
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+          <div class="why-title">A03: Software Supply Chain Failures</div>
+          <p class="why-desc">Еволюция на „Vulnerable Components" — разширена до цялата верига на доставки. Компрометирани зависимости, злонамерени пакети в npm/PyPI, атаки срещу CI/CD pipelines.</p>
         </div>
         <div class="why-card reveal reveal-delay-3">
-          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="23" y1="11" x2="17" y2="11"/></svg></div>
-          <div class="why-title">A07: Identification and Auth Failures</div>
-          <p class="why-desc">Слаби пароли, липса на MFA, неправилно управление на сесии.</p>
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
+          <div class="why-title">A04: Cryptographic Failures</div>
+          <p class="why-desc">Слизане от A02 на A04. Чувствителни данни предавани или съхранявани без криптиране. Липса на HTTPS, MD5/SHA-1 за пароли, слаби TLS конфигурации.</p>
         </div>
         <div class="why-card reveal">
-          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-          <div class="why-title">A10: SSRF</div>
-          <p class="why-desc">Server-Side Request Forgery — сървърът прави заявки от името на атакуващия. Уязвимост в cloud среди.</p>
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
+          <div class="why-title">A05: Injection</div>
+          <p class="why-desc">SQL, NoSQL, OS Command, LDAP injection, XSS. Невалидирани входни данни, интерпретирани като команди от интерпретатора. Слиза от A03 на A05.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="why-title">A06: Insecure Design</div>
+          <p class="why-desc">Липса на threat modeling и secure design patterns. Проблемите в архитектурата не могат да се поправят само с добра имплементация — трябват fundamental промени.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="23" y1="11" x2="17" y2="11"/></svg></div>
+          <div class="why-title">A07: Authentication Failures</div>
+          <p class="why-desc">Слаби пароли, липса на MFA, некоректно управление на сесии, излагане на session tokens. Остава на A07 с леко разширен обхват.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+          <div class="why-title">A08: Software or Data Integrity Failures</div>
+          <p class="why-desc">Ненадеждни CI/CD pipelines, insecure deserialization, auto-update без верификация на подписа. SolarWinds и XZ Utils са реални примери за тази категория.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <div class="why-title">A09: Security Logging and Alerting Failures</div>
+          <p class="why-desc">Липса на логване и алерти при аномалии. Атаките остават незабелязани средно 207 дни. Преименувано от „Monitoring" на „Alerting" за по-ясен акцент.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <div class="why-title">A10: Mishandling of Exceptional Conditions</div>
+          <p class="why-desc">Нова за 2025. Заменя SSRF. Неправилна обработка на грешки, null pointer dereferences, race conditions и необработени изключения — водят до непредвидено поведение и уязвимости.</p>
         </div>
       </div>
 
       <div class="info-callout reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <p>Пълен OWASP Top 10: <a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener">owasp.org/www-project-top-ten</a> | OWASP Testing Guide е безплатен наръчник за тестване на уеб приложения.</p>
+        <p>Официален OWASP Top 10 (2025): <a href="https://owasp.org/Top10/2025/" target="_blank" rel="noopener">owasp.org/Top10/2025</a> &nbsp;·&nbsp; OWASP Testing Guide — безплатен методологичен наръчник &nbsp;·&nbsp; <a href="https://owasp.org/www-chapter-sofia/" target="_blank" rel="noopener">OWASP Sofia Chapter</a> — местната общност.</p>
       </div>
 
       <!-- SECTION 5: СТАНДАРТИ И РАМКИ -->
@@ -555,6 +761,286 @@
         <p>За задълбочена терминология: NIST Glossary на <a href="https://csrc.nist.gov/glossary" target="_blank" rel="noopener">csrc.nist.gov/glossary</a> и ENISA's Cybersecurity Glossary.</p>
       </div>
 
+      <!-- SECTION 6: CWE -->
+      <div class="section-divider"></div>
+      <div class="category-heading reveal">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h2>CWE — Common Weakness Enumeration</h2>
+      </div>
+      <p class="category-desc reveal">CWE е каталог на типовете слабости в програмния код и системния дизайн, поддържан от MITRE. Разграничай: <strong>CVE</strong> описва конкретна уязвимост в конкретен продукт (напр. Log4Shell); <strong>CWE</strong> описва <em>класа</em> на проблема — коренната причина (напр. Improper Input Validation). Едно CWE може да е корена на стотици CVE-та.</p>
+
+      <div class="table-wrap reveal">
+        <table class="term-table">
+          <thead>
+            <tr><th>CWE ID</th><th>Наименование</th><th>Типичен пример</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>CWE-79</code></td><td>Cross-site Scripting (XSS)</td><td>Инжектиране на JS в страница, изпълнявано в браузъра на жертвата</td></tr>
+            <tr><td><code>CWE-89</code></td><td>SQL Injection</td><td><code>' OR '1'='1</code> в поле за вход достъп до база данни</td></tr>
+            <tr><td><code>CWE-22</code></td><td>Path Traversal</td><td><code>../../etc/passwd</code> — достъп извън предназначената директория</td></tr>
+            <tr><td><code>CWE-20</code></td><td>Improper Input Validation</td><td>Приемане на данни без проверка на формат, тип или граници</td></tr>
+            <tr><td><code>CWE-287</code></td><td>Improper Authentication</td><td>Заобикаляне на login форма чрез манипулация на параметри</td></tr>
+            <tr><td><code>CWE-352</code></td><td>CSRF</td><td>Принудителна заявка от автентикиран потребител към друг сайт</td></tr>
+            <tr><td><code>CWE-502</code></td><td>Insecure Deserialization</td><td>Изпълнение на код при десериализация на недоверени данни</td></tr>
+            <tr><td><code>CWE-798</code></td><td>Hardcoded Credentials</td><td>Парола или API ключ директно в сорс кода</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-callout reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p>Пълен каталог с над 900 слабости: <a href="https://cwe.mitre.org/" target="_blank" rel="noopener">cwe.mitre.org</a> &nbsp;·&nbsp; CWE Top 25 Most Dangerous Software Weaknesses се публикува ежегодно от MITRE.</p>
+      </div>
+
+      <!-- SECTION 7: NVD & CVE & CVSS -->
+      <div class="section-divider"></div>
+      <div class="category-heading reveal">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        </div>
+        <h2>NVD, CVE и CVSS оценка</h2>
+      </div>
+      <p class="category-desc reveal">NVD (National Vulnerability Database) е официалната база данни на NIST за публично известни уязвимости. Всяка уязвимост получава CVE идентификатор и CVSS оценка — стандартизирана числова мярка за тежест.</p>
+
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+          <div class="why-title">CVE идентификатор</div>
+          <p class="why-desc">Common Vulnerabilities and Exposures. Формат: <code>CVE-ГОДИНА-НОМЕР</code>. Пример: <code>CVE-2021-44228</code> е Log4Shell. Уникален идентификатор за всяка известна уязвимост.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="why-title">CVSS оценка</div>
+          <p class="why-desc">Common Vulnerability Scoring System v3.1. Скала 0–10, изчислена от 8 метрики. Оценява се от три групи: Base Score (неизменни характеристики), Temporal (актуалност на exploit) и Environmental (специфика на средата).</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+          <div class="why-title">Как се използва NVD</div>
+          <p class="why-desc">Организациите следят NVD за нови CVE-та, засягащи използваните от тях компоненти. Интеграция с vulnerability scanners (Nessus, Qualys, Trivy) за автоматично засичане.</p>
+        </div>
+      </div>
+
+      <h3 class="reveal" style="font-family:'Cormorant Garamond',serif;font-size:var(--fs-xl);font-weight:600;color:var(--navy);margin-bottom:.75rem">CVSS v3.1 Калкулатор</h3>
+      <p class="reveal" style="font-size:var(--fs-sm);color:var(--brown);margin-bottom:1.25rem;font-weight:300">Избери стойностите за всяка метрика — Base Score се изчислява автоматично. Официален калкулатор: <a href="https://www.first.org/cvss/calculator/3.1" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:underline;text-underline-offset:2px">first.org/cvss/calculator/3.1</a></p>
+
+      <div class="cvss-calc reveal" id="cvss-calc">
+        <div class="cvss-grid">
+          <div>
+            <div class="cvss-group-label">Вектор на атаката (AV)</div>
+            <div class="cvss-opts">
+              <label><input type="radio" name="av" value="N" checked><span>Мрежа</span></label>
+              <label><input type="radio" name="av" value="A"><span>Съседна</span></label>
+              <label><input type="radio" name="av" value="L"><span>Локален</span></label>
+              <label><input type="radio" name="av" value="P"><span>Физически</span></label>
+            </div>
+          </div>
+          <div>
+            <div class="cvss-group-label">Сложност на атаката (AC)</div>
+            <div class="cvss-opts">
+              <label><input type="radio" name="ac" value="L" checked><span>Ниска</span></label>
+              <label><input type="radio" name="ac" value="H"><span>Висока</span></label>
+            </div>
+          </div>
+          <div>
+            <div class="cvss-group-label">Необходими привилегии (PR)</div>
+            <div class="cvss-opts">
+              <label><input type="radio" name="pr" value="N" checked><span>Няма</span></label>
+              <label><input type="radio" name="pr" value="L"><span>Ниски</span></label>
+              <label><input type="radio" name="pr" value="H"><span>Високи</span></label>
+            </div>
+          </div>
+          <div>
+            <div class="cvss-group-label">Взаимодействие с потребител (UI)</div>
+            <div class="cvss-opts">
+              <label><input type="radio" name="ui" value="N" checked><span>Не е необходимо</span></label>
+              <label><input type="radio" name="ui" value="R"><span>Необходимо</span></label>
+            </div>
+          </div>
+          <div>
+            <div class="cvss-group-label">Обхват (S)</div>
+            <div class="cvss-opts">
+              <label><input type="radio" name="sc" value="U" checked><span>Непроменен</span></label>
+              <label><input type="radio" name="sc" value="C"><span>Променен</span></label>
+            </div>
+          </div>
+          <div>
+            <div class="cvss-group-label">Поверителност (C)</div>
+            <div class="cvss-opts">
+              <label><input type="radio" name="vc" value="N" checked><span>Няма</span></label>
+              <label><input type="radio" name="vc" value="L"><span>Ниска</span></label>
+              <label><input type="radio" name="vc" value="H"><span>Висока</span></label>
+            </div>
+          </div>
+          <div>
+            <div class="cvss-group-label">Цялостност (I)</div>
+            <div class="cvss-opts">
+              <label><input type="radio" name="vi" value="N" checked><span>Няма</span></label>
+              <label><input type="radio" name="vi" value="L"><span>Ниска</span></label>
+              <label><input type="radio" name="vi" value="H"><span>Висока</span></label>
+            </div>
+          </div>
+          <div>
+            <div class="cvss-group-label">Достъпност (A)</div>
+            <div class="cvss-opts">
+              <label><input type="radio" name="va" value="N" checked><span>Няма</span></label>
+              <label><input type="radio" name="va" value="L"><span>Ниска</span></label>
+              <label><input type="radio" name="va" value="H"><span>Висока</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="cvss-result">
+          <div class="cvss-score-num" id="cvss-score">0.0</div>
+          <div class="cvss-meta">
+            <span class="cvss-sev sev-none" id="cvss-sev">Без оценка</span>
+            <span class="cvss-hint">CVSS v3.1 Базова оценка<br>0.0 Без оценка &nbsp;·&nbsp; 0.1–3.9 Ниска &nbsp;·&nbsp; 4.0–6.9 Средна &nbsp;·&nbsp; 7.0–8.9 Висока &nbsp;·&nbsp; 9.0–10.0 Критична</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-callout reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p>Официална NVD база данни: <a href="https://nvd.nist.gov/" target="_blank" rel="noopener">nvd.nist.gov</a> &nbsp;·&nbsp; CVSS спецификация: <a href="https://www.first.org/cvss/" target="_blank" rel="noopener">first.org/cvss</a> &nbsp;·&nbsp; Следи нови CVE-та: <a href="https://www.cvedetails.com/" target="_blank" rel="noopener">cvedetails.com</a></p>
+      </div>
+
+      <!-- SECTION 8: CIS -->
+      <div class="section-divider"></div>
+      <div class="category-heading reveal">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <h2>CIS Controls и Hardening</h2>
+      </div>
+      <p class="category-desc reveal">Center for Internet Security (CIS) разработва два ключови ресурса: <strong>CIS Controls v8</strong> — 18 приоритетни мерки за защита, и <strong>CIS Benchmarks</strong> — конкретни конфигурационни ръководства за стотици продукти. И двата са безплатни за ползване.</p>
+
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+          <div class="why-title">CIS Controls v8</div>
+          <p class="why-desc">18 контрола, наредени по приоритет и разделени в 3 Implementation Groups (IG). IG1 — 56 safeguards за всяка организация; IG2 добавя 74; IG3 — допълнителни 58 за критична инфраструктура.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <div class="why-title">CIS Benchmarks</div>
+          <p class="why-desc">Детайлни конфигурационни ръководства за Windows, Linux, macOS, Docker, Kubernetes, AWS, Azure, GCP и 100+ продукта. Дефинират "secure baseline" за всяка система.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+          <div class="why-title">Hardening — защо е важно</div>
+          <p class="why-desc">Hardening е процесът на намаляване на attack surface чрез деактивиране на излишни услуги, затягане на конфигурации, прилагане на принципа на минималните привилегии и редовно patch management.</p>
+        </div>
+      </div>
+
+      <div class="table-wrap reveal">
+        <table class="term-table">
+          <thead>
+            <tr><th>#</th><th>CIS Control</th><th>Описание</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Inventory of Enterprise Assets</td><td>Знай какво имаш — всеки неизвестен актив е потенциален вектор</td></tr>
+            <tr><td>2</td><td>Inventory of Software Assets</td><td>Одобрен софтуерен списък — блокирай неоторизирани приложения</td></tr>
+            <tr><td>3</td><td>Data Protection</td><td>Класификация, криптиране и DLP политики</td></tr>
+            <tr><td>4</td><td>Secure Configuration</td><td>Прилагай CIS Benchmarks; деактивирай default credentials</td></tr>
+            <tr><td>5</td><td>Account Management</td><td>MFA, принцип на минималните привилегии, деактивация при напускане</td></tr>
+            <tr><td>6</td><td>Access Control Management</td><td>Role-based access, регулярни access reviews</td></tr>
+            <tr><td>7</td><td>Continuous Vulnerability Management</td><td>Сканиране + patch management с SLA по CVSS оценка</td></tr>
+            <tr><td>8</td><td>Audit Log Management</td><td>Централно логване, retention политика, SIEM интеграция</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-callout reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p>Изтегли CIS Controls и Benchmarks безплатно: <a href="https://www.cisecurity.org/controls" target="_blank" rel="noopener">cisecurity.org/controls</a> &nbsp;·&nbsp; CIS-CAT инструментът автоматизира audit срещу benchmarks.</p>
+      </div>
+
+      <!-- SECTION 9: RISK MANAGEMENT -->
+      <div class="section-divider"></div>
+      <div class="category-heading reveal">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h2>Управление на риска</h2>
+      </div>
+      <p class="category-desc reveal">Управлението на риска е систематичният процес за идентифициране, оценяване и третиране на рисковете пред организацията. Рискът не може да се елиминира напълно — целта е информирано вземане на решения за приемливото ниво на остатъчен риск.</p>
+
+      <div class="risk-grid">
+        <div class="risk-card ri-accept reveal">
+          <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3>Приемане (Accept)</h3>
+          <p>Организацията съзнателно решава да понесе риска без допълнителни мерки. Подходящо когато вероятността или въздействието са ниски, а цената на третирането надхвърля потенциалната щета.</p>
+        </div>
+        <div class="risk-card ri-transfer reveal reveal-delay-1">
+          <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></div>
+          <h3>Прехвърляне (Transfer)</h3>
+          <p>Финансовите последици се прехвърлят на трета страна — киберзастраховка, аутсорсинг на услуга към MSP/MSSP. Рискът остава, но отговорността за щетите се споделя.</p>
+        </div>
+        <div class="risk-card ri-mitigate reveal reveal-delay-2">
+          <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Намаляване (Mitigate)</h3>
+          <p>Прилагане на контроли за намаляване на вероятността или въздействието: patch management, MFA, мрежова сегментация, обучение на служители. Най-честата стратегия.</p>
+        </div>
+        <div class="risk-card ri-avoid reveal reveal-delay-3">
+          <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
+          <h3>Избягване (Avoid)</h3>
+          <p>Прекратяване на дейността, която генерира риска. Напр. отказ от обработка на определени данни или спиране на уязвима услуга. Радикален, но понякога единственият правилен избор.</p>
+        </div>
+      </div>
+
+      <h3 class="reveal" style="font-family:'Cormorant Garamond',serif;font-size:var(--fs-xl);font-weight:600;color:var(--navy);margin-bottom:1rem">Методологии за управление на риска</h3>
+
+      <div class="table-wrap reveal">
+        <table class="term-table">
+          <thead>
+            <tr><th>Методология</th><th>Организация</th><th>Накратко</th><th>Ресурс</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ISO 31000</strong></td>
+              <td>ISO/IEC</td>
+              <td>Международен стандарт за управление на риска — принципи, рамка и процес. Приложим за всеки тип организация.</td>
+              <td><a href="https://www.iso.org/standard/65694.html" target="_blank" rel="noopener" style="color:var(--blue)">iso.org</a></td>
+            </tr>
+            <tr>
+              <td><strong>NIST RMF</strong></td>
+              <td>NIST (SP 800-37)</td>
+              <td>6-стъпков процес: Categorize → Select → Implement → Assess → Authorize → Monitor. Задължителен за федерални агенции на САЩ.</td>
+              <td><a href="https://csrc.nist.gov/projects/risk-management" target="_blank" rel="noopener" style="color:var(--blue)">csrc.nist.gov</a></td>
+            </tr>
+            <tr>
+              <td><strong>FAIR</strong></td>
+              <td>FAIR Institute</td>
+              <td>Factor Analysis of Information Risk — количествен модел, изразяващ риска в парични стойности. Помага при бизнес решения.</td>
+              <td><a href="https://www.fairinstitute.org/" target="_blank" rel="noopener" style="color:var(--blue)">fairinstitute.org</a></td>
+            </tr>
+            <tr>
+              <td><strong>OCTAVE</strong></td>
+              <td>SEI / Carnegie Mellon</td>
+              <td>Operationally Critical Threat, Asset, and Vulnerability Evaluation — фокусиран върху организационния риск, не само техническия.</td>
+              <td><a href="https://resources.sei.cmu.edu/library/asset-view.cfm?assetid=51546" target="_blank" rel="noopener" style="color:var(--blue)">sei.cmu.edu</a></td>
+            </tr>
+            <tr>
+              <td><strong>EBIOS RM</strong></td>
+              <td>ANSSI (Франция)</td>
+              <td>Expression des Besoins et Identification des Objectifs de Sécurité — широко използван в ЕС; добра интеграция с NIS2.</td>
+              <td><a href="https://www.ssi.gouv.fr/en/guide/ebios-risk-manager-the-method/" target="_blank" rel="noopener" style="color:var(--blue)">ssi.gouv.fr</a></td>
+            </tr>
+            <tr>
+              <td><strong>ISO/IEC 27005</strong></td>
+              <td>ISO/IEC</td>
+              <td>Специфично за информационна сигурност — надгражда ISO 31000 с контекст на ISMS (27001). Популярен при сертификация.</td>
+              <td><a href="https://www.iso.org/standard/80585.html" target="_blank" rel="noopener" style="color:var(--blue)">iso.org</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-callout reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p>Рискът се формулира като: <strong>Риск = Вероятност × Въздействие</strong>. Остатъчен риск (residual risk) е рискът след прилагане на контролите — неизбежна реалност, която трябва да бъде документирана и приета от ръководството.</p>
+      </div>
+
     </div>
   </div>
 
@@ -567,7 +1053,7 @@
       </div>
       <div class="mentor-actions">
         <a href="mentoring.html" class="btn btn-primary">Научи повече</a>
-        <a href="index.html#join" class="btn btn-outline">Включи се</a>
+        <a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="btn btn-outline">Включи се</a>
       </div>
     </div>
   </div>
@@ -636,7 +1122,7 @@
             <li><a href="universiteti.html">Университетски програми</a></li>
             <li><a href="platformi.html">Платформи</a></li>
             <li><a href="kursove.html">Онлайн курсове</a></li>
-            <li><a href="index.html#certifications">Сертификации</a></li>
+            <li><a href="sertifikacii.html">Сертификации</a></li>
           </ul>
         </div>
         <div>
@@ -677,6 +1163,49 @@
     function toggleMobile() { mobileOpen = !mobileOpen; hamburger.classList.toggle('open', mobileOpen); mobileMenu.classList.toggle('open', mobileOpen); document.body.style.overflow = mobileOpen ? 'hidden' : ''; }
     function closeMobile() { mobileOpen = false; hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
     function toggleMobileSub(id, btn) { const sub = document.getElementById(id); const open = sub.classList.toggle('open'); btn.classList.toggle('open', open); }
+
+    function calcCVSS() {
+      var AV  = {N:0.85, A:0.62, L:0.55, P:0.20};
+      var AC  = {L:0.77, H:0.44};
+      var PRU = {N:0.85, L:0.62, H:0.27};
+      var PRC = {N:0.85, L:0.68, H:0.50};
+      var UI  = {N:0.85, R:0.62};
+      var CIA = {N:0.00, L:0.22, H:0.56};
+      function pick(name, fallback) {
+        var el = document.querySelector('input[name="' + name + '"]:checked');
+        return el ? el.value : fallback;
+      }
+      var av = pick('av','N'), ac = pick('ac','L'), pr = pick('pr','N');
+      var ui = pick('ui','N'), sc = pick('sc','U');
+      var c  = pick('vc','N'), ii = pick('vi','N'), a  = pick('va','N');
+      var prVal = (sc === 'C') ? PRC[pr] : PRU[pr];
+      var ISS   = 1 - (1 - CIA[c]) * (1 - CIA[ii]) * (1 - CIA[a]);
+      var impact = (sc === 'U')
+        ? 6.42 * ISS
+        : 7.52 * (ISS - 0.029) - 3.25 * Math.pow(ISS - 0.02, 15);
+      var exploitability = 8.22 * AV[av] * AC[ac] * prVal * UI[ui];
+      var raw = (impact <= 0) ? 0
+        : (sc === 'U') ? Math.min(impact + exploitability, 10)
+        : Math.min(1.08 * (impact + exploitability), 10);
+      var score = Math.ceil(raw * 10) / 10;
+      var scoreEl = document.getElementById('cvss-score');
+      var sevEl   = document.getElementById('cvss-sev');
+      if (!scoreEl || !sevEl) return;
+      scoreEl.textContent = score.toFixed(1);
+      var sev, cls;
+      if (score === 0)      { sev = 'Без оценка'; cls = 'sev-none'; }
+      else if (score < 4)   { sev = 'Ниска';      cls = 'sev-low'; }
+      else if (score < 7)   { sev = 'Средна';     cls = 'sev-medium'; }
+      else if (score < 9)   { sev = 'Висока';     cls = 'sev-high'; }
+      else                  { sev = 'Критична';   cls = 'sev-critical'; }
+      sevEl.textContent = sev;
+      sevEl.className   = 'cvss-sev ' + cls;
+    }
+    var cvssCalc = document.getElementById('cvss-calc');
+    if (cvssCalc) {
+      cvssCalc.addEventListener('change', calcCVSS);
+    }
+    calcCVSS();
 
     const revealEls = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });

@@ -202,50 +202,177 @@
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="za-nas.html">За нас</a></li>
+        <li>
+          <a href="za-nas.html">За нас</a>
+        </li>
         <li class="has-dropdown" id="dd-resources">
-          <button onclick="toggleDropdown('dd-resources')">Ресурси
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          <button onclick="toggleDropdown('dd-resources')">
+            Ресурси
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="dropdown">
-            <a href="organizacii.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Организации</a>
-            <a href="forumi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Форуми</a>
-            <a href="haklor.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Хаклор</a>
-            <a href="phishing.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>Фишинг</a>
-            <a href="instrumenti.html" class="active"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Инструменти</a>
+            <div class="dropdown-label">Директория</div>
+            <a href="organizacii.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+              </svg>
+              Организации
+            </a>
+            <a href="forumi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+              </svg>
+              Форуми
+            </a>
+            <a href="haklor.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+              </svg>
+              Хаклор
+            </a>
+            <a href="phishing.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+              Фишинг
+            </a>
+            <a href="instrumenti.html" class="active">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+              </svg>
+              Инструменти
+            </a>
             <div class="dropdown-divider"></div>
-            <a href="terminologiq.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>Терминология</a>
-            <a href="ctf.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>CTF</a>
-            <a href="knigi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>Книги</a>
-            <a href="video.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>Видео ресурси</a>
+            <div class="dropdown-label">Учебни материали</div>
+            <a href="terminologiq.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+              </svg>
+              Терминология
+            </a>
+            <a href="ctf.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              CTF
+            </a>
+            <a href="knigi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
+                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+              </svg>
+              Книги
+            </a>
+            <a href="video.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="23 7 16 12 23 17 23 7" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+              Видео ресурси
+            </a>
           </div>
         </li>
         <li class="has-dropdown" id="dd-education">
-          <button onclick="toggleDropdown('dd-education')">Обучение
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          <button onclick="toggleDropdown('dd-education')">
+            Обучение
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="dropdown">
-            <a href="universiteti.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Университетски програми</a>
-            <a href="platformi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Платформи</a>
-            <a href="kursove.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Онлайн курсове</a>
-            <a href="index.html#certifications"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>Сертификации</a>
+            <a href="universiteti.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+              Университетски програми
+            </a>
+            <a href="kursove.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+              Онлайн курсове
+            </a>
+            <a href="sertifikacii.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="8" r="7" />
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+              </svg>
+              Сертификации
+            </a>
+            <a href="platformi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+              </svg>
+              Платформи
+            </a>
           </div>
         </li>
         <li class="has-dropdown" id="dd-career">
-          <button onclick="toggleDropdown('dd-career')">Кариера
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          <button onclick="toggleDropdown('dd-career')">
+            Кариера
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="dropdown">
-            <a href="mentoring.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Менторство</a>
-            <a href="zaplati.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Заплати</a>
-            <a href="index.html#companies"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Компании</a>
-            <a href="obqvi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="12" y2="15"/></svg>Обяви</a>
-            <a href="compass.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>Кариерен компас</a>
-            <a href="index.html#career-paths"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Професионални пътеки</a>
+            <a href="mentoring.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+              </svg>
+              Менторство
+            </a>
+            <a href="kompanii.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              </svg>
+              Компании
+            </a>
+            <a href="obqvi.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+                <line x1="9" y1="11" x2="15" y2="11" />
+                <line x1="9" y1="15" x2="12" y2="15" />
+              </svg>
+              Обяви
+            </a>
+            <a href="compass.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+              </svg>
+              Кариерен компас
+            </a>
+            <a href="profesionalni-pateki.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+              Професионални пътеки
+            </a>
+            <a href="zaplati.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+              </svg>
+              Заплати
+            </a>
           </div>
         </li>
         <li><a href="sabitia.html">Събития</a></li>
-        <li><a href="index.html#join" class="nav-cta">Включи се</a></li>
+        <li><a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="nav-cta">Включи се</a></li>
       </ul>
       <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Меню">
         <span></span><span></span><span></span>
@@ -258,8 +385,12 @@
       <a href="za-nas.html" class="mobile-link" onclick="closeMobile()">За нас</a>
     </div>
     <div class="mobile-nav-section">
-      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-resources', this)">Ресурси
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-resources', this)">
+        Ресурси
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
       </button>
       <div class="mobile-sub" id="sub-resources">
         <a href="organizacii.html" onclick="closeMobile()">Организации</a>
@@ -274,34 +405,43 @@
       </div>
     </div>
     <div class="mobile-nav-section">
-      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-education', this)">Обучение
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-education', this)">
+        Обучение
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
       </button>
       <div class="mobile-sub" id="sub-education">
         <a href="universiteti.html" onclick="closeMobile()">Университетски програми</a>
         <a href="platformi.html" onclick="closeMobile()">Платформи</a>
         <a href="kursove.html" onclick="closeMobile()">Онлайн курсове</a>
-        <a href="index.html#certifications" onclick="closeMobile()">Сертификации</a>
+        <a href="sertifikacii.html" onclick="closeMobile()">Сертификации</a>
       </div>
     </div>
     <div class="mobile-nav-section">
-      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-career', this)">Кариера
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-career', this)">
+        Кариера
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
       </button>
       <div class="mobile-sub" id="sub-career">
         <a href="mentoring.html" onclick="closeMobile()">Менторство</a>
         <a href="zaplati.html" onclick="closeMobile()">Заплати</a>
-        <a href="index.html#companies" onclick="closeMobile()">Компании</a>
+        <a href="kompanii.html" onclick="closeMobile()">Компании</a>
         <a href="obqvi.html" onclick="closeMobile()">Обяви</a>
         <a href="compass.html" onclick="closeMobile()">Кариерен компас</a>
-        <a href="index.html#career-paths" onclick="closeMobile()">Професионални пътеки</a>
+        <a href="profesionalni-pateki.html" onclick="closeMobile()">Професионални пътеки</a>
       </div>
     </div>
     <div class="mobile-nav-section">
       <a href="sabitia.html" class="mobile-link" onclick="closeMobile()">Събития</a>
     </div>
-    <a href="index.html#join" class="mobile-cta" onclick="closeMobile()">Включи се &rarr;</a>
+    <a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="mobile-cta" onclick="closeMobile()">Включи се →</a>
   </div>
+
 
   <div class="page-content">
     <div class="article-section">
@@ -340,6 +480,7 @@
           <p class="why-desc">Индустриалният стандарт за пентест. Поддържан от Offensive Security. 600+ предварително инсталирани инструменти. Достъпен като VM, bare metal или WSL2 на Windows.</p>
           <div style="padding-top:.5rem;border-top:1px solid var(--beige)">
             <a href="https://www.kali.org" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>kali.org</a>
+            <a href="https://www.kali.org/docs/" target="_blank" rel="noopener" class="org-link" style="color:#059669">Документация</a>
           </div>
         </div>
         <div class="why-card reveal reveal-delay-1">
@@ -350,6 +491,7 @@
           <p class="why-desc">Лека алтернатива на Kali. По-добра за по-слаби машини. Подходящ и за ежедневна употреба.</p>
           <div style="padding-top:.5rem;border-top:1px solid var(--beige)">
             <a href="https://www.parrotsec.org" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>parrotsec.org</a>
+            <a href="https://www.parrotsec.org/docs/" target="_blank" rel="noopener" class="org-link" style="color:#059669">Документация</a>
           </div>
         </div>
         <div class="why-card reveal reveal-delay-2">
@@ -360,6 +502,7 @@
           <p class="why-desc">Специализирана дистрибуция за малуер анализ и форензика.</p>
           <div style="padding-top:.5rem;border-top:1px solid var(--beige)">
             <a href="https://remnux.org" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>remnux.org</a>
+            <a href="https://docs.remnux.org" target="_blank" rel="noopener" class="org-link" style="color:#059669">Документация</a>
           </div>
         </div>
       </div>
@@ -388,6 +531,7 @@
           </div>
           <div class="org-links">
             <a href="https://nmap.org" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>nmap.org</a>
+            <a href="https://nmap.org/book/" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -401,6 +545,7 @@
           <div class="org-links">
             <a href="https://github.com/OJ/gobuster" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Gobuster</a>
             <a href="https://github.com/epi052/feroxbuster" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Feroxbuster</a>
+            <a href="https://tryhackme.com/room/contentdiscovery" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -413,6 +558,7 @@
           <p class="org-desc">Търсачка за интернет-свързани устройства. OSINT основа. Намира exposed services, IoT устройства, камери, SCADA системи.</p>
           <div class="org-links">
             <a href="https://www.shodan.io" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>shodan.io</a>
+            <a href="https://tryhackme.com/room/shodan" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -425,6 +571,7 @@
           <p class="org-desc">Събиране на имейли, поддомейни и хостове от публични източници (Google, Bing, LinkedIn, Shodan).</p>
           <div class="org-links">
             <a href="https://github.com/laramies/theHarvester" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>GitHub</a>
+            <a href="https://github.com/laramies/theHarvester/wiki" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -437,6 +584,7 @@
           <p class="org-desc">Пасивно и активно subdomain enumeration. Задължителни при reconnaissance на web application scope.</p>
           <div class="org-links">
             <a href="https://github.com/projectdiscovery/subfinder" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Subfinder</a>
+            <a href="https://docs.projectdiscovery.io/tools/subfinder/overview" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -463,6 +611,7 @@
           <p class="org-desc">Стандартният инструмент за уеб пентест. Proxy, interceptor, scanner, repeater, intruder. Безплатната Community версия е достатъчна за учене. PortSwigger го поддържа.</p>
           <div class="org-links">
             <a href="https://portswigger.net/burp" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>portswigger.net</a>
+            <a href="https://portswigger.net/web-security" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -475,6 +624,7 @@
           <p class="org-desc">Безплатна и open-source алтернатива на Burp Suite. Добра за автоматизиран скан и CI/CD интеграция.</p>
           <div class="org-links">
             <a href="https://www.zaproxy.org" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>zaproxy.org</a>
+            <a href="https://www.zaproxy.org/getting-started/" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -487,6 +637,20 @@
           <p class="org-desc">Автоматизирано намиране и exploiting на SQL injection. Поддържа огромен брой database backends. Задължителен за познаване.</p>
           <div class="org-links">
             <a href="https://sqlmap.org" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>sqlmap.org</a>
+            <a href="https://github.com/sqlmapproject/sqlmap/wiki" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
+          </div>
+        </div>
+
+        <div class="org-card reveal reveal-delay-3">
+          <div class="org-card-header">
+            <div class="org-name">ffuf</div>
+            <span class="org-type-badge badge-cli">CLI</span>
+          </div>
+          <div class="org-specialty">Web Fuzzer</div>
+          <p class="org-desc">Бърз уеб fuzzer за директории, параметри, headers и vhosts. По-бърз от Gobuster за уеб задачи. Стандарт при bug bounty и CTF web challenges.</p>
+          <div class="org-links">
+            <a href="https://github.com/ffuf/ffuf" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>GitHub</a>
+            <a href="https://tryhackme.com/room/ffuf" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -513,6 +677,7 @@
           <p class="org-desc">Индустриален стандарт за exploitation. Знай как да го ползваш, но знай и кога не трябва. OSCP изпитът го ограничава умишлено.</p>
           <div class="org-links">
             <a href="https://www.metasploit.com" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>metasploit.com</a>
+            <a href="https://docs.metasploit.com/docs/using-metasploit/getting-started/metasploit-community-getting-started-guide.html" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -523,6 +688,9 @@
           </div>
           <div class="org-specialty">Payload Generation</div>
           <p class="org-desc">Генериране на payloads и shellcode. Компонент на Metasploit. Поддържа стотици комбинации от payload/format/platform.</p>
+          <div class="org-links">
+            <a href="https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
+          </div>
         </div>
 
         <div class="org-card reveal reveal-delay-2">
@@ -532,6 +700,9 @@
           </div>
           <div class="org-specialty">Swiss Army Knife</div>
           <p class="org-desc">Основен инструмент за reverse shells, port forwarding и debugging. „Швейцарското ножче" на мрежовата сигурност.</p>
+          <div class="org-links">
+            <a href="https://www.varonis.com/blog/netcat-commands" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
+          </div>
         </div>
 
       </div>
@@ -556,6 +727,7 @@
           <p class="org-desc">GPU-базиран cracking на хашове. Най-бързият инструмент за офлайн атаки. Поддържа 300+ hash типа.</p>
           <div class="org-links">
             <a href="https://hashcat.net" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>hashcat.net</a>
+            <a href="https://hashcat.net/wiki/" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -568,6 +740,7 @@
           <p class="org-desc">Алтернатива на Hashcat, по-гъвкав при различни формати. Включен в Kali Linux.</p>
           <div class="org-links">
             <a href="https://www.openwall.com/john/" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>openwall.com</a>
+            <a href="https://www.openwall.com/john/doc/" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -580,6 +753,7 @@
           <p class="org-desc">Credential testing в Active Directory среди. NetExec е съвременното продължение на CrackMapExec.</p>
           <div class="org-links">
             <a href="https://github.com/Pennyw0rth/NetExec" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>NetExec</a>
+            <a href="https://www.netexec.wiki/" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -605,6 +779,7 @@
           <p class="org-desc">Визуализира AD пермисии и атакуеми пътеки. Задължителен за корпоративен пентест. Събира данни с SharpHound collector.</p>
           <div class="org-links">
             <a href="https://github.com/BloodHoundAD/BloodHound" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>GitHub</a>
+            <a href="https://bloodhound.readthedocs.io/en/latest/" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -617,6 +792,7 @@
           <p class="org-desc">Python библиотека с инструменти за AD протоколи (GetTGT, secretsdump, psexec). Основа за много AD exploitation техники.</p>
           <div class="org-links">
             <a href="https://github.com/fortra/impacket" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>GitHub</a>
+            <a href="https://github.com/fortra/impacket/tree/master/examples" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -629,6 +805,7 @@
           <p class="org-desc">Kerberos attacks: AS-REP Roasting, Kerberoasting, Pass-the-Ticket, Golden/Silver Ticket.</p>
           <div class="org-links">
             <a href="https://github.com/GhostPack/Rubeus" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>GitHub</a>
+            <a href="https://github.com/GhostPack/Rubeus#readme" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -655,6 +832,7 @@
           <p class="org-desc">Анализ на мрежов трафик. Задължителен за всеки специалист по сигурност — независимо от специализацията.</p>
           <div class="org-links">
             <a href="https://www.wireshark.org" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>wireshark.org</a>
+            <a href="https://www.wireshark.org/docs/wsug_html/" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -667,6 +845,7 @@
           <p class="org-desc">Memory forensics framework. Анализ на RAM дъмпове за открити процеси, connections, credentials, malware artifacts.</p>
           <div class="org-links">
             <a href="https://volatilityfoundation.org" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>volatilityfoundation.org</a>
+            <a href="https://github.com/volatilityfoundation/volatility/wiki" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -679,6 +858,7 @@
           <p class="org-desc">Дигитална форензика на дискове. Autopsy е безплатен и open source. FTK Imager е стандартът за disk imaging.</p>
           <div class="org-links">
             <a href="https://www.autopsy.com" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>autopsy.com</a>
+            <a href="https://tryhackme.com/room/autopsy2ze0" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
           </div>
         </div>
 
@@ -691,6 +871,249 @@
           <p class="org-desc">SIEM платформи за log анализ и threat hunting. ELK (Elasticsearch, Logstash, Kibana) е open source. Splunk предлага безплатна версия до 500MB/ден.</p>
           <div class="org-links">
             <a href="https://www.elastic.co/elk-stack" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>elastic.co</a>
+            <a href="https://tryhackme.com/room/investigatingwithelk101" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── REVERSE ENGINEERING ── -->
+      <div class="section-divider"></div>
+      <div class="category-heading reveal">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+        </div>
+        <h2>Reverse Engineering</h2>
+      </div>
+      <p class="category-desc reveal">Инструменти за декомпилация, дисасемблиране и анализ на изпълними файлове. Ключови за CTF RE задачи и малуер анализ.</p>
+
+      <div class="org-grid">
+
+        <div class="org-card reveal">
+          <div class="org-card-header">
+            <div class="org-name">Ghidra</div>
+            <span class="org-type-badge badge-gui">GUI</span>
+          </div>
+          <div class="org-specialty">Reverse Engineering Framework</div>
+          <p class="org-desc">Безплатен RE framework от NSA. Декомпилатор, дисасемблер, скриптинг с Python/Java. Конкурент на IDA Pro. Стандарт при CTF и малуер анализ.</p>
+          <div class="org-meta"><span class="tool-tag">Open Source</span><span class="tool-tag">NSA</span></div>
+          <div class="org-links">
+            <a href="https://ghidra-sre.org" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>ghidra-sre.org</a>
+            <a href="https://tryhackme.com/room/ccghidra" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
+          </div>
+        </div>
+
+        <div class="org-card reveal reveal-delay-1">
+          <div class="org-card-header">
+            <div class="org-name">radare2 / Cutter</div>
+            <span class="org-type-badge badge-cli">CLI</span>
+          </div>
+          <div class="org-specialty">Reverse Engineering Framework</div>
+          <p class="org-desc">Мощен open-source RE framework. radare2 е CLI-базиран. Cutter предлага GUI над r2. Поддържа скриптинг, debugging и binary patching.</p>
+          <div class="org-meta"><span class="tool-tag">Open Source</span></div>
+          <div class="org-links">
+            <a href="https://rada.re" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>rada.re</a>
+            <a href="https://book.rada.re" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
+          </div>
+        </div>
+
+        <div class="org-card reveal reveal-delay-2">
+          <div class="org-card-header">
+            <div class="org-name">x64dbg</div>
+            <span class="org-type-badge badge-gui">GUI</span>
+          </div>
+          <div class="org-specialty">Windows Debugger</div>
+          <p class="org-desc">Безплатен open-source debugger за Windows. Замества OllyDbg. Задължителен за анализ на Windows malware и CTF RE challenges на PE файлове.</p>
+          <div class="org-links">
+            <a href="https://x64dbg.com" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>x64dbg.com</a>
+            <a href="https://www.youtube.com/c/OALabs" target="_blank" rel="noopener" class="org-link" style="color:#059669">OALabs →</a>
+          </div>
+        </div>
+
+        <div class="org-card reveal reveal-delay-3">
+          <div class="org-card-header">
+            <div class="org-name">IDA Free / Binary Ninja</div>
+            <span class="org-type-badge badge-gui">GUI</span>
+          </div>
+          <div class="org-specialty">Interactive Disassembler</div>
+          <p class="org-desc">IDA Pro е индустриалният стандарт — безплатната версия покрива x86/x64. Binary Ninja предлага съвременна алтернатива с мощно API за автоматизация.</p>
+          <div class="org-links">
+            <a href="https://hex-rays.com/ida-free/" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>IDA Free</a>
+            <a href="https://opensecuritytraining2.github.io/Architecture1_rev1.0/" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── BINARY EXPLOITATION (PWN) ── -->
+      <div class="section-divider"></div>
+      <div class="category-heading reveal">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h2>Binary Exploitation (Pwn)</h2>
+      </div>
+      <p class="category-desc reveal">Инструменти за намиране и exploiting на binary уязвимости — buffer overflows, heap exploits, ROP chains. Най-техническата CTF категория.</p>
+
+      <div class="org-grid">
+
+        <div class="org-card reveal">
+          <div class="org-card-header">
+            <div class="org-name">pwntools</div>
+            <span class="org-type-badge badge-cli">Python</span>
+          </div>
+          <div class="org-specialty">CTF Exploitation Library</div>
+          <p class="org-desc">Python библиотека за CTF exploit разработка. Опростява работата с sockets, процеси, ELF файлове, shellcode и ROP chains. Стандарт в pwn CTF категорията.</p>
+          <div class="org-meta"><span class="tool-tag">Open Source</span></div>
+          <div class="org-links">
+            <a href="https://docs.pwntools.com" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>docs.pwntools.com</a>
+            <a href="https://pwn.college" target="_blank" rel="noopener" class="org-link" style="color:#059669">pwn.college →</a>
+          </div>
+        </div>
+
+        <div class="org-card reveal reveal-delay-1">
+          <div class="org-card-header">
+            <div class="org-name">GDB + pwndbg</div>
+            <span class="org-type-badge badge-cli">CLI</span>
+          </div>
+          <div class="org-specialty">Debugger + PWN Extensions</div>
+          <p class="org-desc">GDB е стандартният Linux debugger. pwndbg добавя pwn-специфични функции: checksec, heap visualization, ROP gadget намиране, context display.</p>
+          <div class="org-links">
+            <a href="https://github.com/pwndbg/pwndbg" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>pwndbg</a>
+            <a href="https://pwn.college/fundamentals/debugging-refresher/" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
+          </div>
+        </div>
+
+        <div class="org-card reveal reveal-delay-2">
+          <div class="org-card-header">
+            <div class="org-name">ROPgadget / ropper</div>
+            <span class="org-type-badge badge-cli">CLI</span>
+          </div>
+          <div class="org-specialty">ROP Chain Builder</div>
+          <p class="org-desc">Намиране на ROP (Return-Oriented Programming) gadgets в двоични файлове. Използва се за заобикаляне на NX/DEP защити при binary exploitation.</p>
+          <div class="org-links">
+            <a href="https://github.com/JonathanSalwan/ROPgadget" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>ROPgadget</a>
+            <a href="https://ropemporium.com" target="_blank" rel="noopener" class="org-link" style="color:#059669">ROP Emporium →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── КРИПТОГРАФИЯ И CTF ── -->
+      <div class="section-divider"></div>
+      <div class="category-heading reveal">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <h2>Криптография и CTF</h2>
+      </div>
+      <p class="category-desc reveal">Инструменти за crypto CTF предизвикателства — от лесен encoding до RSA атаки и elliptic curves.</p>
+
+      <div class="org-grid">
+
+        <div class="org-card reveal">
+          <div class="org-card-header">
+            <div class="org-name">CyberChef</div>
+            <span class="org-type-badge badge-web">Web</span>
+          </div>
+          <div class="org-specialty">Cyber Swiss Army Knife</div>
+          <p class="org-desc">GCHQ инструмент за encoding/decoding, криптиране, хеширане, file format conversion — всичко в браузъра. Незаменим за CTF crypto и forensics. Без инсталация.</p>
+          <div class="org-meta"><span class="tool-tag">Open Source</span><span class="tool-tag">Без инсталация</span></div>
+          <div class="org-links">
+            <a href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>CyberChef</a>
+            <a href="https://tryhackme.com/room/cyberchefbasics" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
+          </div>
+        </div>
+
+        <div class="org-card reveal reveal-delay-1">
+          <div class="org-card-header">
+            <div class="org-name">Python + pycryptodome</div>
+            <span class="org-type-badge badge-cli">Python</span>
+          </div>
+          <div class="org-specialty">Crypto Scripting</div>
+          <p class="org-desc">Python с библиотеката pycryptodome е стандартът за crypto CTF scripting — AES, RSA, DH, EC операции. Повечето crypto writeups са написани на Python.</p>
+          <div class="org-links">
+            <a href="https://pycryptodome.readthedocs.io" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Документация</a>
+            <a href="https://cryptohack.org" target="_blank" rel="noopener" class="org-link" style="color:#059669">CryptoHack →</a>
+          </div>
+        </div>
+
+        <div class="org-card reveal reveal-delay-2">
+          <div class="org-card-header">
+            <div class="org-name">SageMath</div>
+            <span class="org-type-badge badge-cli">CLI</span>
+          </div>
+          <div class="org-specialty">Mathematical Framework</div>
+          <p class="org-desc">Математическа система върху Python — теория на числата, алгебра, factorization, elliptic curves. Задължителен за напреднали crypto CTF задачи (RSA attacks, LLL, lattices).</p>
+          <div class="org-links">
+            <a href="https://www.sagemath.org" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>sagemath.org</a>
+            <a href="https://doc.sagemath.org/html/en/tutorial/" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── СТЕГАНОГРАФИЯ ── -->
+      <div class="section-divider"></div>
+      <div class="category-heading reveal">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <h2>Стеганография</h2>
+      </div>
+      <p class="category-desc reveal">Инструменти за скриване и извличане на данни в изображения, аудио и файлове. Честа CTF категория за начинаещи.</p>
+
+      <div class="org-grid">
+
+        <div class="org-card reveal">
+          <div class="org-card-header">
+            <div class="org-name">steghide</div>
+            <span class="org-type-badge badge-cli">CLI</span>
+          </div>
+          <div class="org-specialty">Stego Embed / Extract</div>
+          <p class="org-desc">Скриване и извличане на данни в JPEG, BMP, WAV файлове. Поддържа парола-защита. Първата стъпка при CTF stego challenge с image/audio файл.</p>
+          <div class="org-links">
+            <a href="http://steghide.sourceforge.net" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>steghide</a>
+            <a href="https://tryhackme.com/room/ccstego" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
+          </div>
+        </div>
+
+        <div class="org-card reveal reveal-delay-1">
+          <div class="org-card-header">
+            <div class="org-name">zsteg / Stegsolve</div>
+            <span class="org-type-badge badge-cli">CLI / GUI</span>
+          </div>
+          <div class="org-specialty">PNG/BMP Stego Analysis</div>
+          <p class="org-desc">zsteg е специализиран за PNG/BMP — LSB analysis, различни channel комбинации. Stegsolve е GUI инструмент за визуален анализ на bit planes и color filters.</p>
+          <div class="org-links">
+            <a href="https://github.com/zed-0xff/zsteg" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>zsteg</a>
+            <a href="https://github.com/eugenekolo/sec-tools/tree/master/stego/Stegsolve/Stegsolve" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Stegsolve</a>
+          </div>
+        </div>
+
+        <div class="org-card reveal reveal-delay-2">
+          <div class="org-card-header">
+            <div class="org-name">binwalk</div>
+            <span class="org-type-badge badge-cli">CLI</span>
+          </div>
+          <div class="org-specialty">Firmware Analysis</div>
+          <p class="org-desc">Анализ и extraction на embedded файлове и filesystem-и. Открива compressed data, executable code и файлови системи в binary blob-ове. Използва се за firmware и CTF forensics.</p>
+          <div class="org-links">
+            <a href="https://github.com/ReFirmLabs/binwalk" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>GitHub</a>
+            <a href="https://tryhackme.com/room/hackersvsystem1" target="_blank" rel="noopener" class="org-link" style="color:#059669">Научи →</a>
+          </div>
+        </div>
+
+        <div class="org-card reveal reveal-delay-3">
+          <div class="org-card-header">
+            <div class="org-name">ExifTool</div>
+            <span class="org-type-badge badge-cli">CLI</span>
+          </div>
+          <div class="org-specialty">Metadata Extraction</div>
+          <p class="org-desc">Четене и писане на metadata в изображения, документи и медийни файлове. CTF флаговете се крият честo в EXIF данните. Поддържа 200+ file формата.</p>
+          <div class="org-links">
+            <a href="https://exiftool.org" target="_blank" rel="noopener" class="org-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>exiftool.org</a>
+            <a href="https://exiftool.org/exiftool_pod.html" target="_blank" rel="noopener" class="org-link" style="color:#059669">Документация →</a>
           </div>
         </div>
 
@@ -713,7 +1136,7 @@
       </div>
       <div class="mentor-actions">
         <a href="mentoring.html" class="btn btn-primary">Научи повече</a>
-        <a href="index.html#join" class="btn btn-outline">Включи се</a>
+        <a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="btn btn-outline">Включи се</a>
       </div>
     </div>
   </div>
@@ -782,7 +1205,7 @@
             <li><a href="universiteti.html">Университетски програми</a></li>
             <li><a href="platformi.html">Платформи</a></li>
             <li><a href="kursove.html">Онлайн курсове</a></li>
-            <li><a href="index.html#certifications">Сертификации</a></li>
+            <li><a href="sertifikacii.html">Сертификации</a></li>
           </ul>
         </div>
         <div>
