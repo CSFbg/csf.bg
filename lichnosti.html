@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Компании в киберсигурността | CSF.BG</title>
+  <title>Личности в киберсигурността | CSF.BG</title>
   <meta name="description"
-    content="Директория на компании предлагащи услуги, продукти и обучения в сферата на киберсигурността в България." />
+    content="Директория на значимите личности в сферата на киберсигурността в България — лидери, организатори, експерти и общностни двигатели." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -238,7 +238,7 @@
     .clear-btn:hover { background: rgba(43,91,181,0.08); }
 
     /* ============================================================
-       COMPANIES TABLE
+       PEOPLE TABLE
     ============================================================ */
     .companies-section {
       max-width: 1280px; margin: 0 auto;
@@ -284,7 +284,7 @@
     .companies-table tbody td:first-child { padding-left: 1.5rem; }
     .companies-table tbody td:last-child { padding-right: 1.5rem; }
 
-    /* Company name cell */
+    /* Person name cell */
     .company-name-cell { display: flex; flex-direction: column; gap: 0.1rem; }
     .company-name {
       font-family: 'Cormorant Garamond', serif;
@@ -303,17 +303,13 @@
       text-transform: uppercase; letter-spacing: 0.07em;
       white-space: nowrap;
     }
-    .badge-services   { background: rgba(43,91,181,0.1);  color: var(--blue); }
-    .badge-product    { background: rgba(30,62,122,0.1);  color: var(--royal); }
-    .badge-dist       { background: rgba(122,92,60,0.1);  color: var(--bark); }
-    .badge-training   { background: rgba(74,126,197,0.12); color: var(--sky); }
-    .badge-bg         { background: rgba(13,31,60,0.07);  color: var(--navy-mid); }
-    .badge-intl       { background: rgba(43,91,181,0.06); color: var(--sky); }
-    .badge-small      { background: rgba(196,180,154,0.25); color: var(--brown); }
-    .badge-medium     { background: rgba(74,126,197,0.1);  color: var(--sky); }
-    .badge-large      { background: rgba(13,31,60,0.1);   color: var(--navy); }
+    .badge-leader     { background: rgba(30,62,122,0.1);  color: var(--royal); }
+    .badge-organizer  { background: rgba(43,91,181,0.1);  color: var(--blue); }
+    .badge-expert     { background: rgba(74,126,197,0.12); color: var(--sky); }
+    .badge-gov        { background: rgba(122,92,60,0.1);  color: var(--bark); }
+    .badge-researcher { background: rgba(13,31,60,0.07);  color: var(--navy-mid); }
 
-    /* Website link */
+    /* LinkedIn link */
     .site-link {
       display: inline-flex; align-items: center; gap: 0.35rem;
       padding: 0.3rem 0.65rem;
@@ -334,26 +330,32 @@
     .empty-state p { font-size: var(--fs-sm); }
 
     /* ============================================================
-       LEGEND
+       INFO CALLOUT
     ============================================================ */
-    .legend-section {
-      background: var(--beige);
-      border-top: 1px solid var(--sand);
-      padding: 3rem 2rem;
-    }
-    .legend-inner {
+    .disclaimer-section {
       max-width: 1280px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      padding: 0 2rem 3rem;
     }
-    .legend-block h3 {
-      font-size: var(--fs-lg); font-weight: 600; color: var(--navy);
-      margin-bottom: 1.25rem;
+    .info-callout {
+      background: var(--beige);
+      border: 1px solid var(--sand);
+      border-left: 4px solid var(--blue);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
     }
-    .legend-items { display: flex; flex-direction: column; gap: 0.9rem; }
-    .legend-item { display: flex; align-items: flex-start; gap: 0.85rem; }
-    .legend-item .badge { flex-shrink: 0; margin-top: 0.1rem; }
-    .legend-desc { font-size: var(--fs-sm); color: var(--brown); line-height: 1.6; font-weight: 300; }
-    .legend-desc strong { font-weight: 600; color: var(--espresso); }
+    .info-callout svg {
+      width: 20px; height: 20px; flex-shrink: 0; color: var(--blue); margin-top: 0.1rem;
+    }
+    .info-callout p {
+      font-size: var(--fs-sm); color: var(--brown); line-height: 1.7; font-weight: 300;
+    }
+    .info-callout p strong { font-weight: 600; color: var(--espresso); }
+    .info-callout a { color: var(--blue); font-weight: 500; border-bottom: 1px solid rgba(43,91,181,0.3); transition: border-color var(--transition); }
+    .info-callout a:hover { border-color: var(--blue); }
 
     /* ============================================================
        FOOTER
@@ -389,14 +391,12 @@
     ============================================================ */
     @media (max-width: 1100px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
-      .legend-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .col-focus { display: none; }
+      .col-assoc { display: none; }
     }
     @media (max-width: 860px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .mobile-menu { display: block; }
-      .col-size { display: none; }
     }
     @media (max-width: 640px) {
       .page-hero { padding: 6rem 1.25rem 3rem; }
@@ -405,9 +405,8 @@
       .search-input { width: 100%; }
       .search-wrap { width: 100%; }
       .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .legend-section { padding: 2rem 1.25rem; }
-      .col-origin { display: none; }
       .results-bar { padding: 0.5rem 1rem; }
+      .col-title { display: none; }
     }
   </style>
 </head>
@@ -450,7 +449,7 @@
               </svg>
               Организации
             </a>
-            <a href="lichnosti.html">
+            <a href="lichnosti.html" class="active">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                 <circle cx="9" cy="7" r="4" />
@@ -569,7 +568,7 @@
               </svg>
               Менторство
             </a>
-            <a href="kompanii.html" class="active">
+            <a href="kompanii.html">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
               </svg>
@@ -677,7 +676,7 @@
     <div class="mobile-nav-section">
       <a href="sabitia.html" class="mobile-link" onclick="closeMobile()">Събития</a>
     </div>
-    <a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="mobile-cta" onclick="closeMobile()">Включи се →</a>
+    <a href="https://forms.gle/3omqYavKnNh3G9rQ7" class="mobile-cta" onclick="closeMobile()">Включи се &rarr;</a>
   </div>
 
 
@@ -690,19 +689,21 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="9 18 15 12 9 6" />
         </svg>
-        <span>Кариера</span>
+        <span>Ресурси</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="9 18 15 12 9 6" />
         </svg>
-        <span class="current">Компании</span>
+        <span class="current">Личности</span>
       </nav>
 
       <!-- Article Header -->
       <div class="article-header reveal">
-        <h1>Компании в <em>киберсигурността</em></h1>
+        <h1>Личности в <em>киберсигурността</em></h1>
         <p class="article-lead">
-          Страница с информация за компаниите, предлагащи услуги или продукти в сферата на
-          киберсигурността в България — от пентест и консултации до собствени продукти и дистрибуция.
+          Директория на хората, които изграждат екосистемата по киберсигурност в България &mdash;
+          лидери на организации, организатори на събития, CISO-та, изследователи и общностни двигатели.
+          Тук са включени специалисти с активен принос към индустрията чрез управленски роли,
+          организационна дейност, менторство или значимо обществено присъствие.
         </p>
       </div>
 
@@ -722,72 +723,50 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg>
-        <input type="text" class="search-input" id="search-input" placeholder="Търси компания…" oninput="applyFilters()" autocomplete="off" />
+        <input type="text" class="search-input" id="search-input" placeholder="Търси личност…" oninput="applyFilters()" autocomplete="off" />
       </div>
 
       <div class="filter-divider"></div>
 
-      <!-- Category filter -->
+      <!-- Role filter -->
       <div class="filter-group">
-        <span class="filter-label">Категория</span>
-        <button class="chip active" data-filter="category" data-value="">Всички</button>
-        <button class="chip" data-filter="category" data-value="Услуги">
-          <span class="chip-dot" style="background:#2B5BB5"></span>Услуги
+        <span class="filter-label">Роля</span>
+        <button class="chip active" data-filter="role" data-value="">Всички</button>
+        <button class="chip" data-filter="role" data-value="Лидер">
+          <span class="chip-dot" style="background:#1E3E7A"></span>Лидер
         </button>
-        <button class="chip" data-filter="category" data-value="Продукт">
-          <span class="chip-dot" style="background:#1E3E7A"></span>Продукт
+        <button class="chip" data-filter="role" data-value="Организатор">
+          <span class="chip-dot" style="background:#2B5BB5"></span>Организатор
         </button>
-        <button class="chip" data-filter="category" data-value="Дистрибуция">
-          <span class="chip-dot" style="background:#7A5C3C"></span>Дистрибуция
+        <button class="chip" data-filter="role" data-value="Експерт">
+          <span class="chip-dot" style="background:#4A7EC5"></span>Експерт
         </button>
-        <button class="chip" data-filter="category" data-value="Обучения">
-          <span class="chip-dot" style="background:#4A7EC5"></span>Обучения
+        <button class="chip" data-filter="role" data-value="Държавен">
+          <span class="chip-dot" style="background:#7A5C3C"></span>Държавен
         </button>
-      </div>
-
-      <div class="filter-divider"></div>
-
-      <!-- Origin filter -->
-      <div class="filter-group">
-        <span class="filter-label">Произход</span>
-        <button class="chip active" data-filter="origin" data-value="">Всички</button>
-        <button class="chip" data-filter="origin" data-value="Българска">Българска</button>
-        <button class="chip" data-filter="origin" data-value="Международна">Международна</button>
-      </div>
-
-      <div class="filter-divider"></div>
-
-      <!-- Size filter -->
-      <div class="filter-group">
-        <span class="filter-label">Размер</span>
-        <button class="chip active" data-filter="size" data-value="">Всички</button>
-        <button class="chip" data-filter="size" data-value="Малка">Малка</button>
-        <button class="chip" data-filter="size" data-value="Средна">Средна</button>
-        <button class="chip" data-filter="size" data-value="Голяма">Голяма</button>
       </div>
     </div>
 
     <div class="results-bar">
-      <span id="results-label"><strong id="results-count">45</strong> компании</span>
+      <span id="results-label"><strong id="results-count">0</strong> личности</span>
       <button class="clear-btn" onclick="clearFilters()" id="clear-btn" style="display:none">Изчисти филтри</button>
     </div>
   </div>
 
 
   <!-- ============================================================
-       COMPANIES TABLE
+       PEOPLE TABLE
   ============================================================ -->
   <div class="companies-section">
     <div class="table-wrap reveal">
       <table class="companies-table" id="companies-table">
         <thead>
           <tr>
-            <th>Компания</th>
-            <th class="col-focus">Фокус</th>
+            <th>Име</th>
+            <th class="col-title">Титла / Роля</th>
+            <th class="col-assoc">Асоциация</th>
             <th>Категория</th>
-            <th class="col-origin">Произход</th>
-            <th class="col-size">Размер</th>
-            <th>Сайт</th>
+            <th>Профил</th>
           </tr>
         </thead>
         <tbody id="companies-tbody">
@@ -798,68 +777,32 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg>
-        <p>Няма намерени компании за избраните критерии.</p>
+        <p>Няма намерени личности за избраните критерии.</p>
       </div>
     </div>
   </div>
 
 
   <!-- ============================================================
-       LEGEND
+       DISCLAIMER
   ============================================================ -->
-  <section class="legend-section">
-    <div class="legend-inner reveal">
-      <div class="legend-block">
-        <h3>Категории</h3>
-        <div class="legend-items">
-          <div class="legend-item">
-            <span class="badge badge-services">Услуги</span>
-            <p class="legend-desc"><strong>Компании за сигурност услуги</strong> — фокусирани в офенсив, дефенсив, тестове за сигурност, compliance, интегриране и SOC. Включва пентест компании, MSSP и консултантски фирми.</p>
-          </div>
-          <div class="legend-item">
-            <span class="badge badge-product">Продукт</span>
-            <p class="legend-desc"><strong>Продуктови компании</strong> — разработват собствен软件 продукт за киберсигурност (SIEM, платформи, AI агенти, инструменти).</p>
-          </div>
-          <div class="legend-item">
-            <span class="badge badge-dist">Дистрибуция</span>
-            <p class="legend-desc"><strong>Дистрибутори</strong> — фокусирани в продажбата, интегрирането и поддръжката на решения за сигурност от водещи производители.</p>
-          </div>
-          <div class="legend-item">
-            <span class="badge badge-training">Обучения</span>
-            <p class="legend-desc"><strong>Обучителни компании</strong> — предлагат кибер обучения, сертификации и обучителни програми за специалисти и организации.</p>
-          </div>
-        </div>
-      </div>
-      <div class="legend-block">
-        <h3>Произход</h3>
-        <div class="legend-items">
-          <div class="legend-item">
-            <span class="badge badge-bg">Българска</span>
-            <p class="legend-desc"><strong>Местни компании</strong> — създадени и регистрирани в България, с основен екип и дейност в страната.</p>
-          </div>
-          <div class="legend-item">
-            <span class="badge badge-intl">Международна</span>
-            <p class="legend-desc"><strong>Международни с представителство</strong> — компании, създадени в чужбина, но с активно представителство, офис и екип в България.</p>
-          </div>
-          <div style="margin-top:1.5rem">
-            <h3>Размер</h3>
-          </div>
-          <div class="legend-item">
-            <span class="badge badge-small">Малка</span>
-            <p class="legend-desc">До 50 служители.</p>
-          </div>
-          <div class="legend-item">
-            <span class="badge badge-medium">Средна</span>
-            <p class="legend-desc">50 – 500 служители.</p>
-          </div>
-          <div class="legend-item">
-            <span class="badge badge-large">Голяма</span>
-            <p class="legend-desc">Над 500 служители.</p>
-          </div>
-        </div>
-      </div>
+  <div class="disclaimer-section">
+    <div class="info-callout reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="12" y1="8" x2="12" y2="12" />
+        <line x1="12" y1="16" x2="12.01" y2="16" />
+      </svg>
+      <p>Информацията в тази директория е събрана от публично достъпни източници &mdash;
+        <a href="https://www.linkedin.com/search/results/people/?keywords=cybersecurity&origin=FACETED_SEARCH&geoUrn=%5B%22105333783%22%5D" target="_blank" rel="noopener">LinkedIn</a>,
+        корпоративни уебсайтове, медийни публикации и класацията
+        <a href="https://creator.favikon.com/ranking/it-tech/cybersecurity/linkedin/bulgaria/" target="_blank" rel="noopener">Favikon Cybersecurity Bulgaria</a>.
+        Не се разкриват лични данни, които не са вече публично достъпни.
+        Ако смяташ, че някой трябва да бъде добавен или искаш да бъдеш премахнат &mdash;
+        отвори issue в <a href="https://github.com/csf-bg" target="_blank" rel="noopener">GitHub на CSF.BG</a> или
+        <a href="index.html#contact">се свържи с нас</a>.</p>
     </div>
-  </section>
+  </div>
 
 
   <!-- ============================================================
@@ -877,7 +820,7 @@
             CSF.BG
           </div>
           <p class="footer-brand-desc">
-            Българска Фондация за Киберсигурност — изграждаме по-сигурна дигитална среда чрез образование, общност и сътрудничество.
+            Българска Фондация за Киберсигурност &mdash; изграждаме по-сигурна дигитална среда чрез образование, общност и сътрудничество.
           </p>
           <div class="footer-socials">
             <a href="https://discord.gg/xakep" target="_blank" rel="noopener" class="social-btn" aria-label="Discord">
@@ -946,114 +889,117 @@
        JAVASCRIPT
   ============================================================ -->
   <script>
-    // ── Company data ─────────────────────────────────────────────
-    const COMPANIES = [
-      // ── Bulgarian Products
-      { name: 'CTF Bazaar',        size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'CTF платформа за обучение и практика',               url: 'https://ctfbazaar.com/en/' },
-      { name: 'Kikimora',          size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Управление на уязвимости, AI агенти за сигурност',    url: 'https://kikimora.io/' },
-      { name: 'WiseBee',           size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Автоматизация на сигурността',                        url: 'https://wisebee.ai/' },
-      { name: 'Stihia',            size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'AI-базирана киберсигурност',                          url: 'https://stihia.ai/' },
-      { name: 'HIB Intelligence',  size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Разузнаване на заплахи (Threat Intelligence)',        url: 'https://intelligence.humanityinbusiness.com/' },
-      { name: 'Plainsea',          size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Платформа за управление на пентест проекти (Amatas)', url: 'https://plainsea.com/' },
-      { name: 'LogSentinel',       size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Управление на логове и SIEM',                         url: 'https://logsentinel.com/' },
-      // ── International Products
-      { name: 'Acronis',           size: 'Голяма', category: 'Продукт',     origin: 'Международна', focus: 'Решения за киберсигурност и backup',                  url: 'https://www.acronis.com/bg-bg/' },
-      // ── Bulgarian Services
-      { name: 'InfoSec Group',     size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://infosecgroup.io/' },
-      { name: '7Sec',              size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'PCIDSS, пентестове и консултации',                    url: 'https://www.7sec.com/' },
-      { name: 'Amatas',            size: 'Средна', category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, vCISO и консултации',                     url: 'https://amatas.com/' },
-      { name: 'So Cyber',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://so-cyber.com/' },
-      { name: 'Cyber One',         size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://cyberone.bg/' },
-      { name: 'Baseline',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации (CENTIO)',                   url: 'https://baseline.bg/' },
-      { name: 'Telelink',          size: 'Голяма', category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, консултации и интеграции',                url: 'https://www.telelink.com/' },
-      { name: 'Mnemonica',         size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, консултации и SOC услуги',                url: 'https://mnemonica.bg/' },
-      { name: 'Lirex',             size: 'Средна', category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://lirex.bg/' },
-      { name: 'CNSys',             size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации и дистрибуция',                           url: 'https://cnsys.bg/cyber-security-solutions/' },
-      { name: 'TeamSecure',        size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://teamsecure.bg/' },
-      { name: 'CyPro',             size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://cypro.bg/' },
-      { name: 'CTG',               size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://ctg.bg/' },
-      { name: 'Priority Zero',     size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://www.priorityzero.io/' },
-      { name: 'Technologica',      size: 'Голяма', category: 'Услуги',      origin: 'Българска',    focus: 'MSSP услуги',                                         url: 'https://technologica.com/en/' },
-      { name: 'AtlantSecurity',    size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации по киберсигурност',                       url: 'https://atlantsecurity.com/bg/' },
-      { name: 'AKAT Technologies', size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://www.akat-t.com/' },
-      { name: 'Kontrax',           size: 'Голяма', category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://www.kontrax.bg/bg/solution/kibersigurnost/' },
-      { name: 'Daticum',           size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://daticum.com/kibersigurnost/' },
-      { name: 'Triton',            size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации по киберсигурност',                       url: 'https://www.itservices.bg/cybersecurity/' },
-      { name: 'eFellows',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации и интеграции',                            url: 'https://www.efellows.bg/' },
-      { name: 'AAM Consulting',    size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации и интеграции',                            url: 'https://aamconsulting.bg/' },
-      { name: '3Cyber-Sec',        size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации и интеграции',                            url: 'https://3cyber-sec.com/' },
-      { name: 'Secragon',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, консултации и интеграции',                url: 'https://secragon.com/' },
-      { name: 'Cyberware',         size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Автономно пентестване с AI, compliance и code review',  url: 'https://getcyberware.com/' },
-      { name: 'ArmadilCo',         size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Продуктова сигурност за медицински устройства и FinTech', url: 'https://armadilco.com/' },
-      { name: 'Lambda Bit',        size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и Application Security',                    url: 'https://www.lambdabit.io/' },
-      { name: 'Nuwey',             size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Managed IT Security, облачни решения и compliance',   url: 'https://www.nuwey.com/' },
-      { name: 'Cybernetics',       size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации, мрежова сигурност и threat intelligence', url: 'https://clutch.co/profile/cybernetics' },
-      { name: 'Sectova',           size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Managed IT, vCIO и консултации по сигурност',         url: 'https://sectova.com/' },
-      // ── International Services
-      { name: 'A-Lign',            size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Compliance, SOC одитиране и пентестове',              url: 'https://www.a-lign.com/' },
-      { name: 'DXC Technology',    size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Enterprise Security услуги',                          url: 'https://dxc.com/us/en/offerings/security/' },
-      { name: 'Digitall',          size: 'Средна', category: 'Услуги',      origin: 'Международна', focus: 'Пентестове и консултации',                            url: 'https://digitall.com/' },
-      { name: 'A1 Digital',        size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Пентестове и консултации',                            url: 'https://www.a1.digital/cybersecurity/' },
-      { name: 'Secario Labs',      size: 'Малка',  category: 'Услуги',      origin: 'Международна', focus: 'Пентестове, AppSec и Red Team (UK/BG)',               url: 'https://secariolabs.com/' },
-      { name: 'Integrity 360',     size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Managed Security услуги, MDR и SOC',                  url: 'https://www.integrity360.com/' },
-      { name: 'Diamatix',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'MSSP услуги, FWaaS, MDR и SOCaaS',                    url: 'https://diamatix.com/' },
-      // ── Distribution
-      { name: 'Computer 2000',     size: 'Средна', category: 'Дистрибуция', origin: 'Международна', focus: 'Дистрибутор на хардуер и решения за сигурност',       url: 'https://computer2000.bg/' },
-      { name: 'CLICO',             size: 'Малка',  category: 'Дистрибуция', origin: 'Българска',    focus: 'Дистрибутор на решения за сигурност',                 url: 'https://clico.bg/' },
-      { name: 'Antivirus.bg',      size: 'Малка',  category: 'Дистрибуция', origin: 'Българска',    focus: 'Продажба на DLP и антивирусен софтуер',               url: 'https://antivirus.bg/' },
-      { name: 'CENTIO',            size: 'Средна', category: 'Дистрибуция', origin: 'Българска',    focus: 'Дистрибуция на решения за сигурност',                 url: 'https://centio.bg/' },
-      { name: 'ACT Sofia',         size: 'Малка',  category: 'Дистрибуция', origin: 'Българска',    focus: 'Продажби на решения за сигурност',                    url: 'https://actsofia.bg/' },
-      // ── Training
-      { name: 'Cyber360',          size: 'Малка',  category: 'Обучения',    origin: 'Българска',    focus: 'Кибер обучения (CyberOne)',                           url: 'https://cyber360.bg/' },
+    // ── People data ─────────────────────────────────────────────
+    const PEOPLE = [
+      // ── Organization Leaders
+      { name: 'Миглен Евлогиев',       title: 'CISO & Председател на БАК',                              assoc: 'Evrotrust / БАК / OWASP Sofia / BSides Sofia',          role: 'Лидер',       linkedin: 'https://bg.linkedin.com/in/miglen' },
+      { name: 'Георги Коцев',            title: 'President of ISACA Sofia Chapter (CISA, CAISP)',        assoc: 'ISACA Sofia Chapter / KBC',                              role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/g1k1/' },
+      { name: 'Росина Чолеева-Киркова', title: 'Бивш Chapter President (CIA, CISA, CGAP)',              assoc: 'ISACA Sofia Chapter',                                    role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/rosina-choleeva-kirkova-cia-cisa-cgap-3a729228/' },
+      { name: 'Петър Кирков',           title: 'Основател & CEO (бивш ръководител CERT-BG)',            assoc: 'SoCyber / CERT-BG',                                      role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/pkirkov/' },
+      { name: 'Вихрен Славчев',         title: 'CEO',                                                   assoc: 'Mnemonica',                                              role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/vihren/' },
+      { name: 'Любомир Тулев',          title: 'Основател & CEO (CISSP, CISM, OSCP, CCISO)',            assoc: 'CyberXperts / бивш VP Telelink / BSides Sofia',          role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/tulev/' },
+      { name: 'Божидар Божанов',        title: 'Народен представител (бивш Министър на е-управлението)', assoc: 'Народно събрание / LogSentinel',                          role: 'Лидер',       linkedin: 'https://bg.linkedin.com/in/bozhidar-bozhanov' },
+      { name: 'Младен Дрянков',         title: 'CISO & ISACA Sofia Board Member',                       assoc: 'Flexible Bit / ISACA Sofia Chapter',                     role: 'Лидер',       linkedin: 'https://bg.linkedin.com/in/mdryankov' },
+      { name: 'Георги Шарков',          title: 'Assoc. Prof. & CEO; Head of Cyber Security Lab',        assoc: 'ESI CEE / Институт по ИКТ, БАН',                        role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/george-sharkov-31b0292/' },
+      { name: 'Костадин Иванов',        title: 'CEO & Director of Security Researchers',                assoc: 'Cyberware',                                              role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/1v4nov/' },
+      { name: 'Пламен Тошев',           title: 'Managing Director Bulgaria',                            assoc: 'Acronis',                                                role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/plamentoshev/' },
+      { name: 'Николай Пасков',         title: 'CTO / Penetration Tester',                              assoc: 'CENTIO Cybersecurity / Baseline',                        role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/nikolay-paskov-15a8ba125/' },
+      { name: 'Галина Антова',          title: 'Съосновател на Claroty & Board Director',               assoc: 'Claroty / Bulgaria Innovation Hub',                      role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/galinaantova/' },
+      { name: 'Красимир Коцев',         title: 'CEO & Founder (Forbes 30 Under 30)',                    assoc: 'SoCyber / Kikimora.io',                                  role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/krasimirkotsev/' },
+      { name: 'Кирил Григоров',         title: 'CEO & зам.-председател на БАК',                         assoc: 'CyberOne / Българска Асоциация по Киберсигурност',       role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/kiril-grigorov-631a5a147/' },
+      { name: 'Борис Гончаров',         title: 'Chief Strategy Officer (CISM, CISSP)',                  assoc: 'AMATAS',                                                 role: 'Лидер',       linkedin: 'https://bg.linkedin.com/in/brgoncharov' },
+      { name: 'Александър Свердлов',    title: 'Founder & CEO, автор по киберсигурност',                assoc: 'Atlant Security',                                        role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/alexsverdl/' },
+      { name: 'Анелия Костадинова',     title: 'General Manager',                                       assoc: 'Computer 2000 Information Security Solutions',           role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/anelia-kostadinova-cybersecurityvisioner/' },
+      // ── CISOs & Security Executives
+      { name: 'Асен Тасков',            title: 'CISO (CISSP, CRISC)',                                   assoc: 'myPOS',                                                  role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/asen-taskov-6a76b010/' },
+      { name: 'Милан Велев',            title: 'CISO',                                                  assoc: 'Nexo',                                                   role: 'Лидер',       linkedin: 'https://bg.linkedin.com/in/milan-velev-60993699' },
+      { name: 'Александър Класанов',    title: 'Country CISO, Head of Information Security',            assoc: 'УББ / KBC Group Bulgaria',                               role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/alex-klassanov/' },
+      { name: 'Димитър Трифонов',       title: 'Head of Section ISO (Deputy CISO)',                     assoc: 'УББ / KBC Group',                                        role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/dimitar-trifonov/' },
+      { name: 'Даниел Креков',           title: 'Director of Information Security (CISO)',               assoc: 'Банка ДСК / OTP Group',                                  role: 'Лидер',       linkedin: 'https://bg.linkedin.com/in/daniel-krekov-9a5b6b46' },
+      { name: 'Стефан Зарев',           title: 'Deputy Head, Cyber & Transactional Security',           assoc: 'Пощенска банка / Eurobank Bulgaria',                     role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/stefanzarev/' },
+      { name: 'Момчил Николов',          title: 'Head of Information Security',                          assoc: 'Yettel Bulgaria',                                        role: 'Лидер',       linkedin: 'https://bg.linkedin.com/in/momchil-nikolov' },
+      { name: 'Владислав Венев',        title: 'CISO (CISSP, CCISO)',                                   assoc: 'bTV Media Group',                                        role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/vladvenev/' },
+      { name: 'Стоян Попов',            title: 'CISO',                                                  assoc: 'Amusnet (iGaming)',                                      role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/stoyan-popov-974b6767/' },
+      { name: 'Емил Керековски',        title: 'CISO & Director of IT',                                 assoc: 'Cobuilder',                                              role: 'Лидер',       linkedin: 'https://bg.linkedin.com/in/ekerekovski' },
+      { name: 'Огнян Юскеселиев',       title: 'CISO / VP CoE Cybersecurity',                           assoc: 'Telelink Business Services',                             role: 'Лидер',       linkedin: 'https://bg.linkedin.com/in/oyuskeseliev' },
+      { name: 'Елеонора Георгиева',     title: 'Director of Compliance & CISO',                         assoc: 'MentorMate / Tietoevry Create',                          role: 'Лидер',       linkedin: 'https://bg.linkedin.com/in/eleonora-georgieva-7817806' },
+      { name: 'Радослав Цветков',       title: 'Senior Director, Cyber Defence Centre',                 assoc: 'Paysafe',                                                role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/radoslav-tsvetkov-09188784/' },
+      { name: 'Димитър Радев',           title: 'Head of Information Security & Infrastructure',         assoc: 'TechnoLogica',                                           role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/dimitar-radev-79008171/' },
+      { name: 'Мариета Кедикова',       title: 'Information Security Manager (CISO Team)',               assoc: 'Software AG',                                            role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/marieta-kedikova-4b070558/' },
+      { name: 'Билияна Попова',          title: 'Director Security and Automation',                      assoc: 'Telelink Infra Services',                                role: 'Лидер',       linkedin: 'https://www.linkedin.com/in/biliana-popova-2a3013b/' },
+      { name: 'Красимир Коев',          title: 'vCISO / Cybersecurity Auditor (CISA)',                   assoc: 'PwC Bulgaria',                                           role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/krasimirkoev/' },
+      { name: 'Стан Опаранов',           title: 'Director, Cybersecurity & Technology Consulting',       assoc: 'Protiviti Bulgaria',                                     role: 'Експерт',     linkedin: 'https://it.linkedin.com/in/stanislav-oparanov' },
+      { name: 'Владислав Сайков',       title: 'Senior IT Solutions Architect (CCIE, CISSP)',            assoc: 'CNSys',                                                  role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/vladislav-saykov-a67b00178/' },
+      { name: 'Велизар Върбанов',       title: 'Директор, Мрежова и информационна сигурност',           assoc: 'Министерство на електронното управление',                role: 'Държавен',    linkedin: '' },
+
+      // ── Event Organizers
+      { name: 'Павел Георгиев',         title: 'Основател на CSTB & зам.-председател BACEH',            assoc: 'CyberSecurityTalks Bulgaria / KBC Bank',                 role: 'Организатор', linkedin: 'https://www.linkedin.com/in/pgeorgiev/' },
+      { name: 'Тодор Тодоров',          title: 'OWASP Sofia Chapter Co-Leader',                         assoc: 'Payhawk / OWASP Sofia',                                  role: 'Организатор', linkedin: 'https://www.linkedin.com/in/totollygeek/' },
+      { name: 'Антон Пулийски',         title: 'Председател ЕТИК & Community Manager',                  assoc: 'ЕТИК / КиберКЛУБ',                                      role: 'Организатор', linkedin: 'https://www.linkedin.com/in/anton-puliyski-21847538/' },
+      { name: 'Милен Янков',            title: 'Owner & Managing Partner',                              assoc: 'Icepique / КиберКЛУБ Event Manager',                    role: 'Организатор', linkedin: 'https://bg.linkedin.com/in/milenyankov' },
+      { name: 'Петър Анастасов',        title: 'Master Coach, ECSC Bulgaria (OSCP)',                    assoc: 'Secragon / Cyber Security Challenge BG',                 role: 'Организатор', linkedin: 'https://www.linkedin.com/in/ptrnstsv/' },
+      { name: 'Момчил Алексиев',        title: 'XR Artist & CyberCLUB съосновател',                    assoc: 'ACTIFILM / КиберКЛУБ',                                  role: 'Организатор', linkedin: 'https://www.linkedin.com/in/momchilalexiev/' },
+
+      // ── Government & Public Sector
+      { name: 'Владимир Димитров',      title: 'Началник, Киберпрестъпления',                           assoc: 'ГДБОП, МВР',                                            role: 'Държавен',    linkedin: 'https://www.linkedin.com/in/7jnjk5utpsc/' },
+      { name: 'Явор Колев',             title: 'Директор Киберсигурност (бивш ГДБОП)',                  assoc: 'Лев Инс / Пази детето в Интернет',                      role: 'Държавен',    linkedin: 'https://bg.linkedin.com/in/yavorkolev' },
+      { name: 'Росен Найденов',         title: 'Officer, Network Information Security (CISM)',           assoc: 'ENISA',                                                  role: 'Държавен',    linkedin: 'https://gr.linkedin.com/in/rossen-naydenov-cism-505a183' },
+      { name: 'Симеон Карцелянски',      title: 'Национален координатор по киберсигурност',              assoc: 'Правителство на България',                               role: 'Държавен',    linkedin: 'https://www.linkedin.com/in/simeon-kartselyanski/' },
+      { name: 'Лука Тайлиарети',        title: 'Executive Director',                                    assoc: 'ECCC (European Cybersecurity Competence Centre)',         role: 'Държавен',    linkedin: 'https://www.linkedin.com/in/luca-tagliaretti-564a703/' },
+      { name: 'Светлин Лазаров',        title: 'Комисар, Кибер разузнаване и дигитална криминалистика', assoc: 'ГДБОП, МВР',                                             role: 'Държавен',    linkedin: 'https://www.linkedin.com/in/svetlinlazarov/' },
+      { name: 'Павлина Павлова',         title: 'Founder & Cybersecurity Policy Expert',                 assoc: 'Critical Cyber / CyberPeace Institute / UN / OSCE',     role: 'Държавен',    linkedin: 'https://www.linkedin.com/in/pavlpavlova/' },
+
+      // ── Experts & Community Contributors
+      { name: 'Веселин Бончев',         title: 'Антивирусен изследовател & VessOnSecurity',             assoc: 'БАН, Национална лаборатория по компютърна вирусология',  role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/bontchev/' },
+      { name: 'Светлин Наков',          title: 'Co-Founder & Innovation Manager',                       assoc: 'SoftUni',                                                role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/nakov/' },
+      { name: 'Данчо Данчев',           title: 'Security Blogger & DNS Threat Researcher',              assoc: 'Independent / WhoisXML API',                             role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/ddanchev/' },
+      { name: 'Евгени Дюлгеров',        title: 'Основател & CTO; PhD Candidate (AI in Cybersecurity)',  assoc: 'Digitalix',                                              role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/evgeni-dyulgerov/' },
+      { name: 'Евгени Сабев',           title: 'Cybersecurity Lead, Global Security (PhD, OSCE, OSCP)', assoc: 'SAP',                                                    role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/evgeni-sabev/' },
+      { name: 'Янко Спасов',            title: 'ISO 27001 Lead Auditor & Председател',                  assoc: 'Антивирус БГ / Киберсигурност за всеки',                 role: 'Експерт',     linkedin: 'https://bg.linkedin.com/in/avbg-yanko-spassov' },
+      { name: 'Владимир Кавалов',       title: 'Head of IT Audit Division (CISA)',                      assoc: 'БНБ / УНСС',                                            role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/vladimir-kavalov-cisa-091a8b10/' },
+      { name: 'Гергана Караджова',      title: 'Senior Incident Response Consultant',                   assoc: 'Cisco Talos',                                            role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/gergana-karadzhova/' },
+      { name: 'Крум Гарков',            title: 'Бивш Executive Director',                               assoc: 'eu-LISA',                                                role: 'Експерт',     linkedin: 'https://ee.linkedin.com/in/krumgarkov' },
+      { name: 'Боряна Попова',          title: 'Основател / Редактор',                                  assoc: 'divna.PRess / divna.Tech',                               role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/boryana-r-nikolova/' },
+      { name: 'Светлана Виденова',      title: 'Technology Director, Data & AI',                        assoc: 'TPXimpact',                                              role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/lana-videnova/' },
+      { name: 'Георги Апостолов',       title: 'Координатор, Център за безопасен интернет',             assoc: 'SafeNet.bg',                                             role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/georgiapostolov/' },
+      { name: 'Мирослав Найденов',      title: 'Cyber Security Expert',                                 assoc: 'AMATAS',                                                 role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/miroslav-naydenov-754129164/' },
+      { name: 'Тодор Тагарев',          title: 'Professor / Researcher (Отбрана & Сигурност)',          assoc: 'Procon / ИИКТ-БАН',                                     role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/tagarev/' },
+      { name: 'Боряна Кулинска',        title: 'Head of GRC & ISACA Sofia Board Member (CISSP, CISM)', assoc: 'myPOS / ISACA Sofia / Women4Cyber',                      role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/boryana-kulinska/' },
+      { name: 'Петко Петков',            title: 'Partner, CEE Cyber Security & Digital Identity',        assoc: 'PwC Bulgaria',                                           role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/petko-petkov-833b8485/' },
+      { name: 'Красимир Трайков',       title: 'Security Awareness Trainer & Speaker',                  assoc: 'BACS / Security Awareness',                              role: 'Експерт',     linkedin: 'https://bg.linkedin.com/in/krasimir-traykov-b28074120' },
+      { name: 'Николай Душков',          title: 'ISACA Sofia Board & Marketing Chair (CISSP, CISM)',     assoc: 'Paysafe / ISACA Sofia Chapter',                          role: 'Експерт',     linkedin: 'https://www.linkedin.com/in/nikolaydushkov/' },
     ];
 
     // ── Badge helpers ─────────────────────────────────────────────
-    const categoryBadge = {
-      'Услуги':      '<span class="badge badge-services">Услуги</span>',
-      'Продукт':     '<span class="badge badge-product">Продукт</span>',
-      'Дистрибуция': '<span class="badge badge-dist">Дистрибуция</span>',
-      'Обучения':    '<span class="badge badge-training">Обучения</span>',
+    const roleBadge = {
+      'Лидер':       '<span class="badge badge-leader">Лидер</span>',
+      'Организатор': '<span class="badge badge-organizer">Организатор</span>',
+      'Експерт':     '<span class="badge badge-expert">Експерт</span>',
+      'Държавен':    '<span class="badge badge-gov">Държавен</span>',
     };
-    const originBadge = {
-      'Българска':    '<span class="badge badge-bg">Българска</span>',
-      'Международна': '<span class="badge badge-intl">Международна</span>',
-    };
-    const sizeBadge = {
-      'Малка':  '<span class="badge badge-small">Малка</span>',
-      'Средна': '<span class="badge badge-medium">Средна</span>',
-      'Голяма': '<span class="badge badge-large">Голяма</span>',
-    };
-
-    function domainFromUrl(url) {
-      try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return url; }
-    }
 
     // ── Render ────────────────────────────────────────────────────
     function renderTable(data) {
       const tbody = document.getElementById('companies-tbody');
-      tbody.innerHTML = data.map(c => `
-        <tr data-category="${c.category}" data-origin="${c.origin}" data-size="${c.size}" data-name="${c.name.toLowerCase()}">
+      tbody.innerHTML = data.map(p => `
+        <tr data-role="${p.role}" data-name="${p.name.toLowerCase()}" data-search="${(p.name + ' ' + p.title + ' ' + p.assoc).toLowerCase()}">
           <td>
             <div class="company-name-cell">
-              <span class="company-name">${c.name}</span>
+              <span class="company-name">${p.linkedin ? '<a href="' + p.linkedin + '" target="_blank" rel="noopener" style="color:var(--navy);text-decoration:none;border-bottom:1px solid var(--sand);transition:border-color 0.2s">' + p.name + '</a>' : p.name}</span>
             </div>
           </td>
-          <td class="col-focus" style="color:var(--brown);font-weight:300;font-size:var(--fs-sm)">${c.focus}</td>
-          <td>${categoryBadge[c.category] || c.category}</td>
-          <td class="col-origin">${originBadge[c.origin] || c.origin}</td>
-          <td class="col-size">${sizeBadge[c.size] || c.size}</td>
+          <td class="col-title" style="color:var(--brown);font-weight:300;font-size:var(--fs-sm)">${p.title}</td>
+          <td class="col-assoc" style="color:var(--brown);font-weight:400;font-size:var(--fs-sm)">${p.assoc}</td>
+          <td>${roleBadge[p.role] || p.role}</td>
           <td>
-            <a href="${c.url}" target="_blank" rel="noopener noreferrer" class="site-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              ${domainFromUrl(c.url)}
-            </a>
+            ${p.linkedin ? '<a href="' + p.linkedin + '" target="_blank" rel="noopener noreferrer" class="site-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>' : '<span style="color:var(--tan);font-size:var(--fs-xs)">—</span>'}
           </td>
         </tr>
       `).join('');
     }
 
     // ── Filter state ──────────────────────────────────────────────
-    const filters = { category: '', origin: '', size: '' };
+    const filters = { role: '' };
 
     function applyFilters() {
       const search = document.getElementById('search-input').value.toLowerCase().trim();
@@ -1061,26 +1007,23 @@
       let visible = 0;
 
       rows.forEach(row => {
-        const matchCat    = !filters.category || row.dataset.category === filters.category;
-        const matchOrigin = !filters.origin   || row.dataset.origin   === filters.origin;
-        const matchSize   = !filters.size     || row.dataset.size     === filters.size;
-        const matchSearch = !search           || row.dataset.name.includes(search) ||
-                            row.querySelector('.col-focus')?.textContent.toLowerCase().includes(search);
-        const show = matchCat && matchOrigin && matchSize && matchSearch;
+        const matchRole   = !filters.role || row.dataset.role === filters.role;
+        const matchSearch = !search       || row.dataset.search.includes(search);
+        const show = matchRole && matchSearch;
         row.classList.toggle('hidden', !show);
         if (show) visible++;
       });
 
       document.getElementById('results-count').textContent = visible;
-      document.getElementById('results-label').innerHTML = `<strong id="results-count">${visible}</strong> компани${visible === 1 ? 'я' : 'и'}`;
+      document.getElementById('results-label').innerHTML = `<strong id="results-count">${visible}</strong> личност${visible === 1 ? '' : 'и'}`;
       document.getElementById('empty-state').style.display = visible === 0 ? 'block' : 'none';
 
-      const hasFilter = filters.category || filters.origin || filters.size || search;
+      const hasFilter = filters.role || search;
       document.getElementById('clear-btn').style.display = hasFilter ? 'inline-block' : 'none';
     }
 
     function clearFilters() {
-      filters.category = ''; filters.origin = ''; filters.size = '';
+      filters.role = '';
       document.getElementById('search-input').value = '';
       document.querySelectorAll('.chip').forEach(c => {
         c.classList.toggle('active', c.dataset.value === '');
@@ -1100,7 +1043,7 @@
     });
 
     // ── Init ──────────────────────────────────────────────────────
-    renderTable(COMPANIES);
+    renderTable(PEOPLE);
     applyFilters();
 
     // ── Navbar ────────────────────────────────────────────────────

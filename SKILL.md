@@ -218,11 +218,12 @@ body, nav, buttons → font-family: 'DM Sans', sans-serif
 ```
 За нас
 Ресурси ▾
-  Организации · Форуми · Заплахи · Инструменти · CTF · Книги · Видео ресурси
+  Директория: Организации · Личности · Форуми · Хаклор · Фишинг · Инструменти
+  Учебни материали: Терминология · CTF · Книги · Видео ресурси
 Обучение ▾
   Университетски програми · Онлайн курсове · Сертификации · Платформи
 Кариера ▾
-  Менторство · Компании · Професионални пътеки · Заплати
+  Менторство · Компании · Обяви · Кариерен компас · Професионални пътеки · Заплати
 Събития
 Включи се  ← CTA button (class: nav-cta)
 ```
@@ -393,6 +394,52 @@ Use this format for all resource, directory, and informational pages.
 
 **Info callout** (`div.info-callout`): beige bg, sand border, 4px blue left border. Info SVG + paragraph. Use `<strong>` for emphasis and inline `<a>` for links.
 
+**People links** (`div.org-people`): flex wrap of `.org-person` links inside org-cards. Each links to a LinkedIn profile with a person SVG icon. Used in organizacii.html to show key people per organization.
+
+---
+
+## Dynamic table pages (kompanii.html, lichnosti.html)
+
+These pages use a **JS-driven filterable table** pattern with sticky filter bar and chip-based filters.
+
+### Data structure
+
+Data is a `const` array of objects at the top of the `<script>` block:
+
+```js
+// kompanii.html
+const COMPANIES = [
+  { name: 'Company', size: 'Малка', category: 'Услуги', origin: 'Българска', focus: 'Description', url: 'https://...' },
+];
+
+// lichnosti.html
+const PEOPLE = [
+  { name: 'Име Фамилия', title: 'CISO / Role', assoc: 'Company / Org', role: 'Лидер', linkedin: 'https://linkedin.com/in/...' },
+];
+```
+
+### lichnosti.html — role categories
+
+| Role | Badge class | Description |
+|------|------------|-------------|
+| `Лидер` | `.badge-leader` | Organization leaders, CISOs, CEOs, board members |
+| `Организатор` | `.badge-organizer` | Event and community organizers |
+| `Експерт` | `.badge-expert` | Consultants, researchers, speakers, advisors |
+| `Държавен` | `.badge-gov` | Government officials, policy experts, national coordinators |
+
+### kompanii.html — filter dimensions
+
+- **Категория:** Услуги, Продукт, Дистрибуция, Обучения
+- **Произход:** Българска, Международна
+- **Размер:** Малка (≤50), Средна (50–500), Голяма (500+)
+
+### Pattern: adding new entries
+
+1. Add the object to the `const` array in the appropriate comment section
+2. The table re-renders automatically — no HTML changes needed
+3. The results counter updates via `applyFilters()`
+4. For lichnosti.html: names link to LinkedIn in both the name cell and the profile column
+
 ### Navigation links for inner pages
 
 All `href` values in the navbar, mobile menu, and footer must be prefixed with `index.html` when on a subpage (e.g. `index.html#about` instead of `#about`). The logo links to `index.html`. The "Организации" link points to `organizacii.html`.
@@ -416,20 +463,35 @@ Everything below and including the `.mentor-band` is the shared footer block. Fo
 
 ```
 csf-bg/
-├── index.html            ← Homepage (complete)
-├── organizacii.html      ← Informational page: organizations directory
+├── index.html            ← Homepage
+├── za-nas.html           ← About page
+├── organizacii.html      ← Organizations directory (cards with people links)
+├── lichnosti.html        ← People directory (dynamic JS table, filterable)
+├── kompanii.html         ← Companies directory (dynamic JS table, filterable)
+├── forumi.html           ← Forums & communities
+├── haklor.html           ← Threat awareness (Haklor)
+├── phishing.html         ← Phishing awareness
+├── instrumenti.html      ← Tools directory
+├── terminologiq.html     ← Terminology glossary
+├── ctf.html              ← CTF resources
+├── knigi.html            ← Books directory
+├── video.html            ← Video resources
+├── universiteti.html     ← University programmes
+├── kursove.html          ← Online courses
+├── sertifikacii.html     ← Certifications
+├── platformi.html        ← Learning platforms
+├── mentoring.html        ← Mentoring programme
+├── obqvi.html            ← Job listings
+├── compass.html          ← Career compass
+├── profesionalni-pateki.html ← Career paths
+├── zaplati.html          ← Salary data
+├── sabitia.html          ← Events
 ├── logo_csf.png
 ├── README.md
 ├── SKILL.md
 └── .claude/
     └── launch.json       ← Dev server config (python3 http.server :8080)
 ```
-
-Planned pages (not yet created):
-- `forumi.html`, `zaplahi.html`, `instrumenti.html`, `ctf.html`, `knigi.html`, `video.html`
-- `universiteti.html`, `onlain-kursove.html`, `sertifikacii.html`, `platformi.html`
-- `mentorstvo.html`, `kompanii.html`, `profesii.html`, `zaplati.html`
-- `sabitia.html`, `vklyuchi-se.html`
 
 All inner pages sit flat in the root directory (no subdirectories).
 

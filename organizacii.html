@@ -688,6 +688,38 @@
       height: 12px;
     }
 
+    .org-people {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--beige);
+    }
+
+    .org-person {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: var(--fs-xs);
+      font-weight: 400;
+      color: var(--brown);
+      padding: 0.2rem 0.5rem;
+      background: rgba(13, 31, 60, 0.04);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition);
+    }
+
+    .org-person:hover {
+      background: rgba(43, 91, 181, 0.1);
+      color: var(--blue);
+    }
+
+    .org-person svg {
+      width: 10px;
+      height: 10px;
+      flex-shrink: 0;
+    }
+
     /* Info callout */
     .info-callout {
       background: var(--beige);
@@ -1129,6 +1161,14 @@
               </svg>
               Организации
             </a>
+            <a href="lichnosti.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+              </svg>
+              Личности
+            </a>
             <a href="forumi.html">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
@@ -1302,6 +1342,7 @@
       </button>
       <div class="mobile-sub" id="sub-resources">
         <a href="organizacii.html" onclick="closeMobile()">Организации</a>
+        <a href="lichnosti.html" onclick="closeMobile()">Личности</a>
         <a href="forumi.html" onclick="closeMobile()">Форуми</a>
         <a href="haklor.html" onclick="closeMobile()">Хаклор</a>
         <a href="phishing.html" onclick="closeMobile()">Фишинг</a>
@@ -1425,6 +1466,20 @@
               csf.bg
             </a>
           </div>
+          <div class="org-people">
+            <a href="https://bg.linkedin.com/in/miglen" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Миглен Евлогиев
+            </a>
+            <a href="https://www.linkedin.com/in/pgeorgiev/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Павел Георгиев
+            </a>
+            <a href="https://www.linkedin.com/in/martinstnv/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Мартин Стойнов
+            </a>
+          </div>
         </div>
 
         <div class="org-card reveal reveal-delay-1">
@@ -1451,6 +1506,16 @@
                 <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
               </svg>
               cybersecbg.org
+            </a>
+          </div>
+          <div class="org-people">
+            <a href="https://www.linkedin.com/in/kiril-grigorov-631a5a147/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Кирил Григоров
+            </a>
+            <a href="https://bg.linkedin.com/in/miglen" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Миглен Евлогиев
             </a>
           </div>
         </div>
@@ -1543,6 +1608,12 @@
               Facebook
             </a>
           </div>
+          <div class="org-people">
+            <a href="https://www.linkedin.com/in/ralitsa-boyadzhieva-060a95250/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Ралица Бояджиева
+            </a>
+          </div>
         </div>
 
         <div class="org-card reveal reveal-delay-2">
@@ -1569,6 +1640,12 @@
                 <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
               </svg>
               e-security.bg
+            </a>
+          </div>
+          <div class="org-people">
+            <a href="https://bg.linkedin.com/in/avbg-yanko-spassov" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Янко Спасов
             </a>
           </div>
         </div>
@@ -1608,6 +1685,20 @@
               isaca-sofia.org
             </a>
           </div>
+          <div class="org-people">
+            <a href="https://www.linkedin.com/in/g1k1/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Георги Коцев
+            </a>
+            <a href="https://www.linkedin.com/in/rosina-choleeva-kirkova-cia-cisa-cgap-3a729228/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Росина Чолеева-Киркова
+            </a>
+            <a href="https://bg.linkedin.com/in/mdryankov" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Младен Дрянков
+            </a>
+          </div>
         </div>
 
         <div class="org-card reveal reveal-delay-1">
@@ -1626,6 +1717,28 @@
                 <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
               </svg>
               women4cyber.bg
+            </a>
+          </div>
+          <div class="org-people">
+            <a href="https://www.linkedin.com/in/sashka-boncheva-29921b83/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Сашка Бончева
+            </a>
+            <a href="https://www.linkedin.com/in/rksimova/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Ралица Симова
+            </a>
+            <a href="https://www.linkedin.com/in/margarita-kirilova-95561b1a/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Маргарита Кирилова
+            </a>
+            <a href="https://www.linkedin.com/in/luchiya-ivanova-a5b2b116a/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Лучия Иванова
+            </a>
+            <a href="https://www.linkedin.com/in/silvia-s-067338256/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Силвия Сергиева
             </a>
           </div>
         </div>
@@ -1685,6 +1798,16 @@
               cyberclub.bg
             </a>
           </div>
+          <div class="org-people">
+            <a href="https://www.linkedin.com/in/anton-puliyski-21847538/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Антон Пулийски
+            </a>
+            <a href="https://bg.linkedin.com/in/milenyankov" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Милен Янков
+            </a>
+          </div>
         </div>
 
         <div class="org-card reveal reveal-delay-1">
@@ -1704,6 +1827,16 @@
               ecsc-bg.eu
             </a>
           </div>
+          <div class="org-people">
+            <a href="https://www.linkedin.com/in/ptrnstsv/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Петър Анастасов
+            </a>
+            <a href="https://www.linkedin.com/in/asparuhgavrailov/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Аспарух Гаврайлов
+            </a>
+          </div>
         </div>
 
         <div class="org-card reveal reveal-delay-2">
@@ -1721,6 +1854,12 @@
                 <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
               </svg>
               safenet.bg
+            </a>
+          </div>
+          <div class="org-people">
+            <a href="https://www.linkedin.com/in/georgiapostolov/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Георги Апостолов
             </a>
           </div>
         </div>
@@ -1770,6 +1909,12 @@
               detetovinternet.bg
             </a>
           </div>
+          <div class="org-people">
+            <a href="https://bg.linkedin.com/in/yavorkolev" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Явор Колев
+            </a>
+          </div>
         </div>
 
       </div>
@@ -1807,6 +1952,12 @@
                 <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
               </svg>
               cybercrime.bg
+            </a>
+          </div>
+          <div class="org-people">
+            <a href="https://www.linkedin.com/in/7jnjk5utpsc/" target="_blank" rel="noopener" class="org-person">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Владимир Димитров
             </a>
           </div>
         </div>
@@ -2057,6 +2208,7 @@
           <div class="footer-col-title">Ресурси</div>
           <ul class="footer-links">
             <li><a href="organizacii.html">Организации</a></li>
+            <li><a href="lichnosti.html">Личности</a></li>
             <li><a href="forumi.html">Форуми</a></li>
             <li><a href="haklor.html">Хаклор</a></li>
             <li><a href="phishing.html">Фишинг</a></li>
