@@ -237,6 +237,22 @@
     }
     .clear-btn:hover { background: rgba(43,91,181,0.08); }
 
+    .chip-toggle {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      padding: 0.35rem 0.8rem; border-radius: 50px;
+      font-size: var(--fs-xs); font-weight: 500; cursor: pointer;
+      border: 1.5px solid var(--sand);
+      background: transparent; color: var(--brown);
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+    .chip-toggle:hover { border-color: var(--blue); color: var(--blue); background: rgba(43,91,181,0.04); }
+    .chip-toggle.active { background: var(--royal); border-color: var(--royal); color: var(--white); }
+
+    .service-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 2px; }
+    .service-dot.on  { background: #22c55e; }
+    .service-dot.off { background: var(--sand); }
+
     /* ============================================================
        COMPANIES TABLE
     ============================================================ */
@@ -765,6 +781,17 @@
         <button class="chip" data-filter="size" data-value="Средна">Средна</button>
         <button class="chip" data-filter="size" data-value="Голяма">Голяма</button>
       </div>
+
+      <div class="filter-divider"></div>
+
+      <!-- Service toggles -->
+      <div class="filter-group">
+        <span class="filter-label">Услуги</span>
+        <button class="chip-toggle" data-service="soc" onclick="toggleService(this)">SOC</button>
+        <button class="chip-toggle" data-service="mssp" onclick="toggleService(this)">MSSP</button>
+        <button class="chip-toggle" data-service="pentest" onclick="toggleService(this)">Pentest</button>
+        <button class="chip-toggle" data-service="iso" onclick="toggleService(this)">ISO 27001</button>
+      </div>
     </div>
 
     <div class="results-bar">
@@ -787,6 +814,7 @@
             <th>Категория</th>
             <th class="col-origin">Произход</th>
             <th class="col-size">Размер</th>
+            <th style="font-size:var(--fs-xs);text-align:center" title="SOC · MSSP · Pentest · ISO">Услуги</th>
             <th>Сайт</th>
           </tr>
         </thead>
@@ -949,64 +977,64 @@
     // ── Company data ─────────────────────────────────────────────
     const COMPANIES = [
       // ── Bulgarian Products
-      { name: 'CTF Bazaar',        size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'CTF платформа за обучение и практика',               url: 'https://ctfbazaar.com/en/' },
-      { name: 'Kikimora',          size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Управление на уязвимости, AI агенти за сигурност',    url: 'https://kikimora.io/' },
-      { name: 'WiseBee',           size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Автоматизация на сигурността',                        url: 'https://wisebee.ai/' },
-      { name: 'Stihia',            size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'AI-базирана киберсигурност',                          url: 'https://stihia.ai/' },
-      { name: 'HIB Intelligence',  size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Разузнаване на заплахи (Threat Intelligence)',        url: 'https://intelligence.humanityinbusiness.com/' },
-      { name: 'Plainsea',          size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Платформа за управление на пентест проекти (Amatas)', url: 'https://plainsea.com/' },
-      { name: 'LogSentinel',       size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Управление на логове и SIEM',                         url: 'https://logsentinel.com/' },
+      { name: 'CTF Bazaar',        size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'CTF платформа за обучение и практика',               url: 'https://ctfbazaar.com/en/',                          soc:0, mssp:0, pentest:0, iso:0 },
+      { name: 'Kikimora',          size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Управление на уязвимости, AI агенти за сигурност',    url: 'https://kikimora.io/',                               soc:0, mssp:0, pentest:0, iso:0 },
+      { name: 'WiseBee',           size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Автоматизация на сигурността',                        url: 'https://wisebee.ai/',                                soc:0, mssp:0, pentest:0, iso:0 },
+      { name: 'Stihia',            size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'AI-базирана киберсигурност',                          url: 'https://stihia.ai/',                                 soc:0, mssp:0, pentest:0, iso:0 },
+      { name: 'HIB Intelligence',  size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Разузнаване на заплахи (Threat Intelligence)',        url: 'https://intelligence.humanityinbusiness.com/',       soc:0, mssp:0, pentest:0, iso:0 },
+      { name: 'Plainsea',          size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Платформа за управление на пентест проекти (Amatas)', url: 'https://plainsea.com/',                              soc:0, mssp:0, pentest:1, iso:0 },
+      { name: 'LogSentinel',       size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Управление на логове и SIEM',                         url: 'https://logsentinel.com/',                           soc:0, mssp:0, pentest:0, iso:0 },
       // ── International Products
-      { name: 'Acronis',           size: 'Голяма', category: 'Продукт',     origin: 'Международна', focus: 'Решения за киберсигурност и backup',                  url: 'https://www.acronis.com/bg-bg/' },
+      { name: 'Acronis',           size: 'Голяма', category: 'Продукт',     origin: 'Международна', focus: 'Решения за киберсигурност и backup',                  url: 'https://www.acronis.com/bg-bg/',                     soc:0, mssp:0, pentest:0, iso:0 },
       // ── Bulgarian Services
-      { name: 'InfoSec Group',     size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://infosecgroup.io/' },
-      { name: '7Sec',              size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'PCIDSS, пентестове и консултации',                    url: 'https://www.7sec.com/' },
-      { name: 'Amatas',            size: 'Средна', category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, vCISO и консултации',                     url: 'https://amatas.com/' },
-      { name: 'So Cyber',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://so-cyber.com/' },
-      { name: 'Cyber One',         size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://cyberone.bg/' },
-      { name: 'Baseline',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'MSSP, SOC, пентестове и консултации (CENTIO)',        url: 'https://baseline.bg/' },
-      { name: 'Telelink',          size: 'Голяма', category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, консултации и интеграции',                url: 'https://www.telelink.com/' },
-      { name: 'Mnemonica',         size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, консултации и SOC услуги',                url: 'https://mnemonica.bg/' },
-      { name: 'Lirex',             size: 'Средна', category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://lirex.bg/' },
-      { name: 'CNSys',             size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации и дистрибуция',                           url: 'https://cnsys.bg/cyber-security-solutions/' },
-      { name: 'TeamSecure',        size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://teamsecure.bg/' },
-      { name: 'CyPro',             size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://cypro.bg/' },
-      { name: 'CTG',               size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://ctg.bg/' },
-      { name: 'Priority Zero',     size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://www.priorityzero.io/' },
-      { name: 'Technologica',      size: 'Голяма', category: 'Услуги',      origin: 'Българска',    focus: 'MSSP услуги',                                         url: 'https://technologica.com/en/' },
-      { name: 'AtlantSecurity',    size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации по киберсигурност',                       url: 'https://atlantsecurity.com/bg/' },
-      { name: 'AKAT Technologies', size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://www.akat-t.com/' },
-      { name: 'Kontrax',           size: 'Голяма', category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://www.kontrax.bg/bg/solution/kibersigurnost/' },
-      { name: 'Daticum',           size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://daticum.com/kibersigurnost/' },
-      { name: 'Triton',            size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации по киберсигурност',                       url: 'https://www.itservices.bg/cybersecurity/' },
-      { name: 'eFellows',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации и интеграции',                            url: 'https://www.efellows.bg/' },
-      { name: 'AAM Consulting',    size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации и интеграции',                            url: 'https://aamconsulting.bg/' },
-      { name: '3Cyber-Sec',        size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации и интеграции',                            url: 'https://3cyber-sec.com/' },
-      { name: 'Secragon',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, консултации и интеграции',                url: 'https://secragon.com/' },
-      { name: 'Cyberware',         size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Автономно пентестване с AI, compliance и code review',  url: 'https://getcyberware.com/' },
-      { name: 'ArmadilCo',         size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Продуктова сигурност за медицински устройства и FinTech', url: 'https://armadilco.com/' },
-      { name: 'Lambda Bit',        size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и Application Security',                    url: 'https://www.lambdabit.io/' },
-      { name: 'Nuwey',             size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Managed IT Security, облачни решения и compliance',   url: 'https://www.nuwey.com/' },
-      { name: 'Cybernetics',       size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации, мрежова сигурност и threat intelligence', url: 'https://cybernetics.bg/' },
-      { name: 'Sectova',           size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Managed IT, vCIO и консултации по сигурност',         url: 'https://sectova.com/' },
-      { name: 'Sunwell Solutions',  size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Managed Security, Managed IT и консултации (ISO 27001)', url: 'https://www.sunwellsolutions.com/' },
-      { name: 'IDVKM',             size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Identity & Access Management, PAM и NIS2 консултации', url: 'https://idvkm.com/' },
+      { name: 'InfoSec Group',     size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://infosecgroup.io/',                           soc:0, mssp:0, pentest:1, iso:1 },
+      { name: '7Sec',              size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'PCIDSS, пентестове и консултации',                    url: 'https://www.7sec.com/',                              soc:0, mssp:0, pentest:1, iso:1 },
+      { name: 'Amatas',            size: 'Средна', category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, vCISO и консултации',                     url: 'https://amatas.com/',                                soc:1, mssp:1, pentest:1, iso:0 },
+      { name: 'So Cyber',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://so-cyber.com/',                              soc:0, mssp:0, pentest:1, iso:1 },
+      { name: 'Cyber One',         size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://cyberone.bg/',                               soc:1, mssp:1, pentest:1, iso:0 },
+      { name: 'Baseline',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'MSSP, SOC, пентестове и консултации (CENTIO)',        url: 'https://baseline.bg/',                               soc:1, mssp:1, pentest:1, iso:1 },
+      { name: 'Telelink',          size: 'Голяма', category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, консултации и интеграции',                url: 'https://www.telelink.com/',                          soc:1, mssp:1, pentest:1, iso:0 },
+      { name: 'Mnemonica',         size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, консултации и SOC услуги',                url: 'https://mnemonica.bg/',                              soc:1, mssp:1, pentest:0, iso:0 },
+      { name: 'Lirex',             size: 'Средна', category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://lirex.bg/',                                  soc:1, mssp:0, pentest:1, iso:1 },
+      { name: 'CNSys',             size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации и дистрибуция',                           url: 'https://cnsys.bg/cyber-security-solutions/',         soc:0, mssp:0, pentest:0, iso:0 },
+      { name: 'TeamSecure',        size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://teamsecure.bg/',                             soc:0, mssp:1, pentest:1, iso:0 },
+      { name: 'CyPro',             size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://cypro.bg/',                                  soc:1, mssp:1, pentest:1, iso:0 },
+      { name: 'CTG',               size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://ctg.bg/',                                    soc:0, mssp:0, pentest:1, iso:1 },
+      { name: 'Priority Zero',     size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://www.priorityzero.io/',                       soc:0, mssp:0, pentest:1, iso:1 },
+      { name: 'Technologica',      size: 'Голяма', category: 'Услуги',      origin: 'Българска',    focus: 'MSSP услуги',                                         url: 'https://technologica.com/en/',                       soc:1, mssp:1, pentest:0, iso:0 },
+      { name: 'AtlantSecurity',    size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации по киберсигурност',                       url: 'https://atlantsecurity.com/bg/',                     soc:0, mssp:0, pentest:0, iso:0 },
+      { name: 'AKAT Technologies', size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://www.akat-t.com/',                            soc:1, mssp:0, pentest:1, iso:0 },
+      { name: 'Kontrax',           size: 'Голяма', category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://www.kontrax.bg/bg/solution/kibersigurnost/',  soc:0, mssp:0, pentest:1, iso:0 },
+      { name: 'Daticum',           size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://daticum.com/kibersigurnost/',                soc:0, mssp:0, pentest:1, iso:0 },
+      { name: 'Triton',            size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации по киберсигурност',                       url: 'https://www.itservices.bg/cybersecurity/',           soc:0, mssp:0, pentest:1, iso:0 },
+      { name: 'eFellows',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации и интеграции',                            url: 'https://www.efellows.bg/',                           soc:0, mssp:0, pentest:0, iso:0 },
+      { name: 'AAM Consulting',    size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации и интеграции',                            url: 'https://aamconsulting.bg/',                          soc:0, mssp:0, pentest:0, iso:1 },
+      { name: '3Cyber-Sec',        size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации и интеграции',                            url: 'https://3cyber-sec.com/',                            soc:0, mssp:0, pentest:1, iso:1 },
+      { name: 'Secragon',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, консултации и интеграции',                url: 'https://secragon.com/',                              soc:0, mssp:0, pentest:1, iso:0 },
+      { name: 'Cyberware',         size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Автономно пентестване с AI, compliance и code review',  url: 'https://getcyberware.com/',                        soc:0, mssp:0, pentest:1, iso:1 },
+      { name: 'ArmadilCo',         size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Продуктова сигурност за медицински устройства и FinTech', url: 'https://armadilco.com/',                          soc:0, mssp:0, pentest:1, iso:0 },
+      { name: 'Lambda Bit',        size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и Application Security',                    url: 'https://www.lambdabit.io/',                         soc:0, mssp:0, pentest:1, iso:0 },
+      { name: 'Nuwey',             size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Managed IT Security, облачни решения и compliance',   url: 'https://www.nuwey.com/',                             soc:1, mssp:1, pentest:0, iso:0 },
+      { name: 'Cybernetics',       size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации, мрежова сигурност и threat intelligence', url: 'https://cybernetics.bg/',                           soc:1, mssp:1, pentest:1, iso:0 },
+      { name: 'Sectova',           size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Managed IT, vCIO и консултации по сигурност',         url: 'https://sectova.com/',                               soc:0, mssp:0, pentest:0, iso:0 },
+      { name: 'Sunwell Solutions',  size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Managed Security, Managed IT и консултации (ISO 27001)', url: 'https://www.sunwellsolutions.com/',               soc:1, mssp:1, pentest:1, iso:0 },
+      { name: 'IDVKM',             size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Identity & Access Management, PAM и NIS2 консултации', url: 'https://idvkm.com/',                               soc:0, mssp:0, pentest:0, iso:0 },
       // ── International Services
-      { name: 'A-Lign',            size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Compliance, SOC одитиране и пентестове',              url: 'https://www.a-lign.com/' },
-      { name: 'DXC Technology',    size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Enterprise Security услуги',                          url: 'https://dxc.com/us/en/offerings/security/' },
-      { name: 'Digitall',          size: 'Средна', category: 'Услуги',      origin: 'Международна', focus: 'Пентестове и консултации',                            url: 'https://digitall.com/' },
-      { name: 'A1 Digital',        size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Пентестове и консултации',                            url: 'https://www.a1.digital/cybersecurity/' },
-      { name: 'Secario Labs',      size: 'Малка',  category: 'Услуги',      origin: 'Международна', focus: 'Пентестове, AppSec и Red Team (UK/BG)',               url: 'https://secariolabs.com/' },
-      { name: 'Integrity 360',     size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Managed Security услуги, MDR и SOC',                  url: 'https://www.integrity360.com/' },
-      { name: 'Diamatix',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'MSSP услуги, FWaaS, MDR и SOCaaS',                    url: 'https://diamatix.com/' },
+      { name: 'A-Lign',            size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Compliance, SOC одитиране и пентестове',              url: 'https://www.a-lign.com/',                            soc:0, mssp:0, pentest:1, iso:1 },
+      { name: 'DXC Technology',    size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Enterprise Security услуги',                          url: 'https://dxc.com/us/en/offerings/security/',          soc:1, mssp:1, pentest:1, iso:0 },
+      { name: 'Digitall',          size: 'Средна', category: 'Услуги',      origin: 'Международна', focus: 'Пентестове и консултации',                            url: 'https://digitall.com/',                              soc:1, mssp:1, pentest:1, iso:1 },
+      { name: 'A1 Digital',        size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Пентестове и консултации',                            url: 'https://www.a1.digital/cybersecurity/',              soc:0, mssp:1, pentest:1, iso:1 },
+      { name: 'Secario Labs',      size: 'Малка',  category: 'Услуги',      origin: 'Международна', focus: 'Пентестове, AppSec и Red Team (UK/BG)',               url: 'https://secariolabs.com/',                           soc:0, mssp:0, pentest:1, iso:0 },
+      { name: 'Integrity 360',     size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Managed Security услуги, MDR и SOC',                  url: 'https://www.integrity360.com/',                      soc:1, mssp:1, pentest:1, iso:1 },
+      { name: 'Diamatix',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'MSSP услуги, FWaaS, MDR и SOCaaS',                    url: 'https://diamatix.com/',                              soc:1, mssp:1, pentest:0, iso:1 },
       // ── Distribution
-      { name: 'Computer 2000',     size: 'Средна', category: 'Дистрибуция', origin: 'Международна', focus: 'Дистрибутор на хардуер и решения за сигурност',       url: 'https://computer2000.bg/' },
-      { name: 'CLICO',             size: 'Малка',  category: 'Дистрибуция', origin: 'Българска',    focus: 'Дистрибутор на решения за сигурност',                 url: 'https://clico.bg/' },
-      { name: 'Antivirus.bg',      size: 'Малка',  category: 'Дистрибуция', origin: 'Българска',    focus: 'Продажба на DLP и антивирусен софтуер',               url: 'https://antivirus.bg/' },
-      { name: 'CENTIO',            size: 'Средна', category: 'Дистрибуция', origin: 'Българска',    focus: 'Дистрибуция на решения за сигурност',                 url: 'https://centio.bg/' },
-      { name: 'ACT Sofia',         size: 'Малка',  category: 'Дистрибуция', origin: 'Българска',    focus: 'Продажби на решения за сигурност',                    url: 'https://actsofia.bg/' },
+      { name: 'Computer 2000',     size: 'Средна', category: 'Дистрибуция', origin: 'Международна', focus: 'Дистрибутор на хардуер и решения за сигурност',       url: 'https://computer2000.bg/',                           soc:0, mssp:0, pentest:1, iso:0 },
+      { name: 'CLICO',             size: 'Малка',  category: 'Дистрибуция', origin: 'Българска',    focus: 'Дистрибутор на решения за сигурност',                 url: 'https://clico.bg/',                                  soc:0, mssp:0, pentest:0, iso:0 },
+      { name: 'Antivirus.bg',      size: 'Малка',  category: 'Дистрибуция', origin: 'Българска',    focus: 'Продажба на DLP и антивирусен софтуер',               url: 'https://antivirus.bg/',                              soc:1, mssp:0, pentest:1, iso:1 },
+      { name: 'CENTIO',            size: 'Средна', category: 'Дистрибуция', origin: 'Българска',    focus: 'Дистрибуция на решения за сигурност',                 url: 'https://centio.bg/',                                 soc:1, mssp:1, pentest:1, iso:1 },
+      { name: 'ACT Sofia',         size: 'Малка',  category: 'Дистрибуция', origin: 'Българска',    focus: 'Продажби на решения за сигурност',                    url: 'https://actsofia.bg/',                               soc:0, mssp:0, pentest:0, iso:0 },
       // ── Training
-      { name: 'Cyber360',          size: 'Малка',  category: 'Обучения',    origin: 'Българска',    focus: 'Кибер обучения (CyberOne)',                           url: 'https://cyber360.bg/' },
+      { name: 'Cyber360',          size: 'Малка',  category: 'Обучения',    origin: 'Българска',    focus: 'Кибер обучения (CyberOne)',                           url: 'https://cyber360.bg/',                               soc:0, mssp:0, pentest:0, iso:0 },
     ];
 
     // ── Badge helpers ─────────────────────────────────────────────
@@ -1034,7 +1062,7 @@
     function renderTable(data) {
       const tbody = document.getElementById('companies-tbody');
       tbody.innerHTML = data.map(c => `
-        <tr data-category="${c.category}" data-origin="${c.origin}" data-size="${c.size}" data-name="${c.name.toLowerCase()}">
+        <tr data-category="${c.category}" data-origin="${c.origin}" data-size="${c.size}" data-name="${c.name.toLowerCase()}" data-soc="${c.soc}" data-mssp="${c.mssp}" data-pentest="${c.pentest}" data-iso="${c.iso}">
           <td>
             <div class="company-name-cell">
               <span class="company-name">${c.name}</span>
@@ -1044,6 +1072,12 @@
           <td>${categoryBadge[c.category] || c.category}</td>
           <td class="col-origin">${originBadge[c.origin] || c.origin}</td>
           <td class="col-size">${sizeBadge[c.size] || c.size}</td>
+          <td style="white-space:nowrap;font-size:var(--fs-xs);color:var(--bark)">
+            <span class="service-dot ${c.soc?'on':'off'}" title="SOC"></span>
+            <span class="service-dot ${c.mssp?'on':'off'}" title="MSSP"></span>
+            <span class="service-dot ${c.pentest?'on':'off'}" title="Pentest"></span>
+            <span class="service-dot ${c.iso?'on':'off'}" title="ISO 27001"></span>
+          </td>
           <td>
             <a href="${c.url}" target="_blank" rel="noopener noreferrer" class="site-link">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -1056,6 +1090,14 @@
 
     // ── Filter state ──────────────────────────────────────────────
     const filters = { category: '', origin: '', size: '' };
+    const serviceFilters = { soc: false, mssp: false, pentest: false, iso: false };
+
+    function toggleService(btn) {
+      const svc = btn.dataset.service;
+      serviceFilters[svc] = !serviceFilters[svc];
+      btn.classList.toggle('active', serviceFilters[svc]);
+      applyFilters();
+    }
 
     function applyFilters() {
       const search = document.getElementById('search-input').value.toLowerCase().trim();
@@ -1068,7 +1110,11 @@
         const matchSize   = !filters.size     || row.dataset.size     === filters.size;
         const matchSearch = !search           || row.dataset.name.includes(search) ||
                             row.querySelector('.col-focus')?.textContent.toLowerCase().includes(search);
-        const show = matchCat && matchOrigin && matchSize && matchSearch;
+        const matchSoc     = !serviceFilters.soc     || row.dataset.soc     === '1';
+        const matchMssp    = !serviceFilters.mssp    || row.dataset.mssp    === '1';
+        const matchPentest = !serviceFilters.pentest || row.dataset.pentest === '1';
+        const matchIso     = !serviceFilters.iso     || row.dataset.iso     === '1';
+        const show = matchCat && matchOrigin && matchSize && matchSearch && matchSoc && matchMssp && matchPentest && matchIso;
         row.classList.toggle('hidden', !show);
         if (show) visible++;
       });
@@ -1077,16 +1123,19 @@
       document.getElementById('results-label').innerHTML = `<strong id="results-count">${visible}</strong> компани${visible === 1 ? 'я' : 'и'}`;
       document.getElementById('empty-state').style.display = visible === 0 ? 'block' : 'none';
 
-      const hasFilter = filters.category || filters.origin || filters.size || search;
+      const hasService = serviceFilters.soc || serviceFilters.mssp || serviceFilters.pentest || serviceFilters.iso;
+      const hasFilter = filters.category || filters.origin || filters.size || search || hasService;
       document.getElementById('clear-btn').style.display = hasFilter ? 'inline-block' : 'none';
     }
 
     function clearFilters() {
       filters.category = ''; filters.origin = ''; filters.size = '';
+      serviceFilters.soc = false; serviceFilters.mssp = false; serviceFilters.pentest = false; serviceFilters.iso = false;
       document.getElementById('search-input').value = '';
       document.querySelectorAll('.chip').forEach(c => {
         c.classList.toggle('active', c.dataset.value === '');
       });
+      document.querySelectorAll('.chip-toggle').forEach(c => c.classList.remove('active'));
       applyFilters();
     }
 
