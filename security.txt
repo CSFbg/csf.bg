@@ -1,0 +1,6 @@
+Contact: mailto:security@csf.bg
+Contact: https://csf.bg/za-nas.html
+Expires: 2027-04-01T00:00:00.000Z
+Preferred-Languages: bg, en
+Canonical: https://csf.bg/security.txt
+Policy: https://csf.bg/regulacii.html

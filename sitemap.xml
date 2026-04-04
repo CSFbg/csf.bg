@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://csf.bg/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://csf.bg/organizacii.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://csf.bg/lichnosti.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://csf.bg/kompanii.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://csf.bg/sabitia.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://csf.bg/regulacii.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://csf.bg/sertifikacii.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://csf.bg/compass.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://csf.bg/profesionalni-pateki.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://csf.bg/universiteti.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://csf.bg/kursove.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://csf.bg/zaplati.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://csf.bg/obqvi.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://csf.bg/forumi.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://csf.bg/platformi.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://csf.bg/instrumenti.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://csf.bg/terminologiq.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://csf.bg/ctf.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://csf.bg/knigi.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://csf.bg/video.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://csf.bg/phishing.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://csf.bg/haklor.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://csf.bg/mentoring.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://csf.bg/za-nas.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+</urlset>

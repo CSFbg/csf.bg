@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://csf.bg/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1
