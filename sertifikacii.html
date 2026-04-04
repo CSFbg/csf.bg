@@ -515,6 +515,23 @@
           </div>
         </div>
         <div class="filter-row">
+          <span class="filter-label">Издател</span>
+          <div class="chips" id="chips-body">
+            <span class="chip active" data-group="body" data-value="all">Всички</span>
+            <span class="chip" data-group="body" data-value="CompTIA">CompTIA</span>
+            <span class="chip" data-group="body" data-value="(ISC)²">(ISC)²</span>
+            <span class="chip" data-group="body" data-value="ISACA">ISACA</span>
+            <span class="chip" data-group="body" data-value="EC-Council">EC-Council</span>
+            <span class="chip" data-group="body" data-value="GIAC">GIAC</span>
+            <span class="chip" data-group="body" data-value="Offensive Security">OffSec</span>
+            <span class="chip" data-group="body" data-value="Hack The Box">HTB</span>
+            <span class="chip" data-group="body" data-value="CREST">CREST</span>
+            <span class="chip" data-group="body" data-value="Microsoft">Microsoft</span>
+            <span class="chip" data-group="body" data-value="Cisco">Cisco</span>
+            <span class="chip" data-group="body" data-value="Fortinet">Fortinet</span>
+          </div>
+        </div>
+        <div class="filter-row">
           <span class="filter-label">Цена (EUR)</span>
           <div class="chips" id="chips-cost">
             <span class="chip active" data-group="cost" data-value="all">Всички</span>
@@ -740,7 +757,7 @@
   // ============================================================
   // FILTERS STATE
   // ============================================================
-  const filters = { type:'all', level:'all', area:'all', cost:'all' };
+  const filters = { type:'all', level:'all', area:'all', body:'all', cost:'all' };
 
   function usdToEur(usd) { return Math.round(usd * USD_TO_EUR); }
 
@@ -781,6 +798,7 @@
         (filters.type === 'all' || c.type === filters.type) &&
         (filters.level === 'all' || c.level === filters.level) &&
         (filters.area === 'all' || c.areas.includes(filters.area)) &&
+        (filters.body === 'all' || c.body === filters.body) &&
         costInRange(c.cost, filters.cost);
       card.classList.toggle('hidden', !show);
       if (show) visible++;
