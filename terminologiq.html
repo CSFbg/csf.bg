@@ -44,7 +44,7 @@
     /* NAVBAR */
     .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.06);transition:box-shadow var(--transition),background var(--transition)}
     .navbar.scrolled{background:rgba(13,31,60,.97);backdrop-filter:blur(12px);box-shadow:0 4px 32px rgba(0,0,0,.3)}
-    .nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px}
+    .nav-inner{max-width:1440px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px}
     .nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
     .logo-text{display:flex;flex-direction:column;line-height:1.1}
     .logo-abbr{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:.06em}
@@ -91,7 +91,7 @@
 
     /* PAGE CONTENT */
     .page-content{padding-top:68px}
-    .article-section{max-width:1280px;margin:0 auto;padding:3.5rem 2rem 2rem}
+    .article-section{max-width:1440px;margin:0 auto;padding:3.5rem 2rem 2rem}
     .breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:var(--fs-sm);color:var(--bark);margin-bottom:2rem}
     .breadcrumb a{color:var(--blue);transition:color var(--transition);font-weight:500}
     .breadcrumb a:hover{color:var(--royal)}
@@ -137,7 +137,7 @@
 
     /* MENTOR BAND */
     .mentor-band{background:var(--navy);padding:4rem 2rem;margin-top:4rem}
-    .mentor-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap}
+    .mentor-inner{max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap}
     .mentor-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,3vw,var(--fs-2xl));font-weight:600;color:var(--white);margin-bottom:.75rem}
     .mentor-title em{font-style:italic;color:var(--sky-light)}
     .mentor-desc{font-size:var(--fs-sm);color:rgba(255,255,255,.65);line-height:1.7;max-width:480px;font-weight:300}
@@ -145,7 +145,7 @@
 
     /* PARTNERS */
     .partners-section{background:var(--beige);padding:3rem 2rem;border-top:1px solid var(--sand)}
-    .partners-inner{max-width:1280px;margin:0 auto}
+    .partners-inner{max-width:1440px;margin:0 auto}
     .partners-title{font-size:var(--fs-xs);font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--bark);margin-bottom:1.5rem}
     .partners-grid{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
     .partner-item{display:flex;align-items:center;gap:.6rem;padding:.6rem 1rem;background:var(--white);border:1px solid var(--sand);border-radius:var(--radius);transition:all var(--transition);text-decoration:none}
@@ -157,7 +157,7 @@
 
     /* FOOTER */
     footer{background:var(--navy);padding:4rem 2rem 2rem;color:rgba(255,255,255,.55)}
-    .footer-inner{max-width:1280px;margin:0 auto}
+    .footer-inner{max-width:1440px;margin:0 auto}
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
     .footer-brand-name{display:flex;align-items:center;gap:.75rem;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:1rem}
     .footer-brand-desc{font-size:var(--fs-sm);line-height:1.7;font-weight:300;max-width:280px;margin-bottom:1.5rem}
@@ -224,6 +224,26 @@
     @media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:860px){.nav-links{display:none}.hamburger{display:flex}.mobile-menu{display:block}.mentor-inner{flex-direction:column;gap:2rem}}
     @media(max-width:640px){.article-section{padding:2.5rem 1.25rem 1.5rem}.why-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;align-items:flex-start}.process-step{flex-direction:column;gap:.5rem}.step-line{display:none}}
+  
+    /* Large screens (1600px+) */
+    @media (min-width: 1600px) {
+      html { font-size: 17px; }
+      .nav-inner, .hero-inner, .section-inner, .mission-inner,
+      .mentor-inner, .partners-inner, .footer-inner,
+      .article-section, .wizard-inner, .filter-bar-inner,
+      .results-bar, .assessment-inner {
+        max-width: 1600px;
+      }
+    }
+    @media (min-width: 1920px) {
+      html { font-size: 18px; }
+      .nav-inner, .hero-inner, .section-inner, .mission-inner,
+      .mentor-inner, .partners-inner, .footer-inner,
+      .article-section, .wizard-inner, .filter-bar-inner,
+      .results-bar, .assessment-inner {
+        max-width: 1720px;
+      }
+    }
   </style>
 </head>
 <body>

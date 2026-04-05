@@ -113,7 +113,7 @@
     }
 
     .nav-inner {
-      max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+      max-width: 1440px; margin: 0 auto; padding: 0 2rem;
       display: flex; align-items: center; justify-content: space-between; height: 68px;
     }
 
@@ -265,7 +265,7 @@
     .page-content { padding-top: 68px; }
 
     .article-section {
-      max-width: 1280px; margin: 0 auto; padding: 3.5rem 2rem 2rem;
+      max-width: 1440px; margin: 0 auto; padding: 3.5rem 2rem 2rem;
     }
 
     .breadcrumb {
@@ -566,7 +566,7 @@
     }
 
     .mentor-inner {
-      max-width: 1280px; margin: 0 auto;
+      max-width: 1440px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr auto;
       align-items: center; gap: 3rem; position: relative; z-index: 1;
     }
@@ -580,7 +580,7 @@
        PARTNERS
     ============================================================ */
     .partners-section { background: var(--beige); padding: 4rem 2rem; border-top: 1px solid var(--sand); }
-    .partners-inner { max-width: 1280px; margin: 0 auto; }
+    .partners-inner { max-width: 1440px; margin: 0 auto; }
 
     .partners-title {
       text-align: center; font-size: var(--fs-sm); font-weight: 600;
@@ -606,7 +606,7 @@
        FOOTER
     ============================================================ */
     footer { background: var(--espresso); color: rgba(255, 255, 255, 0.55); padding: 4rem 2rem 2rem; }
-    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-inner { max-width: 1440px; margin: 0 auto; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
 
     .footer-brand-name {
@@ -677,6 +677,26 @@
       .team-grid { grid-template-columns: 1fr; }
       .activity-grid { grid-template-columns: 1fr; }
       .timeline::before { left: 6px; }
+    }
+  
+    /* Large screens (1600px+) */
+    @media (min-width: 1600px) {
+      html { font-size: 17px; }
+      .nav-inner, .hero-inner, .section-inner, .mission-inner,
+      .mentor-inner, .partners-inner, .footer-inner,
+      .article-section, .wizard-inner, .filter-bar-inner,
+      .results-bar, .assessment-inner {
+        max-width: 1600px;
+      }
+    }
+    @media (min-width: 1920px) {
+      html { font-size: 18px; }
+      .nav-inner, .hero-inner, .section-inner, .mission-inner,
+      .mentor-inner, .partners-inner, .footer-inner,
+      .article-section, .wizard-inner, .filter-bar-inner,
+      .results-bar, .assessment-inner {
+        max-width: 1720px;
+      }
     }
   </style>
 </head>
