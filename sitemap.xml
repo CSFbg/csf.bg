@@ -21,6 +21,7 @@
   <url><loc>https://csf.bg/knigi.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://csf.bg/video.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://csf.bg/phishing.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://csf.bg/ai.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://csf.bg/haklor.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://csf.bg/mentoring.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://csf.bg/za-nas.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
