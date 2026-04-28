@@ -475,6 +475,7 @@
       }
     }
   </style>
+  <script defer src="https://umami.miglen.com/script.js" data-website-id="ac6edf2b-e805-43d6-8e3b-3294216c797c"></script>
 </head>
 
 <body>
@@ -1043,18 +1044,18 @@
     // ── Company data ─────────────────────────────────────────────
     const COMPANIES = [
       // ── Bulgarian Products
-      { name: 'CTF Bazaar',        size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'CTF платформа за обучение и практика',               url: 'https://ctfbazaar.com/en/',                          soc:0, mssp:0, pentest:0, iso:0 },
-      { name: 'Kikimora',          size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Управление на уязвимости, AI агенти за сигурност',    url: 'https://kikimora.io/',                               soc:0, mssp:0, pentest:0, iso:0 },
-      { name: 'WiseBee',           size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Автоматизация на сигурността',                        url: 'https://wisebee.ai/',                                soc:0, mssp:0, pentest:0, iso:0 },
-      { name: 'Stihia',            size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'AI-базирана киберсигурност',                          url: 'https://stihia.ai/',                                 soc:0, mssp:0, pentest:0, iso:0 },
-      { name: 'HIB Intelligence',  size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Разузнаване на заплахи (Threat Intelligence)',        url: 'https://intelligence.humanityinbusiness.com/',       soc:0, mssp:0, pentest:0, iso:0 },
-      { name: 'Plainsea',          size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Платформа за управление на пентест проекти (Amatas)', url: 'https://plainsea.com/',                              soc:0, mssp:0, pentest:1, iso:0 },
+      { name: 'CTF Bazaar',        size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'CTF платформа за обучение и практика',               url: 'https://ctfbazaar.com/en/',                          linkedin: 'https://www.linkedin.com/company/ctfbazaar/', soc:0, mssp:0, pentest:0, iso:0 },
+      { name: 'Kikimora',          size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Управление на уязвимости, AI агенти за сигурност',    url: 'https://kikimora.io/',                               linkedin: 'https://www.linkedin.com/company/kikimora-io/', soc:0, mssp:0, pentest:0, iso:0 },
+      { name: 'WiseBee',           size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Автоматизация на сигурността',                        url: 'https://wisebee.ai/',                                linkedin: 'https://www.linkedin.com/company/wisebee-ai/', soc:0, mssp:0, pentest:0, iso:0 },
+      { name: 'Stihia',            size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'AI-базирана киберсигурност',                          url: 'https://stihia.ai/',                                 linkedin: 'https://www.linkedin.com/company/stihia/', soc:0, mssp:0, pentest:0, iso:0 },
+      { name: 'HIB Intelligence',  size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Разузнаване на заплахи (Threat Intelligence)',        url: 'https://intelligence.humanityinbusiness.com/',       linkedin: 'https://www.linkedin.com/company/humanityinsbusiness/', soc:0, mssp:0, pentest:0, iso:0 },
+      { name: 'Plainsea',          size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Платформа за управление на пентест проекти (Amatas)', url: 'https://plainsea.com/',                              linkedin: 'https://www.linkedin.com/company/plainsea/', soc:0, mssp:0, pentest:1, iso:0 },
       { name: 'LogSentinel',       size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Управление на логове и SIEM',                         url: 'https://logsentinel.com/',                           soc:0, mssp:0, pentest:0, iso:0 },
       { name: 'Venvera',           size: 'Малка',  category: 'Продукт',     origin: 'Българска',    focus: 'Автоматизация на compliance и съответствие',           url: 'https://venvera.com/',                               soc:0, mssp:0, pentest:0, iso:1 },
       // ── International Products
       { name: 'Acronis',           size: 'Голяма', category: 'Продукт',     origin: 'Международна', focus: 'Решения за киберсигурност и backup',                  url: 'https://www.acronis.com/bg-bg/',                     soc:0, mssp:0, pentest:0, iso:0 },
       // ── Bulgarian Services
-      { name: 'InfoSec Group',     size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://infosecgroup.io/',                           soc:0, mssp:0, pentest:1, iso:1 },
+      { name: 'InfoSec Group',     size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://infosecgroup.io/',                           linkedin: 'https://www.linkedin.com/company/infosecgroup/', soc:0, mssp:0, pentest:1, iso:1 },
       { name: '7Sec',              size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'PCIDSS, пентестове и консултации',                    url: 'https://www.7sec.com/',                              soc:0, mssp:0, pentest:1, iso:1 },
       { name: 'Amatas',            size: 'Средна', category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, vCISO и консултации',                     url: 'https://amatas.com/',                                soc:1, mssp:1, pentest:1, iso:0 },
       { name: 'So Cyber',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и консултации',                            url: 'https://so-cyber.com/',                              soc:0, mssp:0, pentest:1, iso:1 },
@@ -1109,7 +1110,7 @@
       { name: 'Computer 2000',     size: 'Средна', category: 'Дистрибуция', origin: 'Международна', focus: 'Дистрибутор на хардуер и решения за сигурност',       url: 'https://computer2000.bg/',                           soc:0, mssp:0, pentest:1, iso:0 },
       { name: 'CLICO',             size: 'Малка',  category: 'Дистрибуция', origin: 'Българска',    focus: 'Дистрибутор на решения за сигурност',                 url: 'https://clico.bg/',                                  soc:0, mssp:0, pentest:0, iso:0 },
       { name: 'Antivirus.bg',      size: 'Малка',  category: 'Дистрибуция', origin: 'Българска',    focus: 'Продажба на DLP и антивирусен софтуер',               url: 'https://antivirus.bg/',                              soc:1, mssp:0, pentest:1, iso:1 },
-      { name: 'CENTIO',            size: 'Средна', category: 'Дистрибуция', origin: 'Българска',    focus: 'Дистрибуция на решения за сигурност',                 url: 'https://centio.bg/',                                 soc:1, mssp:1, pentest:1, iso:1 },
+      { name: 'CENTIO',            size: 'Средна', category: 'Дистрибуция', origin: 'Българска',    focus: 'Дистрибуция на решения за сигурност',                 url: 'https://centio.bg/',                                 linkedin: 'https://www.linkedin.com/company/centio/', soc:1, mssp:1, pentest:1, iso:1 },
       { name: 'ACT Sofia',         size: 'Малка',  category: 'Дистрибуция', origin: 'Българска',    focus: 'Продажби на решения за сигурност',                    url: 'https://actsofia.bg/',                               soc:0, mssp:0, pentest:0, iso:0 },
       // ── Training
       { name: 'Cyber360',          size: 'Малка',  category: 'Обучения',    origin: 'Българска',    focus: 'Кибер обучения (CyberOne)',                           url: 'https://cyber360.bg/',                               soc:0, mssp:0, pentest:0, iso:0 },
