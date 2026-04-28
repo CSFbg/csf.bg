@@ -357,6 +357,19 @@
     .site-link:hover { background: var(--blue); color: var(--white); border-color: var(--blue); }
     .site-link svg { width: 11px; height: 11px; flex-shrink: 0; }
 
+    /* LinkedIn link */
+    .linkedin-link {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px;
+      border: 1.5px solid rgba(10,102,194,0.2);
+      border-radius: var(--radius-sm);
+      color: #0A66C2;
+      transition: all var(--transition);
+    }
+    .linkedin-link:hover { background: #0A66C2; color: var(--white); border-color: #0A66C2; }
+    .linkedin-link svg { width: 14px; height: 14px; }
+    .linkedin-empty { color: var(--tan); font-size: var(--fs-sm); }
+
     /* Empty state */
     .empty-state {
       text-align: center; padding: 4rem 2rem;
@@ -865,6 +878,7 @@
             <th class="col-origin">Произход</th>
             <th class="col-size">Размер</th>
             <th style="font-size:var(--fs-xs);text-align:center" title="SOC · MSSP · Pentest · ISO">Услуги</th>
+            <th>LinkedIn</th>
             <th>Сайт</th>
           </tr>
         </thead>
@@ -1066,28 +1080,32 @@
       { name: 'Secragon',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, консултации и интеграции',                url: 'https://secragon.com/',                              soc:0, mssp:0, pentest:1, iso:0 },
       { name: 'Cyberware',         size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Автономно пентестване с AI, compliance и code review',  url: 'https://getcyberware.com/',                        soc:0, mssp:0, pentest:1, iso:1 },
       { name: 'ArmadilCo',         size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Продуктова сигурност за медицински устройства и FinTech', url: 'https://armadilco.com/',                          soc:0, mssp:0, pentest:1, iso:0 },
-      { name: 'Lambda Bit',        size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и Application Security',                    url: 'https://www.lambdabit.io/',                         soc:0, mssp:0, pentest:1, iso:0 },
+      { name: 'Lambda Bit',        size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове и Application Security',                    url: 'https://www.lambdabit.io/',                         linkedin: 'https://www.linkedin.com/company/lambda-bit/', soc:0, mssp:0, pentest:1, iso:0 },
       { name: 'Nuwey',             size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Managed IT Security, облачни решения и compliance',   url: 'https://www.nuwey.com/',                             soc:1, mssp:1, pentest:0, iso:0 },
       { name: 'Cybernetics',       size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации, мрежова сигурност и threat intelligence', url: 'https://cybernetics.bg/',                           soc:1, mssp:1, pentest:1, iso:0 },
       { name: 'Sectova',           size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Managed IT, vCIO и консултации по сигурност',         url: 'https://sectova.com/',                               soc:0, mssp:0, pentest:0, iso:0 },
       { name: 'Sunwell Solutions',  size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Managed Security, Managed IT и консултации (ISO 27001)', url: 'https://www.sunwellsolutions.com/',               soc:1, mssp:1, pentest:1, iso:0 },
       { name: 'IDVKM',             size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Identity & Access Management, PAM и NIS2 консултации', url: 'https://idvkm.com/',                               soc:0, mssp:0, pentest:0, iso:0 },
       { name: 'Infosec Consult',   size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, мрежова сигурност и incident response',   url: 'https://infosec-consult.com/',                       soc:0, mssp:0, pentest:1, iso:0 },
-      { name: 'NetScan',           size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'NIS2 съответствие, risk management и обучения',       url: 'https://netscan.dev/',                               soc:0, mssp:0, pentest:0, iso:1 },
+      { name: 'NetScan',           size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'NIS2 съответствие, risk management и обучения',       url: 'https://netscan.dev/',                               linkedin: 'https://www.linkedin.com/company/netscan-ltd/', soc:0, mssp:0, pentest:0, iso:1 },
       { name: 'Veyzer',            size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'AI/LLM сигурност, пентестове и cloud security',      url: 'https://veyzer.com/',                                soc:0, mssp:0, pentest:1, iso:0 },
       { name: 'IS Consult Service', size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'ISO 27001, GDPR, NIS2 консултации и пентестове',     url: 'https://informationsc.com/',                         soc:0, mssp:0, pentest:1, iso:1 },
       { name: 'CyberXperts',       size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'MDR, пентестове, vCISO и threat intelligence',       url: 'https://cyberxperts.com/',                           soc:1, mssp:1, pentest:1, iso:0 },
       { name: 'K3Y',               size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Пентестове, Purple Teaming, R&D (Cyber-AI, ICS/SCADA)', url: 'https://k3ylabs.com/',                             soc:0, mssp:0, pentest:1, iso:0 },
       { name: 'CyberWardion',      size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Web и API security reviews, ръчни пентестове',        url: 'https://cyberwardion.com/',                          soc:0, mssp:0, pentest:1, iso:0 },
+      { name: 'Commodor',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации, GRC и киберсигурност',                   url: 'https://commodor.bg/',                               linkedin: 'https://www.linkedin.com/company/commodor-cybersecurity/', soc:0, mssp:0, pentest:0, iso:1 },
+      { name: 'ItWorks',           size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Managed Cybersecurity Provider, MSSP услуги',          url: 'https://itworks.bg/',                                linkedin: 'https://www.linkedin.com/company/itworks-managed-cybersecurity-provider/', soc:1, mssp:1, pentest:0, iso:0 },
+      { name: 'Sherlok',           size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'Консултации и съответствие по киберсигурност',        url: 'https://sherlok.me/',                                linkedin: 'https://www.linkedin.com/company/sherlok-ltd/', soc:0, mssp:0, pentest:0, iso:1 },
       // ── International Services
       { name: 'A-Lign',            size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Compliance, SOC одитиране и пентестове',              url: 'https://www.a-lign.com/',                            soc:0, mssp:0, pentest:1, iso:1 },
       { name: 'DXC Technology',    size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Enterprise Security услуги',                          url: 'https://dxc.com/us/en/offerings/security/',          soc:1, mssp:1, pentest:1, iso:0 },
       { name: 'Digitall',          size: 'Средна', category: 'Услуги',      origin: 'Международна', focus: 'Пентестове и консултации',                            url: 'https://digitall.com/',                              soc:1, mssp:1, pentest:1, iso:1 },
       { name: 'A1 Digital',        size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Пентестове и консултации',                            url: 'https://www.a1.digital/cybersecurity/',              soc:0, mssp:1, pentest:1, iso:1 },
-      { name: 'Secario Labs',      size: 'Малка',  category: 'Услуги',      origin: 'Международна', focus: 'Пентестове, AppSec и Red Team (UK/BG)',               url: 'https://secariolabs.com/',                           soc:0, mssp:0, pentest:1, iso:0 },
+      { name: 'Secario Labs',      size: 'Малка',  category: 'Услуги',      origin: 'Международна', focus: 'Пентестове, AppSec и Red Team (UK/BG)',               url: 'https://secariolabs.com/',                           linkedin: 'https://www.linkedin.com/company/secariolabs/', soc:0, mssp:0, pentest:1, iso:0 },
       { name: 'Integrity 360',     size: 'Голяма', category: 'Услуги',      origin: 'Международна', focus: 'Managed Security услуги, MDR и SOC',                  url: 'https://www.integrity360.com/',                      soc:1, mssp:1, pentest:1, iso:1 },
       { name: 'Diamatix',          size: 'Малка',  category: 'Услуги',      origin: 'Българска',    focus: 'MSSP услуги, FWaaS, MDR и SOCaaS',                    url: 'https://diamatix.com/',                              soc:1, mssp:1, pentest:0, iso:1 },
       // ── Distribution
+      { name: 'Infinigate Bulgaria', size: 'Голяма', category: 'Дистрибуция', origin: 'Международна', focus: 'Дистрибуция на решения за киберсигурност',           url: 'https://www.infinigate.com/bg/',                     linkedin: 'https://www.linkedin.com/company/infinigate-bulgaria/', soc:0, mssp:0, pentest:0, iso:0 },
       { name: 'Computer 2000',     size: 'Средна', category: 'Дистрибуция', origin: 'Международна', focus: 'Дистрибутор на хардуер и решения за сигурност',       url: 'https://computer2000.bg/',                           soc:0, mssp:0, pentest:1, iso:0 },
       { name: 'CLICO',             size: 'Малка',  category: 'Дистрибуция', origin: 'Българска',    focus: 'Дистрибутор на решения за сигурност',                 url: 'https://clico.bg/',                                  soc:0, mssp:0, pentest:0, iso:0 },
       { name: 'Antivirus.bg',      size: 'Малка',  category: 'Дистрибуция', origin: 'Българска',    focus: 'Продажба на DLP и антивирусен софтуер',               url: 'https://antivirus.bg/',                              soc:1, mssp:0, pentest:1, iso:1 },
@@ -1137,6 +1155,11 @@
             <span class="service-dot ${c.mssp?'on':'off'}" title="MSSP"></span>
             <span class="service-dot ${c.pentest?'on':'off'}" title="Pentest"></span>
             <span class="service-dot ${c.iso?'on':'off'}" title="ISO 27001"></span>
+          </td>
+          <td>
+            ${c.linkedin ? `<a href="${c.linkedin}" target="_blank" rel="noopener noreferrer" class="linkedin-link" aria-label="LinkedIn профил на ${c.name}" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>` : `<span class="linkedin-empty">&mdash;</span>`}
           </td>
           <td>
             <a href="${c.url}" target="_blank" rel="noopener noreferrer" class="site-link">
