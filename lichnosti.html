@@ -446,6 +446,22 @@
     }
   </style>
   <script defer src="https://umami.miglen.com/script.js" data-website-id="ac6edf2b-e805-43d6-8e3b-3294216c797c"></script>
+  <style>
+    /* Newsletter subscribe (footer) */
+    .footer-subscribe{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:2rem;margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+    .footer-subscribe-text{flex:1;min-width:260px}
+    .footer-subscribe-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:#fff;margin-bottom:.35rem;line-height:1.2}
+    .footer-subscribe-desc{font-size:.875rem;color:rgba(255,255,255,.6);font-weight:300;line-height:1.6}
+    .htc-subscribe{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;flex:1;min-width:280px;position:relative}
+    .htc-subscribe input[type="email"]{flex:1;min-width:200px;padding:.85rem 1rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:8px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.875rem;outline:none;transition:border-color .25s}
+    .htc-subscribe input[type="email"]::placeholder{color:rgba(255,255,255,.4)}
+    .htc-subscribe input[type="email"]:focus{border-color:#2B5BB5}
+    .htc-subscribe button{padding:.85rem 1.5rem;background:#2B5BB5;color:#fff;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:600;cursor:pointer;transition:background .25s,transform .25s;white-space:nowrap;letter-spacing:.02em}
+    .htc-subscribe button:hover{background:#3265C4;transform:translateY(-1px)}
+    .htc-subscribe button:disabled{opacity:.6;cursor:not-allowed;transform:none}
+    .htc-msg{flex-basis:100%;font-size:.8rem;font-weight:400;min-height:1.1em}
+    @media (max-width:640px){.footer-subscribe{flex-direction:column;align-items:stretch;padding:1.5rem;gap:1.25rem}}
+  </style>
 </head>
 
 <body>
@@ -1716,6 +1732,17 @@
           </ul>
         </div>
       </div>
+            <div class="footer-subscribe">
+        <div class="footer-subscribe-text">
+          <div class="footer-subscribe-title">Абонирай се за новини</div>
+          <div class="footer-subscribe-desc">Получавай новини за киберсигурност, събития и ресурси от CSF.BG директно в имейла си.</div>
+        </div>
+        <form class="htc-subscribe" data-source="csf.bg">
+          <input type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+          <button type="submit">Абонирай се</button>
+          <span class="htc-msg" aria-live="polite"></span>
+        </form>
+      </div>
       <div class="footer-bottom">
         <span class="footer-copy">&copy; 2024 Българска Фондация за Киберсигурност &middot; ЕИК 206640938</span>
         <div class="footer-legal">
@@ -1832,5 +1859,51 @@
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
   </script>
 
+  <script>
+  (function () {
+    document.querySelectorAll('form.htc-subscribe').forEach(function (form) {
+      var msg = form.querySelector('.htc-msg');
+      var btn = form.querySelector('button');
+      var source = form.dataset.source || 'unknown';
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        msg.textContent = '';
+        msg.style.color = '';
+        var payload = { source: source };
+        new FormData(form).forEach(function (value, key) {
+          var v = String(value).trim();
+          if (v) payload[key] = v;
+        });
+        if (!payload.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
+          msg.textContent = 'Моля, въведи валиден имейл адрес.';
+          msg.style.color = '#ff9a9a';
+          return;
+        }
+        btn.disabled = true;
+        try {
+          var res = await fetch('https://www.hackertociso.com/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          var data = await res.json().catch(function () { return {}; });
+          if (res.ok) {
+            msg.textContent = "✓ Благодарим! Записан си в списъка.";
+            msg.style.color = '#7fdca1';
+            form.reset();
+          } else {
+            msg.textContent = data.error || 'Нещо се обърка.';
+            msg.style.color = '#ff9a9a';
+          }
+        } catch (err) {
+          msg.textContent = 'Мрежова грешка. Опитай отново.';
+          msg.style.color = '#ff9a9a';
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
