@@ -3,3 +3,8 @@
 .DS_Store
 .claude
 .claude/*
+
+# Print artifacts (local-only)
+banner.html
+booklet.html
+report.html
