@@ -57,6 +57,15 @@
     .nav-links>li{position:relative}
     .nav-links>li>a,.nav-links>li>button{display:flex;align-items:center;gap:.35rem;padding:.5rem .85rem;font-size:var(--fs-sm);font-weight:500;color:rgba(255,255,255,.82);background:none;border:none;cursor:pointer;border-radius:var(--radius-sm);transition:color var(--transition),background var(--transition);white-space:nowrap;font-family:'DM Sans',sans-serif;letter-spacing:.01em}
     .nav-links>li>a:hover,.nav-links>li>button:hover{color:var(--white);background:rgba(255,255,255,.08)}
+    .nav-links>li>a.active{color:var(--sky-light)}
+    .chevron{width:14px;height:14px;transition:transform .2s ease}
+    .nav-links>li.open>button .chevron{transform:rotate(180deg)}
+    .dropdown{position:absolute;top:calc(100% + 8px);left:0;min-width:220px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-lg);border:1px solid var(--sand);opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity .22s ease,transform .22s ease;overflow:hidden;z-index:100}
+    .nav-links>li.open .dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
+    .dropdown a{display:flex;align-items:center;gap:.6rem;padding:.7rem 1.1rem;font-size:var(--fs-sm);color:var(--brown);transition:background var(--transition),color var(--transition);border-left:3px solid transparent}
+    .dropdown a:hover,.dropdown a.active{background:var(--beige);color:var(--navy);border-left-color:var(--blue)}
+    .dropdown-divider{height:1px;background:var(--sand);margin:.3rem 0}
+    .dropdown-label{padding:.5rem 1.1rem .25rem;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--bark)}
     .nav-cta{background:var(--blue)!important;color:var(--white)!important;padding:.5rem 1.1rem!important;border-radius:var(--radius-sm)!important;font-weight:600!important;letter-spacing:.02em}
     .nav-cta:hover{background:var(--royal)!important}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
@@ -64,9 +73,17 @@
     .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
     .hamburger.open span:nth-child(2){opacity:0}
     .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-    .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--navy);max-height:calc(100vh - 68px);overflow-y:auto;z-index:999;padding:1rem 1.5rem 2rem;transform:translateX(100%);transition:transform .3s ease}
+    .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--navy);border-top:1px solid rgba(255,255,255,.06);max-height:calc(100vh - 68px);overflow-y:auto;z-index:999;padding:1rem 1.5rem 2rem;transform:translateX(100%);transition:transform .3s ease}
     .mobile-menu.open{transform:translateX(0)}
-    .mobile-link{display:block;padding:.75rem 0;font-size:var(--fs-base);font-weight:500;color:rgba(255,255,255,.9);border-bottom:1px solid rgba(255,255,255,.08)}
+    .mobile-nav-section{border-bottom:1px solid rgba(255,255,255,.08);padding:.5rem 0}
+    .mobile-nav-toggle{display:flex;justify-content:space-between;align-items:center;width:100%;padding:.75rem 0;font-size:var(--fs-base);font-weight:500;color:rgba(255,255,255,.9);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;text-align:left}
+    .mobile-nav-toggle .chevron{transition:transform .25s ease}
+    .mobile-nav-toggle.open .chevron{transform:rotate(180deg)}
+    .mobile-sub{display:none;padding:0 0 .5rem 1rem}
+    .mobile-sub.open{display:block}
+    .mobile-sub a{display:block;padding:.55rem 0;font-size:var(--fs-sm);color:rgba(255,255,255,.68);border-left:2px solid rgba(255,255,255,.1);padding-left:1rem;transition:color var(--transition)}
+    .mobile-sub a:hover{color:var(--sky-light)}
+    .mobile-link{display:block;padding:.75rem 0;font-size:var(--fs-base);font-weight:500;color:rgba(255,255,255,.9)}
     .mobile-cta{display:block;margin-top:1.25rem;text-align:center;padding:.85rem;background:var(--blue);color:var(--white);border-radius:var(--radius);font-weight:600}
 
     /* BUTTONS */
@@ -88,8 +105,6 @@
     .contact-value{font-family:'DM Sans',sans-serif;font-size:var(--fs-base);font-weight:500;color:var(--navy);transition:color var(--transition)}
     .contact-value:hover{color:var(--blue)}
     .contact-actions{display:flex;gap:.75rem;flex-wrap:wrap;padding-top:.75rem;border-top:1px solid var(--sand);margin-top:.25rem}
-    .nomination-msg{font-size:var(--fs-sm);color:var(--blue);font-weight:500;min-height:1.2em}
-    .nomination-msg.is-success{color:#1F7A47;background:rgba(42,157,92,.08);border:1px solid rgba(42,157,92,.18);border-radius:var(--radius);padding:.85rem 1rem}
 
     /* HERO */
     .page-content{padding-top:68px}
@@ -101,6 +116,7 @@
     .hero-inner h1{font-size:clamp(2.25rem,5vw,4rem);font-weight:600;line-height:1.05;margin-bottom:1.25rem}
     .hero-inner h1 em{font-style:italic;color:var(--sky-light)}
     .hero-lead{font-size:var(--fs-md);color:rgba(255,255,255,.8);max-width:760px;margin:0 auto 2rem;line-height:1.7;font-weight:300}
+    .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:2rem}
     .hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:2.5rem;max-width:760px;margin-left:auto;margin-right:auto}
     .hs-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);border-radius:var(--radius-lg);padding:1.25rem 1rem}
     .hs-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--sky-light);line-height:1}
@@ -120,16 +136,16 @@
       box-shadow:0 4px 14px rgba(168,196,232,.4);
     }
     .phase-track{
-      position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+      position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:0;
     }
     .phase-track::before{
-      content:"";position:absolute;top:14px;left:14%;right:14%;height:2px;
+      content:"";position:absolute;top:14px;left:10%;right:10%;height:2px;
       background:rgba(255,255,255,.18);z-index:0;
     }
     .phase-track::after{
-      content:"";position:absolute;top:14px;left:14%;height:2px;
+      content:"";position:absolute;top:14px;left:10%;height:2px;
       background:linear-gradient(90deg,var(--sky-light) 0%,rgba(168,196,232,.4) 100%);
-      width:9%; /* fills from start through ~halfway of first dot zone (current = phase 1) */
+      width:6%; /* fills through current phase (1 of 5) */
       z-index:1;
     }
     .phase{
@@ -165,13 +181,13 @@
     .phase.is-active .phase-date{color:var(--sky-light);font-weight:600}
     @media (max-width:640px){
       .phase-wrap{padding:1.75rem 1rem 1.5rem}
-      .phase-track::before,.phase-track::after{left:13%;right:13%}
-      .phase-name{font-size:.62rem;letter-spacing:.05em}
-      .phase-date{font-size:.6rem}
+      .phase-track::before,.phase-track::after{left:10%;right:10%}
+      .phase-name{font-size:.58rem;letter-spacing:.04em}
+      .phase-date{font-size:.55rem}
     }
 
     /* CONTENT */
-    .article-section{max-width:1100px;margin:0 auto;padding:4rem 2rem 2rem}
+    .article-section{max-width:1440px;margin:0 auto;padding:4rem 2rem 2rem}
     .section-divider{width:100%;height:1px;background:var(--sand);margin:3rem 0}
     .category-heading{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem}
     .cat-icon{width:42px;height:42px;background:var(--navy);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -274,6 +290,16 @@
     @media(max-width:860px){.nav-links{display:none}.hamburger{display:flex}.mobile-menu{display:block}.awards-hero{padding:3.5rem 1.5rem}}
     @media(max-width:640px){.article-section{padding:2.5rem 1.25rem 1.5rem}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;align-items:flex-start}}
 
+    /* Large screens — match other pages */
+    @media (min-width: 1600px) {
+      html { font-size: 17px; }
+      .nav-inner, .article-section, .footer-inner { max-width: 1600px; }
+    }
+    @media (min-width: 1920px) {
+      html { font-size: 18px; }
+      .nav-inner, .article-section, .footer-inner { max-width: 1720px; }
+    }
+
     /* Newsletter subscribe (footer) */
     .footer-subscribe{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:2rem;margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
     .footer-subscribe-text{flex:1;min-width:260px}
@@ -303,11 +329,126 @@
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="za-nas.html">За нас</a></li>
-        <li><a href="organizacii.html">Ресурси</a></li>
-        <li><a href="kursove.html">Обучение</a></li>
-        <li><a href="kompanii.html">Кариера</a></li>
-        <li><a href="sabitia.html">Събития</a></li>
+        <li>
+          <a href="za-nas.html" title="За Българска Фондация за Киберсигурност">За нас</a>
+        </li>
+        <li class="has-dropdown" id="dd-resources">
+          <button onclick="toggleDropdown('dd-resources')">
+            Ресурси
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" /></svg>
+          </button>
+          <div class="dropdown">
+            <div class="dropdown-label">Директория</div>
+            <a href="organizacii.html" title="Директория на организации по киберсигурност в България">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+              Организации
+            </a>
+            <a href="lichnosti.html" title="Значими личности в киберсигурността в България">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              Личности
+            </a>
+            <a href="forumi.html" title="Форуми и общности по киберсигурност">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              Форуми
+            </a>
+            <a href="haklor.html" title="Митове и заблуди в киберсигурността">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+              Хаклор
+            </a>
+            <a href="phishing.html" title="Ръководство за разпознаване на фишинг атаки">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
+              Фишинг
+            </a>
+            <a href="ai.html" title="AI — Изкуствен интелект и киберсигурност" class="active">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/><circle cx="8.5" cy="13.5" r="1.5"/><circle cx="15.5" cy="13.5" r="1.5"/></svg>
+              AI — Изкуствен интелект
+            </a>
+            <a href="instrumenti.html" title="Инструменти и софтуер за киберсигурност">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+              Инструменти
+            </a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-label">Учебни материали</div>
+            <a href="terminologiq.html" title="Речник на термините в киберсигурността">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+              Терминология
+            </a>
+            <a href="ctf.html" title="CTF състезания и Capture The Flag ресурси">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              CTF
+            </a>
+            <a href="knigi.html" title="Препоръчани книги по киберсигурност">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+              Книги
+            </a>
+            <a href="video.html" title="Видео канали и подкасти по киберсигурност">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+              Видео ресурси
+            </a>
+            <a href="regulacii.html" title="Регулации и нормативна рамка по киберсигурност">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Регулации
+            </a>
+          </div>
+        </li>
+        <li class="has-dropdown" id="dd-education">
+          <button onclick="toggleDropdown('dd-education')">
+            Обучение
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="dropdown">
+            <a href="universiteti.html" title="Университетски програми по киберсигурност в България">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              Университетски програми
+            </a>
+            <a href="kursove.html" title="Онлайн курсове по киберсигурност на български">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Онлайн курсове
+            </a>
+            <a href="sertifikacii.html" title="Каталог на сертификации по киберсигурност">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+              Сертификации
+            </a>
+            <a href="platformi.html" title="Платформи за практическо обучение по киберсигурност">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+              Платформи
+            </a>
+          </div>
+        </li>
+        <li class="has-dropdown" id="dd-career">
+          <button onclick="toggleDropdown('dd-career')">
+            Кариера
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="dropdown">
+            <a href="mentoring.html" title="Менторство и наставничество в киберсигурността">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              Менторство
+            </a>
+            <a href="kompanii.html" title="Директория на компании по киберсигурност в България">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+              Компании
+            </a>
+            <a href="obqvi.html" title="Обяви за работа в киберсигурността">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="12" y2="15"/></svg>
+              Обяви
+            </a>
+            <a href="compass.html" title="Кариерен компас за киберсигурност">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+              Кариерен компас
+            </a>
+            <a href="profesionalni-pateki.html" title="Професионални пътеки по ECSF в киберсигурността">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              Професионални пътеки
+            </a>
+            <a href="zaplati.html" title="Заплати на специалисти по киберсигурност в България">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+              Заплати
+            </a>
+          </div>
+        </li>
+        <li><a href="sabitia.html" title="Събития и конференции по киберсигурност в България">Събития</a></li>
+        <li><a href="awards.html" title="Награди на Българска Фондация за Киберсигурност 2026" class="active">Награди</a></li>
         <li><a href="https://discord.com/invite/EC6WFmBpPQ" class="nav-cta">Включи се</a></li>
       </ul>
       <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Меню">
@@ -317,11 +458,61 @@
   </nav>
 
   <div class="mobile-menu" id="mobile-menu">
-    <a href="za-nas.html" class="mobile-link" onclick="closeMobile()">За нас</a>
-    <a href="organizacii.html" class="mobile-link" onclick="closeMobile()">Ресурси</a>
-    <a href="kursove.html" class="mobile-link" onclick="closeMobile()">Обучение</a>
-    <a href="kompanii.html" class="mobile-link" onclick="closeMobile()">Кариера</a>
-    <a href="sabitia.html" class="mobile-link" onclick="closeMobile()">Събития</a>
+    <div class="mobile-nav-section">
+      <a href="za-nas.html" class="mobile-link" onclick="closeMobile()">За нас</a>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-resources', this)">
+        Ресурси
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-sub" id="sub-resources">
+        <a href="organizacii.html" onclick="closeMobile()">Организации</a>
+        <a href="lichnosti.html" onclick="closeMobile()">Личности</a>
+        <a href="forumi.html" onclick="closeMobile()">Форуми</a>
+        <a href="haklor.html" onclick="closeMobile()">Хаклор</a>
+        <a href="phishing.html" onclick="closeMobile()">Фишинг</a>
+        <a href="ai.html" onclick="closeMobile()">AI — Изкуствен интелект</a>
+        <a href="instrumenti.html" onclick="closeMobile()">Инструменти</a>
+        <a href="terminologiq.html" onclick="closeMobile()">Терминология</a>
+        <a href="ctf.html" onclick="closeMobile()">CTF</a>
+        <a href="knigi.html" onclick="closeMobile()">Книги</a>
+        <a href="video.html" onclick="closeMobile()">Видео ресурси</a>
+        <a href="regulacii.html" onclick="closeMobile()">Регулации</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-education', this)">
+        Обучение
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-sub" id="sub-education">
+        <a href="universiteti.html" onclick="closeMobile()">Университетски програми</a>
+        <a href="platformi.html" onclick="closeMobile()">Платформи</a>
+        <a href="kursove.html" onclick="closeMobile()">Онлайн курсове</a>
+        <a href="sertifikacii.html" onclick="closeMobile()">Сертификации</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSub('sub-career', this)">
+        Кариера
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-sub" id="sub-career">
+        <a href="mentoring.html" onclick="closeMobile()">Менторство</a>
+        <a href="zaplati.html" onclick="closeMobile()">Заплати</a>
+        <a href="kompanii.html" onclick="closeMobile()">Компании</a>
+        <a href="obqvi.html" onclick="closeMobile()">Обяви</a>
+        <a href="compass.html" onclick="closeMobile()">Кариерен компас</a>
+        <a href="profesionalni-pateki.html" onclick="closeMobile()">Професионални пътеки</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <a href="sabitia.html" class="mobile-link" onclick="closeMobile()">Събития</a>
+    </div>
+    <div class="mobile-nav-section">
+      <a href="awards.html" class="mobile-link" onclick="closeMobile()">Награди</a>
+    </div>
     <a href="https://discord.com/invite/EC6WFmBpPQ" class="mobile-cta" onclick="closeMobile()">Включи се →</a>
   </div>
 
@@ -332,12 +523,20 @@
       <div class="hero-inner">
         <span class="hero-eyebrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-          Стартираме юли 2026 · Победители през октомври
+          Номинации юли · Победители 1 октомври 2026
         </span>
         <h1>Награди на Българска Фондация за <em>Киберсигурност</em> за 2026 година</h1>
         <p class="hero-lead">
           Награди на общността по киберсигурност в България. Целта е проста: да отличим и да благодарим на хората, екипите и организациите, които градят екосистемата у нас. Гласуването е публично, изцяло онлайн, а победителите се обявяват на csf.bg в рамките на Месеца на киберсигурността.
         </p>
+
+        <div class="hero-actions">
+          <a href="https://forms.gle/AD6nPXe484oUfU1Q8" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            Предложи номинация
+          </a>
+          <a href="#kategorii" class="btn btn-outline">Виж категориите</a>
+        </div>
 
         <div class="hero-stats">
           <div class="hs-card">
@@ -349,7 +548,7 @@
             <div class="hs-label">Седмици вот</div>
           </div>
           <div class="hs-card">
-            <div class="hs-num">Октомври</div>
+            <div class="hs-num">1 окт.</div>
             <div class="hs-label">Победители</div>
           </div>
           <div class="hs-card">
@@ -372,21 +571,28 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div class="phase-name">Номинации</div>
-              <div class="phase-date">Юли – август</div>
+              <div class="phase-date">Юли</div>
             </div>
             <div class="phase is-upcoming">
               <div class="phase-dot">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <div class="phase-name">Гласуване</div>
-              <div class="phase-date">Август – септ.</div>
+              <div class="phase-name">Първи вот</div>
+              <div class="phase-date">Август</div>
             </div>
             <div class="phase is-upcoming">
               <div class="phase-dot">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <div class="phase-name">Обявяване</div>
-              <div class="phase-date">Октомври</div>
+              <div class="phase-name">Финалисти</div>
+              <div class="phase-date">Септември</div>
+            </div>
+            <div class="phase is-upcoming">
+              <div class="phase-dot">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="phase-name">Победители</div>
+              <div class="phase-date">1 окт.</div>
             </div>
           </div>
         </div>
@@ -407,7 +613,7 @@
       </div>
 
       <!-- 2. КАТЕГОРИИ -->
-      <div class="section-divider"></div>
+      <div class="section-divider" id="kategorii"></div>
       <div class="category-heading reveal">
         <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
         <h2>Категории</h2>
@@ -431,7 +637,7 @@
           <div class="award-card"><div class="award-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="award-card-name">Офанзивен специалист (Pentester)</div></div>
           <div class="award-card"><div class="award-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div><div class="award-card-name">Дефанзивен специалист (Blue Team / SOC / DFIR)</div></div>
           <div class="award-card"><div class="award-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div class="award-card-name">Изследовател по сигурността</div></div>
-          <div class="award-card"><div class="award-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div><div class="award-card-name">CTF играч</div></div>
+          <div class="award-card"><div class="award-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div><div class="award-card-name">DPO / Privacy Lead</div></div>
           <div class="award-card"><div class="award-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 0L8 6m4 2l4-2M2 12h6m0 0l-2 4m2-4l-2-4M22 12h-6m0 0l2 4m-2-4l2-4M12 22v-6m0 0l-4 2m4-2l4 2"/></svg></div><div class="award-card-name">Изгряваща звезда (студент или начинаещ)</div></div>
           <div class="award-card"><div class="award-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="award-card-name">Двигател на общността / Преподавател</div></div>
         </div>
@@ -479,10 +685,10 @@
       <div class="text-section reveal">
         <p>Всички личности в директорията „Личности" и всички фирми и организации в директориите „Компании" и „Организации" на csf.bg са <strong>включени автоматично</strong> като номинирани в подходящите категории. Не е необходимо отделно кандидатстване.</p>
         <p>Ако смятате, че някой липсва, може да предложите допълнителна номинация в периода за номинации през формата на сайта или чрез issue в GitHub репозиторито на CSF.BG, както досега.</p>
-        <button type="button" class="btn btn-primary" onclick="showNominationMock()" style="margin-bottom:1.25rem">
+        <a href="https://forms.gle/AD6nPXe484oUfU1Q8" target="_blank" rel="noopener" class="btn btn-primary" style="margin-bottom:1.25rem">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
           Предложи номинация
-        </button>
+        </a>
         <p>Всеки номиниран има право да поиска да бъде премахнат по всяко време. Достатъчно е да се свърже с екипа.</p>
         <p>Данните за номинираните са събрани от <strong>публично достъпни източници</strong> като LinkedIn, корпоративни сайтове, медийни публикации и класацията Favikon Cybersecurity Bulgaria. Не разкриваме лични данни, които не са вече публично достъпни.</p>
       </div>
@@ -504,7 +710,6 @@
         <li><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><span><strong>Анонимни гласове</strong> и гласове без вход през изброените услуги не се отчитат.</span></li>
         <li><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><span>Екипът преглежда всички гласове след затварянето. При <strong>дублиране на акаунти</strong> или <strong>координирани схеми за натрупване на гласове</strong>, съмнителните гласове се премахват преди финалното преброяване.</span></li>
         <li><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><span>За <strong>техническите категории</strong> (Pentester, Дефанзивен специалист, Изследовател) номинациите се придружават от доказателства за принос — публикувани уязвимости, CVE, отговорно разкриване, изследвания или публични репозитори. Без доказателства номинацията не влиза в листата.</span></li>
-        <li><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><span>За <strong>CTF категорията</strong> журито се опира на резултати от CTFtime и документирани постижения през годината.</span></li>
       </ul>
 
       <!-- 5. ГРАФИК -->
@@ -513,37 +718,37 @@
         <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
         <h2>График</h2>
       </div>
-      <p class="category-desc reveal">Кампанията започва през <strong>юли 2026</strong> и кулминира с обявяване на победителите през <strong>октомври — Месеца на киберсигурността</strong>.</p>
+      <p class="category-desc reveal">Кампанията върви по ясен 5-месечен график: подготовка през пролетта и лятото, активни фази юли–септември, и обявяване на победителите на <strong>1 октомври 2026</strong> — началото на Месеца на киберсигурността.</p>
 
       <div class="timeline reveal">
         <div class="timeline-item">
+          <span class="timeline-date">До юли 2026</span>
+          <div class="timeline-title">Подготовка</div>
+          <p class="timeline-desc">Финализиране на категориите, критериите и методологията. Сглобяване на журито. Подготовка на номинационните листи от съществуващите директории на csf.bg. Публикуване на пълните правила.</p>
+        </div>
+        <div class="timeline-item">
           <span class="timeline-date">Юли 2026</span>
-          <div class="timeline-title">Старт на кампанията</div>
-          <p class="timeline-desc">Страницата е онлайн. Директориите с номинирани са видими. Публикуват се критериите и съставът на журито. Отварят се предложения за добавяне на липсващи личности и организации.</p>
+          <div class="timeline-title">Период за номинации</div>
+          <p class="timeline-desc">Страницата отваря публичен прием на номинации. Който смята, че важна личност или организация не е включена, може да я предложи през формата или GitHub. Екипът преглежда и одобрява спрямо критериите.</p>
+          <a href="https://forms.gle/AD6nPXe484oUfU1Q8" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:.85rem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            Предложи номинация
+          </a>
         </div>
         <div class="timeline-item">
           <span class="timeline-date">Август 2026</span>
-          <div class="timeline-title">Период за номинации</div>
-          <p class="timeline-desc">Период за допълнителни номинации. Който смята, че важна личност или организация не е включена, може да я предложи през формата или GitHub. Екипът преглежда и одобрява спрямо критериите.</p>
-          <button type="button" class="btn btn-primary" onclick="showNominationMock()" style="margin-top:.85rem">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-            Предложи номинация
-          </button>
+          <div class="timeline-title">Първоначално гласуване + последен прозорец за номинации</div>
+          <p class="timeline-desc">Отваря се първият тур на публичното гласуване във всички категории. Това е и последният прозорец за късни номинации — изключение за случаи, които не са били известни през юли. Журито работи паралелно по своя оценъчен лист.</p>
         </div>
         <div class="timeline-item">
-          <span class="timeline-date">Август – септември 2026</span>
-          <div class="timeline-title">Публично гласуване</div>
-          <p class="timeline-desc">Отваря се вотът. Гласуването изисква вход през LinkedIn, Google или Microsoft. Журито работи паралелно по своя оценъчен лист.</p>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-date">Края на септември</span>
-          <div class="timeline-title">Финално преброяване и проверка</div>
-          <p class="timeline-desc">Затваря се вотът. Дедупликация, проверка на гласове, обединяване с оценките на журито според тежестите.</p>
+          <span class="timeline-date">Септември 2026</span>
+          <div class="timeline-title">Финалисти и финално гласуване</div>
+          <p class="timeline-desc">Обявяват се финалистите във всяка категория — топ 3 или 5 според обема номинации. Стартира финалното гласуване само между финалистите. Журито представя своите финални оценки.</p>
         </div>
         <div class="timeline-item is-highlight">
-          <span class="timeline-date">Октомври 2026</span>
+          <span class="timeline-date">1 октомври 2026</span>
           <div class="timeline-title">Обявяване на победителите</div>
-          <p class="timeline-desc">Победителите се обявяват по категории на csf.bg в рамките на Месеца на киберсигурността.</p>
+          <p class="timeline-desc">Победителите се обявяват по категории на csf.bg на началото на Месеца на киберсигурността. Финалистите и победителите получават значки за споделяне в LinkedIn и социалните мрежи.</p>
         </div>
       </div>
 
@@ -569,16 +774,12 @@
           </thead>
           <tbody>
             <tr>
-              <td><strong>Лидерски</strong><br/>CISO, Мениджър по сигурността</td>
+              <td><strong>Лидерски</strong><br/>CISO, Мениджър по сигурността, DPO / Privacy Lead</td>
               <td><span class="weight-pill">50 / 50</span></td>
             </tr>
             <tr>
               <td><strong>Технически</strong><br/>Pentester, Дефанзивен, Изследовател</td>
               <td><span class="weight-pill">60 / 40</span></td>
-            </tr>
-            <tr>
-              <td><strong>CTF</strong><br/>CTF играч</td>
-              <td><span class="weight-pill">50 / 50</span></td>
             </tr>
             <tr>
               <td><strong>Общност и хора</strong><br/>Преподавател, Изгряваща звезда, Жена в киберсигурността</td>
@@ -672,13 +873,12 @@
           </div>
         </div>
         <div class="contact-actions">
-          <button type="button" class="btn btn-primary" onclick="showNominationMock()">
+          <a href="https://forms.gle/AD6nPXe484oUfU1Q8" target="_blank" rel="noopener" class="btn btn-primary">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
             Предложи номинация
-          </button>
+          </a>
           <a href="mailto:contact@csf.bg" class="btn btn-secondary">Свържи се с екипа</a>
         </div>
-        <div class="nomination-msg" id="nominationMsg" aria-live="polite"></div>
       </div>
 
     </div>
@@ -686,8 +886,8 @@
     <!-- CTA BAND -->
     <div class="cta-band">
       <div class="cta-inner">
-        <h2 class="cta-title">Кампанията <em>стартира</em><br/>през юли 2026</h2>
-        <p class="cta-desc">Включи се в общността, следи кога отварят номинациите и не пропускай гласуването август – септември.</p>
+        <h2 class="cta-title">Номинациите <em>отварят</em><br/>през юли 2026</h2>
+        <p class="cta-desc">Включи се в общността и не пропускай първоначалния вот през август и финалното гласуване през септември. Победителите — на 1 октомври.</p>
         <div class="cta-actions">
           <a href="https://discord.com/invite/EC6WFmBpPQ" class="btn btn-primary" target="_blank" rel="noopener">Влез в Discord</a>
           <a href="organizacii.html" class="btn btn-outline">Виж номинираните директории</a>
@@ -769,28 +969,26 @@
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
 
+    function toggleDropdown(id) {
+      const item = document.getElementById(id);
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+    document.addEventListener('click', (e) => { if (!e.target.closest('.has-dropdown')) document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open')); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { document.querySelectorAll('.has-dropdown').forEach(el => el.classList.remove('open')); closeMobile(); } });
+
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     let mobileOpen = false;
     function toggleMobile() { mobileOpen = !mobileOpen; hamburger.classList.toggle('open', mobileOpen); mobileMenu.classList.toggle('open', mobileOpen); document.body.style.overflow = mobileOpen ? 'hidden' : ''; }
     function closeMobile() { mobileOpen = false; hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+    function toggleMobileSub(id, btn) { const sub = document.getElementById(id); const open = sub.classList.toggle('open'); btn.classList.toggle('open', open); }
 
     const revealEls = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => revealObserver.observe(el));
 
-    // Nomination button — mock for now
-    function showNominationMock() {
-      const contactCard = document.querySelector('.contact-card');
-      if (contactCard) {
-        contactCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-      setTimeout(() => {
-        const msg = document.getElementById('nominationMsg');
-        msg.classList.add('is-success');
-        msg.textContent = '✓ Формата за номинации ще бъде отворена през юли 2026. Междувременно може да изпратите предложение на contact@csf.bg.';
-      }, 350);
-    }
   </script>
 
   <script>
