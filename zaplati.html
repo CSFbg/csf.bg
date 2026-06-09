@@ -121,7 +121,9 @@
     .info-callout svg{width:20px;height:20px;color:var(--blue);flex-shrink:0;margin-top:.1rem}
     .info-callout p{font-size:var(--fs-sm);color:var(--brown);line-height:1.65;font-weight:300}
     .info-callout strong{font-weight:600;color:var(--navy)}
-    .info-callout a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+    .info-callout a:not(.btn){color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+    .info-callout a.btn-primary{color:var(--white);text-decoration:none}
+    .info-callout a.btn-primary:hover{color:var(--white)}
 
     /* MENTOR BAND */
     .mentor-band{background:var(--navy);padding:4rem 2rem;margin-top:4rem}
