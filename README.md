@@ -31,7 +31,7 @@
 ## Структура
 
 ```
-csf-bg/
+csf.bg/
 ├── index.html              ← Начална страница (пълна)
 ├── README.md               ← Този файл
 ├── SKILL.md                ← Design system + component guide за AI/разработчици
@@ -166,8 +166,8 @@ csf-bg/
 
 ```bash
 # Клонирай репото
-git clone https://github.com/csf-bg/csf-bg.git
-cd csf-bg
+git clone https://github.com/CSFbg/csf.bg.git
+cd csf.bg
 
 # Стартирай локален сървър (Python)
 python3 -m http.server 8000
